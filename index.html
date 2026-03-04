@@ -62,6 +62,7 @@
       top: 0;
       z-index: 3;
       background: var(--night);
+      width: 100%;
       transition: padding 0.2s ease;
     }
     header.scrolled {
@@ -75,17 +76,19 @@
     header::before {
       content: '';
       position: absolute;
-      top: 0; left: -36px; right: -36px;
+      top: 0; left: 0; right: 0;
       height: 3px;
       background: var(--pink);
+    }
+    .header-inner {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 0 36px;
     }
     .header-top {
       display: flex; justify-content: space-between; align-items: flex-end;
       flex-wrap: wrap; gap: 20px;
       padding-bottom: 22px;
-      margin: 0 -36px;
-      padding-left: 36px;
-      padding-right: 36px;
       border-bottom: 1px solid var(--border);
     }
     .logo {
@@ -708,7 +711,8 @@
     @media (max-width: 620px) {
       .container { padding: 0 24px; }
       header::before { left: -24px; right: -24px; }
-      .header-top { flex-direction: column; align-items: flex-start; gap: 18px; margin: 0 -24px; padding-left: 24px; padding-right: 24px; }
+      .header-inner { padding: 0 24px; }
+      .header-top { flex-direction: column; align-items: flex-start; gap: 18px; }
       nav a { margin-left: 18px; }
       nav a:first-child { margin-left: 0; }
       .hero { padding: 60px 24px 52px; margin: 0 -24px 60px; }
@@ -785,8 +789,8 @@
 </div>
 <div id="save-flash">Changes saved</div>
 
-<div class="container">
-  <header>
+<header>
+  <div class="header-inner">
     <div class="header-top">
       <div class="logo" onclick="show('home', document.querySelector('nav a:first-child'))">
         <span class="logo-main">BASTILLE</span>
@@ -800,7 +804,9 @@
         <a onclick="show('contact',this)">Contact</a>
       </nav>
     </div>
-  </header>
+  </div>
+</header>
+<div class="container">
 
   <!-- ══ HOME ══ -->
   <section id="home" class="section active">

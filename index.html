@@ -1,0 +1,1216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bastille Advisory</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --night:    #050505;
+      --night-2:  #0E0E0E;
+      --night-3:  #191919;
+      --cobalt:   #0038FF;
+      --cobalt-lt:#4268FF;
+      --pink:     #FF0066;
+      --pink-lt:  #FF3385;
+      --lime:     #D4FF00;
+      --cream:    #F5F0DC;
+      --cream-dk: #C8C2A4;
+      --white:    #FFFFFF;
+      --muted:    #6A7080;
+      --border:   #202020;
+      --border-lt:#303030;
+      --font-hero: 'Bebas Neue', 'Arial Narrow', sans-serif;
+      --font-serif: 'DM Serif Display', Georgia, serif;
+      --font-body:  'DM Sans', system-ui, sans-serif;
+    }
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    html { font-size: 16px; scroll-behavior: smooth; }
+    body {
+      background: var(--night);
+      color: var(--cream);
+      font-family: var(--font-body);
+      font-weight: 300;
+      line-height: 1.7;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    /* ── Noise texture ── */
+    body::after {
+      content: '';
+      position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      opacity: 0.05;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 160px 160px;
+    }
+    .container {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 0 36px;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* ══════════════════════════════════════════
+       HEADER
+    ══════════════════════════════════════════ */
+    header {
+      padding: 52px 0 0;
+      position: sticky;
+      top: 0;
+      z-index: 3;
+      background: var(--night);
+      transition: padding 0.2s ease;
+    }
+    header.scrolled {
+      padding: 0;
+      border-bottom: 1px solid var(--border);
+    }
+    header.scrolled .header-top {
+      padding-top: 14px;
+    }
+    /* Thin pink rule above the whole header */
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0; left: -36px; right: -36px;
+      height: 3px;
+      background: var(--pink);
+    }
+    .header-top {
+      display: flex; justify-content: space-between; align-items: flex-end;
+      flex-wrap: wrap; gap: 20px;
+      padding-bottom: 22px;
+      margin: 0 -36px;
+      padding-left: 36px;
+      padding-right: 36px;
+      border-bottom: 1px solid var(--border);
+    }
+    .logo {
+      font-family: var(--font-hero);
+      font-size: 2.6rem;
+      letter-spacing: 0.2em;
+      cursor: pointer;
+      color: var(--white);
+      display: flex; align-items: baseline; gap: 14px;
+      position: relative;
+    }
+    .logo-main { color: var(--white); }
+    .logo-sub {
+      font-family: var(--font-body);
+      font-size: 0.58rem;
+      font-weight: 600;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--pink);
+      padding-bottom: 4px;
+    }
+    nav { display: flex; flex-wrap: wrap; gap: 0; align-items: flex-end; padding-bottom: 4px; }
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 4px 0;
+      margin-left: 28px;
+      border-bottom: 2px solid transparent;
+      transition: color 0.15s, border-color 0.15s;
+      cursor: pointer;
+    }
+    nav a:hover { color: var(--cream); }
+    nav a.active { color: var(--white); border-bottom-color: var(--pink); }
+
+    /* ══════════════════════════════════════════
+       SECTIONS
+    ══════════════════════════════════════════ */
+    .section { display: none; animation: up 0.3s ease both; }
+    .section.active { display: block; }
+    @keyframes up {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .section-label {
+      display: flex; justify-content: space-between; align-items: center;
+      margin: 0 -36px 36px;
+      padding: 14px 36px 0;
+      border-top: 1px solid var(--border-lt);
+      position: relative;
+    }
+    .section-label::before {
+      content: '';
+      position: absolute;
+      top: -1px; left: 36px;
+      width: 48px; height: 1px;
+      background: var(--cobalt-lt);
+    }
+    .section-label-text {
+      font-family: var(--font-hero);
+      font-size: 1.05rem;
+      letter-spacing: 0.28em;
+      color: var(--white);
+    }
+    .section-label-link {
+      font-size: 0.65rem; font-weight: 600; letter-spacing: 0.12em;
+      color: var(--muted); cursor: pointer; text-decoration: none;
+      border-bottom: 1px solid var(--border-lt); padding-bottom: 1px;
+      text-transform: uppercase;
+      transition: color 0.15s, border-color 0.15s;
+    }
+    .section-label-link:hover { color: var(--pink-lt); border-color: var(--pink); }
+
+    /* ══════════════════════════════════════════
+       HOME — HERO
+    ══════════════════════════════════════════ */
+    .hero {
+      padding: 80px 36px 72px;
+      border-bottom: 1px solid var(--border);
+      margin: 0 -36px 88px;
+      position: relative;
+      overflow: visible;
+    }
+    /* Ghost watermark — pure poster energy */
+    .hero::after {
+      content: '1789';
+      position: absolute;
+      right: -24px; bottom: -20px;
+      font-family: var(--font-hero);
+      font-size: 18rem;
+      line-height: 1;
+      color: var(--white);
+      opacity: 0.018;
+      pointer-events: none;
+      z-index: 0;
+      letter-spacing: 0.02em;
+    }
+    /* Crop mark — top left */
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 24px; left: 0;
+      width: 18px; height: 18px;
+      border-top: 1px solid var(--muted);
+      border-left: 1px solid var(--muted);
+      opacity: 0.35;
+    }
+
+    .hero > * { position: relative; z-index: 1; }
+
+    /* Full-bleed pink stripe */
+    .hero-stripe {
+      display: block;
+      background: var(--pink);
+      padding: 5px 36px;
+      margin: 0 -36px 40px;
+    }
+    .hero-stripe-text {
+      font-family: var(--font-body);
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--white);
+    }
+    .hero-headline {
+      font-family: var(--font-hero);
+      font-size: clamp(7rem, 22vw, 14rem);
+      line-height: 0.88;
+      letter-spacing: 0.04em;
+      color: transparent;
+      margin-bottom: 0;
+      filter: url(#riso-grain);
+    }
+    .hero-headline .hl-blue {
+      color: var(--cobalt-lt);
+      text-shadow:
+        8px 4px 0 rgba(255, 0, 102, 0.7),
+        -3px -2px 0 rgba(212, 255, 0, 0.25),
+        12px 6px 0 rgba(255, 0, 102, 0.15);
+    }
+    .hero-headline .hl-lime {
+      color: var(--lime);
+      text-shadow:
+        -7px 5px 0 rgba(0, 56, 255, 0.65),
+        4px -3px 0 rgba(255, 0, 102, 0.3),
+        -11px 8px 0 rgba(0, 56, 255, 0.12);
+    }
+    .hero-headline .hl-pink {
+      color: var(--pink);
+      text-shadow:
+        7px -4px 0 rgba(212, 255, 0, 0.65),
+        -4px 3px 0 rgba(0, 56, 255, 0.3),
+        11px -7px 0 rgba(212, 255, 0, 0.12);
+    }
+
+    .hero-subhead {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1.25rem;
+      color: var(--cream);
+      margin: 36px -36px 0;
+      padding: 22px 36px;
+      line-height: 1.55;
+      background: var(--night-3);
+      border-top: 1px solid var(--border-lt);
+      border-bottom: 1px solid var(--border-lt);
+    }
+    .hero-qualifier {
+      margin: 28px -36px 0;
+      padding: 0 36px;
+    }
+    .hero-qualifier p {
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.9;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .hero-qualifier p:first-child { border-top: 1px solid var(--border); }
+    .hero-qualifier strong { color: var(--cream-dk); font-weight: 400; }
+
+    /* Who This Is For — row list */
+    .who-section { margin-top: 0; }
+    .who-list { display: flex; flex-direction: column; margin: 0 -36px; }
+    .who-row {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 0 36px;
+      padding: 18px 36px;
+      border-bottom: 1px solid var(--border);
+      align-items: baseline;
+      transition: border-color 0.15s;
+    }
+    .who-row:first-child { border-top: 1px solid var(--border); }
+    .who-row:hover { border-bottom-color: var(--pink); }
+    .who-row-title {
+      font-family: var(--font-hero);
+      font-size: 1.05rem;
+      letter-spacing: 0.06em;
+      color: var(--cream);
+      padding-top: 2px;
+    }
+    .who-row-body {
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.85;
+    }
+    .who-row-body strong { color: var(--cream-dk); font-weight: 400; }
+
+    /* Phase cards — home approach summary */
+    .phase-card-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+      margin: 0 -36px;
+    }
+    .phase-card {
+      background: var(--night-2);
+      padding: 28px 28px 24px;
+      position: relative;
+      transition: background 0.15s;
+    }
+    .phase-card:hover { background: var(--night-3); }
+    .phase-card-num {
+      font-family: var(--font-hero);
+      font-size: 3.5rem;
+      line-height: 1;
+      color: var(--border-lt);
+      display: block;
+      margin-bottom: 16px;
+    }
+    .phase-card-week {
+      font-size: 0.55rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--cobalt-lt);
+      margin-bottom: 6px;
+      display: block;
+    }
+    .phase-card-name {
+      font-family: var(--font-hero);
+      font-size: 1.2rem;
+      letter-spacing: 0.06em;
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
+    .phase-card-desc {
+      font-size: 0.83rem;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+    .phase-card-deliverable {
+      margin-top: 16px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--cobalt-lt);
+    }
+
+    /* Approach page — visual phase blocks */
+    .ap-phase-card {
+      margin: 0 -36px 3px;
+      background: var(--night-2);
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 0;
+      position: relative;
+      transition: background 0.15s;
+    }
+    .ap-phase-card:hover { background: var(--night-3); }
+    .ap-phase-left {
+      padding: 32px 28px 32px 36px;
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 8px;
+    }
+    .ap-phase-big-num {
+      font-family: var(--font-hero);
+      font-size: 4rem;
+      line-height: 1;
+      color: var(--border-lt);
+    }
+    .ap-phase-week-label {
+      font-size: 0.55rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--cobalt-lt);
+    }
+    .ap-phase-title {
+      font-family: var(--font-hero);
+      font-size: 1.3rem;
+      letter-spacing: 0.06em;
+      color: var(--white);
+      line-height: 1.1;
+    }
+    .ap-phase-right {
+      padding: 32px 28px;
+    }
+    .ap-phase-services { display: flex; flex-direction: column; gap: 0; }
+    .ap-service-row {
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .ap-service-row:last-child { border-bottom: none; padding-bottom: 0; }
+    .ap-service-name {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--cream);
+      margin-bottom: 6px;
+    }
+    .ap-service-desc {
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.85;
+    }
+    .ap-service-desc em {
+      color: var(--cobalt-lt);
+      font-style: normal;
+      font-weight: 500;
+    }
+
+    /* For whom (legacy — keep for fallback) */
+    .for-whom { margin-top: 56px; }
+    .for-whom-label {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+    .for-whom-list { display: flex; flex-direction: column; }
+    .for-whom-item {
+      display: grid; grid-template-columns: 16px 1fr; gap: 0 18px;
+      padding: 16px 0; border-bottom: 1px solid var(--border);
+      font-size: 0.95rem; font-weight: 300; color: var(--cream-dk);
+      line-height: 1.8; align-items: baseline;
+      transition: color 0.15s, border-color 0.15s;
+    }
+    .for-whom-item:first-child { border-top: 1px solid var(--border); }
+    .for-whom-item:hover { color: var(--white); border-bottom-color: var(--pink); }
+    .for-whom-item .marker { color: var(--pink); font-weight: 700; font-size: 0.85rem; }
+    .for-whom-item strong { color: var(--white); font-weight: 500; }
+
+    /* ══════════════════════════════════════════
+       HOME — PROVENANCE SUMMARY
+    ══════════════════════════════════════════ */
+    .approach-summary { margin-bottom: 88px; }
+    .provenance-summary { margin-bottom: 88px; }
+    .prov-summary-list { display: flex; flex-direction: column; margin: 0 -36px; }
+    .prov-summary-item {
+      display: grid; grid-template-columns: 180px 1fr; gap: 0 36px;
+      padding: 18px 36px; border-bottom: 1px solid var(--border); align-items: baseline;
+      transition: border-color 0.15s;
+    }
+    .prov-summary-item:first-child { border-top: 1px solid var(--border); }
+    .prov-summary-item:hover { border-bottom-color: var(--pink); }
+    .prov-summary-inst {
+      font-family: var(--font-hero);
+      font-size: 1.15rem; letter-spacing: 0.07em; color: var(--cream);
+    }
+    .prov-summary-line { font-size: 0.9rem; font-weight: 300; color: var(--muted); line-height: 1.8; }
+
+    /* ══════════════════════════════════════════
+       WORK / CASE ITEMS
+    ══════════════════════════════════════════ */
+    .work-section { margin-bottom: 88px; }
+    .case-item {
+      padding: 26px 36px; border-bottom: 1px solid var(--border);
+      cursor: pointer; position: relative;
+      margin: 0 -36px;
+      border-left: 3px solid transparent;
+      transition: border-left-color 0.15s, background 0.15s;
+    }
+    .case-item:first-of-type { border-top: 1px solid var(--border); }
+    .case-item:hover {
+      background: rgba(255,0,102,0.04);
+      border-left-color: var(--pink);
+    }
+    .case-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; }
+    .case-name {
+      font-family: var(--font-hero);
+      font-size: 1.5rem; letter-spacing: 0.07em; color: var(--white);
+    }
+    .case-year { font-size: 0.68rem; color: var(--muted); letter-spacing: 0.12em; font-weight: 600; text-transform: uppercase; }
+    .case-tagline { font-size: 0.92rem; font-weight: 300; color: var(--muted); margin-bottom: 12px; line-height: 1.7; }
+    .tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 10px; }
+    .tag {
+      font-size: 0.58rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--white); background: var(--pink);
+      padding: 4px 12px;
+    }
+    .tag:nth-child(even) { background: var(--cobalt); }
+    .case-expand { display: none; margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--border); animation: up 0.15s ease; }
+    .case-expand.open { display: block; }
+    .case-expand p { font-size: 0.94rem; font-weight: 300; color: var(--muted); line-height: 1.9; margin-bottom: 16px; }
+    .case-expand p:last-of-type { margin-bottom: 0; }
+    .case-metrics {
+      display: flex; gap: 44px; margin-top: 28px; flex-wrap: wrap;
+      padding-top: 22px; border-top: 1px solid var(--border);
+    }
+    .metric-val {
+      font-family: var(--font-hero); font-size: 2.4rem; letter-spacing: 0.04em;
+      color: var(--pink); line-height: 1; margin-bottom: 4px; display: block;
+    }
+    .metric-label { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+    .expand-hint { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; color: var(--muted); margin-top: 14px; text-transform: uppercase; }
+
+    /* ══════════════════════════════════════════
+       APPROACH PAGE
+    ══════════════════════════════════════════ */
+    .approach-intro {
+      font-family: var(--font-serif); font-style: italic;
+      font-size: 1.35rem; color: var(--muted);
+      max-width: 600px; line-height: 1.75; margin-bottom: 60px;
+    }
+    .approach-intro strong { color: var(--cream); font-style: normal; font-weight: 400; }
+    .approach-phase-block { margin-bottom: 52px; }
+    .approach-phase-header {
+      display: grid; grid-template-columns: 220px 1fr; gap: 0 36px;
+      padding: 0 0 18px;
+      border-bottom: 1px solid var(--border-lt);
+      position: relative;
+      align-items: baseline;
+    }
+    .approach-phase-header::after {
+      content: '';
+      position: absolute;
+      bottom: -1px; left: 0;
+      width: 48px; height: 1px;
+      background: var(--cobalt-lt);
+    }
+    .approach-phase-num { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--cobalt-lt); }
+    .approach-phase-name { font-family: var(--font-hero); font-size: 1.55rem; letter-spacing: 0.07em; color: var(--white); }
+    .service-item {
+      display: grid; grid-template-columns: 220px 1fr; gap: 0 36px;
+      padding: 20px 0; border-bottom: 1px solid var(--border);
+    }
+    .service-name {
+      font-size: 0.82rem; font-weight: 700; color: var(--cream);
+      padding-top: 2px; line-height: 1.4;
+      text-transform: uppercase; letter-spacing: 0.06em;
+    }
+    .service-desc { font-size: 0.92rem; font-weight: 300; color: var(--muted); line-height: 1.9; }
+    .service-desc em { color: var(--cream); font-style: normal; font-weight: 400; }
+
+    /* The inverted note — full hot pink block */
+    .approach-note {
+      margin: 52px -36px 0;
+      padding: 30px 36px;
+      background: var(--pink);
+      font-size: 0.94rem; font-weight: 300;
+      color: rgba(255,255,255,0.92);
+      line-height: 1.9;
+    }
+    .approach-note strong { color: var(--white); font-weight: 600; }
+
+    /* ══════════════════════════════════════════
+       ABOUT PAGE
+    ══════════════════════════════════════════ */
+    .about-section { margin-bottom: 60px; }
+    .about-section-label {
+      font-family: var(--font-hero); font-size: 0.95rem; letter-spacing: 0.26em;
+      color: var(--cream-dk); margin-bottom: 26px; padding-bottom: 12px;
+      border-bottom: 1px solid var(--border); position: relative;
+      text-transform: uppercase;
+    }
+    .about-section-label::before {
+      content: ''; position: absolute; bottom: -1px; left: 0; width: 40px; height: 3px;
+      background: var(--cobalt);
+    }
+    .about-body { font-size: 0.97rem; font-weight: 300; line-height: 2; max-width: 620px; color: var(--cream-dk); }
+    .about-body p { margin-bottom: 22px; }
+    .about-body p:last-child { margin-bottom: 0; }
+    .principal-block {
+      display: grid; grid-template-columns: 180px 1fr; gap: 0 40px;
+      padding: 26px 0; border-top: 3px solid var(--pink); border-bottom: 1px solid var(--border);
+    }
+    .principal-left { display: flex; flex-direction: column; gap: 5px; padding-top: 2px; }
+    .principal-name { font-family: var(--font-hero); font-size: 1.25rem; letter-spacing: 0.07em; color: var(--white); }
+    .principal-title { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
+    .principal-bio { font-size: 0.92rem; font-weight: 300; color: var(--muted); line-height: 1.9; }
+    .provenance-full-list { display: flex; flex-direction: column; margin: 0 -36px; }
+    .provenance-full-item {
+      display: grid; grid-template-columns: 180px 1fr; gap: 0 40px;
+      padding: 20px 36px; border-bottom: 1px solid var(--border); align-items: start;
+      transition: border-color 0.15s;
+    }
+    .provenance-full-item:first-child { border-top: 1px solid var(--border); }
+    .provenance-full-item:hover { border-bottom-color: var(--pink); }
+    .provenance-full-inst { font-family: var(--font-hero); font-size: 1.15rem; letter-spacing: 0.07em; color: var(--cream); padding-top: 2px; }
+    .provenance-full-desc { font-size: 0.92rem; font-weight: 300; color: var(--muted); line-height: 1.9; }
+    .provenance-footnote { font-size: 0.82rem; font-weight: 300; color: var(--muted); margin-top: 20px; font-style: italic; }
+    .partners-placeholder {
+      padding: 28px 30px; border: 1px solid var(--border); border-left: 4px solid rgba(255,0,102,0.35);
+    }
+    .partners-placeholder-text { font-size: 0.88rem; font-weight: 300; color: var(--muted); font-style: italic; opacity: 0.6; }
+
+    /* ══════════════════════════════════════════
+       WORK PAGE
+    ══════════════════════════════════════════ */
+    .work-intro {
+      font-family: var(--font-serif); font-style: italic;
+      font-size: 1.2rem; color: var(--muted); max-width: 540px; line-height: 1.8; margin-bottom: 44px;
+    }
+
+    /* ══════════════════════════════════════════
+       CONTACT PAGE
+    ══════════════════════════════════════════ */
+    .contact-row {
+      display: grid; grid-template-columns: 140px 1fr; gap: 0 28px;
+      padding: 18px 0; border-bottom: 1px solid var(--border);
+    }
+    .contact-row:first-child { border-top: 1px solid var(--border); }
+    .contact-label { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); padding-top: 3px; }
+    .contact-value { font-size: 0.97rem; font-weight: 300; color: var(--cream); }
+    .contact-value a { color: var(--cream); text-decoration: none; border-bottom: 1px solid var(--border-lt); transition: color 0.15s, border-color 0.15s; }
+    .contact-value a:hover { color: var(--pink-lt); border-color: var(--pink); }
+
+    /* ══════════════════════════════════════════
+       FOOTER
+    ══════════════════════════════════════════ */
+    footer {
+      margin: 110px -36px 0; padding: 28px 36px 56px;
+      border-top: 3px solid var(--pink);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .footer-text { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.1em; color: var(--muted); text-transform: uppercase; }
+    .footer-text a { color: var(--muted); text-decoration: none; border-bottom: 1px solid var(--border-lt); transition: color 0.15s; }
+    .footer-text a:hover { color: var(--pink-lt); }
+
+    /* ══════════════════════════════════════════
+       ADMIN
+    ══════════════════════════════════════════ */
+    #admin-bar {
+      display: none; position: fixed; top: 0; left: 0; right: 0; z-index: 9000;
+      background: #0A0C14; color: #E0D8C0;
+      font-family: var(--font-body); font-size: 0.72rem;
+      padding: 0 22px; height: 38px;
+      align-items: center; justify-content: space-between; letter-spacing: 0.05em;
+      border-bottom: 2px solid var(--pink);
+    }
+    #admin-bar.visible { display: flex; }
+    body.admin-active { padding-top: 38px; }
+    .admin-bar-badge { font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.65rem; color: var(--pink-lt); }
+    .admin-bar-status { font-size: 0.65rem; opacity: 0.45; font-style: italic; }
+    .admin-bar-right { display: flex; gap: 14px; align-items: center; }
+    .admin-btn { background: none; border: 1px solid currentColor; color: inherit; font-family: inherit; font-size: 0.65rem; letter-spacing: 0.06em; padding: 3px 10px; cursor: pointer; opacity: 0.65; transition: opacity 0.15s; text-transform: uppercase; }
+    .admin-btn:hover { opacity: 1; }
+    .admin-btn.save { opacity: 1; font-weight: 700; color: var(--pink-lt); }
+    .admin-btn.export { opacity: 1; font-weight: 700; color: var(--lime); border-color: var(--lime); }
+    .admin-btn.danger { border-color: var(--cobalt-lt); color: var(--cobalt-lt); }
+    body.admin-active [data-editable] { cursor: text; border-radius: 1px; outline: 1px dashed transparent; transition: background 0.1s, outline 0.1s; }
+    body.admin-active [data-editable]:hover { background: rgba(255,0,102,0.07); outline-color: rgba(255,0,102,0.35); }
+    body.admin-active [data-editable]:focus { background: rgba(255,0,102,0.1); outline: 1px solid rgba(255,0,102,0.5); outline-offset: 2px; }
+    body.admin-active .case-item { cursor: default; }
+    #admin-login { display: none; position: fixed; inset: 0; z-index: 9999; background: var(--night); align-items: center; justify-content: center; }
+    #admin-login.visible { display: flex; }
+    .login-box { width: 340px; border: 1px solid var(--border-lt); padding: 40px 36px; background: var(--night-2); }
+    .login-title { font-family: var(--font-hero); font-size: 1rem; letter-spacing: 0.22em; color: var(--cream-dk); margin-bottom: 26px; }
+    .login-field { width: 100%; background: var(--night); border: 1px solid var(--border-lt); color: var(--cream); font-family: var(--font-body); font-size: 0.9rem; padding: 12px 14px; margin-bottom: 14px; outline: none; transition: border-color 0.15s; }
+    .login-field:focus { border-color: var(--pink); }
+    .login-submit { width: 100%; background: var(--pink); color: var(--white); border: none; font-family: var(--font-body); font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; padding: 13px; cursor: pointer; font-weight: 600; transition: background 0.15s; }
+    .login-submit:hover { background: var(--pink-lt); }
+    .login-error { font-size: 0.72rem; color: var(--pink-lt); margin-top: 10px; display: none; font-style: italic; }
+    .login-error.visible { display: block; }
+    .login-shortcut { font-size: 0.65rem; color: var(--muted); margin-top: 20px; opacity: 0.55; }
+    #save-flash { position: fixed; bottom: 26px; right: 26px; background: var(--pink); color: var(--white); font-family: var(--font-body); font-size: 0.72rem; letter-spacing: 0.1em; padding: 9px 18px; z-index: 9998; opacity: 0; transition: opacity 0.2s; pointer-events: none; }
+    #save-flash.show { opacity: 1; }
+    #reset-confirm { display: none; position: fixed; inset: 0; z-index: 9999; background: rgba(5,5,5,0.88); align-items: center; justify-content: center; }
+    #reset-confirm.visible { display: flex; }
+    .confirm-box { background: var(--night-2); border: 1px solid var(--border-lt); padding: 36px; width: 320px; }
+    .confirm-title { font-family: var(--font-hero); font-size: 1.15rem; letter-spacing: 0.08em; margin-bottom: 12px; color: var(--cream); }
+    .confirm-body { font-size: 0.88rem; font-weight: 300; color: var(--muted); margin-bottom: 28px; line-height: 1.8; }
+    .confirm-actions { display: flex; gap: 12px; }
+    .confirm-actions button { flex: 1; background: none; border: 1px solid var(--border-lt); color: var(--cream); font-family: var(--font-body); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 10px; cursor: pointer; transition: background 0.15s; }
+    .confirm-actions button:hover { background: var(--border); }
+    .confirm-actions button.confirm-yes { border-color: var(--pink); color: var(--pink); }
+
+    /* ══════════════════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════════════════ */
+    @media (max-width: 620px) {
+      .container { padding: 0 24px; }
+      header::before { left: -24px; right: -24px; }
+      .header-top { flex-direction: column; align-items: flex-start; gap: 18px; margin: 0 -24px; padding-left: 24px; padding-right: 24px; }
+      nav a { margin-left: 18px; }
+      nav a:first-child { margin-left: 0; }
+      .hero { padding: 60px 24px 52px; margin: 0 -24px 60px; }
+      .hero-stripe { margin: 0 -24px 32px; padding: 5px 24px; }
+      .hero-subhead { margin: 28px -24px 0; padding: 18px 24px; font-size: 1.05rem; }
+      .hero-headline { font-size: 4.2rem; }
+      .section-label { margin: 0 -24px 36px; padding: 14px 24px 0; }
+      .section-label::before { left: 24px; }
+      .hero-qualifier { margin: 20px -24px 0; padding: 0 24px; }
+      .who-list { margin: 0 -24px; }
+      .who-row { grid-template-columns: 1fr; gap: 6px; padding: 16px 24px; }
+      .phase-card-list { margin: 0 -24px; grid-template-columns: 1fr; }
+      .phase-card { padding: 22px 24px 18px; }
+      .ap-phase-card { margin: 0 -24px 3px; grid-template-columns: 1fr; }
+      .ap-phase-left { padding: 24px 24px 16px; border-right: none; border-bottom: 1px solid var(--border); }
+      .ap-phase-right { padding: 16px 24px 24px; }
+      .prov-summary-list { margin: 0 -24px; }
+      .prov-summary-item { padding: 18px 24px; grid-template-columns: 1fr; gap: 8px; }
+      .provenance-full-list { margin: 0 -24px; }
+      .provenance-full-item { padding: 20px 24px; grid-template-columns: 1fr; gap: 8px; }
+      .case-item { margin: 0 -24px; padding: 22px 24px; }
+      .approach-note { margin: 40px -24px 0; padding: 24px 24px; }
+      .principal-block { grid-template-columns: 1fr; gap: 8px; }
+      .contact-row { grid-template-columns: 1fr; gap: 3px; }
+      footer { margin: 72px -24px 0; padding: 24px 24px 48px; flex-direction: column; gap: 10px; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+<!-- Risograph SVG filter -->
+<svg style="display:none" aria-hidden="true" focusable="false">
+  <defs>
+    <filter id="riso-grain" x="-5%" y="-5%" width="110%" height="110%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="4" seed="8" stitchTiles="stitch" result="noise"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0, 0 0 0 0 0, 0 0 0 0 0, 0 0 0 -5 4.8" in="noise" result="dots"/>
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="3" stitchTiles="stitch" result="fine"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0, 0 0 0 0 0, 0 0 0 0 0, 0 0 0 -12 10" in="fine" result="finedots"/>
+      <feMerge result="combined"><feMergeNode in="dots"/><feMergeNode in="finedots"/></feMerge>
+      <feComposite in="SourceGraphic" in2="combined" operator="in"/>
+    </filter>
+  </defs>
+</svg>
+
+<!-- ADMIN -->
+<div id="admin-login">
+  <div class="login-box">
+    <div class="login-title">ADMIN ACCESS</div>
+    <input type="password" class="login-field" id="admin-pw-input" placeholder="password" autocomplete="off">
+    <button class="login-submit" onclick="attemptLogin()">Unlock Editor</button>
+    <div class="login-error" id="login-error">Incorrect password</div>
+    <div class="login-shortcut">Ctrl+Shift+E to open / close</div>
+  </div>
+</div>
+<div id="admin-bar">
+  <div style="display:flex;align-items:center;gap:18px;">
+    <span class="admin-bar-badge">// EDIT MODE</span>
+    <span class="admin-bar-status" id="admin-status">click any text to edit</span>
+  </div>
+  <div class="admin-bar-right">
+    <button class="admin-btn save" onclick="saveAllContent()">save</button>
+    <button class="admin-btn export" onclick="exportHTML()" title="Download updated index.html for deployment">export html</button>
+    <button class="admin-btn" onclick="exitAdmin()">exit</button>
+    <button class="admin-btn danger" onclick="showResetConfirm()">reset</button>
+  </div>
+</div>
+<div id="reset-confirm">
+  <div class="confirm-box">
+    <div class="confirm-title">Reset Content?</div>
+    <div class="confirm-body">Discards all saved edits and restores original content. Cannot be undone.</div>
+    <div class="confirm-actions">
+      <button onclick="hideResetConfirm()">Cancel</button>
+      <button class="confirm-yes" onclick="resetAllContent()">Reset</button>
+    </div>
+  </div>
+</div>
+<div id="save-flash">Changes saved</div>
+
+<div class="container">
+  <header>
+    <div class="header-top">
+      <div class="logo" onclick="show('home', document.querySelector('nav a:first-child'))">
+        <span class="logo-main">BASTILLE</span>
+        <span class="logo-sub">Advisory</span>
+      </div>
+      <nav>
+        <a class="active" onclick="show('home',this)">Home</a>
+        <a onclick="show('approach',this)">Approach</a>
+        <a onclick="show('about',this)">About</a>
+        <a onclick="show('work',this)">Work</a>
+        <a onclick="show('contact',this)">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ══ HOME ══ -->
+  <section id="home" class="section active">
+    <div class="hero">
+      <div class="hero-stripe"><span class="hero-stripe-text" data-editable data-key="hero-stripe">AI · Crypto · Infra · Enterprise Startups · Pre-Raise Advisory</span></div>
+      <h1 class="hero-headline">
+        <span class="hl-blue">METRICS.</span><br>
+        <span class="hl-lime">NARRATIVE.</span><br>
+        <span class="hl-pink">ROUND.</span>
+      </h1>
+      <p class="hero-subhead" data-editable data-key="hero-subhead">
+        Most advisory enters at the deck stage.<br>By then, investors can already see the gaps. Bastille enters earlier — when there's still time to close them.
+      </p>
+      <div class="hero-qualifier">
+        <p data-editable data-key="hq-1">Bastille works with <strong>enterprise founders in AI, crypto, and infra</strong> who are <strong>3–12 months from a raise</strong> — with some traction and market presence already in place.</p>
+        <p data-editable data-key="hq-2">This isn't advisory in the traditional sense. It's embedded execution — GTM refinement and go-to-market work done alongside you, the investor story built around what you've actually proven, and a fundraise process managed through close.</p>
+      </div>
+      <div class="who-section">
+        <div class="section-label">
+          <span class="section-label-text">Who This Is For</span>
+        </div>
+        <div class="who-list">
+          <div class="who-row">
+            <div class="who-row-title" data-editable data-key="who-t1">Embedded execution, not just advice</div>
+            <div class="who-row-body" data-editable data-key="who-b1">You may already have investor relationships and a network. What you're missing is someone who will refine your GTM and product strategy and <strong>actually run it alongside you</strong> — not hand you a framework and leave.</div>
+          </div>
+          <div class="who-row">
+            <div class="who-row-title" data-editable data-key="who-t2">3–12 months from a raise, with traction</div>
+            <div class="who-row-body" data-editable data-key="who-b2">Already operating with some market presence and early signal. Not sure which <strong>1–2 metrics</strong> will actually unlock investor conviction in your category — and need to build toward those before the process opens.</div>
+          </div>
+          <div class="who-row">
+            <div class="who-row-title" data-editable data-key="who-t3">Getting inbound that isn't converting</div>
+            <div class="who-row-body" data-editable data-key="who-b3">Investor conversations are happening but staying warm. <strong>No structured process, no momentum, no term sheet.</strong> The interest is there. The close isn't.</div>
+          </div>
+          <div class="who-row">
+            <div class="who-row-title" data-editable data-key="who-t4">Referred by your fund</div>
+            <div class="who-row-body" data-editable data-key="who-b4">Portfolio companies whose investors want more <strong>focused execution bandwidth</strong> on fundraise prep than they can provide in-house at this stage.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="approach-summary">
+      <div class="section-label">
+        <span class="section-label-text">The Approach</span>
+        <a class="section-label-link" onclick="show('approach',document.querySelector('nav a:nth-child(2)'))">Full approach →</a>
+      </div>
+      <div class="phase-card-list">
+        <div class="phase-card">
+          <span class="phase-card-num">01</span>
+          <span class="phase-card-week" data-editable data-key="ps-num1">Weeks 1–2</span>
+          <div class="phase-card-name" data-editable data-key="ps-name1">Define the Round</div>
+          <div class="phase-card-desc" data-editable data-key="ps-desc1">Map what investors actually underwrite in your category. Compare it honestly to where you are. Get clear on what has to be true before the process opens.</div>
+          <div class="phase-card-deliverable">Round target + investor bar</div>
+        </div>
+        <div class="phase-card">
+          <span class="phase-card-num">02</span>
+          <span class="phase-card-week" data-editable data-key="ps-num2">Weeks 3–5</span>
+          <div class="phase-card-name" data-editable data-key="ps-name2">Close the Gaps</div>
+          <div class="phase-card-desc" data-editable data-key="ps-desc2">Refine GTM and product strategy. Run the experiments that matter. Build deck and data room around the metrics — not the other way around.</div>
+          <div class="phase-card-deliverable">Metric story + materials ready</div>
+        </div>
+        <div class="phase-card">
+          <span class="phase-card-num">03</span>
+          <span class="phase-card-week" data-editable data-key="ps-num3">Weeks 6–8</span>
+          <div class="phase-card-name" data-editable data-key="ps-name3">Run the Process</div>
+          <div class="phase-card-desc" data-editable data-key="ps-desc3">Targeted investor map. Warm intros when you're ready. Structured conversations with feedback loops that tell you where you actually stand.</div>
+          <div class="phase-card-deliverable">Intros + process through close</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="work-section">
+      <div class="section-label">
+        <span class="section-label-text">Featured Work</span>
+        <a class="section-label-link" onclick="show('work',document.querySelector('nav a:nth-child(4)'))">All work →</a>
+      </div>
+      <div class="case-item" onclick="handleCaseClick(event,this)">
+        <div class="case-header"><div class="case-name" data-editable data-key="feat1-name">[Company Name]</div><div class="case-year" data-editable data-key="feat1-year">20XX</div></div>
+        <div class="case-tagline" data-editable data-key="feat1-tagline">[One line: what the engagement was and what it produced.]</div>
+        <div class="tags"><span class="tag" data-editable data-key="feat1-tag1">[tag]</span><span class="tag" data-editable data-key="feat1-tag2">[tag]</span></div>
+        <div class="case-expand">
+          <p data-editable data-key="feat1-body1">[Situation]</p>
+          <p data-editable data-key="feat1-body2">[Engagement]</p>
+          <p data-editable data-key="feat1-body3">[Outcome]</p>
+          <div class="case-metrics">
+            <div class="metric"><span class="metric-val" data-editable data-key="feat1-m1-val">—</span><span class="metric-label" data-editable data-key="feat1-m1-label">[metric]</span></div>
+            <div class="metric"><span class="metric-val" data-editable data-key="feat1-m2-val">—</span><span class="metric-label" data-editable data-key="feat1-m2-label">[metric]</span></div>
+          </div>
+        </div>
+        <div class="expand-hint">↓ expand</div>
+      </div>
+      <div class="case-item" onclick="handleCaseClick(event,this)">
+        <div class="case-header"><div class="case-name" data-editable data-key="feat2-name">[Company Name]</div><div class="case-year" data-editable data-key="feat2-year">20XX</div></div>
+        <div class="case-tagline" data-editable data-key="feat2-tagline">[One line]</div>
+        <div class="tags"><span class="tag" data-editable data-key="feat2-tag1">[tag]</span></div>
+        <div class="case-expand">
+          <p data-editable data-key="feat2-body1">[Situation]</p>
+          <p data-editable data-key="feat2-body2">[Outcome]</p>
+          <div class="case-metrics"><div class="metric"><span class="metric-val" data-editable data-key="feat2-m1-val">—</span><span class="metric-label" data-editable data-key="feat2-m1-label">[metric]</span></div></div>
+        </div>
+        <div class="expand-hint">↓ expand</div>
+      </div>
+    </div>
+
+    <div class="provenance-summary">
+      <div class="section-label">
+        <span class="section-label-text">Where This Was Built</span>
+        <a class="section-label-link" onclick="show('about',document.querySelector('nav a:nth-child(3)'))">About the firm →</a>
+      </div>
+      <div class="prov-summary-list">
+        <div class="prov-summary-item">
+          <div class="prov-summary-inst" data-editable data-key="ps-inst4">Avalanche</div>
+          <div class="prov-summary-line" data-editable data-key="ps-line4">Founded Codebase, the flagship Avalanche accelerator, and ran ecosystem growth across the network — builder programs, demo days, developer demand-gen — resulting in ~30 founder engagements across GTM execution, narrative, and investor prep. The same GTM motion, run at protocol scale.</div>
+        </div>
+        <div class="prov-summary-item">
+          <div class="prov-summary-inst" data-editable data-key="ps-inst2">SignalFire</div>
+          <div class="prov-summary-line" data-editable data-key="ps-line2">Embedded with AI-native founders at a top-tier Silicon Valley VC — before AI hit the mainstream. Where fluency in how institutional investors evaluate companies was built.</div>
+        </div>
+        <div class="prov-summary-item">
+          <div class="prov-summary-inst" data-editable data-key="ps-inst3">M13</div>
+          <div class="prov-summary-line" data-editable data-key="ps-line3">BD strategy and narrative frameworks deployed across a top-quartile fund's portfolio — where the systems-level approach to helping founders articulate and sell what they're building was formalized.</div>
+        </div>
+        <div class="prov-summary-item">
+          <div class="prov-summary-inst" data-editable data-key="ps-inst1">XPRIZE</div>
+          <div class="prov-summary-line" data-editable data-key="ps-line1">Built and ran the AI XPRIZE — a global accelerator-scale competition at the very start of the current AI era. Early-mover network in AI built here.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ APPROACH ══ -->
+  <section id="approach" class="section">
+    <div class="section-label"><span class="section-label-text">Approach</span></div>
+    <p class="approach-intro" data-editable data-key="approach-intro">Bastille's model is built on a simple observation: <strong>the founders who raise successfully are the ones who knew what investors needed to see — and built toward it before the process opened.</strong> Most advisory enters at the deck. By then, the gaps are already visible. Bastille enters earlier — and does the work alongside you through close. This playbook wasn't built advising startups. It was built <em>embedded with AI-native founders at SignalFire before the wave hit, building BD and narrative systems across a fund portfolio at M13, and running protocol-level ecosystem growth at Avalanche.</em> That's the lens individual companies get access to.</p>
+    <div class="ap-phase-card">
+      <div class="ap-phase-left">
+        <div class="ap-phase-big-num">01</div>
+        <div class="ap-phase-week-label" data-editable data-key="ap-num1">Weeks 1–2</div>
+        <div class="ap-phase-title" data-editable data-key="ap-name1">Define the Round</div>
+      </div>
+      <div class="ap-phase-right">
+        <div class="ap-phase-services">
+          <div class="ap-service-row">
+            <div class="ap-service-name" data-editable data-key="ap-svc1-name">Investor Expectations Mapping</div>
+            <div class="ap-service-desc" data-editable data-key="ap-svc1-desc">What does "good enough to raise" look like in your specific category — AI, crypto, or infra? Most founders answer this wrong. We map what investors actually underwrite for your stage and vertical and compare it honestly to where you are. <em>You leave with a clear, defensible picture of what needs to be true before the process opens.</em></div>
+          </div>
+          <div class="ap-service-row">
+            <div class="ap-service-name" data-editable data-key="ap-svc2-name">Round Targeting</div>
+            <div class="ap-service-desc" data-editable data-key="ap-svc2-desc">Round size, structure, and the investor profile that makes sense for your stage and category. Built around what you can actually get to, not what looks good on paper. <em>You leave with a grounded, specific fundraise target.</em></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ap-phase-card">
+      <div class="ap-phase-left">
+        <div class="ap-phase-big-num">02</div>
+        <div class="ap-phase-week-label" data-editable data-key="ap-num2">Weeks 3–5</div>
+        <div class="ap-phase-title" data-editable data-key="ap-name2">Close the Gaps</div>
+      </div>
+      <div class="ap-phase-right">
+        <div class="ap-phase-services">
+          <div class="ap-service-row">
+            <div class="ap-service-name" data-editable data-key="ap-svc3-name">GTM & Product Strategy Execution</div>
+            <div class="ap-service-desc" data-editable data-key="ap-svc3-desc">This isn't advice you implement on your own. Bastille works alongside the team — refining ICP, sequencing outreach, pressure-testing positioning, designing and running the experiments that close the gap between where you are and where investors need to see you. Warm intros to vetted dev, design, and tokenomics partners when needed. <em>You leave with a GTM motion actively running and a metric story that holds up in diligence.</em></div>
+          </div>
+          <div class="ap-service-row">
+            <div class="ap-service-name" data-editable data-key="ap-svc4-name">Narrative & Materials</div>
+            <div class="ap-service-desc" data-editable data-key="ap-svc4-desc">Deck and data room built around the metrics — not the other way around. Narrative rebuilt from first principles when needed: what the company is, why now, what traction means in this context. VC-insider input on what investors are actually pattern-matching for. <em>You leave with materials that are ready to go out.</em></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ap-phase-card">
+      <div class="ap-phase-left">
+        <div class="ap-phase-big-num">03</div>
+        <div class="ap-phase-week-label" data-editable data-key="ap-num3">Weeks 6–8</div>
+        <div class="ap-phase-title" data-editable data-key="ap-name3">Run the Process</div>
+      </div>
+      <div class="ap-phase-right">
+        <div class="ap-phase-services">
+          <div class="ap-service-row">
+            <div class="ap-service-name" data-editable data-key="ap-svc5-name">Investor Map & Warm Intros</div>
+            <div class="ap-service-desc" data-editable data-key="ap-svc5-desc">A targeted list of the right investors for your category, stage, and round size — not a spray. Warm introductions into top-tier VCs and angels across AI, crypto, and traditional venture. Intros go out when the business is ready, not before. <em>The network is the starting point. The preparation converts it.</em></div>
+          </div>
+          <div class="ap-service-row">
+            <div class="ap-service-name" data-editable data-key="ap-svc6-name">Process Management</div>
+            <div class="ap-service-desc" data-editable data-key="ap-svc6-desc">Structured conversations designed to build conviction, not just friendly interest. Feedback loops that tell you where you actually stand. Process managed through close — so momentum doesn't die between meetings. <em>You leave knowing exactly where each investor is and why.</em></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="approach-note" data-editable data-key="approach-note"><strong>On engagements:</strong> Engagements are typically 6–8 weeks, scoped to where a company is in the arc above. Not every engagement spans all three phases — the work starts where you are. Bastille takes a limited number of clients at any given time.</div>
+  </section>
+
+  <!-- ══ ABOUT ══ -->
+  <section id="about" class="section">
+    <div class="section-label"><span class="section-label-text">About</span></div>
+    <div class="about-section">
+      <div class="about-section-label">The Firm</div>
+      <div class="about-body">
+        <p data-editable data-key="about-p1">Bastille Advisory was built on a simple observation: the most valuable things an accelerator offers — a strong network, sharp narrative, and someone who actually does the work alongside you — don't require a cohort model or an equity check. They require experience, relationships, and the judgment to know what matters at each stage.</p>
+        <p data-editable data-key="about-p2">The firm works with enterprise founders in AI, crypto, and infra — categories where the difference between a friendly investor conversation and a closed round often comes down to knowing which 1–2 metrics matter, how to tell that story, and how to run a disciplined process. The GTM playbook was built embedded with AI-native founders at SignalFire before the wave hit, developing BD and narrative systems across a fund portfolio at M13, and running ecosystem growth at the protocol level at Avalanche — chain-wide builder programs, demo days, developer demand-gen. Founders get access to the same motion that moves entire ecosystems, scoped to their raise.</p>
+        <p data-editable data-key="about-p3">What distinguishes Bastille from most advisory is execution. Founders aren't paying for advice they implement on their own or introductions that sit in an inbox. The work is hands-on: GTM and product strategy refined and run alongside the team, service provider intros to vetted partners, and an investor process managed through close.</p>
+        <p data-editable data-key="about-p4">The name comes from Bastille Day — July 14, 1789. The storming of the Bastille wasn't a coordinated campaign. It was a breakout moment: urgency, conviction, and the decision to move when the window was open. That's the posture every engagement starts from.</p>
+      </div>
+    </div>
+    <div class="about-section">
+      <div class="about-section-label">Principal</div>
+      <div class="principal-block">
+        <div class="principal-left">
+          <div class="principal-name" data-editable data-key="principal-name">Michael [Last Name]</div>
+          <div class="principal-title" data-editable data-key="principal-title">Founder & Principal</div>
+        </div>
+        <div class="principal-bio" data-editable data-key="principal-bio">Before Bastille, built and ran the AI XPRIZE — a global accelerator-scale competition at the start of the current AI era — then moved into ecosystem and startup advisory at SignalFire, backing AI-native founders before AI hit the mainstream. Refined a BD and narrative methodology at M13 across a top-quartile fund's portfolio. Founded Codebase, the flagship Avalanche accelerator, resulting in approximately 30 startup engagements across GTM execution, narrative, investor preparation, and introductions. Bastille was founded to operationalize and extend that model — with an execution-first approach — across AI, crypto, and infra, beyond any single ecosystem.</div>
+      </div>
+    </div>
+    <div class="about-section">
+      <div class="about-section-label">Where This Was Built</div>
+      <div class="provenance-full-list">
+        <div class="provenance-full-item"><div class="provenance-full-inst" data-editable data-key="prov4-inst">Avalanche</div><div class="provenance-full-desc" data-editable data-key="prov4-desc">Founded Codebase, the flagship Avalanche accelerator, and ran ecosystem growth across the network — builder programs, demo days, developer demand-gen across an entire chain. Approximately 30 founder engagements across GTM execution, narrative, investor prep, and introductions. The institution where Bastille's full model was proven at scale.</div></div>
+        <div class="provenance-full-item"><div class="provenance-full-inst" data-editable data-key="prov2-inst">SignalFire</div><div class="provenance-full-desc" data-editable data-key="prov2-desc">Embedded with AI-native founders at a top-tier Silicon Valley VC — at the earliest stages, before AI hit the mainstream. Where Bastille's fluency in how institutional investors evaluate companies was developed.</div></div>
+        <div class="provenance-full-item"><div class="provenance-full-inst" data-editable data-key="prov3-inst">M13</div><div class="provenance-full-desc" data-editable data-key="prov3-desc">Developed the BD strategy and narrative frameworks deployed across a top-quartile fund's portfolio. Where the systems-level methodology for helping founders articulate what they're building — and execute against it — was formalized.</div></div>
+        <div class="provenance-full-item"><div class="provenance-full-inst" data-editable data-key="prov1-inst">XPRIZE</div><div class="provenance-full-desc" data-editable data-key="prov1-desc">Built and ran the AI XPRIZE — a global competition that functioned as an accelerator at the very start of the current AI era, before the industry had language for what was coming. The early-mover VC and AI founder network was built here.</div></div>
+      </div>
+      <p class="provenance-footnote" data-editable data-key="prov-footnote">Bastille works with founders directly and with venture funds on behalf of their portfolio companies.</p>
+    </div>
+    <div class="about-section">
+      <div class="about-section-label">Partners</div>
+      <div class="partners-placeholder"><div class="partners-placeholder-text" data-editable data-key="partners-placeholder">Partner listings coming soon.</div></div>
+    </div>
+  </section>
+
+  <!-- ══ WORK ══ -->
+  <section id="work" class="section">
+    <div class="section-label"><span class="section-label-text">Work</span></div>
+    <p class="work-intro" data-editable data-key="work-intro">Selected engagements. Case studies reflect the range of work Bastille does — some are raise stories, some are business-problem stories, some are the full arc from pre-raise through close.</p>
+    <div class="case-item" onclick="handleCaseClick(event,this)"><div class="case-header"><div class="case-name" data-editable data-key="work1-name">[Company Name]</div><div class="case-year" data-editable data-key="work1-year">20XX</div></div><div class="case-tagline" data-editable data-key="work1-tagline">[One line]</div><div class="tags"><span class="tag" data-editable data-key="work1-tag1">[tag]</span><span class="tag" data-editable data-key="work1-tag2">[tag]</span></div><div class="case-expand"><p data-editable data-key="work1-body1">[Situation]</p><p data-editable data-key="work1-body2">[Engagement]</p><p data-editable data-key="work1-body3">[Outcome]</p><div class="case-metrics"><div class="metric"><span class="metric-val" data-editable data-key="work1-m1-val">—</span><span class="metric-label" data-editable data-key="work1-m1-label">[metric]</span></div><div class="metric"><span class="metric-val" data-editable data-key="work1-m2-val">—</span><span class="metric-label" data-editable data-key="work1-m2-label">[metric]</span></div></div></div><div class="expand-hint">↓ expand</div></div>
+    <div class="case-item" onclick="handleCaseClick(event,this)"><div class="case-header"><div class="case-name" data-editable data-key="work2-name">[Company Name]</div><div class="case-year" data-editable data-key="work2-year">20XX</div></div><div class="case-tagline" data-editable data-key="work2-tagline">[One line]</div><div class="tags"><span class="tag" data-editable data-key="work2-tag1">[tag]</span></div><div class="case-expand"><p data-editable data-key="work2-body1">[Situation]</p><p data-editable data-key="work2-body2">[Engagement and outcome]</p><div class="case-metrics"><div class="metric"><span class="metric-val" data-editable data-key="work2-m1-val">—</span><span class="metric-label" data-editable data-key="work2-m1-label">[metric]</span></div></div></div><div class="expand-hint">↓ expand</div></div>
+    <div class="case-item" onclick="handleCaseClick(event,this)"><div class="case-header"><div class="case-name" data-editable data-key="work3-name">[Company Name]</div><div class="case-year" data-editable data-key="work3-year">20XX</div></div><div class="case-tagline" data-editable data-key="work3-tagline">[One line]</div><div class="tags"><span class="tag" data-editable data-key="work3-tag1">[tag]</span></div><div class="case-expand"><p data-editable data-key="work3-body1">[Situation]</p><p data-editable data-key="work3-body2">[Engagement and outcome]</p><div class="case-metrics"><div class="metric"><span class="metric-val" data-editable data-key="work3-m1-val">—</span><span class="metric-label" data-editable data-key="work3-m1-label">[metric]</span></div></div></div><div class="expand-hint">↓ expand</div></div>
+    <div class="case-item" onclick="handleCaseClick(event,this)"><div class="case-header"><div class="case-name" data-editable data-key="work4-name">[Company Name]</div><div class="case-year" data-editable data-key="work4-year">20XX</div></div><div class="case-tagline" data-editable data-key="work4-tagline">[One line]</div><div class="tags"><span class="tag" data-editable data-key="work4-tag1">[tag]</span></div><div class="case-expand"><p data-editable data-key="work4-body1">[Situation]</p><p data-editable data-key="work4-body2">[Engagement and outcome]</p><div class="case-metrics"><div class="metric"><span class="metric-val" data-editable data-key="work4-m1-val">—</span><span class="metric-label" data-editable data-key="work4-m1-label">[metric]</span></div></div></div><div class="expand-hint">↓ expand</div></div>
+  </section>
+
+  <!-- ══ CONTACT ══ -->
+  <section id="contact" class="section">
+    <div class="section-label"><span class="section-label-text">Contact</span></div>
+    <div class="contact-row"><div class="contact-label">Email</div><div class="contact-value"><a href="mailto:hello@bastilleadvisory.xyz" data-editable data-key="contact-email">hello@bastilleadvisory.xyz</a></div></div>
+    <div class="contact-row"><div class="contact-label">LinkedIn</div><div class="contact-value"><a href="#" data-editable data-key="contact-linkedin">linkedin.com/in/[handle]</a></div></div>
+    <div class="contact-row"><div class="contact-label">Based in</div><div class="contact-value" data-editable data-key="contact-location">[City, State]</div></div>
+    <div class="contact-row"><div class="contact-label">Availability</div><div class="contact-value" data-editable data-key="contact-avail">Taking select engagements</div></div>
+  </section>
+
+  <footer>
+    <span class="footer-text" data-editable data-key="footer-left">Bastille Advisory © 2026</span>
+    <span class="footer-text" data-editable data-key="footer-right">Taking select engagements &nbsp;·&nbsp; <a href="mailto:hello@bastilleadvisory.xyz">hello@bastilleadvisory.xyz</a></span>
+  </footer>
+</div>
+
+<script>
+const STORE_KEY = 'bastille_v5', PASS_KEY = 'bastille_admin_auth', ADMIN_PW = 'bastille2026';
+
+function storeGet() { try { return JSON.parse(localStorage.getItem(STORE_KEY) || '{}'); } catch(e) { return {}; } }
+function storeSet(o) { try { localStorage.setItem(STORE_KEY, JSON.stringify(o)); } catch(e) {} }
+function isAuthed() { return sessionStorage.getItem(PASS_KEY) === 'true'; }
+
+function applyStored() {
+  const s = storeGet();
+  document.querySelectorAll('[data-editable]').forEach(el => {
+    if (s[el.dataset.key] !== undefined) el.innerHTML = s[el.dataset.key];
+  });
+}
+
+let adminActive = false, unsaved = false;
+
+function showLogin() {
+  document.getElementById('admin-login').classList.add('visible');
+  document.getElementById('admin-pw-input').focus();
+  document.getElementById('login-error').classList.remove('visible');
+  document.getElementById('admin-pw-input').value = '';
+}
+function hideLogin() { document.getElementById('admin-login').classList.remove('visible'); }
+
+function attemptLogin() {
+  if (document.getElementById('admin-pw-input').value === ADMIN_PW) {
+    sessionStorage.setItem(PASS_KEY, 'true');
+    hideLogin();
+    activateAdmin();
+  } else {
+    document.getElementById('login-error').classList.add('visible');
+    document.getElementById('admin-pw-input').select();
+  }
+}
+
+function activateAdmin() {
+  adminActive = true;
+  document.body.classList.add('admin-active');
+  document.getElementById('admin-bar').classList.add('visible');
+  document.querySelectorAll('[data-editable]').forEach(el => {
+    el.contentEditable = 'true';
+    el.spellcheck = false;
+    el.addEventListener('input', markUnsaved);
+    el.addEventListener('keydown', editKD);
+  });
+}
+
+function exitAdmin() {
+  if (unsaved && confirm('Save before exiting?')) saveAllContent();
+  adminActive = false;
+  document.body.classList.remove('admin-active');
+  document.getElementById('admin-bar').classList.remove('visible');
+  document.querySelectorAll('[data-editable]').forEach(el => {
+    el.contentEditable = 'false';
+    el.removeEventListener('input', markUnsaved);
+    el.removeEventListener('keydown', editKD);
+  });
+  unsaved = false;
+  sessionStorage.removeItem(PASS_KEY);
+}
+
+function markUnsaved() { unsaved = true; document.getElementById('admin-status').textContent = 'unsaved changes'; }
+
+function editKD(e) {
+  if ((e.ctrlKey || e.metaKey) && e.key === 's') { e.preventDefault(); saveAllContent(); }
+  if (e.key === 'Escape') e.target.blur();
+}
+
+function saveAllContent() {
+  const s = storeGet();
+  document.querySelectorAll('[data-editable]').forEach(el => { s[el.dataset.key] = el.innerHTML; });
+  storeSet(s);
+  unsaved = false;
+  document.getElementById('admin-status').textContent = 'saved';
+  const f = document.getElementById('save-flash');
+  f.classList.add('show');
+  setTimeout(() => f.classList.remove('show'), 2200);
+  setTimeout(() => { if (!unsaved) document.getElementById('admin-status').textContent = 'click any text to edit'; }, 3200);
+}
+
+function exportHTML() {
+  // Save current state first
+  saveAllContent();
+
+  // Clone the full document
+  const clone = document.documentElement.cloneNode(true);
+
+  // Apply all stored content into the cloned DOM
+  const stored = storeGet();
+  clone.querySelectorAll('[data-editable]').forEach(el => {
+    if (stored[el.dataset.key] !== undefined) el.innerHTML = stored[el.dataset.key];
+    el.removeAttribute('contenteditable');
+  });
+
+  // Remove admin UI elements from clone
+  ['admin-login', 'admin-bar', 'reset-confirm', 'save-flash'].forEach(id => {
+    const el = clone.getElementById(id);
+    if (el) el.remove();
+  });
+
+  // Clean up admin state
+  clone.querySelector('body').classList.remove('admin-active');
+  clone.querySelector('body').style.paddingTop = '';
+
+  // Remove admin styles from the script tag (keep the site functional but strip admin)
+  // Actually we keep the admin panel so they can keep editing after deploy — just strip session state
+
+  // Build final HTML
+  const html = '<!DOCTYPE html>\n' + clone.outerHTML;
+
+  // Download it
+  const blob = new Blob([html], { type: 'text/html;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'index.html';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+
+  document.getElementById('admin-status').textContent = 'exported index.html';
+  setTimeout(() => { document.getElementById('admin-status').textContent = 'click any text to edit'; }, 3000);
+}
+
+function showResetConfirm() { document.getElementById('reset-confirm').classList.add('visible'); }
+function hideResetConfirm() { document.getElementById('reset-confirm').classList.remove('visible'); }
+function resetAllContent() { localStorage.removeItem(STORE_KEY); hideResetConfirm(); location.reload(); }
+
+function handleCaseClick(e, el) {
+  if (adminActive) {
+    if (e.target.closest('[data-editable]')) return;
+    if (!e.target.classList.contains('expand-hint') && !e.target.closest('.case-header')) return;
+  }
+  const exp = el.querySelector('.case-expand'), hint = el.querySelector('.expand-hint');
+  exp.classList.toggle('open');
+  hint.textContent = exp.classList.contains('open') ? '↑ collapse' : '↓ expand';
+}
+
+function show(id, el) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  if (el) el.classList.add('active');
+  window.scrollTo(0, 0);
+}
+
+document.addEventListener('scroll', () => {
+  document.querySelector('header').classList.toggle('scrolled', window.scrollY > 20);
+});
+
+document.addEventListener('keydown', e => {
+  if (e.ctrlKey && e.shiftKey && e.key === 'E') {
+    e.preventDefault();
+    if (adminActive) {
+      exitAdmin();
+    } else if (isAuthed()) {
+      activateAdmin();
+    } else {
+      showLogin();
+    }
+  }
+});
+
+document.getElementById('admin-pw-input').addEventListener('keydown', e => {
+  if (e.key === 'Enter') attemptLogin();
+  if (e.key === 'Escape') hideLogin();
+});
+
+// Apply any saved edits on load
+applyStored();
+</script>
+</body>
+</html>

@@ -147,9 +147,9 @@
       background: var(--cobalt-lt);
     }
     .section-label-text {
-      font-family: var(--font-hero);
-      font-size: 1.05rem;
-      letter-spacing: 0.28em;
+      font-family: var(--font-serif);
+      font-size: 1.65rem;
+      letter-spacing: 0;
       color: var(--white);
     }
     .section-label-link {
@@ -273,32 +273,54 @@
 
     /* Who This Is For — row list */
     .who-section { margin-top: 0; }
-    .who-list { display: flex; flex-direction: column; margin: 0 -36px; }
-    .who-row {
+    /* Who This Is For — card grid */
+    .who-grid {
       display: grid;
-      grid-template-columns: 240px 1fr;
-      gap: 0 36px;
-      padding: 18px 36px;
-      border-bottom: 1px solid var(--border);
-      align-items: baseline;
-      transition: border-color 0.15s;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+      margin: 0 -36px;
     }
-    .who-row:first-child { border-top: 1px solid var(--border); }
-    .who-row:hover { border-bottom-color: var(--pink); }
-    .who-row-title {
+    .who-card {
+      background: var(--night-2);
+      padding: 36px 32px 32px;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.15s;
+    }
+    .who-card:hover { background: var(--night-3); }
+    .who-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--cobalt);
+    }
+    .who-card:nth-child(2)::before { background: var(--pink); }
+    .who-card:nth-child(3)::before { background: var(--pink); }
+    .who-card:nth-child(4)::before { background: var(--cobalt); }
+    .who-card-num {
       font-family: var(--font-hero);
-      font-size: 1.05rem;
-      letter-spacing: 0.06em;
-      color: var(--cream);
-      padding-top: 2px;
+      font-size: 2.6rem;
+      line-height: 1;
+      color: var(--border-lt);
+      margin-bottom: 20px;
+      display: block;
     }
-    .who-row-body {
-      font-size: 0.9rem;
-      font-weight: 300;
+    .who-card-title {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      color: var(--white);
+      margin-bottom: 14px;
+      line-height: 1.3;
+    }
+    .who-card-body {
+      font-size: 1rem;
+      font-weight: 400;
       color: var(--muted);
       line-height: 1.85;
     }
-    .who-row-body strong { color: var(--cream-dk); font-weight: 400; }
+    .who-card-body strong { color: var(--cream-dk); font-weight: 500; }
 
     /* Phase cards — home approach summary */
     .phase-card-list {
@@ -341,8 +363,8 @@
       margin-bottom: 12px;
     }
     .phase-card-desc {
-      font-size: 0.83rem;
-      font-weight: 300;
+      font-size: 0.97rem;
+      font-weight: 400;
       color: var(--muted);
       line-height: 1.8;
     }
@@ -414,8 +436,8 @@
       margin-bottom: 6px;
     }
     .ap-service-desc {
-      font-size: 0.88rem;
-      font-weight: 300;
+      font-size: 1rem;
+      font-weight: 400;
       color: var(--muted);
       line-height: 1.85;
     }
@@ -464,7 +486,7 @@
       font-family: var(--font-hero);
       font-size: 1.15rem; letter-spacing: 0.07em; color: var(--cream);
     }
-    .prov-summary-line { font-size: 0.9rem; font-weight: 300; color: var(--muted); line-height: 1.8; }
+    .prov-summary-line { font-size: 1rem; font-weight: 400; color: var(--muted); line-height: 1.8; }
 
     /* ══════════════════════════════════════════
        WORK / CASE ITEMS
@@ -488,7 +510,7 @@
       font-size: 1.5rem; letter-spacing: 0.07em; color: var(--white);
     }
     .case-year { font-size: 0.68rem; color: var(--muted); letter-spacing: 0.12em; font-weight: 600; text-transform: uppercase; }
-    .case-tagline { font-size: 0.92rem; font-weight: 300; color: var(--muted); margin-bottom: 12px; line-height: 1.7; }
+    .case-tagline { font-size: 1rem; font-weight: 400; color: var(--muted); margin-bottom: 12px; line-height: 1.7; }
     .tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 10px; }
     .tag {
       font-size: 0.58rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
@@ -498,7 +520,7 @@
     .tag:nth-child(even) { background: var(--cobalt); }
     .case-expand { display: none; margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--border); animation: up 0.15s ease; }
     .case-expand.open { display: block; }
-    .case-expand p { font-size: 0.94rem; font-weight: 300; color: var(--muted); line-height: 1.9; margin-bottom: 16px; }
+    .case-expand p { font-size: 1rem; font-weight: 400; color: var(--muted); line-height: 1.9; margin-bottom: 16px; }
     .case-expand p:last-of-type { margin-bottom: 0; }
     .case-metrics {
       display: flex; gap: 44px; margin-top: 28px; flex-wrap: wrap;
@@ -565,16 +587,15 @@
     ══════════════════════════════════════════ */
     .about-section { margin-bottom: 60px; }
     .about-section-label {
-      font-family: var(--font-hero); font-size: 0.95rem; letter-spacing: 0.26em;
-      color: var(--cream-dk); margin-bottom: 26px; padding-bottom: 12px;
+      font-family: var(--font-serif); font-size: 1.35rem; letter-spacing: 0;
+      color: var(--cream); margin-bottom: 26px; padding-bottom: 14px;
       border-bottom: 1px solid var(--border); position: relative;
-      text-transform: uppercase;
     }
     .about-section-label::before {
       content: ''; position: absolute; bottom: -1px; left: 0; width: 40px; height: 3px;
       background: var(--cobalt);
     }
-    .about-body { font-size: 0.97rem; font-weight: 300; line-height: 2; max-width: 620px; color: var(--cream-dk); }
+    .about-body { font-size: 1rem; font-weight: 400; line-height: 1.95; max-width: 620px; color: var(--cream-dk); }
     .about-body p { margin-bottom: 22px; }
     .about-body p:last-child { margin-bottom: 0; }
     .principal-block {
@@ -584,7 +605,7 @@
     .principal-left { display: flex; flex-direction: column; gap: 5px; padding-top: 2px; }
     .principal-name { font-family: var(--font-hero); font-size: 1.25rem; letter-spacing: 0.07em; color: var(--white); }
     .principal-title { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
-    .principal-bio { font-size: 0.92rem; font-weight: 300; color: var(--muted); line-height: 1.9; }
+    .principal-bio { font-size: 1rem; font-weight: 400; color: var(--muted); line-height: 1.9; }
     .provenance-full-list { display: flex; flex-direction: column; margin: 0 -36px; }
     .provenance-full-item {
       display: grid; grid-template-columns: 180px 1fr; gap: 0 40px;
@@ -594,12 +615,12 @@
     .provenance-full-item:first-child { border-top: 1px solid var(--border); }
     .provenance-full-item:hover { border-bottom-color: var(--pink); }
     .provenance-full-inst { font-family: var(--font-hero); font-size: 1.15rem; letter-spacing: 0.07em; color: var(--cream); padding-top: 2px; }
-    .provenance-full-desc { font-size: 0.92rem; font-weight: 300; color: var(--muted); line-height: 1.9; }
-    .provenance-footnote { font-size: 0.82rem; font-weight: 300; color: var(--muted); margin-top: 20px; font-style: italic; }
+    .provenance-full-desc { font-size: 1rem; font-weight: 400; color: var(--muted); line-height: 1.9; }
+    .provenance-footnote { font-size: 0.9rem; font-weight: 400; color: var(--muted); margin-top: 20px; font-style: italic; }
     .partners-placeholder {
       padding: 28px 30px; border: 1px solid var(--border); border-left: 4px solid rgba(255,0,102,0.35);
     }
-    .partners-placeholder-text { font-size: 0.88rem; font-weight: 300; color: var(--muted); font-style: italic; opacity: 0.6; }
+    .partners-placeholder-text { font-size: 1rem; font-weight: 400; color: var(--muted); font-style: italic; opacity: 0.6; }
 
     /* ══════════════════════════════════════════
        WORK PAGE
@@ -698,8 +719,8 @@
       .section-label { margin: 0 -24px 36px; padding: 14px 24px 0; }
       .section-label::before { left: 24px; }
       .hero-qualifier { margin: 20px -24px 0; padding: 0 24px; }
-      .who-list { margin: 0 -24px; }
-      .who-row { grid-template-columns: 1fr; gap: 6px; padding: 16px 24px; }
+      .who-grid { margin: 0 -24px; grid-template-columns: 1fr; }
+      .who-card { padding: 28px 24px 24px; }
       .phase-card-list { margin: 0 -24px; grid-template-columns: 1fr; }
       .phase-card { padding: 22px 24px 18px; }
       .ap-phase-card { margin: 0 -24px 3px; grid-template-columns: 1fr; }
@@ -803,22 +824,26 @@
         <div class="section-label">
           <span class="section-label-text">Who This Is For</span>
         </div>
-        <div class="who-list">
-          <div class="who-row">
-            <div class="who-row-title" data-editable data-key="who-t1">Embedded execution, not just advice</div>
-            <div class="who-row-body" data-editable data-key="who-b1">You may already have investor relationships and a network. What you're missing is someone who will refine your GTM and product strategy and <strong>actually run it alongside you</strong> — not hand you a framework and leave.</div>
+        <div class="who-grid">
+          <div class="who-card">
+            <span class="who-card-num">01</span>
+            <div class="who-card-title" data-editable data-key="who-t1">Embedded execution, not just advice</div>
+            <div class="who-card-body" data-editable data-key="who-b1">You may already have investor relationships and a network. What you're missing is someone who will refine your GTM and product strategy and <strong>actually run it alongside you</strong> — not hand you a framework and leave.</div>
           </div>
-          <div class="who-row">
-            <div class="who-row-title" data-editable data-key="who-t2">3–12 months from a raise, with traction</div>
-            <div class="who-row-body" data-editable data-key="who-b2">Already operating with some market presence and early signal. Not sure which <strong>1–2 metrics</strong> will actually unlock investor conviction in your category — and need to build toward those before the process opens.</div>
+          <div class="who-card">
+            <span class="who-card-num">02</span>
+            <div class="who-card-title" data-editable data-key="who-t2">3–12 months from a raise, with traction</div>
+            <div class="who-card-body" data-editable data-key="who-b2">Already operating with some market presence and early signal. Not sure which <strong>1–2 metrics</strong> will actually unlock investor conviction in your category — and need to build toward those before the process opens.</div>
           </div>
-          <div class="who-row">
-            <div class="who-row-title" data-editable data-key="who-t3">Getting inbound that isn't converting</div>
-            <div class="who-row-body" data-editable data-key="who-b3">Investor conversations are happening but staying warm. <strong>No structured process, no momentum, no term sheet.</strong> The interest is there. The close isn't.</div>
+          <div class="who-card">
+            <span class="who-card-num">03</span>
+            <div class="who-card-title" data-editable data-key="who-t3">Getting inbound that isn't converting</div>
+            <div class="who-card-body" data-editable data-key="who-b3">Investor conversations are happening but staying warm. <strong>No structured process, no momentum, no term sheet.</strong> The interest is there. The close isn't.</div>
           </div>
-          <div class="who-row">
-            <div class="who-row-title" data-editable data-key="who-t4">Referred by your fund</div>
-            <div class="who-row-body" data-editable data-key="who-b4">Portfolio companies whose investors want more <strong>focused execution bandwidth</strong> on fundraise prep than they can provide in-house at this stage.</div>
+          <div class="who-card">
+            <span class="who-card-num">04</span>
+            <div class="who-card-title" data-editable data-key="who-t4">Referred by your fund</div>
+            <div class="who-card-body" data-editable data-key="who-b4">Portfolio companies whose investors want more <strong>focused execution bandwidth</strong> on fundraise prep than they can provide in-house at this stage.</div>
           </div>
         </div>
       </div>

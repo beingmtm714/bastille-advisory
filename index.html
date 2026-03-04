@@ -334,9 +334,19 @@
       background: var(--night-2);
       padding: 28px 28px 24px;
       position: relative;
+      overflow: hidden;
       transition: background 0.15s;
     }
     .phase-card:hover { background: var(--night-3); }
+    .phase-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--cobalt);
+    }
+    .phase-card:nth-child(2)::before { background: var(--pink); }
+    .phase-card:nth-child(3)::before { background: var(--lime); }
     .phase-card-num {
       font-family: var(--font-hero);
       font-size: 3.5rem;
@@ -539,9 +549,10 @@
     .approach-intro {
       font-family: var(--font-serif); font-style: italic;
       font-size: 1.35rem; color: var(--muted);
-      max-width: 600px; line-height: 1.75; margin-bottom: 60px;
+      max-width: 600px; line-height: 1.9; margin-bottom: 60px;
     }
     .approach-intro strong { color: var(--cream); font-style: normal; font-weight: 400; }
+    .approach-intro em { color: var(--cobalt-lt); font-style: italic; }
     .approach-phase-block { margin-bottom: 52px; }
     .approach-phase-header {
       display: grid; grid-template-columns: 220px 1fr; gap: 0 36px;
@@ -912,30 +923,6 @@
       </div>
     </div>
 
-    <div class="provenance-summary">
-      <div class="section-label">
-        <span class="section-label-text">Where This Was Built</span>
-        <a class="section-label-link" onclick="show('about',document.querySelector('nav a:nth-child(3)'))">About the firm →</a>
-      </div>
-      <div class="prov-summary-list">
-        <div class="prov-summary-item">
-          <div class="prov-summary-inst" data-editable data-key="ps-inst4">Avalanche</div>
-          <div class="prov-summary-line" data-editable data-key="ps-line4">Founded Codebase, the flagship Avalanche accelerator, and ran ecosystem growth across the network — builder programs, demo days, developer demand-gen — resulting in ~30 founder engagements across GTM execution, narrative, and investor prep. The same GTM motion, run at protocol scale.</div>
-        </div>
-        <div class="prov-summary-item">
-          <div class="prov-summary-inst" data-editable data-key="ps-inst2">SignalFire</div>
-          <div class="prov-summary-line" data-editable data-key="ps-line2">Embedded with AI-native founders at a top-tier Silicon Valley VC — before AI hit the mainstream. Where fluency in how institutional investors evaluate companies was built.</div>
-        </div>
-        <div class="prov-summary-item">
-          <div class="prov-summary-inst" data-editable data-key="ps-inst3">M13</div>
-          <div class="prov-summary-line" data-editable data-key="ps-line3">BD strategy and narrative frameworks deployed across a top-quartile fund's portfolio — where the systems-level approach to helping founders articulate and sell what they're building was formalized.</div>
-        </div>
-        <div class="prov-summary-item">
-          <div class="prov-summary-inst" data-editable data-key="ps-inst1">XPRIZE</div>
-          <div class="prov-summary-line" data-editable data-key="ps-line1">Built and ran the AI XPRIZE — a global accelerator-scale competition at the very start of the current AI era. Early-mover network in AI built here.</div>
-        </div>
-      </div>
-    </div>
   </section>
 
   <!-- ══ APPROACH ══ -->

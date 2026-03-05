@@ -89,6 +89,16 @@
       height: 3px;
       background: var(--pink);
     }
+    /* Full-bleed night background — extends beyond 820px container */
+    header::after {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0;
+      left: 50%; transform: translateX(-50%);
+      width: 100vw;
+      background: var(--night);
+      z-index: -1;
+    }
     .header-top {
       display: flex; justify-content: space-between; align-items: flex-end;
       flex-wrap: wrap; gap: 20px;

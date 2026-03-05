@@ -551,6 +551,7 @@
     .case-expand.open { display: block; }
     .case-expand p { font-size: 1rem; font-weight: 400; color: var(--muted); line-height: 1.9; margin-bottom: 16px; }
     .case-expand p:last-of-type { margin-bottom: 0; }
+    .case-expand p strong { color: var(--cream-dk); font-weight: 500; }
     .case-metrics {
       display: flex; gap: 44px; margin-top: 28px; flex-wrap: wrap;
       padding-top: 22px; border-top: 1px solid var(--border);
@@ -561,6 +562,14 @@
     }
     .metric-label { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
     .expand-hint { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; color: var(--muted); margin-top: 14px; text-transform: uppercase; }
+    .case-url { margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--border); }
+    .case-url a {
+      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--muted); text-decoration: none;
+      border-bottom: 1px solid var(--border-lt); padding-bottom: 1px;
+      transition: color 0.15s, border-color 0.15s;
+    }
+    .case-url a:hover { color: var(--pink-lt); border-color: var(--pink); }
 
     /* ══════════════════════════════════════════
        APPROACH PAGE
@@ -910,17 +919,18 @@
         <a class="section-label-link" onclick="show('work',document.querySelector('nav a:nth-child(4)'))">All work →</a>
       </div>
       <div class="case-item" onclick="handleCaseClick(event,this)">
-        <div class="case-header"><div class="case-name" data-editable data-key="feat1-name">[Company Name]</div><div class="case-year" data-editable data-key="feat1-year">20XX</div></div>
-        <div class="case-tagline" data-editable data-key="feat1-tagline">[One line: what the engagement was and what it produced.]</div>
-        <div class="tags"><span class="tag" data-editable data-key="feat1-tag1">[tag]</span><span class="tag" data-editable data-key="feat1-tag2">[tag]</span></div>
+        <div class="case-header"><div class="case-name" data-editable data-key="feat1-name">Confetti</div><div class="case-year" data-editable data-key="feat1-year">2025</div></div>
+        <div class="case-tagline" data-editable data-key="feat1-tagline">Worked with Confetti's founder to design and execute a campaign that became the platform's highest-revenue engagement since its founding — $1.5M in transaction volume across 32 teams in 30 days.</div>
+        <div class="tags"><span class="tag" data-editable data-key="feat1-tag1">Growth</span><span class="tag" data-editable data-key="feat1-tag2">Network Leverage</span></div>
         <div class="case-expand">
-          <p data-editable data-key="feat1-body1">[Situation]</p>
-          <p data-editable data-key="feat1-body2">[Engagement]</p>
-          <p data-editable data-key="feat1-body3">[Outcome]</p>
+          <p data-editable data-key="feat1-body1">Confetti had a strong product — an onchain incentive platform operating across <strong>20+ blockchain ecosystems</strong> — but needed a flagship campaign to demonstrate its ceiling. The founder needed to prove the platform could <strong>move serious volume</strong>, generate meaningful adoption with a <strong>top-tier ecosystem partner</strong>, and establish a repeatable campaign format. The question was what kind of engagement would actually drive that.</p>
+          <p data-editable data-key="feat1-body2">The engagement: bring Confetti into <strong>Avalanche</strong> as the infrastructure for a 30-day onchain bracket tournament — <strong>32 ecosystem teams</strong> competing in daily head-to-head rounds on Confetti, community members voting with AVAX tokens, voters whose picks advanced receiving a share of the prize pool. The mechanic aligned adoption with outcome: projects competed for mindshare, voters competed for returns, and <strong>every round drove a new transaction cycle</strong> through Confetti's platform. The campaign design was built to maximize Confetti's transaction volume while giving Avalanche a credible, high-engagement community activation.</p>
+          <p data-editable data-key="feat1-body3">The campaign generated <strong>$1.5M in transaction volume over 30 days</strong> — the <strong>highest-revenue engagement in Confetti's history</strong>. For the founder, it established Confetti as the go-to infrastructure for ecosystem-scale incentive campaigns, created a <strong>replicable playbook for future chain partnerships</strong>, and delivered a reference case that any ecosystem partner could immediately understand.</p>
           <div class="case-metrics">
-            <div class="metric"><span class="metric-val" data-editable data-key="feat1-m1-val">—</span><span class="metric-label" data-editable data-key="feat1-m1-label">[metric]</span></div>
-            <div class="metric"><span class="metric-val" data-editable data-key="feat1-m2-val">—</span><span class="metric-label" data-editable data-key="feat1-m2-label">[metric]</span></div>
+            <div class="metric"><span class="metric-val" data-editable data-key="feat1-m1-val">$1.5M</span><span class="metric-label" data-editable data-key="feat1-m1-label">Distributed to voters</span></div>
+            <div class="metric"><span class="metric-val" data-editable data-key="feat1-m2-val">32</span><span class="metric-label" data-editable data-key="feat1-m2-label">Ecosystem teams · 30 days</span></div>
           </div>
+          <div class="case-url"><a href="https://confetti.win" target="_blank" rel="noopener noreferrer">confetti.win ↗</a></div>
         </div>
         <div class="expand-hint">↓ expand</div>
       </div>
@@ -932,6 +942,7 @@
           <p data-editable data-key="feat2-body1">[Situation]</p>
           <p data-editable data-key="feat2-body2">[Outcome]</p>
           <div class="case-metrics"><div class="metric"><span class="metric-val" data-editable data-key="feat2-m1-val">—</span><span class="metric-label" data-editable data-key="feat2-m1-label">[metric]</span></div></div>
+          <div class="case-url" data-editable data-key="feat2-url"><a href="#" target="_blank" rel="noopener noreferrer">[url]</a></div>
         </div>
         <div class="expand-hint">↓ expand</div>
       </div>
@@ -1045,10 +1056,10 @@
   <section id="work" class="section">
     <div class="section-label"><span class="section-label-text">Work</span></div>
     <p class="work-intro" data-editable data-key="work-intro">Selected engagements. Case studies reflect the range of work Bastille does — some are raise stories, some are business-problem stories, some are the full arc from pre-raise through close.</p>
-    <div class="case-item" onclick="handleCaseClick(event,this)"><div class="case-header"><div class="case-name" data-editable data-key="work1-name">[Company Name]</div><div class="case-year" data-editable data-key="work1-year">20XX</div></div><div class="case-tagline" data-editable data-key="work1-tagline">[One line]</div><div class="tags"><span class="tag" data-editable data-key="work1-tag1">[tag]</span><span class="tag" data-editable data-key="work1-tag2">[tag]</span></div><div class="case-expand"><p data-editable data-key="work1-body1">[Situation]</p><p data-editable data-key="work1-body2">[Engagement]</p><p data-editable data-key="work1-body3">[Outcome]</p><div class="case-metrics"><div class="metric"><span class="metric-val" data-editable data-key="work1-m1-val">—</span><span class="metric-label" data-editable data-key="work1-m1-label">[metric]</span></div><div class="metric"><span class="metric-val" data-editable data-key="work1-m2-val">—</span><span class="metric-label" data-editable data-key="work1-m2-label">[metric]</span></div></div></div><div class="expand-hint">↓ expand</div></div>
-    <div class="case-item" onclick="handleCaseClick(event,this)"><div class="case-header"><div class="case-name" data-editable data-key="work2-name">[Company Name]</div><div class="case-year" data-editable data-key="work2-year">20XX</div></div><div class="case-tagline" data-editable data-key="work2-tagline">[One line]</div><div class="tags"><span class="tag" data-editable data-key="work2-tag1">[tag]</span></div><div class="case-expand"><p data-editable data-key="work2-body1">[Situation]</p><p data-editable data-key="work2-body2">[Engagement and outcome]</p><div class="case-metrics"><div class="metric"><span class="metric-val" data-editable data-key="work2-m1-val">—</span><span class="metric-label" data-editable data-key="work2-m1-label">[metric]</span></div></div></div><div class="expand-hint">↓ expand</div></div>
-    <div class="case-item" onclick="handleCaseClick(event,this)"><div class="case-header"><div class="case-name" data-editable data-key="work3-name">[Company Name]</div><div class="case-year" data-editable data-key="work3-year">20XX</div></div><div class="case-tagline" data-editable data-key="work3-tagline">[One line]</div><div class="tags"><span class="tag" data-editable data-key="work3-tag1">[tag]</span></div><div class="case-expand"><p data-editable data-key="work3-body1">[Situation]</p><p data-editable data-key="work3-body2">[Engagement and outcome]</p><div class="case-metrics"><div class="metric"><span class="metric-val" data-editable data-key="work3-m1-val">—</span><span class="metric-label" data-editable data-key="work3-m1-label">[metric]</span></div></div></div><div class="expand-hint">↓ expand</div></div>
-    <div class="case-item" onclick="handleCaseClick(event,this)"><div class="case-header"><div class="case-name" data-editable data-key="work4-name">[Company Name]</div><div class="case-year" data-editable data-key="work4-year">20XX</div></div><div class="case-tagline" data-editable data-key="work4-tagline">[One line]</div><div class="tags"><span class="tag" data-editable data-key="work4-tag1">[tag]</span></div><div class="case-expand"><p data-editable data-key="work4-body1">[Situation]</p><p data-editable data-key="work4-body2">[Engagement and outcome]</p><div class="case-metrics"><div class="metric"><span class="metric-val" data-editable data-key="work4-m1-val">—</span><span class="metric-label" data-editable data-key="work4-m1-label">[metric]</span></div></div></div><div class="expand-hint">↓ expand</div></div>
+    <div class="case-item" onclick="handleCaseClick(event,this)"><div class="case-header"><div class="case-name" data-editable data-key="work1-name">[Company Name]</div><div class="case-year" data-editable data-key="work1-year">20XX</div></div><div class="case-tagline" data-editable data-key="work1-tagline">[One line]</div><div class="tags"><span class="tag" data-editable data-key="work1-tag1">[tag]</span><span class="tag" data-editable data-key="work1-tag2">[tag]</span></div><div class="case-expand"><p data-editable data-key="work1-body1">[Situation]</p><p data-editable data-key="work1-body2">[Engagement]</p><p data-editable data-key="work1-body3">[Outcome]</p><div class="case-metrics"><div class="metric"><span class="metric-val" data-editable data-key="work1-m1-val">—</span><span class="metric-label" data-editable data-key="work1-m1-label">[metric]</span></div><div class="metric"><span class="metric-val" data-editable data-key="work1-m2-val">—</span><span class="metric-label" data-editable data-key="work1-m2-label">[metric]</span></div></div><div class="case-url" data-editable data-key="work1-url"><a href="#" target="_blank" rel="noopener noreferrer">[url]</a></div></div><div class="expand-hint">↓ expand</div></div>
+    <div class="case-item" onclick="handleCaseClick(event,this)"><div class="case-header"><div class="case-name" data-editable data-key="work2-name">[Company Name]</div><div class="case-year" data-editable data-key="work2-year">20XX</div></div><div class="case-tagline" data-editable data-key="work2-tagline">[One line]</div><div class="tags"><span class="tag" data-editable data-key="work2-tag1">[tag]</span></div><div class="case-expand"><p data-editable data-key="work2-body1">[Situation]</p><p data-editable data-key="work2-body2">[Engagement and outcome]</p><div class="case-metrics"><div class="metric"><span class="metric-val" data-editable data-key="work2-m1-val">—</span><span class="metric-label" data-editable data-key="work2-m1-label">[metric]</span></div></div><div class="case-url" data-editable data-key="work2-url"><a href="#" target="_blank" rel="noopener noreferrer">[url]</a></div></div><div class="expand-hint">↓ expand</div></div>
+    <div class="case-item" onclick="handleCaseClick(event,this)"><div class="case-header"><div class="case-name" data-editable data-key="work3-name">[Company Name]</div><div class="case-year" data-editable data-key="work3-year">20XX</div></div><div class="case-tagline" data-editable data-key="work3-tagline">[One line]</div><div class="tags"><span class="tag" data-editable data-key="work3-tag1">[tag]</span></div><div class="case-expand"><p data-editable data-key="work3-body1">[Situation]</p><p data-editable data-key="work3-body2">[Engagement and outcome]</p><div class="case-metrics"><div class="metric"><span class="metric-val" data-editable data-key="work3-m1-val">—</span><span class="metric-label" data-editable data-key="work3-m1-label">[metric]</span></div></div><div class="case-url" data-editable data-key="work3-url"><a href="#" target="_blank" rel="noopener noreferrer">[url]</a></div></div><div class="expand-hint">↓ expand</div></div>
+    <div class="case-item" onclick="handleCaseClick(event,this)"><div class="case-header"><div class="case-name" data-editable data-key="work4-name">[Company Name]</div><div class="case-year" data-editable data-key="work4-year">20XX</div></div><div class="case-tagline" data-editable data-key="work4-tagline">[One line]</div><div class="tags"><span class="tag" data-editable data-key="work4-tag1">[tag]</span></div><div class="case-expand"><p data-editable data-key="work4-body1">[Situation]</p><p data-editable data-key="work4-body2">[Engagement and outcome]</p><div class="case-metrics"><div class="metric"><span class="metric-val" data-editable data-key="work4-m1-val">—</span><span class="metric-label" data-editable data-key="work4-m1-label">[metric]</span></div></div><div class="case-url" data-editable data-key="work4-url"><a href="#" target="_blank" rel="noopener noreferrer">[url]</a></div></div><div class="expand-hint">↓ expand</div></div>
   </section>
 
   <!-- ══ CONTACT ══ -->

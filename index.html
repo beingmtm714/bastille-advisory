@@ -646,16 +646,23 @@
     .principal-name { font-family: var(--font-hero); font-size: 1.25rem; letter-spacing: 0.07em; color: var(--white); }
     .principal-title { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
     .principal-bio { font-size: 1rem; font-weight: 400; color: var(--muted); line-height: 1.9; }
-    .provenance-full-list { display: flex; flex-direction: column; margin: 0 -36px; }
-    .provenance-full-item {
-      display: grid; grid-template-columns: 180px 1fr; gap: 0 40px;
-      padding: 20px 36px; border-bottom: 1px solid var(--border); align-items: start;
-      transition: border-color 0.15s;
+    .prov-logo-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 1px; background: var(--border); margin: 0 -36px;
     }
-    .provenance-full-item:first-child { border-top: 1px solid var(--border); }
-    .provenance-full-item:hover { border-bottom-color: var(--pink); }
-    .provenance-full-inst { font-family: var(--font-hero); font-size: 1.15rem; letter-spacing: 0.07em; color: var(--cream); padding-top: 2px; }
-    .provenance-full-desc { font-size: 1rem; font-weight: 400; color: var(--muted); line-height: 1.9; }
+    .prov-logo-card {
+      background: var(--night-2); padding: 28px 28px 24px;
+      display: flex; flex-direction: column;
+    }
+    .prov-logo-img { margin-bottom: 14px; }
+    .prov-logo-img img { max-height: 36px; max-width: 140px; object-fit: contain; object-position: left center; opacity: 0.85; display: block; }
+    .prov-logo-name { font-family: var(--font-hero); font-size: 1.2rem; letter-spacing: 0.08em; color: var(--cream); margin-bottom: 10px; }
+    .prov-logo-blurb { font-size: 0.88rem; font-weight: 400; color: var(--muted); line-height: 1.75; flex: 1; margin-bottom: 18px; }
+    .prov-logo-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+    .prov-tag { font-size: 0.52rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; padding: 3px 9px; }
+    .prov-tag-growth { background: var(--cobalt); color: var(--white); }
+    .prov-tag-narrative { background: var(--lime); color: var(--night); }
+    .prov-tag-raise { background: var(--pink); color: var(--white); }
     .provenance-footnote { font-size: 0.9rem; font-weight: 400; color: var(--muted); margin-top: 20px; font-style: italic; }
     .partners-placeholder {
       padding: 28px 30px; border: 1px solid var(--border); border-left: 4px solid rgba(255,0,102,0.35);
@@ -766,8 +773,8 @@
       .ap-phase-right { padding: 16px 24px 24px; }
       .prov-summary-list { margin: 0 -24px; }
       .prov-summary-item { padding: 18px 24px; grid-template-columns: 1fr; gap: 8px; }
-      .provenance-full-list { margin: 0 -24px; }
-      .provenance-full-item { padding: 20px 24px; grid-template-columns: 1fr; gap: 8px; }
+      .prov-logo-grid { margin: 0 -24px; grid-template-columns: 1fr; }
+      .prov-logo-card { padding: 24px 24px 20px; }
       .case-item { margin: 0 -24px; padding: 22px 24px; }
       .approach-note { margin: 40px -24px 0; padding: 24px 24px; }
       .principal-block { grid-template-columns: 1fr; gap: 8px; }
@@ -1038,11 +1045,44 @@
     </div>
     <div class="about-section">
       <div class="about-section-label">Where This Was Built</div>
-      <div class="provenance-full-list">
-        <div class="provenance-full-item"><div class="provenance-full-inst" data-editable data-key="prov4-inst">Avalanche</div><div class="provenance-full-desc" data-editable data-key="prov4-desc">Founded Codebase, the flagship Avalanche accelerator. Approximately 30 founder engagements across GTM execution, narrative, investor prep, and introductions — where Bastille's full model was proven at scale.</div></div>
-        <div class="provenance-full-item"><div class="provenance-full-inst" data-editable data-key="prov2-inst">SignalFire</div><div class="provenance-full-desc" data-editable data-key="prov2-desc">Embedded with AI-native founders at a top-tier Silicon Valley VC before the wave hit. Where fluency in how institutional investors evaluate companies was built.</div></div>
-        <div class="provenance-full-item"><div class="provenance-full-inst" data-editable data-key="prov3-inst">M13</div><div class="provenance-full-desc" data-editable data-key="prov3-desc">Developed BD strategy and narrative frameworks across a top-quartile fund portfolio. Where the systems-level methodology for helping founders articulate and execute was formalized.</div></div>
-        <div class="provenance-full-item"><div class="provenance-full-inst" data-editable data-key="prov1-inst">XPRIZE</div><div class="provenance-full-desc" data-editable data-key="prov1-desc">Built and ran the AI XPRIZE at the very start of the current AI era. Where the early-mover VC and AI founder network was established.</div></div>
+      <div class="prov-logo-grid">
+        <div class="prov-logo-card">
+          <div class="prov-logo-img"><img src="logos/avalanche.svg" alt="Avalanche"></div>
+          <div class="prov-logo-name" data-editable data-key="prov4-inst">Avalanche</div>
+          <div class="prov-logo-blurb" data-editable data-key="prov4-desc">Tier-1 blockchain ecosystem with verticals in enterprise, consumer, institutional finance, AI, and more.</div>
+          <div class="prov-logo-tags">
+            <span class="prov-tag prov-tag-growth">GROWTH</span>
+            <span class="prov-tag prov-tag-narrative">NARRATIVE</span>
+            <span class="prov-tag prov-tag-raise">RAISE</span>
+          </div>
+        </div>
+        <div class="prov-logo-card">
+          <div class="prov-logo-img"><img src="logos/signalfire.svg" alt="SignalFire"></div>
+          <div class="prov-logo-name" data-editable data-key="prov2-inst">SignalFire</div>
+          <div class="prov-logo-blurb" data-editable data-key="prov2-desc">Top-quartile AI-native venture firm with $4B AUM</div>
+          <div class="prov-logo-tags">
+            <span class="prov-tag prov-tag-growth">GROWTH</span>
+            <span class="prov-tag prov-tag-raise">RAISE</span>
+          </div>
+        </div>
+        <div class="prov-logo-card">
+          <div class="prov-logo-img"><img src="logos/m13.svg" alt="M13"></div>
+          <div class="prov-logo-name" data-editable data-key="prov3-inst">M13</div>
+          <div class="prov-logo-blurb" data-editable data-key="prov3-desc">Top-quartile venture firm with $1B AUM</div>
+          <div class="prov-logo-tags">
+            <span class="prov-tag prov-tag-narrative">NARRATIVE</span>
+            <span class="prov-tag prov-tag-raise">RAISE</span>
+          </div>
+        </div>
+        <div class="prov-logo-card">
+          <div class="prov-logo-img"><img src="logos/xprize.svg" alt="XPRIZE"></div>
+          <div class="prov-logo-name" data-editable data-key="prov1-inst">XPRIZE</div>
+          <div class="prov-logo-blurb" data-editable data-key="prov1-desc">The global leader in incentivized prize competitions to solve 'grand challenges'</div>
+          <div class="prov-logo-tags">
+            <span class="prov-tag prov-tag-growth">GROWTH</span>
+            <span class="prov-tag prov-tag-narrative">NARRATIVE</span>
+          </div>
+        </div>
       </div>
       <p class="provenance-footnote" data-editable data-key="prov-footnote">Bastille works with founders directly and with venture funds on behalf of their portfolio companies.</p>
     </div>

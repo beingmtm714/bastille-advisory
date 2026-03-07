@@ -636,6 +636,235 @@
     .approach-note strong { color: var(--white); font-weight: 600; }
 
     /* ══════════════════════════════════════════
+       SERVICES PREVIEW (home page)
+    ══════════════════════════════════════════ */
+    .services-preview { margin-bottom: 88px; }
+    .svc-preview-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border: 1px solid var(--border);
+      overflow: hidden;
+    }
+    .svc-preview-col {
+      padding: 28px 26px 32px;
+      border-right: 1px solid var(--border);
+    }
+    .svc-preview-col:last-child { border-right: none; }
+    .svc-preview-heading {
+      font-family: var(--font-hero);
+      font-size: 1.7rem;
+      letter-spacing: 0.08em;
+      margin-bottom: 18px;
+      line-height: 1;
+    }
+    .svc-col-growth  .svc-preview-heading { color: var(--cobalt-lt); }
+    .svc-col-narrative .svc-preview-heading { color: var(--lime); }
+    .svc-col-raise   .svc-preview-heading { color: var(--pink); }
+    .svc-preview-list { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+    .svc-preview-list li {
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--cream);
+      opacity: 0.55;
+      letter-spacing: 0.01em;
+      line-height: 1.3;
+      transition: opacity 0.15s, color 0.15s;
+      cursor: pointer;
+    }
+    .svc-preview-list li:hover { opacity: 1; }
+    .svc-col-growth   .svc-preview-list li:hover { color: var(--cobalt-lt); }
+    .svc-col-narrative .svc-preview-list li:hover { color: var(--lime); }
+    .svc-col-raise    .svc-preview-list li:hover { color: var(--pink-lt); }
+
+    /* ══════════════════════════════════════════
+       SERVICES PAGE — ENGAGEMENTS
+    ══════════════════════════════════════════ */
+    .svc-subsection-label {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 44px 0 18px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    .svc-engagements-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin-bottom: 8px;
+    }
+    .svc-engagement-card {
+      background: var(--night-2);
+      padding: 26px 24px 24px;
+      display: flex;
+      flex-direction: column;
+      transition: background 0.2s;
+    }
+    .svc-engagement-card:hover { background: var(--night-3); }
+    .svc-engagement-name {
+      font-family: var(--font-hero);
+      font-size: 1.35rem;
+      letter-spacing: 0.04em;
+      color: var(--cream);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .svc-engagement-meta {
+      font-size: 0.64rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+    .svc-engagement-meta .svc-price { color: var(--pink-lt); }
+    .svc-engagement-meta { display: flex; align-items: center; gap: 10px; }
+    .svc-engagement-pillar {
+      font-size: 0.55rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      padding: 2px 7px;
+      border-radius: 2px;
+      line-height: 1.6;
+    }
+    .svc-pillar-raise { background: rgba(255,0,102,0.15); color: var(--pink-lt); }
+    .svc-pillar-growth { background: rgba(66,104,255,0.15); color: var(--cobalt-lt); }
+    .svc-pillar-narrative { background: rgba(212,255,0,0.12); color: var(--lime); }
+    .svc-engagement-desc {
+      font-size: 0.76rem;
+      color: var(--cream);
+      opacity: 0.45;
+      font-weight: 300;
+      line-height: 1.65;
+      margin-bottom: 12px;
+    }
+    .svc-engagement-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      margin-bottom: 20px;
+      flex: 1;
+    }
+    .svc-engagement-bullets li {
+      font-size: 0.72rem;
+      color: var(--cream);
+      opacity: 0.48;
+      font-weight: 300;
+      line-height: 1.5;
+      padding-left: 14px;
+      position: relative;
+    }
+    .svc-engagement-bullets li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--border-lt);
+    }
+    .svc-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--cream);
+      text-decoration: none;
+      border: none;
+      border-bottom: 1px solid var(--border-lt);
+      padding-bottom: 2px;
+      cursor: pointer;
+      transition: color 0.15s, border-color 0.15s;
+      background: none;
+      width: fit-content;
+      margin-top: auto;
+    }
+    .svc-btn:hover { color: var(--pink-lt); border-color: var(--pink); }
+    .svc-btn--book { color: var(--pink-lt); border-color: rgba(255,51,133,0.4); }
+    .svc-btn--book:hover { color: var(--pink); border-color: var(--pink); }
+
+    /* ══════════════════════════════════════════
+       SERVICES PAGE — ONE-OFFS
+    ══════════════════════════════════════════ */
+    .svc-oneoffs-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin-bottom: 8px;
+    }
+    .svc-oneoff-card {
+      background: var(--night);
+      padding: 22px 20px 22px;
+      display: flex;
+      flex-direction: column;
+      transition: background 0.2s;
+      position: relative;
+    }
+    .svc-oneoff-card:hover { background: var(--night-2); }
+    .svc-oneoff-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 2px;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+    .svc-oneoff-card[data-pillar="narrative"]::after { background: var(--lime); }
+    .svc-oneoff-card[data-pillar="raise"]::after    { background: var(--pink); }
+    .svc-oneoff-card[data-pillar="growth"]::after   { background: var(--cobalt-lt); }
+    .svc-oneoff-card:hover::after { transform: scaleX(1); }
+    .svc-oneoff-tag {
+      font-size: 0.54rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .svc-oneoff-tag--narrative { color: var(--lime); opacity: 0.75; }
+    .svc-oneoff-tag--raise     { color: var(--pink-lt); opacity: 0.75; }
+    .svc-oneoff-tag--growth    { color: var(--cobalt-lt); opacity: 0.75; }
+    [data-pillar="narrative"] .svc-oneoff-tag { color: var(--lime); opacity: 0.75; }
+    [data-pillar="raise"]     .svc-oneoff-tag { color: var(--pink-lt); opacity: 0.75; }
+    [data-pillar="growth"]    .svc-oneoff-tag { color: var(--cobalt-lt); opacity: 0.75; }
+    .svc-oneoff-name {
+      font-family: var(--font-hero);
+      font-size: 1.1rem;
+      letter-spacing: 0.04em;
+      color: var(--cream);
+      line-height: 1;
+      margin-bottom: 7px;
+    }
+    .svc-oneoff-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+    .svc-oneoff-price { color: var(--cream); opacity: 0.85; }
+    .svc-oneoff-desc {
+      font-size: 0.72rem;
+      color: var(--cream);
+      opacity: 0.45;
+      font-weight: 300;
+      line-height: 1.62;
+      flex: 1;
+      margin-bottom: 14px;
+    }
+
+    /* ══════════════════════════════════════════
        ABOUT PAGE
     ══════════════════════════════════════════ */
     .about-section { margin-bottom: 60px; }
@@ -858,7 +1087,7 @@
       </div>
       <nav>
         <a class="active" onclick="show('home',this)">Home</a>
-        <a onclick="show('approach',this)">Approach</a>
+        <a onclick="show('approach',this)">Services</a>
         <a onclick="show('about',this)">About</a>
         <a onclick="show('work',this)">Work</a>
         <a onclick="show('contact',this)">Contact</a>
@@ -909,30 +1138,38 @@
       </div>
     </div>
 
-    <div class="approach-summary">
+    <div class="services-preview">
       <div class="section-label">
-        <span class="section-label-text">The Approach</span>
-        <a class="section-label-link" onclick="show('approach',document.querySelector('nav a:nth-child(2)'))">Full approach →</a>
+        <span class="section-label-text">Services</span>
+        <a class="section-label-link" onclick="show('approach',document.querySelector('nav a:nth-child(2)'))">All services →</a>
       </div>
-      <p class="phase-list-intro">Each phase is available as a standalone engagement, in combination, or as a full arc end to end.</p>
-      <div class="phase-card-list">
-        <div class="phase-card">
-          <span class="phase-card-num">01</span>
-          <div class="phase-card-name" data-editable data-key="ps-name1">Define Milestones</div>
-          <div class="phase-card-desc" data-editable data-key="ps-desc1">The bar is set by investors — not guesswork. We go to the source: VC conversations, category research, and comps to map the milestones — growth, retention, CAC, TVL — your vertical requires right now.</div>
-          <div class="phase-card-deliverable">Fundable milestone set</div>
+      <div class="svc-preview-grid">
+        <div class="svc-preview-col svc-col-growth">
+          <div class="svc-preview-heading">GROWTH</div>
+          <ul class="svc-preview-list">
+            <li>The Revenue Sprint</li>
+            <li>The Ecosystem Play</li>
+            <li>The Competitive Map</li>
+            <li>The Metrics Session</li>
+          </ul>
         </div>
-        <div class="phase-card">
-          <span class="phase-card-num">02</span>
-          <div class="phase-card-name" data-editable data-key="ps-name2">Close the Gaps</div>
-          <div class="phase-card-desc" data-editable data-key="ps-desc2">Refine GTM and product strategy. Run the experiments that close the gap between where you are and where investors need to see you. Build deck and data room around the metrics — not the other way around.</div>
-          <div class="phase-card-deliverable">Metric story + materials ready</div>
+        <div class="svc-preview-col svc-col-narrative">
+          <div class="svc-preview-heading">NARRATIVE</div>
+          <ul class="svc-preview-list">
+            <li>The Deck Rebuild</li>
+            <li>The Story Fix</li>
+            <li>The Demo Day Build</li>
+            <li>The Cold Stack</li>
+          </ul>
         </div>
-        <div class="phase-card">
-          <span class="phase-card-num">03</span>
-          <div class="phase-card-name" data-editable data-key="ps-name3">Run the Process</div>
-          <div class="phase-card-desc" data-editable data-key="ps-desc3">Targeted investor map for your category and stage. Warm intros when you're ready — not before. Structured conversations with feedback loops, so you know where you stand and what it takes to close.</div>
-          <div class="phase-card-deliverable">Intros + process through close</div>
+        <div class="svc-preview-col svc-col-raise">
+          <div class="svc-preview-heading">RAISE</div>
+          <ul class="svc-preview-list">
+            <li>The Pre-Seed Sprint</li>
+            <li>The Seed Prep</li>
+            <li>The Standing Retainer</li>
+            <li>The Investor Read</li>
+          </ul>
         </div>
       </div>
     </div>
@@ -976,66 +1213,134 @@
 
   <!-- ══ APPROACH ══ -->
   <section id="approach" class="section">
-    <div class="section-label"><span class="section-label-text">Approach</span></div>
-    <p class="approach-intro" data-editable data-key="approach-intro">Bastille's model is built on a simple observation: <strong>the founders who raise successfully are the ones who knew what investors needed to see — and built toward it before the process opened.</strong> Most advisory enters at the deck. By then, the gaps are already visible. Bastille enters earlier — and does the work alongside you through close. The three phases below map the full arc. Most engagements focus on one or two — scoped to where the leverage is. This playbook wasn't built advising startups. It was built <em>embedded with AI-native founders at SignalFire before the wave hit, building BD and narrative systems across a fund portfolio at M13, and running protocol-level ecosystem growth at Avalanche.</em> That's the lens individual companies get access to.</p>
-    <div class="ap-phase-card">
-      <div class="ap-phase-left">
-        <div class="ap-phase-big-num">01</div>
-        <div class="ap-phase-week-label" data-editable data-key="ap-num1">Weeks 1–2</div>
-        <div class="ap-phase-title" data-editable data-key="ap-name1">Define Milestones</div>
+    <div class="section-label"><span class="section-label-text">Services</span></div>
+    <p class="approach-intro" data-editable data-key="approach-intro">Bastille's model is built on a simple observation: <strong>the founders who raise successfully are the ones who knew what investors needed to see — and built toward it before the process opened.</strong> Most advisory enters at the deck. By then, the gaps are already visible. Bastille enters earlier — and does the work alongside you through close. This playbook wasn't built advising startups. It was built <em>embedded with AI-native founders at SignalFire before the wave hit, building BD and narrative systems across a fund portfolio at M13, and running protocol-level ecosystem growth at Avalanche.</em> That's the lens individual companies get access to.</p>
+
+    <div class="svc-subsection-label">Full Engagements</div>
+    <div class="svc-engagements-grid">
+
+      <div class="svc-engagement-card">
+        <div class="svc-engagement-name">The Pre-Seed Sprint</div>
+        <div class="svc-engagement-meta"><span class="svc-engagement-pillar svc-pillar-raise">RAISE</span><span>4 weeks</span></div>
+        <div class="svc-price">from $8,500</div>
+        <div class="svc-engagement-desc">End-to-end raise readiness. Investor milestone mapping, narrative build, materials, and process launch — for founders who need to get ready <em>and</em> run it.</div>
+        <ul class="svc-engagement-bullets">
+          <li>Investor expectations research</li>
+          <li>Deck + data room</li>
+          <li>Investor targeting + warm intros</li>
+          <li>Process launch</li>
+        </ul>
+        <a class="svc-btn" onclick="show('contact',document.querySelector('nav a:last-child'))">Inquire →</a>
       </div>
-      <div class="ap-phase-right">
-        <div class="ap-phase-services">
-          <div class="ap-service-row">
-            <div class="ap-service-name" data-editable data-key="ap-svc1-name">Investor Expectations Mapping</div>
-            <div class="ap-service-desc" data-editable data-key="ap-svc1-desc">What does "good enough to raise" look like in your specific category right now? <strong>Most founders answer this wrong</strong> — because they're defining the bar themselves instead of going to the people who set it. We source the answer directly: VC conversations across your category, combined with industry comps and current deal data, to map the specific metrics — growth, retention, CAC, TVL — that investors are actually underwriting at your stage. <em>You leave with a clear, defensible milestone set and an honest read on where you stand against it.</em></div>
-          </div>
-          <div class="ap-service-row">
-            <div class="ap-service-name" data-editable data-key="ap-svc2-name">Round Targeting</div>
-            <div class="ap-service-desc" data-editable data-key="ap-svc2-desc">Round size, structure, and the investor profile that makes sense for your stage and category. Built around what you can actually get to, <strong>not what looks good on paper.</strong> <em>You leave with a grounded, specific fundraise target.</em></div>
-          </div>
-        </div>
+
+      <div class="svc-engagement-card">
+        <div class="svc-engagement-name">The Seed Prep</div>
+        <div class="svc-engagement-meta"><span class="svc-engagement-pillar svc-pillar-raise">RAISE</span><span>3 weeks</span></div>
+        <div class="svc-price">from $6,000</div>
+        <div class="svc-engagement-desc">For founders already in the market — or close. Sharpen the narrative, tighten the materials, and structure the process before it stalls.</div>
+        <ul class="svc-engagement-bullets">
+          <li>Deck review + rebuild</li>
+          <li>Data room</li>
+          <li>Investor map + process structure</li>
+        </ul>
+        <a class="svc-btn" onclick="show('contact',document.querySelector('nav a:last-child'))">Inquire →</a>
       </div>
+
+      <div class="svc-engagement-card">
+        <div class="svc-engagement-name">The Standing Retainer</div>
+        <div class="svc-engagement-meta"><span class="svc-engagement-pillar svc-pillar-raise">RAISE</span><span>Ongoing</span></div>
+        <div class="svc-price">$2,500/month</div>
+        <div class="svc-engagement-desc">Ongoing advisory for founders who need a steady hand — on narrative, positioning, investor comms, or strategic decisions as they come up.</div>
+        <a class="svc-btn" onclick="show('contact',document.querySelector('nav a:last-child'))">Inquire →</a>
+      </div>
+
+      <div class="svc-engagement-card">
+        <div class="svc-engagement-name">The One Thing</div>
+        <div class="svc-engagement-meta"><span class="svc-engagement-pillar svc-pillar-growth">GROWTH</span><span>1 week</span></div>
+        <div class="svc-price">$3,500</div>
+        <div class="svc-engagement-desc">One focused problem, solved in a week. Bring the constraint — the deck, the metric story, a pitch, the next move — and we go deep on it.</div>
+        <a class="svc-btn" onclick="show('contact',document.querySelector('nav a:last-child'))">Inquire →</a>
+      </div>
+
+      <div class="svc-engagement-card">
+        <div class="svc-engagement-name">The Revenue Sprint</div>
+        <div class="svc-engagement-meta"><span class="svc-engagement-pillar svc-pillar-growth">GROWTH</span><span>2 weeks</span></div>
+        <div class="svc-price">$2,000 + 10%</div>
+        <div class="svc-engagement-desc">Two weeks of embedded GTM execution. ICP refinement, outreach sequencing, and live experiments designed to generate traction that holds up in diligence.</div>
+        <a class="svc-btn" onclick="show('contact',document.querySelector('nav a:last-child'))">Inquire →</a>
+      </div>
+
+      <div class="svc-engagement-card">
+        <div class="svc-engagement-name">The Ecosystem Play</div>
+        <div class="svc-engagement-meta"><span class="svc-engagement-pillar svc-pillar-growth">GROWTH</span><span>1 month</span></div>
+        <div class="svc-price">from $4,000</div>
+        <div class="svc-engagement-desc">Protocol-level ecosystem development. BD positioning, partner targeting, integration narratives, and relationship activation across the networks that move your category.</div>
+        <a class="svc-btn" onclick="show('contact',document.querySelector('nav a:last-child'))">Inquire →</a>
+      </div>
+
     </div>
-    <div class="ap-phase-card">
-      <div class="ap-phase-left">
-        <div class="ap-phase-big-num">02</div>
-        <div class="ap-phase-week-label" data-editable data-key="ap-num2">Weeks 3–5</div>
-        <div class="ap-phase-title" data-editable data-key="ap-name2">Close the Gaps</div>
+
+    <div class="svc-subsection-label">One-Off Services</div>
+    <div class="svc-oneoffs-grid">
+
+      <div class="svc-oneoff-card" data-pillar="narrative">
+        <div class="svc-oneoff-tag">NARRATIVE</div>
+        <div class="svc-oneoff-name">The Deck Rebuild</div>
+        <div class="svc-oneoff-meta"><span>3 days</span><span class="svc-oneoff-price">$2,200</span></div>
+        <div class="svc-oneoff-desc">From-scratch narrative build. Structure, story, and slides rebuilt around what investors pattern-match for in your specific category right now.</div>
+        <a class="svc-btn svc-btn--book" onclick="show('contact',document.querySelector('nav a:last-child'))">Book this →</a>
       </div>
-      <div class="ap-phase-right">
-        <div class="ap-phase-services">
-          <div class="ap-service-row">
-            <div class="ap-service-name" data-editable data-key="ap-svc3-name">GTM & Product Strategy Execution</div>
-            <div class="ap-service-desc" data-editable data-key="ap-svc3-desc"><strong>This isn't advice you implement on your own.</strong> Bastille works alongside the team — refining ICP, sequencing outreach, pressure-testing positioning, designing and running the experiments that close the gap between where you are and where investors need to see you. Warm intros to vetted dev, design, and tokenomics partners when needed. <em>You leave with a GTM motion actively running and a metric story that holds up in diligence.</em></div>
-          </div>
-          <div class="ap-service-row">
-            <div class="ap-service-name" data-editable data-key="ap-svc4-name">Narrative & Materials</div>
-            <div class="ap-service-desc" data-editable data-key="ap-svc4-desc">Deck and data room built around the metrics — <strong>not the other way around.</strong> Narrative rebuilt from first principles when needed: what the company is, why now, what traction means in this context. <strong>VC-insider input</strong> on what investors are actually pattern-matching for. <em>You leave with materials that are ready to go out.</em></div>
-          </div>
-        </div>
+
+      <div class="svc-oneoff-card" data-pillar="narrative">
+        <div class="svc-oneoff-tag">NARRATIVE</div>
+        <div class="svc-oneoff-name">The Story Fix</div>
+        <div class="svc-oneoff-meta"><span>1 day</span><span class="svc-oneoff-price">$800</span></div>
+        <div class="svc-oneoff-desc">One-day intensive on the core narrative problem — whether it's positioning, the why-now, or what traction means in this context.</div>
+        <a class="svc-btn svc-btn--book" onclick="show('contact',document.querySelector('nav a:last-child'))">Book this →</a>
       </div>
+
+      <div class="svc-oneoff-card" data-pillar="narrative">
+        <div class="svc-oneoff-tag">NARRATIVE</div>
+        <div class="svc-oneoff-name">The Demo Day Build</div>
+        <div class="svc-oneoff-meta"><span>1 week</span><span class="svc-oneoff-price">$2,800</span></div>
+        <div class="svc-oneoff-desc">Demo day pitch built from the ground up: story arc, slide sequence, and delivery prep designed to create urgency in the room.</div>
+        <a class="svc-btn svc-btn--book" onclick="show('contact',document.querySelector('nav a:last-child'))">Book this →</a>
+      </div>
+
+      <div class="svc-oneoff-card" data-pillar="narrative">
+        <div class="svc-oneoff-tag">NARRATIVE</div>
+        <div class="svc-oneoff-name">The Cold Stack</div>
+        <div class="svc-oneoff-meta"><span>2 days</span><span class="svc-oneoff-price">$1,200</span></div>
+        <div class="svc-oneoff-desc">Investor cold outreach system: subject lines, intro sequences, and follow-up cadence built for your round and category.</div>
+        <a class="svc-btn svc-btn--book" onclick="show('contact',document.querySelector('nav a:last-child'))">Book this →</a>
+      </div>
+
+      <div class="svc-oneoff-card" data-pillar="raise">
+        <div class="svc-oneoff-tag">RAISE</div>
+        <div class="svc-oneoff-name">The Investor Read</div>
+        <div class="svc-oneoff-meta"><span>2 days</span><span class="svc-oneoff-price">$1,500</span></div>
+        <div class="svc-oneoff-desc">A category-level read on what investors are actually underwriting right now — metrics, narrative, comps — so you know exactly where the bar is before you go out.</div>
+        <a class="svc-btn svc-btn--book" onclick="show('contact',document.querySelector('nav a:last-child'))">Book this →</a>
+      </div>
+
+      <div class="svc-oneoff-card" data-pillar="raise">
+        <div class="svc-oneoff-tag">RAISE</div>
+        <div class="svc-oneoff-name">The Metrics Session</div>
+        <div class="svc-oneoff-meta"><span>Half day</span><span class="svc-oneoff-price">$650</span></div>
+        <div class="svc-oneoff-desc">A focused session on the metric story: what to lead with, how to frame momentum, and where the current numbers have the most leverage.</div>
+        <a class="svc-btn svc-btn--book" onclick="show('contact',document.querySelector('nav a:last-child'))">Book this →</a>
+      </div>
+
+      <div class="svc-oneoff-card" data-pillar="growth">
+        <div class="svc-oneoff-tag">GROWTH</div>
+        <div class="svc-oneoff-name">The Competitive Map</div>
+        <div class="svc-oneoff-meta"><span>3 days</span><span class="svc-oneoff-price">$1,800</span></div>
+        <div class="svc-oneoff-desc">Competitive landscape mapped from a VC lens. Positioning, differentiation, and how to tell the story of your category in a way that makes the opportunity obvious.</div>
+        <a class="svc-btn svc-btn--book" onclick="show('contact',document.querySelector('nav a:last-child'))">Book this →</a>
+      </div>
+
     </div>
-    <div class="ap-phase-card">
-      <div class="ap-phase-left">
-        <div class="ap-phase-big-num">03</div>
-        <div class="ap-phase-week-label" data-editable data-key="ap-num3">Weeks 6–8</div>
-        <div class="ap-phase-title" data-editable data-key="ap-name3">Run the Process</div>
-      </div>
-      <div class="ap-phase-right">
-        <div class="ap-phase-services">
-          <div class="ap-service-row">
-            <div class="ap-service-name" data-editable data-key="ap-svc5-name">Investor Map & Warm Intros</div>
-            <div class="ap-service-desc" data-editable data-key="ap-svc5-desc">A targeted list of the right investors for your category, stage, and round size — <strong>not a spray.</strong> Warm introductions into top-tier VCs and angels across AI, crypto, and traditional venture. Intros go out <strong>when the business is ready, not before.</strong> <em>The network is the starting point. The preparation converts it.</em></div>
-          </div>
-          <div class="ap-service-row">
-            <div class="ap-service-name" data-editable data-key="ap-svc6-name">Process Management</div>
-            <div class="ap-service-desc" data-editable data-key="ap-svc6-desc">Structured conversations designed to <strong>build conviction, not just friendly interest.</strong> Feedback loops that tell you where you actually stand. Process managed through close — so <strong>momentum doesn't die between meetings.</strong> <em>You leave knowing exactly where each investor is and why.</em></div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="approach-note" data-editable data-key="approach-note"><strong>On engagements:</strong> The phases above map the full arc — but engagements don't have to. Some founders come in at 01 and run through close. Others need one piece: <strong>GTM execution</strong>, narrative, investor outreach, or process management. Work is scoped to where you are. Typically 6–8 weeks. Bastille takes a limited number of clients at any given time.</div>
+    <div class="approach-note" data-editable data-key="approach-note"><strong>On engagements:</strong> Work is scoped to where you are and where the leverage is. Some founders need the full arc — milestone mapping through close. Others need one piece. Bastille takes a limited number of clients at any given time.</div>
   </section>
 
   <!-- ══ ABOUT ══ -->

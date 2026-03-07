@@ -1149,28 +1149,28 @@
         <div class="svc-preview-col svc-col-growth">
           <div class="svc-preview-heading">GROWTH</div>
           <ul class="svc-preview-list">
-            <li onclick="show('approach',document.querySelector('nav a:nth-child(2)'))">The Revenue Sprint</li>
-            <li onclick="show('approach',document.querySelector('nav a:nth-child(2)'))">The Ecosystem Play</li>
-            <li onclick="show('approach',document.querySelector('nav a:nth-child(2)'))">The Competitive Map</li>
-            <li onclick="show('approach',document.querySelector('nav a:nth-child(2)'))">The Metrics Session</li>
+            <li onclick="show('approach',document.querySelector('nav a:nth-child(2)')); setTimeout(()=>document.getElementById('svc-revenue-sprint').scrollIntoView({behavior:'smooth',block:'center'}),80)">The Revenue Sprint</li>
+            <li onclick="show('approach',document.querySelector('nav a:nth-child(2)')); setTimeout(()=>document.getElementById('svc-ecosystem-play').scrollIntoView({behavior:'smooth',block:'center'}),80)">The Ecosystem Play</li>
+            <li onclick="show('approach',document.querySelector('nav a:nth-child(2)')); setTimeout(()=>document.getElementById('svc-competitive-map').scrollIntoView({behavior:'smooth',block:'center'}),80)">The Competitive Map</li>
+            <li onclick="show('approach',document.querySelector('nav a:nth-child(2)')); setTimeout(()=>document.getElementById('svc-metrics-session').scrollIntoView({behavior:'smooth',block:'center'}),80)">The Metrics Session</li>
           </ul>
         </div>
         <div class="svc-preview-col svc-col-narrative">
           <div class="svc-preview-heading">NARRATIVE</div>
           <ul class="svc-preview-list">
-            <li onclick="show('approach',document.querySelector('nav a:nth-child(2)'))">The Deck Rebuild</li>
-            <li onclick="show('approach',document.querySelector('nav a:nth-child(2)'))">The Story Fix</li>
-            <li onclick="show('approach',document.querySelector('nav a:nth-child(2)'))">The Demo Day Build</li>
-            <li onclick="show('approach',document.querySelector('nav a:nth-child(2)'))">The Cold Stack</li>
+            <li onclick="show('approach',document.querySelector('nav a:nth-child(2)')); setTimeout(()=>document.getElementById('svc-deck-rebuild').scrollIntoView({behavior:'smooth',block:'center'}),80)">The Deck Rebuild</li>
+            <li onclick="show('approach',document.querySelector('nav a:nth-child(2)')); setTimeout(()=>document.getElementById('svc-story-fix').scrollIntoView({behavior:'smooth',block:'center'}),80)">The Story Fix</li>
+            <li onclick="show('approach',document.querySelector('nav a:nth-child(2)')); setTimeout(()=>document.getElementById('svc-demo-day-build').scrollIntoView({behavior:'smooth',block:'center'}),80)">The Demo Day Build</li>
+            <li onclick="show('approach',document.querySelector('nav a:nth-child(2)')); setTimeout(()=>document.getElementById('svc-cold-stack').scrollIntoView({behavior:'smooth',block:'center'}),80)">The Cold Stack</li>
           </ul>
         </div>
         <div class="svc-preview-col svc-col-raise">
           <div class="svc-preview-heading">RAISE</div>
           <ul class="svc-preview-list">
-            <li onclick="show('approach',document.querySelector('nav a:nth-child(2)'))">The Pre-Seed Sprint</li>
-            <li onclick="show('approach',document.querySelector('nav a:nth-child(2)'))">The Seed Prep</li>
-            <li onclick="show('approach',document.querySelector('nav a:nth-child(2)'))">The Standing Retainer</li>
-            <li onclick="show('approach',document.querySelector('nav a:nth-child(2)'))">The Investor Read</li>
+            <li onclick="show('approach',document.querySelector('nav a:nth-child(2)')); setTimeout(()=>document.getElementById('svc-pre-seed-sprint').scrollIntoView({behavior:'smooth',block:'center'}),80)">The Pre-Seed Sprint</li>
+            <li onclick="show('approach',document.querySelector('nav a:nth-child(2)')); setTimeout(()=>document.getElementById('svc-seed-prep').scrollIntoView({behavior:'smooth',block:'center'}),80)">The Seed Prep</li>
+            <li onclick="show('approach',document.querySelector('nav a:nth-child(2)')); setTimeout(()=>document.getElementById('svc-standing-retainer').scrollIntoView({behavior:'smooth',block:'center'}),80)">The Standing Retainer</li>
+            <li onclick="show('approach',document.querySelector('nav a:nth-child(2)')); setTimeout(()=>document.getElementById('svc-investor-read').scrollIntoView({behavior:'smooth',block:'center'}),80)">The Investor Read</li>
           </ul>
         </div>
       </div>
@@ -1221,7 +1221,7 @@
     <div class="svc-subsection-label">Full Engagements</div>
     <div class="svc-engagements-grid">
 
-      <div class="svc-engagement-card">
+      <div class="svc-engagement-card" id="svc-pre-seed-sprint">
         <div class="svc-engagement-name">The Pre-Seed Sprint</div>
         <div class="svc-engagement-meta"><span class="svc-engagement-pillar svc-pillar-raise">RAISE</span><span>4 weeks</span></div>
         <div class="svc-price">from $8,500</div>
@@ -1235,7 +1235,7 @@
         <a class="svc-btn" onclick="show('contact',document.querySelector('nav a:last-child'))">Inquire →</a>
       </div>
 
-      <div class="svc-engagement-card">
+      <div class="svc-engagement-card" id="svc-seed-prep">
         <div class="svc-engagement-name">The Seed Prep</div>
         <div class="svc-engagement-meta"><span class="svc-engagement-pillar svc-pillar-raise">RAISE</span><span>3 weeks</span></div>
         <div class="svc-price">from $6,000</div>
@@ -1248,7 +1248,7 @@
         <a class="svc-btn" onclick="show('contact',document.querySelector('nav a:last-child'))">Inquire →</a>
       </div>
 
-      <div class="svc-engagement-card">
+      <div class="svc-engagement-card" id="svc-standing-retainer">
         <div class="svc-engagement-name">The Standing Retainer</div>
         <div class="svc-engagement-meta"><span class="svc-engagement-pillar svc-pillar-raise">RAISE</span><span>Ongoing</span></div>
         <div class="svc-price">$2,500/month</div>
@@ -1256,7 +1256,7 @@
         <a class="svc-btn" onclick="show('contact',document.querySelector('nav a:last-child'))">Inquire →</a>
       </div>
 
-      <div class="svc-engagement-card">
+      <div class="svc-engagement-card" id="svc-one-thing">
         <div class="svc-engagement-name">The One Thing</div>
         <div class="svc-engagement-meta"><span class="svc-engagement-pillar svc-pillar-growth">GROWTH</span><span>1 week</span></div>
         <div class="svc-price">$3,500</div>
@@ -1264,7 +1264,7 @@
         <a class="svc-btn" onclick="show('contact',document.querySelector('nav a:last-child'))">Inquire →</a>
       </div>
 
-      <div class="svc-engagement-card">
+      <div class="svc-engagement-card" id="svc-revenue-sprint">
         <div class="svc-engagement-name">The Revenue Sprint</div>
         <div class="svc-engagement-meta"><span class="svc-engagement-pillar svc-pillar-growth">GROWTH</span><span>2 weeks</span></div>
         <div class="svc-price">$2,000 + 10%</div>
@@ -1272,7 +1272,7 @@
         <a class="svc-btn" onclick="show('contact',document.querySelector('nav a:last-child'))">Inquire →</a>
       </div>
 
-      <div class="svc-engagement-card">
+      <div class="svc-engagement-card" id="svc-ecosystem-play">
         <div class="svc-engagement-name">The Ecosystem Play</div>
         <div class="svc-engagement-meta"><span class="svc-engagement-pillar svc-pillar-growth">GROWTH</span><span>1 month</span></div>
         <div class="svc-price">from $4,000</div>
@@ -1285,7 +1285,7 @@
     <div class="svc-subsection-label">One-Off Services</div>
     <div class="svc-oneoffs-grid">
 
-      <div class="svc-oneoff-card" data-pillar="narrative">
+      <div class="svc-oneoff-card" id="svc-deck-rebuild" data-pillar="narrative">
         <div class="svc-oneoff-tag">NARRATIVE</div>
         <div class="svc-oneoff-name">The Deck Rebuild</div>
         <div class="svc-oneoff-meta"><span>3 days</span><span class="svc-oneoff-price">$2,200</span></div>
@@ -1293,7 +1293,7 @@
         <a class="svc-btn svc-btn--book" onclick="show('contact',document.querySelector('nav a:last-child'))">Book this →</a>
       </div>
 
-      <div class="svc-oneoff-card" data-pillar="narrative">
+      <div class="svc-oneoff-card" id="svc-story-fix" data-pillar="narrative">
         <div class="svc-oneoff-tag">NARRATIVE</div>
         <div class="svc-oneoff-name">The Story Fix</div>
         <div class="svc-oneoff-meta"><span>1 day</span><span class="svc-oneoff-price">$800</span></div>
@@ -1301,7 +1301,7 @@
         <a class="svc-btn svc-btn--book" onclick="show('contact',document.querySelector('nav a:last-child'))">Book this →</a>
       </div>
 
-      <div class="svc-oneoff-card" data-pillar="narrative">
+      <div class="svc-oneoff-card" id="svc-demo-day-build" data-pillar="narrative">
         <div class="svc-oneoff-tag">NARRATIVE</div>
         <div class="svc-oneoff-name">The Demo Day Build</div>
         <div class="svc-oneoff-meta"><span>1 week</span><span class="svc-oneoff-price">$2,800</span></div>
@@ -1309,7 +1309,7 @@
         <a class="svc-btn svc-btn--book" onclick="show('contact',document.querySelector('nav a:last-child'))">Book this →</a>
       </div>
 
-      <div class="svc-oneoff-card" data-pillar="narrative">
+      <div class="svc-oneoff-card" id="svc-cold-stack" data-pillar="narrative">
         <div class="svc-oneoff-tag">NARRATIVE</div>
         <div class="svc-oneoff-name">The Cold Stack</div>
         <div class="svc-oneoff-meta"><span>2 days</span><span class="svc-oneoff-price">$1,200</span></div>
@@ -1317,7 +1317,7 @@
         <a class="svc-btn svc-btn--book" onclick="show('contact',document.querySelector('nav a:last-child'))">Book this →</a>
       </div>
 
-      <div class="svc-oneoff-card" data-pillar="raise">
+      <div class="svc-oneoff-card" id="svc-investor-read" data-pillar="raise">
         <div class="svc-oneoff-tag">RAISE</div>
         <div class="svc-oneoff-name">The Investor Read</div>
         <div class="svc-oneoff-meta"><span>2 days</span><span class="svc-oneoff-price">$1,500</span></div>
@@ -1325,7 +1325,7 @@
         <a class="svc-btn svc-btn--book" onclick="show('contact',document.querySelector('nav a:last-child'))">Book this →</a>
       </div>
 
-      <div class="svc-oneoff-card" data-pillar="raise">
+      <div class="svc-oneoff-card" id="svc-metrics-session" data-pillar="raise">
         <div class="svc-oneoff-tag">RAISE</div>
         <div class="svc-oneoff-name">The Metrics Session</div>
         <div class="svc-oneoff-meta"><span>Half day</span><span class="svc-oneoff-price">$650</span></div>
@@ -1333,7 +1333,7 @@
         <a class="svc-btn svc-btn--book" onclick="show('contact',document.querySelector('nav a:last-child'))">Book this →</a>
       </div>
 
-      <div class="svc-oneoff-card" data-pillar="growth">
+      <div class="svc-oneoff-card" id="svc-competitive-map" data-pillar="growth">
         <div class="svc-oneoff-tag">GROWTH</div>
         <div class="svc-oneoff-name">The Competitive Map</div>
         <div class="svc-oneoff-meta"><span>3 days</span><span class="svc-oneoff-price">$1,800</span></div>

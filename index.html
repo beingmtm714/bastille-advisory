@@ -1087,11 +1087,11 @@
         <span class="logo-sub">Advisory</span>
       </div>
       <nav>
-        <a class="active" onclick="show('home',this)">Home</a>
-        <a onclick="show('approach',this)">Services</a>
-        <a onclick="show('about',this)">About</a>
-        <a onclick="show('work',this)">Work</a>
-        <a onclick="show('contact',this)">Contact</a>
+        <a class="active" data-section="home" onclick="show('home',this)">Home</a>
+        <a data-section="approach" onclick="show('approach',this)">Services</a>
+        <a data-section="about" onclick="show('about',this)">About</a>
+        <a data-section="work" onclick="show('work',this)">Work</a>
+        <a data-section="contact" onclick="show('contact',this)">Contact</a>
       </nav>
     </div>
   </header>
@@ -1142,35 +1142,35 @@
     <div class="services-preview">
       <div class="section-label">
         <span class="section-label-text">Services</span>
-        <a class="section-label-link" onclick="show('approach',document.querySelector('nav a:nth-child(2)'))">All services →</a>
+        <a class="section-label-link" onclick="show('approach',document.querySelector('nav a[data-section=approach]'))">All services →</a>
       </div>
       <p class="svc-preview-intro">Bastille enters before the raise opens — doing the work alongside you on GTM, narrative, and process rather than handing off a framework. Engagements are scoped to where the leverage is.</p>
       <div class="svc-preview-grid">
         <div class="svc-preview-col svc-col-growth">
           <div class="svc-preview-heading">GROWTH</div>
           <ul class="svc-preview-list">
-            <li onclick="show('approach',document.querySelector('nav a:nth-child(2)')); setTimeout(()=>document.getElementById('svc-revenue-sprint').scrollIntoView({behavior:'smooth',block:'center'}),80)">The Revenue Sprint</li>
-            <li onclick="show('approach',document.querySelector('nav a:nth-child(2)')); setTimeout(()=>document.getElementById('svc-ecosystem-play').scrollIntoView({behavior:'smooth',block:'center'}),80)">The Ecosystem Play</li>
-            <li onclick="show('approach',document.querySelector('nav a:nth-child(2)')); setTimeout(()=>document.getElementById('svc-competitive-map').scrollIntoView({behavior:'smooth',block:'center'}),80)">The Competitive Map</li>
-            <li onclick="show('approach',document.querySelector('nav a:nth-child(2)')); setTimeout(()=>document.getElementById('svc-metrics-session').scrollIntoView({behavior:'smooth',block:'center'}),80)">The Metrics Session</li>
+            <li onclick="navigateToCard('svc-revenue-sprint')">The Revenue Sprint</li>
+            <li onclick="navigateToCard('svc-ecosystem-play')">The Ecosystem Play</li>
+            <li onclick="navigateToCard('svc-competitive-map')">The Competitive Map</li>
+            <li onclick="navigateToCard('svc-metrics-session')">The Metrics Session</li>
           </ul>
         </div>
         <div class="svc-preview-col svc-col-narrative">
           <div class="svc-preview-heading">NARRATIVE</div>
           <ul class="svc-preview-list">
-            <li onclick="show('approach',document.querySelector('nav a:nth-child(2)')); setTimeout(()=>document.getElementById('svc-deck-rebuild').scrollIntoView({behavior:'smooth',block:'center'}),80)">The Deck Rebuild</li>
-            <li onclick="show('approach',document.querySelector('nav a:nth-child(2)')); setTimeout(()=>document.getElementById('svc-story-fix').scrollIntoView({behavior:'smooth',block:'center'}),80)">The Story Fix</li>
-            <li onclick="show('approach',document.querySelector('nav a:nth-child(2)')); setTimeout(()=>document.getElementById('svc-demo-day-build').scrollIntoView({behavior:'smooth',block:'center'}),80)">The Demo Day Build</li>
-            <li onclick="show('approach',document.querySelector('nav a:nth-child(2)')); setTimeout(()=>document.getElementById('svc-cold-stack').scrollIntoView({behavior:'smooth',block:'center'}),80)">The Cold Stack</li>
+            <li onclick="navigateToCard('svc-deck-rebuild')">The Deck Rebuild</li>
+            <li onclick="navigateToCard('svc-story-fix')">The Story Fix</li>
+            <li onclick="navigateToCard('svc-demo-day-build')">The Demo Day Build</li>
+            <li onclick="navigateToCard('svc-cold-stack')">The Cold Stack</li>
           </ul>
         </div>
         <div class="svc-preview-col svc-col-raise">
           <div class="svc-preview-heading">RAISE</div>
           <ul class="svc-preview-list">
-            <li onclick="show('approach',document.querySelector('nav a:nth-child(2)')); setTimeout(()=>document.getElementById('svc-pre-seed-sprint').scrollIntoView({behavior:'smooth',block:'center'}),80)">The Pre-Seed Sprint</li>
-            <li onclick="show('approach',document.querySelector('nav a:nth-child(2)')); setTimeout(()=>document.getElementById('svc-seed-prep').scrollIntoView({behavior:'smooth',block:'center'}),80)">The Seed Prep</li>
-            <li onclick="show('approach',document.querySelector('nav a:nth-child(2)')); setTimeout(()=>document.getElementById('svc-standing-retainer').scrollIntoView({behavior:'smooth',block:'center'}),80)">The Standing Retainer</li>
-            <li onclick="show('approach',document.querySelector('nav a:nth-child(2)')); setTimeout(()=>document.getElementById('svc-investor-read').scrollIntoView({behavior:'smooth',block:'center'}),80)">The Investor Read</li>
+            <li onclick="navigateToCard('svc-pre-seed-sprint')">The Pre-Seed Sprint</li>
+            <li onclick="navigateToCard('svc-seed-prep')">The Seed Prep</li>
+            <li onclick="navigateToCard('svc-standing-retainer')">The Standing Retainer</li>
+            <li onclick="navigateToCard('svc-investor-read')">The Investor Read</li>
           </ul>
         </div>
       </div>
@@ -1580,13 +1580,58 @@ function handleCaseClick(e, el) {
   hint.textContent = exp.classList.contains('open') ? '↑ collapse' : '↓ expand';
 }
 
-function show(id, el) {
+// ── Routing ────────────────────────────────────────────────
+const SECTION_SLUGS = { home:'/', approach:'/services', about:'/about', work:'/work', contact:'/contact' };
+const SLUG_TO_SECTION = { '':'home', 'services':'approach', 'about':'about', 'work':'work', 'contact':'contact' };
+const CARD_SLUGS = {
+  'svc-pre-seed-sprint':'the-pre-seed-sprint', 'svc-seed-prep':'the-seed-prep',
+  'svc-standing-retainer':'the-standing-retainer', 'svc-one-thing':'the-one-thing',
+  'svc-revenue-sprint':'the-revenue-sprint', 'svc-ecosystem-play':'the-ecosystem-play',
+  'svc-deck-rebuild':'the-deck-rebuild', 'svc-story-fix':'the-story-fix',
+  'svc-demo-day-build':'the-demo-day-build', 'svc-cold-stack':'the-cold-stack',
+  'svc-investor-read':'the-investor-read', 'svc-metrics-session':'the-metrics-session',
+  'svc-competitive-map':'the-competitive-map'
+};
+const SLUG_TO_CARD = Object.fromEntries(Object.entries(CARD_SLUGS).map(([k,v])=>[v,k]));
+
+function navElFor(id) { return document.querySelector('nav a[data-section="'+id+'"]'); }
+
+function show(id, el, push) {
   document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
   document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
   document.getElementById(id).classList.add('active');
-  if (el) el.classList.add('active');
+  const navEl = el || navElFor(id);
+  if (navEl) navEl.classList.add('active');
   window.scrollTo(0, 0);
+  if (push !== false) history.pushState({ section: id }, '', SECTION_SLUGS[id] || '/');
 }
+
+function navigateToCard(cardId) {
+  show('approach', null, false);
+  history.pushState({ section:'approach', card:cardId }, '', '/services/' + CARD_SLUGS[cardId]);
+  setTimeout(() => { var el = document.getElementById(cardId); if (el) el.scrollIntoView({ behavior:'smooth', block:'center' }); }, 80);
+}
+
+function handleRoute(path) {
+  var parts = path.replace(/^\//, '').split('/').filter(Boolean);
+  var sectionId = SLUG_TO_SECTION[parts[0] || ''] || 'home';
+  show(sectionId, null, false);
+  if (parts[1]) {
+    var cardId = SLUG_TO_CARD[parts[1]];
+    if (cardId) setTimeout(() => { var el = document.getElementById(cardId); if (el) el.scrollIntoView({ behavior:'smooth', block:'center' }); }, 80);
+  }
+}
+
+window.addEventListener('popstate', function(e) {
+  if (e.state && e.state.section) {
+    show(e.state.section, null, false);
+    if (e.state.card) setTimeout(() => { var el = document.getElementById(e.state.card); if (el) el.scrollIntoView({ behavior:'smooth', block:'center' }); }, 80);
+  } else { handleRoute(window.location.pathname); }
+});
+
+// Restore path after GitHub Pages 404 redirect
+(function() { var r = sessionStorage.getItem('ghRedirect'); if (r) { sessionStorage.removeItem('ghRedirect'); history.replaceState(null, null, r); } })();
+handleRoute(window.location.pathname);
 
 document.addEventListener('scroll', () => {
   document.querySelector('header').classList.toggle('scrolled', window.scrollY > 20);

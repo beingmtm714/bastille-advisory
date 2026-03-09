@@ -8,12 +8,10 @@
   </defs>
 
   <!--
-    Single organic flame silhouette.
-    Left-of-center main peak (y=2), notch valley (y=11),
-    right secondary peak (y=4), wide rounded base.
-    The concave notch between peaks reads as two flame tongues.
+    Outer silhouette + interior flame cutouts sitting in the body (not the tips).
+    Holes are narrow-topped, rounded-bottom — like inner flames burning up through the mass.
   -->
-  <path fill="url(#fg)" d="
+  <path fill-rule="evenodd" fill="url(#fg)" d="
     M6,30
     C4,24 4,19 5,16
     C6,13 8,9 10,7
@@ -25,6 +23,19 @@
     C27,18 28,17 28,22
     C28,26 26,30 23,30
     C19,30 10,30 6,30
+    Z
+
+    M11,24
+    C10,21 10,17 11,14
+    C12,12 13,11 14,13
+    C14,16 14,20 13,24
+    C12,26 11,25 11,24
+    Z
+
+    M20,23
+    C19,20 19,17 20,14
+    C21,13 22,13 23,14
+    C23,17 23,20 22,24
     Z
   "/>
 </svg>

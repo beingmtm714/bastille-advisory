@@ -1,21 +1,24 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
   <rect width="32" height="32" rx="5" fill="#0d0d0d"/>
 
-  <!-- Stylized B lettermark, even-odd fill punches out counters -->
-  <path fill-rule="evenodd" fill="#00DDFF" d="
-    M6,4 L15,4
-    C23,4 26,7.5 26,11.5
-    C26,14 24.5,15.5 22,16
-    C25,16.5 27,19.5 27,23
-    C27,27 24,28 16,28
-    L6,28 Z
-    M11,8.5 L14.5,8.5
-    C19.5,8.5 21,10 21,12
-    C21,14 19,15.5 14.5,15.5
-    L11,15.5 Z
-    M11,19.5 L15.5,19.5
-    C21,19.5 22,21 22,23
-    C22,25 20,24.5 15.5,24.5
-    L11,24.5 Z
-  "/>
+  <!-- Outer flame -->
+  <path
+    d="M16,2 C19.5,4 21,9 21,14 C21,18.5 18.5,20 16,20 C13.5,20 11,18.5 11,14 C11,9 12.5,4 16,2Z"
+    fill="none"
+    stroke="#00DDFF"
+    stroke-width="1.25"
+    stroke-linejoin="round"
+  />
+
+  <!-- Inner wisp -->
+  <path
+    d="M16,6 C17.5,8 18.5,12 18,16 C17.5,18.5 14.5,18.5 14,16 C13.5,12 14.5,8 16,6Z"
+    fill="none"
+    stroke="#00DDFF"
+    stroke-width="0.8"
+    opacity="0.4"
+  />
+
+  <!-- Handle -->
+  <line x1="16" y1="20" x2="16" y2="29" stroke="#00DDFF" stroke-width="1.25" stroke-linecap="round"/>
 </svg>

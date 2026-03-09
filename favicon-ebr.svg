@@ -1,22 +1,21 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
   <rect width="32" height="32" rx="5" fill="#0d0d0d"/>
 
-  <!-- Flame: centered teardrop, tip at top -->
-  <path d="M16,2 C20,3 22,8 22,12 L10,12 C10,8 12,3 16,2Z" fill="#00DDFF"/>
-
-  <!-- Inner flame: lime accent -->
-  <path d="M16,5 C18,7 19,10 18.5,12 L13.5,12 C13,10 14,7 16,5Z" fill="#D4FF00" opacity="0.9"/>
-
-  <!-- Collar: trapezoid connecting flame to fist -->
-  <path d="M10,12 L22,12 L21,15 L11,15Z" fill="#00DDFF"/>
-
-  <!-- Fist body -->
-  <rect x="10" y="15" width="12" height="13" rx="3" fill="#00DDFF"/>
-
-  <!-- Thumb -->
-  <path d="M10,17 C7,17 6,19 6,21.5 C6,24 7.5,25 10,24Z" fill="#00DDFF"/>
-
-  <!-- Knuckle dividers -->
-  <rect x="10" y="19" width="12" height="1.2" fill="#0d0d0d" rx="0.5" opacity="0.6"/>
-  <rect x="10" y="22" width="12" height="1.2" fill="#0d0d0d" rx="0.5" opacity="0.6"/>
+  <!-- Stylized B lettermark, even-odd fill punches out counters -->
+  <path fill-rule="evenodd" fill="#00DDFF" d="
+    M6,4 L15,4
+    C23,4 26,7.5 26,11.5
+    C26,14 24.5,15.5 22,16
+    C25,16.5 27,19.5 27,23
+    C27,27 24,28 16,28
+    L6,28 Z
+    M11,8.5 L14.5,8.5
+    C19.5,8.5 21,10 21,12
+    C21,14 19,15.5 14.5,15.5
+    L11,15.5 Z
+    M11,19.5 L15.5,19.5
+    C21,19.5 22,21 22,23
+    C22,25 20,24.5 15.5,24.5
+    L11,24.5 Z
+  "/>
 </svg>

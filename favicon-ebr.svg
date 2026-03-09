@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" rx="5" fill="#000000"/>
+
+  <!-- Pink/magenta shadow — offset upper-left -->
+  <g transform="translate(-2,-1.5)" fill="#FF0077">
+    <!-- Flame -->
+    <path d="M21,1 C28,3 29,9 23,13 L9,13 C7,9 9,4 13,3 C16,2 19,0 21,1Z"/>
+    <!-- Collar -->
+    <path d="M10,13 L22,13 L21,16 L11,16Z"/>
+    <!-- Fist -->
+    <path d="M9,16 L23,16 L23,24 C23,27 21,29 18,29 L12,29 C9,29 8,27 8,24 L8,16Z"/>
+    <!-- Thumb -->
+    <path d="M8,18 C5,17 4,20 4,22 C4,25 6,26 8,25Z"/>
+  </g>
+
+  <!-- Lime/chartreuse shadow — offset lower-right -->
+  <g transform="translate(1.5,1)" fill="#99FF00">
+    <!-- Flame -->
+    <path d="M21,1 C28,3 29,9 23,13 L9,13 C7,9 9,4 13,3 C16,2 19,0 21,1Z"/>
+    <!-- Collar -->
+    <path d="M10,13 L22,13 L21,16 L11,16Z"/>
+    <!-- Fist -->
+    <path d="M9,16 L23,16 L23,24 C23,27 21,29 18,29 L12,29 C9,29 8,27 8,24 L8,16Z"/>
+    <!-- Thumb -->
+    <path d="M8,18 C5,17 4,20 4,22 C4,25 6,26 8,25Z"/>
+  </g>
+
+  <!-- Main cyan shape — on top -->
+  <g fill="#00DDFF">
+    <!-- Flame -->
+    <path d="M21,1 C28,3 29,9 23,13 L9,13 C7,9 9,4 13,3 C16,2 19,0 21,1Z"/>
+    <!-- Collar -->
+    <path d="M10,13 L22,13 L21,16 L11,16Z"/>
+    <!-- Fist -->
+    <path d="M9,16 L23,16 L23,24 C23,27 21,29 18,29 L12,29 C9,29 8,27 8,24 L8,16Z"/>
+    <!-- Thumb -->
+    <path d="M8,18 C5,17 4,20 4,22 C4,25 6,26 8,25Z"/>
+  </g>
+
+  <!-- Finger dividers (dark gaps across fist) -->
+  <rect x="9" y="19.5" width="14" height="1" fill="#000" opacity="0.55"/>
+  <rect x="9" y="22.5" width="14" height="1" fill="#000" opacity="0.55"/>
+</svg>

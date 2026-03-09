@@ -229,15 +229,17 @@
       font-weight: 600;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: rgba(245,240,220,0.3);
-      margin-top: 16px;
+      color: rgba(245,240,220,0.45);
+      margin-top: 18px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border-lt);
     }
     .hero-platform a {
       color: var(--cobalt-lt);
       text-decoration: none;
-      border-bottom: 1px solid rgba(66,104,255,0.35);
+      border-bottom: 1px solid rgba(66,104,255,0.5);
       padding-bottom: 1px;
-      transition: border-color 0.15s, opacity 0.15s;
+      transition: border-color 0.15s;
     }
     .hero-platform a:hover { border-color: var(--cobalt-lt); }
 
@@ -300,37 +302,6 @@
       font-weight: 400;
       color: var(--cream);
       line-height: 1.55;
-    }
-
-    /* ── Proof bar ── */
-    .proof-bar {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      margin-bottom: 60px;
-      animation: fadeUp 0.6s 0.18s ease both;
-    }
-    .proof-item {
-      background: var(--night-2);
-      padding: 22px 18px;
-      transition: background 0.2s;
-    }
-    .proof-item:hover { background: var(--night-3); }
-    .proof-num {
-      font-family: var(--font-hero);
-      font-size: 2.2rem;
-      line-height: 1;
-      color: var(--cobalt-lt);
-      letter-spacing: 0.03em;
-      margin-bottom: 5px;
-    }
-    .proof-label {
-      font-size: 0.68rem;
-      color: var(--muted);
-      line-height: 1.45;
-      font-weight: 300;
     }
 
     /* ── How-it-works cards ── */
@@ -471,7 +442,7 @@
     /* ── Add-ons grid ── */
     .addons {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
       gap: 1px;
       background: var(--border);
       border: 1px solid var(--border);
@@ -607,7 +578,6 @@
       .hero-right { text-align: left; }
       .hero-kicker { margin-left: 0; max-width: 100%; }
       .outcomes { grid-template-columns: 1fr; }
-      .proof-bar { grid-template-columns: 1fr 1fr; }
       .how-grid { grid-template-columns: 1fr; }
       .steps { grid-template-columns: 1fr 1fr; gap: 18px; }
       .addons { grid-template-columns: 1fr; }
@@ -671,26 +641,6 @@
       </div>
     </div>
 
-    <!-- PROOF BAR -->
-    <div class="proof-bar">
-      <div class="proof-item">
-        <div class="proof-num">$1.5M</div>
-        <div class="proof-label">Distributed to voters · Avalanche 2025</div>
-      </div>
-      <div class="proof-item">
-        <div class="proof-num">24</div>
-        <div class="proof-label">Ecosystem teams · single campaign</div>
-      </div>
-      <div class="proof-item">
-        <div class="proof-num">30</div>
-        <div class="proof-label">Days · Mon–Fri daily cadence</div>
-      </div>
-      <div class="proof-item">
-        <div class="proof-num">#1</div>
-        <div class="proof-label">Highest-rev campaign in platform history</div>
-      </div>
-    </div>
-
     <!-- HOW IT WORKS -->
     <div class="section-label"><span class="section-label-text">How It Works</span></div>
     <div class="how-grid">
@@ -739,7 +689,7 @@
         <span class="case-name">Avalanche × Confetti (JokeRace)</span>
         <span class="case-year">2025</span>
       </div>
-      <p>Designed and executed end-to-end — 24 ecosystem teams, 30 days of daily head-to-head rounds on Confetti's onchain incentive platform. Projects competed for mindshare, voters competed for returns, and every round drove a new transaction cycle through the platform. It became the highest-revenue engagement in Confetti's history and established a replicable playbook that any ecosystem can deploy.</p>
+      <p>Bastille designed and ran this campaign end-to-end for Avalanche on Confetti's onchain incentive platform — 24 ecosystem teams competing daily for 30 rounds. Projects competed for mindshare, voters competed for returns, and every round drove a new transaction cycle through the platform. It became the highest-revenue engagement in Confetti's history and established a replicable playbook for any ecosystem.</p>
       <div class="case-stats">
         <div><div class="cs-num">$1.5M</div><div class="cs-label">To voters</div></div>
         <div><div class="cs-num">24</div><div class="cs-label">Competing teams</div></div>
@@ -751,13 +701,6 @@
     <!-- ADD-ONS -->
     <div class="section-label"><span class="section-label-text">Optional Add-Ons</span></div>
     <div class="addons">
-      <div class="addon">
-        <div class="addon-icon">⚡</div>
-        <div>
-          <div class="addon-title">Prediction Markets via Inertia</div>
-          <p>Live order book on every matchup. Drives additional engagement and generates passive trading fees for your treasury.</p>
-        </div>
-      </div>
       <div class="addon">
         <div class="addon-icon">🏆</div>
         <div>

@@ -634,7 +634,7 @@
       line-height: 1.9;
     }
     .approach-note strong { color: var(--white); font-weight: 600; }
-    .svc-oneoff-note { grid-column: span 2; margin: 0; padding: 26px 24px; }
+    .svc-oneoff-note { grid-column: span 3; margin: 0; padding: 26px 24px; }
 
     /* ══════════════════════════════════════════
        SERVICES PREVIEW (home page)
@@ -1229,7 +1229,7 @@
         <div class="svc-engagement-meta"><span class="svc-engagement-pillar svc-pillar-raise">RAISE</span><span>Ongoing</span></div>
         <div class="svc-price">$2,500/month</div>
         <div class="svc-engagement-desc">Fractional advisory, ongoing. Embedded alongside the team on GTM, narrative, investor positioning, and strategic decisions as they develop. For founders who want a steady hand without adding headcount.</div>
-        <a class="svc-btn" onclick="show('contact',document.querySelector('nav a:last-child'))">Inquire →</a>
+        <a class="svc-btn" onclick="openInquiry('The Standing Retainer')">Inquire →</a>
       </div>
 
       <div class="svc-engagement-card" id="svc-raise-sprint">
@@ -1243,7 +1243,7 @@
           <li>Investor targeting + warm intros</li>
           <li>Process launch + management</li>
         </ul>
-        <a class="svc-btn" onclick="show('contact',document.querySelector('nav a:last-child'))">Inquire →</a>
+        <a class="svc-btn" onclick="openInquiry('The Raise Sprint')">Inquire →</a>
       </div>
 
       <div class="svc-engagement-card" id="svc-ecosystem-play">
@@ -1251,7 +1251,13 @@
         <div class="svc-engagement-meta"><span class="svc-engagement-pillar svc-pillar-growth">GROWTH</span><span>1 month</span></div>
         <div class="svc-price">from $4,000</div>
         <div class="svc-engagement-desc">Protocol and platform ecosystem development. BD positioning, partner targeting, integration narratives, and relationship activation across the networks that move your category.</div>
-        <a class="svc-btn" onclick="show('contact',document.querySelector('nav a:last-child'))">Inquire →</a>
+        <a class="svc-btn" onclick="openInquiry('The Ecosystem Play')">Inquire →</a>
+      </div>
+
+      <div class="svc-engagement-card" id="svc-right-fit">
+        <div class="svc-engagement-name">The Right Fit</div>
+        <div class="svc-engagement-desc" style="margin-top: 8px;">The listed offerings are reference points, not hard limits. If the scope, timing, or budget doesn't match — reach out anyway. Pricing is scoped to the engagement, and the engagement is scoped to the problem.</div>
+        <a class="svc-btn" onclick="openInquiry('')" style="margin-top: auto;">Start a Conversation →</a>
       </div>
 
     </div>
@@ -1264,7 +1270,7 @@
         <div class="svc-oneoff-name">The Deck Rebuild</div>
         <div class="svc-oneoff-meta"><span>3 days</span><span class="svc-oneoff-price">$2,200</span></div>
         <div class="svc-oneoff-desc">From-scratch narrative build. Structure, story, and slides rebuilt around what investors pattern-match for in your specific category right now.</div>
-        <a class="svc-btn svc-btn--book" onclick="show('contact',document.querySelector('nav a:last-child'))">Book this →</a>
+        <a class="svc-btn svc-btn--book" onclick="openInquiry('The Deck Rebuild')">Book this →</a>
       </div>
 
       <div class="svc-oneoff-card" id="svc-investor-read" data-pillar="raise">
@@ -1272,7 +1278,7 @@
         <div class="svc-oneoff-name">The Investor Read</div>
         <div class="svc-oneoff-meta"><span>2 days</span><span class="svc-oneoff-price">$1,500</span></div>
         <div class="svc-oneoff-desc">A direct read on what investors in your category are actually underwriting right now — sourced from VC conversations, not third-hand intel. Metrics, narrative patterns, comps. The benchmark that guides everything else.</div>
-        <a class="svc-btn svc-btn--book" onclick="show('contact',document.querySelector('nav a:last-child'))">Book this →</a>
+        <a class="svc-btn svc-btn--book" onclick="openInquiry('The Investor Read')">Book this →</a>
       </div>
 
       <div class="svc-oneoff-card" id="svc-one-thing" data-pillar="growth">
@@ -1280,7 +1286,7 @@
         <div class="svc-oneoff-name">The One Thing</div>
         <div class="svc-oneoff-meta"><span>1 week</span><span class="svc-oneoff-price">$3,500</span></div>
         <div class="svc-oneoff-desc">One focused problem, solved in a week. The narrative that's not landing. The metric story. The pitch for a specific meeting. The outreach sequence. The competitive framing. Bring the constraint — we go deep on it.</div>
-        <a class="svc-btn svc-btn--book" onclick="show('contact',document.querySelector('nav a:last-child'))">Book this →</a>
+        <a class="svc-btn svc-btn--book" onclick="openInquiry('The One Thing')">Book this →</a>
       </div>
 
       <div class="approach-note svc-oneoff-note" data-editable data-key="approach-note"><strong>On engagements:</strong> Work is scoped to where you are and where the leverage is. Some founders need the full arc. Others need one piece. Bastille takes a limited number of clients at any given time.</div>
@@ -1597,6 +1603,19 @@ document.getElementById('admin-pw-input').addEventListener('keydown', e => {
 
 // Apply any saved edits on load
 applyStored();
+
+function openInquiry(service) {
+  var sub = service ? 'Seeking "' + service + '"' : 'General Inquiry — Bastille Advisory';
+  var body = [
+    '1. What does your company do, and where are you in its development? (Stage, traction, key metrics)',
+    '',
+    '2. What\'s the specific challenge or goal that\'s bringing you to Bastille right now?',
+    '',
+    '3. What does success look like, and when do you need to see it?'
+  ].join('\n');
+  window.location.href = 'mailto:hello@bastilleadvisory.xyz?subject=' +
+    encodeURIComponent(sub) + '&body=' + encodeURIComponent(body);
+}
 </script>
 </body>
 </html>

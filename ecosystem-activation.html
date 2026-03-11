@@ -417,68 +417,108 @@
       font-variant-numeric: tabular-nums;
     }
 
-    /* ── How-it-works cards ── */
-    .how-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
+    /* ── How It Works (open layout) ── */
+    .how-section {
       margin-bottom: 60px;
       animation: fadeUp 0.6s 0.24s ease both;
     }
-    .card {
-      background: var(--night-2);
-      padding: 26px 24px;
-      transition: background 0.2s;
+    .how-intro {
+      font-size: 0.92rem;
+      color: rgba(245,240,220,0.38);
+      font-weight: 300;
+      line-height: 1.75;
+      font-style: italic;
+      margin-bottom: 44px;
+      max-width: 480px;
     }
-    .card:hover { background: var(--night-3); }
-    .card.full {
-      grid-column: 1 / -1;
-      border-top: 1px solid var(--border);
+    .how-setup {
+      padding: 36px 0;
+      border-top: 1px solid var(--border-lt);
+      border-bottom: 1px solid var(--border);
     }
-    .card h2 {
+    .how-tag {
+      font-size: 0.57rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+    .how-title {
       font-family: var(--font-hero);
-      font-size: 1.35rem;
+      font-size: clamp(1.65rem, 3vw, 2.1rem);
       letter-spacing: 0.04em;
       color: var(--white);
-      margin-bottom: 12px;
-      line-height: 1.05;
+      line-height: 1;
+      margin-bottom: 16px;
     }
-    .card p {
+    .how-desc {
       font-size: 0.97rem;
       line-height: 1.75;
       color: rgba(245,240,220,0.45);
       font-weight: 300;
+      max-width: 520px;
     }
-    .card p em { font-style: normal; color: var(--cream); font-weight: 500; }
-
-    /* Steps inside the full-width card */
-    .steps {
+    .how-desc em { font-style: normal; color: var(--cream); font-weight: 500; }
+    .how-divider {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 32px 0;
+    }
+    .how-divider-line {
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+    .how-divider-label {
+      font-size: 0.57rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+    .how-concurrent {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
-      margin-top: 22px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 36px;
     }
-    .step {
-      border-top: 2px solid var(--border-lt);
-      padding-top: 14px;
-      transition: border-color 0.25s;
+    .how-item {
+      border-top: 1px solid var(--border-lt);
+      padding-top: 22px;
     }
-    .step:hover { border-color: var(--lime); }
-    .step-title {
-      font-size: 0.78rem;
-      font-weight: 600;
-      color: var(--cream);
-      margin-bottom: 6px;
+    .how-item-title {
+      font-family: var(--font-hero);
+      font-size: 1.45rem;
+      letter-spacing: 0.04em;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 12px;
     }
-    .step p {
-      font-size: 0.92rem;
-      color: var(--cream);
-      opacity: 0.5;
-      line-height: 1.65;
+    .how-item-desc {
+      font-size: 0.88rem;
+      line-height: 1.72;
+      color: rgba(245,240,220,0.45);
       font-weight: 300;
     }
+
+    /* ── Economics (pre-CTA) ── */
+    .economics {
+      padding: 32px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 44px;
+    }
+    .economics p {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: clamp(1.05rem, 2vw, 1.25rem);
+      color: rgba(245,240,220,0.6);
+      line-height: 1.6;
+      max-width: 580px;
+    }
+    .economics p em { font-style: normal; color: var(--cream); }
 
     /* ── Case study ── */
     .case {
@@ -680,8 +720,9 @@
       .outcomes-carousel { margin: 0 -24px 44px; }
       .carousel-slide { padding: 32px 24px 28px; }
       .carousel-controls { padding: 0 24px 16px; }
-      .how-grid { grid-template-columns: 1fr; }
-      .steps { grid-template-columns: 1fr 1fr; gap: 18px; }
+      .how-concurrent { grid-template-columns: 1fr; gap: 0; }
+      .how-item { padding: 20px 0; border-top: 1px solid var(--border-lt); }
+      .how-intro { margin-bottom: 32px; }
       .addons { grid-template-columns: 1fr; }
       .cta-strip { flex-direction: column; align-items: flex-start; }
       footer { margin: 60px -24px 0; padding: 24px 24px 48px; flex-direction: column; align-items: flex-start; gap: 8px; }
@@ -770,38 +811,33 @@
 
     <!-- HOW IT WORKS -->
     <div class="section-label"><span class="section-label-text">How It Works</span></div>
-    <div class="how-grid">
-      <div class="card">
-        <h2>Community Votes. Ecosystem Wins.</h2>
-        <p>Participants enter an onchain voting event on Confetti; community members <em>buy votes in your native token</em> to back their favorites. Voters who pick the winner earn a share of the rewards pool — <em>every vote is a transaction.</em></p>
+    <div class="how-section">
+      <p class="how-intro">The mechanic is the same whether you're running a bracket, a demo day, or a hackathon — only the setup changes.</p>
+
+      <div class="how-setup">
+        <div class="how-tag">Before launch</div>
+        <div class="how-title">Event Setup</div>
+        <p class="how-desc">Participants are seeded into your chosen format — brackets, demo days, hackathons. The scale and structure adapt to your roster and goals; Bastille handles design and coordination end-to-end.</p>
       </div>
-      <div class="card">
-        <h2>Every Team Becomes a Marketer</h2>
-        <p>Every participant has a genuine reason to mobilize — votes cost real money and winners earn real rewards. Larger projects bring audiences that discover smaller ones; every team campaigns independently, and <em>all roads lead back to your ecosystem.</em></p>
+
+      <div class="how-divider">
+        <div class="how-divider-line"></div>
+        <div class="how-divider-label">Throughout the contest</div>
+        <div class="how-divider-line"></div>
       </div>
-      <div class="card full">
-        <h2>Live for Under $5K. The Contest Funds Itself.</h2>
-        <p>The primary cost is seeding the rewards pool — <em>most ecosystems are live for under $5K.</em> Every vote is cast in your native token, so the campaign generates real transaction volume from day one.</p>
-      </div>
-      <div class="card full">
-        <h2>The Format Flexes. The Mechanic Doesn't.</h2>
-        <div class="steps">
-          <div class="step">
-            <div class="step-title">Event Setup</div>
-            <p>Participants are seeded into your chosen format — the scale and structure adapt to your roster.</p>
-          </div>
-          <div class="step">
-            <div class="step-title">Onchain Voting</div>
-            <p>Community buys votes with native tokens; cost increases over time, rewarding early conviction.</p>
-          </div>
-          <div class="step">
-            <div class="step-title">Rewards Pool</div>
-            <p>All voter spend flows into a pool, paid proportionately to winners' backers at round close.</p>
-          </div>
-          <div class="step">
-            <div class="step-title">Daily Momentum</div>
-            <p>New matchups run Mon–Fri, compounding narrative and transaction volume through every round.</p>
-          </div>
+
+      <div class="how-concurrent">
+        <div class="how-item">
+          <div class="how-item-title">Onchain Voting</div>
+          <p class="how-item-desc">Community members <em>buy votes in your native token</em> to back their favorites. Cost increases over time, rewarding early conviction.</p>
+        </div>
+        <div class="how-item">
+          <div class="how-item-title">Rewards Pool</div>
+          <p class="how-item-desc">All voter spend flows into a pool. Backers of winning teams earn a proportionate return — <em>every vote is a transaction.</em></p>
+        </div>
+        <div class="how-item">
+          <div class="how-item-title">Daily Momentum</div>
+          <p class="how-item-desc">New matchups run Mon–Fri, compounding narrative and transaction volume through every round of the campaign.</p>
         </div>
       </div>
     </div>
@@ -846,6 +882,11 @@
           <p>Co-hosted spaces at key rounds, recap threads, and leaderboards to sustain narrative through the full month.</p>
         </div>
       </div>
+    </div>
+
+    <!-- ECONOMICS -->
+    <div class="economics">
+      <p><em>Most ecosystems go live for under $5K.</em> The rewards pool is seeded upfront — then the contest funds itself, generating real transaction volume in your native token from day one.</p>
     </div>
 
     <!-- CTA -->

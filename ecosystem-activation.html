@@ -112,7 +112,7 @@
       display: flex; align-items: flex-end; gap: 14px; padding-bottom: 8px;
       text-decoration: none;
     }
-    .logo-main { color: var(--white); }
+    .logo-main { color: var(--white); line-height: 1; }
     .logo-sub {
       font-family: var(--font-body);
       font-size: 0.58rem;
@@ -305,15 +305,15 @@
     }
     .outcome:hover::after { transform: scaleX(1); }
     .outcome-for {
-      font-size: 0.57rem;
+      font-size: 0.75rem;
       font-weight: 700;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--cobalt-lt);
-      margin-bottom: 7px;
+      margin-bottom: 10px;
     }
     .outcome-line {
-      font-size: 0.92rem;
+      font-size: 1.05rem;
       font-weight: 400;
       color: var(--cream);
       line-height: 1.55;
@@ -351,7 +351,7 @@
       font-family: var(--font-hero);
       font-size: 1.35rem;
       letter-spacing: 0.04em;
-      color: var(--cream);
+      color: var(--lime);
       margin-bottom: 12px;
       line-height: 1.05;
     }
@@ -377,13 +377,7 @@
       transition: border-color 0.25s;
     }
     .step:hover { border-color: var(--lime); }
-    .step-n {
-      font-family: var(--font-hero);
-      font-size: 2rem;
-      color: rgba(212,255,0,0.45);
-      line-height: 1;
-      margin-bottom: 7px;
-    }
+
     .step-title {
       font-size: 0.78rem;
       font-weight: 600;
@@ -391,10 +385,10 @@
       margin-bottom: 6px;
     }
     .step p {
-      font-size: 0.82rem;
+      font-size: 0.92rem;
       color: var(--cream);
-      opacity: 0.42;
-      line-height: 1.6;
+      opacity: 0.5;
+      line-height: 1.65;
       font-weight: 300;
     }
 
@@ -402,7 +396,7 @@
     .case {
       background: var(--night-2);
       border: 1px solid var(--border);
-      border-left: 3px solid var(--lime);
+      border-left: 3px solid var(--cobalt-lt);
       padding: 28px 28px 28px 30px;
       margin-bottom: 60px;
       animation: fadeUp 0.6s 0.3s ease both;
@@ -443,7 +437,7 @@
     .cs-num {
       font-family: var(--font-hero);
       font-size: 1.8rem;
-      color: var(--lime);
+      color: var(--cobalt-lt);
       line-height: 1;
       letter-spacing: 0.02em;
     }
@@ -662,41 +656,33 @@
     <div class="section-label"><span class="section-label-text">How It Works</span></div>
     <div class="how-grid">
       <div class="card">
-        <div class="card-tag">The Mechanic</div>
         <h2>Community Votes. Ecosystem Wins.</h2>
         <p>Participants enter an onchain voting event on Confetti; community members <em>buy votes in your native token</em> to back their favorites. Voters who pick the winner earn a share of the rewards pool — <em>every vote is a transaction.</em></p>
       </div>
       <div class="card">
-        <div class="card-tag">Why It Compounds</div>
         <h2>Every Team Becomes a Marketer</h2>
-        <p>Every participant has a genuine reason to mobilize — <em>votes cost real money and winners earn real rewards.</em> Larger projects bring audiences that discover smaller ones; every team campaigns independently, <em>all roads lead back to your ecosystem.</em></p>
+        <p>Every participant has a genuine reason to mobilize — votes cost real money and winners earn real rewards. Larger projects bring audiences that discover smaller ones; every team campaigns independently, all roads lead back to your ecosystem.</p>
       </div>
       <div class="card full">
-        <div class="card-tag">The Economics</div>
         <h2>Live for Under $5K. The Contest Funds Itself.</h2>
-        <p>The primary cost is seeding the rewards pool — <em>most ecosystems are live for under $5K.</em> Every vote is cast in your native token, so the campaign generates <em>real transaction volume from day one.</em></p>
+        <p>The primary cost is seeding the rewards pool — <em>most ecosystems are live for under $5K.</em> Every vote is cast in your native token, so the campaign generates real transaction volume from day one.</p>
       </div>
       <div class="card full">
-        <div class="card-tag">Tournament Structure</div>
         <h2>The Format Flexes. The Mechanic Doesn't.</h2>
         <div class="steps">
           <div class="step">
-            <div class="step-n">01</div>
             <div class="step-title">Event Setup</div>
             <p>Participants are seeded into your chosen format — the scale and structure adapt to your roster.</p>
           </div>
           <div class="step">
-            <div class="step-n">02</div>
             <div class="step-title">Onchain Voting</div>
             <p>Community buys votes with native tokens; cost increases over time, rewarding early conviction.</p>
           </div>
           <div class="step">
-            <div class="step-n">03</div>
             <div class="step-title">Rewards Pool</div>
             <p>All voter spend flows into a pool, paid proportionately to winners' backers at round close.</p>
           </div>
           <div class="step">
-            <div class="step-n">04</div>
             <div class="step-title">Daily Momentum</div>
             <p>New matchups run Mon–Fri, compounding narrative and transaction volume through every round.</p>
           </div>

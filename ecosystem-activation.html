@@ -10,7 +10,7 @@
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
   <style>
-    /* ── Brand variables (exact match to main site) ── */
+    /* ── Brand variables ── */
     :root {
       --night:     #050505;
       --night-2:   #0E0E0E;
@@ -42,7 +42,6 @@
       overflow-x: clip;
       max-width: 100%;
     }
-    /* Noise texture — matches main site */
     body::after {
       content: '';
       position: fixed; inset: 0; z-index: 0; pointer-events: none;
@@ -59,7 +58,7 @@
     }
 
     /* ══════════════════════════════════════════
-       HEADER — exact match to main site
+       HEADER
     ══════════════════════════════════════════ */
     header {
       padding: 52px 0 0;
@@ -184,7 +183,7 @@
       gap: 40px;
       padding: 52px 0 44px;
       border-bottom: 1px solid var(--border);
-      margin-bottom: 52px;
+      margin-bottom: 0;
       animation: fadeUp 0.55s 0.05s ease both;
     }
     .hero-title {
@@ -240,28 +239,71 @@
       max-width: 220px;
       margin-left: auto;
     }
-    .hero-platform {
+
+    /* ── Platform partner strip ── */
+    .platform-strip {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin: 0 -36px 52px;
+      padding: 17px 36px;
+      background: rgba(0, 56, 255, 0.06);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid rgba(66, 104, 255, 0.2);
+      animation: fadeUp 0.55s 0.08s ease both;
+      flex-wrap: wrap;
+    }
+    .platform-label {
+      font-size: 0.57rem;
+      font-weight: 700;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--muted);
+      flex-shrink: 0;
+    }
+    .platform-sep {
+      width: 1px;
+      height: 14px;
+      background: var(--border-lt);
+      flex-shrink: 0;
+    }
+    .platform-name {
+      font-family: var(--font-hero);
+      font-size: 1.9rem;
+      letter-spacing: 0.12em;
+      color: var(--pink-lt);
+      text-decoration: none;
+      filter: url(#riso-grain);
+      line-height: 1;
+      flex-shrink: 0;
+      transition: color 0.15s;
+    }
+    .platform-name:hover { color: var(--pink); }
+    .platform-tagline {
+      font-size: 0.62rem;
+      letter-spacing: 0.14em;
+      color: rgba(245, 240, 220, 0.38);
+      font-weight: 400;
+      font-style: italic;
+    }
+    .platform-link {
+      margin-left: auto;
       font-size: 0.6rem;
       font-weight: 600;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: rgba(245,240,220,0.45);
-      margin-top: 18px;
-      padding-top: 14px;
-      border-top: 1px solid var(--border-lt);
-    }
-    .hero-platform a {
       color: var(--cobalt-lt);
       text-decoration: none;
-      border-bottom: 1px solid rgba(66,104,255,0.5);
+      border-bottom: 1px solid rgba(66,104,255,0.35);
       padding-bottom: 1px;
-      transition: border-color 0.15s;
+      white-space: nowrap;
+      transition: color 0.15s, border-color 0.15s;
     }
-    .hero-platform a:hover { border-color: var(--cobalt-lt); }
+    .platform-link:hover { color: var(--white); border-color: var(--white); }
 
     /* ── Primary pitch ── */
     .primary-pitch {
-      margin-bottom: 52px;
+      margin-bottom: 0;
       animation: fadeUp 0.6s 0.1s ease both;
     }
     .pitch-headline {
@@ -271,53 +313,108 @@
       color: var(--cream);
       opacity: 0.85;
       line-height: 1.35;
-      margin-bottom: 28px;
+      margin-bottom: 32px;
       max-width: 620px;
     }
     .pitch-headline em {
       color: var(--cobalt-lt);
       font-style: normal;
     }
-    /* Outcomes grid */
-    .outcomes {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-    }
-    .outcome {
+
+    /* ── Outcomes carousel ── */
+    .outcomes-carousel {
+      position: relative;
+      overflow: hidden;
       background: var(--night-2);
-      padding: 22px 20px;
-      transition: background 0.2s;
+      border: 1px solid var(--border);
+      margin: 0 -36px 52px;
+      animation: fadeUp 0.6s 0.13s ease both;
+    }
+    .carousel-track {
+      display: flex;
+      width: 300%;
+      transition: transform 0.65s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .carousel-slide {
+      width: calc(100% / 3);
+      padding: 44px 36px 36px;
+      flex-shrink: 0;
+      position: relative;
+    }
+    .carousel-slide::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 36px;
+      width: 40px; height: 2px;
+      background: var(--pink);
+    }
+    .slide-for {
+      font-family: var(--font-hero);
+      font-size: clamp(2rem, 4.5vw, 3.2rem);
+      letter-spacing: 0.08em;
+      color: var(--cobalt-lt);
+      filter: url(#riso-grain);
+      line-height: 1;
+      margin-bottom: 20px;
+      text-shadow:
+        3px 2px 0 rgba(255, 0, 102, 0.45),
+        -2px -1px 0 rgba(212, 255, 0, 0.2);
+    }
+    .slide-line {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: clamp(1.15rem, 2.4vw, 1.5rem);
+      color: var(--cream);
+      line-height: 1.5;
+      max-width: 560px;
+      opacity: 0.88;
+    }
+    .carousel-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 36px 20px;
+      gap: 12px;
+    }
+    .carousel-progress {
+      flex: 1;
+      height: 1px;
+      background: var(--border-lt);
       position: relative;
       overflow: hidden;
     }
-    .outcome:hover { background: var(--night-3); }
-    .outcome::after {
-      content: '';
+    .carousel-progress-bar {
       position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 2px;
+      top: 0; left: 0; bottom: 0;
       background: var(--cobalt-lt);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.3s ease;
+      width: 0;
+      transition: width 0.1s linear;
     }
-    .outcome:hover::after { transform: scaleX(1); }
-    .outcome-for {
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--cobalt-lt);
-      margin-bottom: 10px;
+    .carousel-dots {
+      display: flex;
+      gap: 8px;
+      flex-shrink: 0;
     }
-    .outcome-line {
-      font-size: 1.05rem;
-      font-weight: 400;
-      color: var(--cream);
-      line-height: 1.55;
+    .carousel-dot {
+      width: 20px;
+      height: 2px;
+      background: var(--border-lt);
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, width 0.2s;
+      padding: 0;
+    }
+    .carousel-dot.active {
+      background: var(--cobalt-lt);
+      width: 32px;
+    }
+    .carousel-counter {
+      font-size: 0.57rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+      flex-shrink: 0;
+      font-variant-numeric: tabular-nums;
     }
 
     /* ── How-it-works cards ── */
@@ -340,19 +437,11 @@
       grid-column: 1 / -1;
       border-top: 1px solid var(--border);
     }
-    .card-tag {
-      font-size: 0.57rem;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--lime);
-      margin-bottom: 10px;
-    }
     .card h2 {
       font-family: var(--font-hero);
       font-size: 1.35rem;
       letter-spacing: 0.04em;
-      color: var(--lime);
+      color: var(--white);
       margin-bottom: 12px;
       line-height: 1.05;
     }
@@ -362,7 +451,6 @@
       color: rgba(245,240,220,0.45);
       font-weight: 300;
     }
-
     .card p em { font-style: normal; color: var(--cream); font-weight: 500; }
 
     /* Steps inside the full-width card */
@@ -373,12 +461,11 @@
       margin-top: 22px;
     }
     .step {
-      border-top: 2px solid var(--border);
+      border-top: 2px solid var(--border-lt);
       padding-top: 14px;
       transition: border-color 0.25s;
     }
     .step:hover { border-color: var(--lime); }
-
     .step-title {
       font-size: 0.78rem;
       font-weight: 600;
@@ -476,7 +563,7 @@
       position: absolute;
       bottom: 0; left: 0; right: 0;
       height: 1px;
-      background: var(--lime);
+      background: var(--pink);
       transform: scaleX(0);
       transform-origin: left;
       transition: transform 0.3s ease;
@@ -588,7 +675,11 @@
       .hero-block { grid-template-columns: 1fr; gap: 18px; padding: 36px 0 36px; }
       .hero-right { text-align: left; }
       .hero-kicker { margin-left: 0; max-width: 100%; }
-      .outcomes { grid-template-columns: 1fr; }
+      .platform-strip { margin: 0 -24px 44px; padding: 15px 24px; gap: 12px; }
+      .platform-link { display: none; }
+      .outcomes-carousel { margin: 0 -24px 44px; }
+      .carousel-slide { padding: 32px 24px 28px; }
+      .carousel-controls { padding: 0 24px 16px; }
       .how-grid { grid-template-columns: 1fr; }
       .steps { grid-template-columns: 1fr 1fr; gap: 18px; }
       .addons { grid-template-columns: 1fr; }
@@ -630,26 +721,50 @@
       <div class="hero-right">
         <div class="hero-pillar">ACTIVATION</div>
         <div class="hero-kicker">Full-service design, execution &amp; co-hosting of onchain voting events — brackets, demo days, hackathons, and any format where your community should have a say.</div>
-        <div class="hero-platform">In partnership with <a href="https://confetti.win" target="_blank" rel="noopener noreferrer">Confetti ↗</a></div>
       </div>
+    </div>
+
+    <!-- PLATFORM PARTNER STRIP -->
+    <div class="platform-strip">
+      <span class="platform-label">Platform Partner</span>
+      <span class="platform-sep"></span>
+      <a href="https://confetti.win" class="platform-name" target="_blank" rel="noopener noreferrer">CONFETTI</a>
+      <span class="platform-sep"></span>
+      <span class="platform-tagline">vote. rally. earn.</span>
+      <a href="https://confetti.win" class="platform-link" target="_blank" rel="noopener noreferrer">confetti.win ↗</a>
     </div>
 
     <!-- PRIMARY PITCH -->
     <div class="primary-pitch">
       <div class="pitch-headline">Give your ecosystem a reason to <em>vote, rally, and transact</em> — on any occasion.</div>
-      <div class="outcomes">
-        <div class="outcome">
-          <div class="outcome-for">For Your Ecosystem</div>
-          <div class="outcome-line">Real transaction volume and a 30-day content engine — built for you.</div>
+    </div>
+
+    <!-- OUTCOMES CAROUSEL -->
+    <div class="outcomes-carousel" id="outcomes-carousel">
+      <div class="carousel-track" id="carousel-track">
+        <div class="carousel-slide">
+          <div class="slide-for">For Your Ecosystem</div>
+          <div class="slide-line">Real transaction volume and a 30-day content engine — built for you.</div>
         </div>
-        <div class="outcome">
-          <div class="outcome-for">For Your Projects</div>
-          <div class="outcome-line">Every participant gets a stage. Bracket seed, demo day finalist, hackathon team — the format flexes to the occasion.</div>
+        <div class="carousel-slide">
+          <div class="slide-for">For Your Projects</div>
+          <div class="slide-line">Every participant gets a stage. Bracket seed, demo day finalist, hackathon team — the format flexes to the occasion.</div>
         </div>
-        <div class="outcome">
-          <div class="outcome-for">For Your Community</div>
-          <div class="outcome-line">Skin in the game. Onchain rewards for voting with conviction.</div>
+        <div class="carousel-slide">
+          <div class="slide-for">For Your Community</div>
+          <div class="slide-line">Skin in the game. Onchain rewards for voting with conviction.</div>
         </div>
+      </div>
+      <div class="carousel-controls">
+        <div class="carousel-progress">
+          <div class="carousel-progress-bar" id="carousel-progress"></div>
+        </div>
+        <div class="carousel-dots" id="carousel-dots">
+          <button class="carousel-dot active" aria-label="Slide 1"></button>
+          <button class="carousel-dot" aria-label="Slide 2"></button>
+          <button class="carousel-dot" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-counter" id="carousel-counter">01 / 03</div>
       </div>
     </div>
 
@@ -662,7 +777,7 @@
       </div>
       <div class="card">
         <h2>Every Team Becomes a Marketer</h2>
-        <p>Every participant has a genuine reason to mobilize — votes cost real money and winners earn real rewards. Larger projects bring audiences that discover smaller ones; every team campaigns independently, all roads lead back to your ecosystem.</p>
+        <p>Every participant has a genuine reason to mobilize — votes cost real money and winners earn real rewards. Larger projects bring audiences that discover smaller ones; every team campaigns independently, and <em>all roads lead back to your ecosystem.</em></p>
       </div>
       <div class="card full">
         <h2>Live for Under $5K. The Contest Funds Itself.</h2>
@@ -751,7 +866,7 @@
   </div><!-- /page-content -->
 </div><!-- /container -->
 
-<!-- Risograph SVG filter — matches main site -->
+<!-- Risograph SVG filter -->
 <svg style="display:none" aria-hidden="true" focusable="false">
   <defs>
     <filter id="riso-grain" x="-5%" y="-5%" width="110%" height="110%" color-interpolation-filters="sRGB">
@@ -766,9 +881,89 @@
 </svg>
 
 <script>
+  // Sticky header
   document.addEventListener('scroll', () => {
     document.getElementById('site-header').classList.toggle('scrolled', window.scrollY > 20);
   });
+
+  // Outcomes carousel
+  (function() {
+    const track    = document.getElementById('carousel-track');
+    const dots     = document.querySelectorAll('.carousel-dot');
+    const counter  = document.getElementById('carousel-counter');
+    const progress = document.getElementById('carousel-progress');
+    const carousel = document.getElementById('outcomes-carousel');
+    const total    = 3;
+    const duration = 4200; // ms per slide
+    let current    = 0;
+    let timer      = null;
+    let startTime  = null;
+    let rafId      = null;
+    let paused     = false;
+
+    function goTo(n, resetTimer) {
+      current = ((n % total) + total) % total;
+      track.style.transform = `translateX(-${current * (100 / total)}%)`;
+      dots.forEach((d, i) => d.classList.toggle('active', i === current));
+      counter.textContent = `0${current + 1} / 0${total}`;
+      if (resetTimer !== false) {
+        startTimer();
+      }
+    }
+
+    function startTimer() {
+      stopTimer();
+      if (paused) return;
+      startTime = performance.now();
+      progress.style.transition = 'none';
+      progress.style.width = '0%';
+      // Force reflow
+      progress.getBoundingClientRect();
+      progress.style.transition = `width ${duration}ms linear`;
+      progress.style.width = '100%';
+
+      timer = setTimeout(() => {
+        goTo(current + 1);
+      }, duration);
+    }
+
+    function stopTimer() {
+      if (timer) { clearTimeout(timer); timer = null; }
+      if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
+      // Freeze progress bar where it is
+      const computed = getComputedStyle(progress).width;
+      const parentW  = progress.parentElement.getBoundingClientRect().width;
+      const pct = parentW > 0 ? (parseFloat(computed) / parentW * 100) : 0;
+      progress.style.transition = 'none';
+      progress.style.width = pct + '%';
+    }
+
+    dots.forEach((d, i) => {
+      d.addEventListener('click', () => { goTo(i); });
+    });
+
+    // Pause on hover
+    carousel.addEventListener('mouseenter', () => {
+      paused = true;
+      stopTimer();
+    });
+    carousel.addEventListener('mouseleave', () => {
+      paused = false;
+      startTimer();
+    });
+
+    // Swipe support
+    let touchStartX = 0;
+    carousel.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+    carousel.addEventListener('touchend', e => {
+      const dx = e.changedTouches[0].clientX - touchStartX;
+      if (Math.abs(dx) > 40) goTo(dx < 0 ? current + 1 : current - 1);
+    });
+
+    // Start
+    goTo(0, false);
+    startTimer();
+  })();
 </script>
 </body>
 </html>

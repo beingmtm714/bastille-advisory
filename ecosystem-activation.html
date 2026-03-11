@@ -337,37 +337,35 @@
     }
     .carousel-slide {
       width: calc(100% / 3);
-      padding: 44px 36px 36px;
+      padding: 52px 40px 40px;
       flex-shrink: 0;
       position: relative;
     }
     .carousel-slide::before {
       content: '';
       position: absolute;
-      top: 0; left: 36px;
+      top: 0; left: 40px;
       width: 40px; height: 2px;
       background: var(--pink);
     }
     .slide-for {
-      font-family: var(--font-hero);
-      font-size: clamp(2rem, 4.5vw, 3.2rem);
-      letter-spacing: 0.08em;
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
       color: var(--cobalt-lt);
-      filter: url(#riso-grain);
-      line-height: 1;
       margin-bottom: 20px;
-      text-shadow:
-        3px 2px 0 rgba(255, 0, 102, 0.45),
-        -2px -1px 0 rgba(212, 255, 0, 0.2);
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border-lt);
     }
     .slide-line {
       font-family: var(--font-serif);
       font-style: italic;
-      font-size: clamp(1.15rem, 2.4vw, 1.5rem);
+      font-size: clamp(1.35rem, 2.8vw, 1.85rem);
       color: var(--cream);
-      line-height: 1.5;
+      line-height: 1.45;
       max-width: 560px;
-      opacity: 0.88;
+      opacity: 0.9;
     }
     .carousel-controls {
       display: flex;
@@ -696,7 +694,7 @@
       .platform-strip { margin: 0 -24px 44px; padding: 15px 24px; gap: 12px; }
       .platform-link { display: none; }
       .outcomes-carousel { margin: 0 -24px 44px; }
-      .carousel-slide { padding: 32px 24px 28px; }
+      .carousel-slide { padding: 36px 24px 28px; }
       .carousel-controls { padding: 0 24px 16px; }
       .how-items { grid-template-columns: 1fr 1fr; gap: 20px; }
       .how-item { padding-top: 18px; }

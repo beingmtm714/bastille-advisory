@@ -422,86 +422,64 @@
       margin-bottom: 60px;
       animation: fadeUp 0.6s 0.24s ease both;
     }
-    .how-intro {
-      font-size: 0.92rem;
-      color: rgba(245,240,220,0.38);
-      font-weight: 300;
-      line-height: 1.75;
-      font-style: italic;
-      margin-bottom: 44px;
-      max-width: 480px;
-    }
-    .how-setup {
-      padding: 36px 0;
-      border-top: 1px solid var(--border-lt);
-      border-bottom: 1px solid var(--border);
-    }
-    .how-tag {
-      font-size: 0.57rem;
-      font-weight: 700;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 16px;
-    }
-    .how-title {
-      font-family: var(--font-hero);
-      font-size: clamp(1.65rem, 3vw, 2.1rem);
-      letter-spacing: 0.04em;
-      color: var(--white);
-      line-height: 1;
-      margin-bottom: 16px;
-    }
-    .how-desc {
-      font-size: 0.97rem;
-      line-height: 1.75;
-      color: rgba(245,240,220,0.45);
-      font-weight: 300;
-      max-width: 520px;
-    }
-    .how-desc em { font-style: normal; color: var(--cream); font-weight: 500; }
-    .how-divider {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      padding: 32px 0;
-    }
-    .how-divider-line {
-      flex: 1;
-      height: 1px;
-      background: var(--border);
-    }
-    .how-divider-label {
-      font-size: 0.57rem;
-      font-weight: 700;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--muted);
-      white-space: nowrap;
-    }
-    .how-concurrent {
+    .how-items {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 36px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
     }
     .how-item {
-      border-top: 1px solid var(--border-lt);
-      padding-top: 22px;
+      border-top: 2px solid var(--border-lt);
+      padding-top: 20px;
+      transition: border-color 0.25s;
+    }
+    .how-item:hover { border-top-color: var(--cobalt-lt); }
+    .how-item-tag {
+      font-size: 0.54rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .how-item-tag::before {
+      content: '';
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .how-item-tag.once {
+      color: var(--muted);
+    }
+    .how-item-tag.once::before {
+      background: var(--muted);
+      opacity: 0.5;
+    }
+    .how-item-tag.ongoing {
+      color: var(--cobalt-lt);
+    }
+    .how-item-tag.ongoing::before {
+      background: var(--cobalt-lt);
+      box-shadow: 0 0 0 2px rgba(66,104,255,0.2);
     }
     .how-item-title {
       font-family: var(--font-hero);
-      font-size: 1.45rem;
+      font-size: 1.4rem;
       letter-spacing: 0.04em;
       color: var(--white);
       line-height: 1;
       margin-bottom: 12px;
     }
     .how-item-desc {
-      font-size: 0.88rem;
+      font-size: 0.84rem;
       line-height: 1.72;
       color: rgba(245,240,220,0.45);
       font-weight: 300;
     }
+    .how-item-desc em { font-style: normal; color: var(--cream); font-weight: 500; }
 
     /* ── Economics (pre-CTA) ── */
     .economics {
@@ -720,9 +698,8 @@
       .outcomes-carousel { margin: 0 -24px 44px; }
       .carousel-slide { padding: 32px 24px 28px; }
       .carousel-controls { padding: 0 24px 16px; }
-      .how-concurrent { grid-template-columns: 1fr; gap: 0; }
-      .how-item { padding: 20px 0; border-top: 1px solid var(--border-lt); }
-      .how-intro { margin-bottom: 32px; }
+      .how-items { grid-template-columns: 1fr 1fr; gap: 20px; }
+      .how-item { padding-top: 18px; }
       .addons { grid-template-columns: 1fr; }
       .cta-strip { flex-direction: column; align-items: flex-start; }
       footer { margin: 60px -24px 0; padding: 24px 24px 48px; flex-direction: column; align-items: flex-start; gap: 8px; }
@@ -812,32 +789,26 @@
     <!-- HOW IT WORKS -->
     <div class="section-label"><span class="section-label-text">How It Works</span></div>
     <div class="how-section">
-      <p class="how-intro">The mechanic is the same whether you're running a bracket, a demo day, or a hackathon — only the setup changes.</p>
-
-      <div class="how-setup">
-        <div class="how-tag">Before launch</div>
-        <div class="how-title">Event Setup</div>
-        <p class="how-desc">Participants are seeded into your chosen format — brackets, demo days, hackathons. The scale and structure adapt to your roster and goals; Bastille handles design and coordination end-to-end.</p>
-      </div>
-
-      <div class="how-divider">
-        <div class="how-divider-line"></div>
-        <div class="how-divider-label">Throughout the contest</div>
-        <div class="how-divider-line"></div>
-      </div>
-
-      <div class="how-concurrent">
+      <div class="how-items">
         <div class="how-item">
+          <div class="how-item-tag once">Before launch</div>
+          <div class="how-item-title">Event Setup</div>
+          <p class="how-item-desc">Participants are seeded into your chosen format. Scale and structure adapt to your roster; Bastille handles design and coordination end-to-end.</p>
+        </div>
+        <div class="how-item">
+          <div class="how-item-tag ongoing">Ongoing</div>
           <div class="how-item-title">Onchain Voting</div>
           <p class="how-item-desc">Community members <em>buy votes in your native token</em> to back their favorites. Cost increases over time, rewarding early conviction.</p>
         </div>
         <div class="how-item">
+          <div class="how-item-tag ongoing">Ongoing</div>
           <div class="how-item-title">Rewards Pool</div>
           <p class="how-item-desc">All voter spend flows into a pool. Backers of winning teams earn a proportionate return — <em>every vote is a transaction.</em></p>
         </div>
         <div class="how-item">
+          <div class="how-item-tag ongoing">Ongoing</div>
           <div class="how-item-title">Daily Momentum</div>
-          <p class="how-item-desc">New matchups run Mon–Fri, compounding narrative and transaction volume through every round of the campaign.</p>
+          <p class="how-item-desc">New matchups run Mon–Fri, compounding narrative and transaction volume through every round.</p>
         </div>
       </div>
     </div>

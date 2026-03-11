@@ -313,7 +313,7 @@
       color: var(--cream);
       opacity: 0.85;
       line-height: 1.35;
-      margin-bottom: 32px;
+      margin-bottom: 52px;
       max-width: 620px;
     }
     .pitch-headline em {
@@ -354,37 +354,40 @@
       background: var(--pink);
     }
     .slide-for {
-      font-size: 0.6rem;
-      font-weight: 700;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
+      font-family: var(--font-hero);
+      font-size: clamp(2.2rem, 4.2vw, 3rem);
+      letter-spacing: 0.06em;
+      line-height: 1;
       color: var(--cobalt-lt);
-      margin-bottom: 20px;
-      padding-bottom: 20px;
+      filter: url(#riso-grain);
+      text-shadow:
+        3px 2px 0 rgba(255, 0, 102, 0.4),
+        -2px -1px 0 rgba(212, 255, 0, 0.18);
+      margin-bottom: 22px;
+      padding-bottom: 22px;
       border-bottom: 1px solid var(--border-lt);
     }
     .slide-line {
       font-family: var(--font-serif);
       font-style: italic;
-      font-size: clamp(1.25rem, 2.6vw, 1.7rem);
+      font-size: clamp(1.15rem, 2.3vw, 1.55rem);
       color: var(--cream);
-      line-height: 1.45;
-      opacity: 0.9;
+      line-height: 1.5;
+      opacity: 0.88;
     }
     .carousel-btn {
       flex-shrink: 0;
-      width: 52px;
+      width: 62px;
       background: none;
       border: none;
       cursor: pointer;
-      color: var(--muted);
+      color: var(--cobalt-lt);
       display: flex;
       align-items: center;
       justify-content: center;
       transition: color 0.15s, background 0.15s;
-      font-size: 1rem;
     }
-    .carousel-btn:hover { color: var(--cream); background: rgba(255,255,255,0.03); }
+    .carousel-btn:hover { color: var(--white); background: rgba(66,104,255,0.08); }
     .carousel-btn-prev { border-right: 1px solid var(--border); }
     .carousel-btn-next { border-left: 1px solid var(--border); }
     .carousel-btn svg { display: block; }
@@ -669,7 +672,7 @@
       .platform-link { display: none; }
       .outcomes-carousel { margin: 0 -24px 52px; }
       .carousel-slide { padding: 36px 24px 36px; }
-      .carousel-btn { width: 40px; }
+      .carousel-btn { width: 48px; }
       .how-items { grid-template-columns: 1fr 1fr; gap: 20px; }
       .how-item { padding-top: 18px; }
       .addons { grid-template-columns: 1fr; }
@@ -759,7 +762,7 @@
     <!-- OUTCOMES CAROUSEL -->
     <div class="outcomes-carousel" id="outcomes-carousel">
       <button class="carousel-btn carousel-btn-prev" id="carousel-prev" aria-label="Previous">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8L10 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg width="20" height="20" viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8L10 13" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </button>
       <div class="carousel-window">
         <div class="carousel-track" id="carousel-track">
@@ -778,7 +781,7 @@
         </div>
       </div>
       <button class="carousel-btn carousel-btn-next" id="carousel-next" aria-label="Next">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg width="20" height="20" viewBox="0 0 16 16" fill="none"><path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </button>
     </div>
 

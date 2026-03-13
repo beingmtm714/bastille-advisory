@@ -575,10 +575,12 @@
       flex-direction: column;
       align-items: center;
     }
+    .founder-video-clip {
+      clip-path: inset(0 0 90px 0 round 6px);
+      margin-bottom: -90px;
+    }
     .founder-video .tiktok-embed {
       margin: 0 !important;
-      border-radius: 4px;
-      overflow: hidden;
     }
 
     /* ── CTA strip ── */
@@ -815,9 +817,11 @@
         <p class="founder-body">Phelps explains the mechanic behind onchain people's choice campaigns — why putting real money behind a vote changes community behavior, and why it works for any format where builders deserve a stage.</p>
       </div>
       <div class="founder-video">
-        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@divine_economy/video/7615347038787505422" data-video-id="7615347038787505422" data-embed-from="oembed" style="max-width:340px; min-width:280px; margin:0;">
-          <section><a target="_blank" title="@divine_economy" href="https://www.tiktok.com/@divine_economy?refer=embed">@divine_economy</a></section>
-        </blockquote>
+        <div class="founder-video-clip">
+          <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@divine_economy/video/7615347038787505422" data-video-id="7615347038787505422" data-embed-from="oembed" style="max-width:340px; min-width:280px; margin:0;">
+            <section><a target="_blank" title="@divine_economy" href="https://www.tiktok.com/@divine_economy?refer=embed">@divine_economy</a></section>
+          </blockquote>
+        </div>
         <script async src="https://www.tiktok.com/embed.js"></script>
       </div>
     </div>

@@ -535,6 +535,52 @@
       margin-top: 3px;
     }
 
+    /* ── Founder video ── */
+    .founder-section {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 52px;
+      align-items: start;
+      margin-bottom: 60px;
+      animation: fadeUp 0.6s 0.2s ease both;
+    }
+    .founder-eyebrow {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--pink);
+      margin-bottom: 20px;
+    }
+    .founder-header {
+      font-family: var(--font-hero);
+      font-size: clamp(1.8rem, 3.6vw, 2.6rem);
+      line-height: 1.0;
+      letter-spacing: 0.04em;
+      color: var(--lime);
+      filter: url(#riso-grain);
+      text-shadow:
+        -4px 3px 0 rgba(0, 56, 255, 0.65),
+        3px -2px 0 rgba(255, 0, 102, 0.3),
+        -7px 5px 0 rgba(0, 56, 255, 0.12);
+      margin-bottom: 24px;
+    }
+    .founder-body {
+      font-size: 0.85rem;
+      color: rgba(245,240,220,0.5);
+      line-height: 1.7;
+    }
+    .founder-video {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .founder-video .tiktok-embed {
+      margin: 0 !important;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
     /* ── CTA strip ── */
     .cta-strip {
       background: var(--night-2);
@@ -757,6 +803,22 @@
         <div><div class="cs-num">24</div><div class="cs-label">Competing teams</div></div>
         <div><div class="cs-num">30</div><div class="cs-label">Days</div></div>
         <div><div class="cs-num">#1</div><div class="cs-label">Rev campaign · platform history</div></div>
+      </div>
+    </div>
+
+    <!-- FOUNDER VIDEO -->
+    <div class="section-label"><span class="section-label-text">From the Founder</span></div>
+    <div class="founder-section">
+      <div class="founder-copy">
+        <div class="founder-eyebrow">David Phelps · Founder, Confetti</div>
+        <div class="founder-header">For the first time, anyone can vote in a hackathon.<br>And earn from it.</div>
+        <p class="founder-body">Phelps explains the mechanic behind onchain people's choice campaigns — why putting real money behind a vote changes community behavior, and why it works for any format where builders deserve a stage.</p>
+      </div>
+      <div class="founder-video">
+        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@divine_economy/video/7615347038787505422" data-video-id="7615347038787505422" data-embed-from="oembed" style="max-width:340px; min-width:280px; margin:0;">
+          <section><a target="_blank" title="@divine_economy" href="https://www.tiktok.com/@divine_economy?refer=embed">@divine_economy</a></section>
+        </blockquote>
+        <script async src="https://www.tiktok.com/embed.js"></script>
       </div>
     </div>
 

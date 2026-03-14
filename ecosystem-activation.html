@@ -535,6 +535,39 @@
       margin-top: 3px;
     }
 
+    /* ── ICP cards ── */
+    .icp-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      margin: 0 0 60px;
+    }
+    .icp-card {
+      background: var(--night-2);
+      padding: 28px 26px 32px;
+      border-top: 2px solid var(--border);
+    }
+    .icp-accelerators { border-top-color: var(--lime); }
+    .icp-foundations  { border-top-color: var(--cobalt-lt); }
+    .icp-organizers   { border-top-color: var(--pink); }
+    .icp-label {
+      font-size: 0.58rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .icp-accelerators .icp-label { color: var(--lime); }
+    .icp-foundations  .icp-label { color: var(--cobalt-lt); }
+    .icp-organizers   .icp-label { color: var(--pink); }
+    .icp-body {
+      font-size: 0.82rem;
+      color: rgba(245,240,220,0.55);
+      line-height: 1.75;
+      margin: 0;
+    }
+
     /* ── Founder video ── */
     .founder-section {
       display: grid;
@@ -782,22 +815,38 @@
       <div class="carousel-window">
         <div class="carousel-track" id="carousel-track">
           <div class="carousel-slide">
-            <div class="slide-for">For Your Ecosystem</div>
-            <div class="slide-line">Your whole ecosystem markets itself simultaneously — every project campaigns, every community member picks sides. The result is sustained onchain activity and narrative without running separate campaigns for each project.</div>
+            <div class="slide-for">Accelerators</div>
+            <div class="slide-line">You already have the cohort and the demo day. Make it a competition your community has real skin in.</div>
           </div>
           <div class="carousel-slide">
-            <div class="slide-for">For Your Projects</div>
-            <div class="slide-line">Every project gets a competitive moment in front of the whole ecosystem's audience — not just their own followers. Bigger projects bring crowds that discover smaller ones; the rising tide lifts every team.</div>
+            <div class="slide-for">L1/L2 Foundations</div>
+            <div class="slide-line">Every vote is a transaction on your chain. Turn your hackathon into measurable onchain activity — not just participation.</div>
           </div>
           <div class="carousel-slide">
-            <div class="slide-for">For Your Community</div>
-            <div class="slide-line">For the first time, backing a project means having genuine skin in the game — not just a retweet. Community members earn real returns when they back winners, which means they actually care who wins.</div>
+            <div class="slide-for">Event Organizers</div>
+            <div class="slide-line">You run dozens of events a year. One product partnership adds the competitive voting layer to all of them.</div>
           </div>
         </div>
       </div>
       <button class="carousel-btn carousel-btn-next" id="carousel-next" aria-label="Next">
         <svg width="20" height="20" viewBox="0 0 16 16" fill="none"><path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </button>
+    </div>
+
+    <!-- ICP CARDS -->
+    <div class="icp-grid">
+      <div class="icp-card icp-accelerators">
+        <div class="icp-label">Accelerators</div>
+        <p class="icp-body">The format maps directly to cohort demo days. We handle the bracket structure, Confetti platform setup, content, and co-hosting end-to-end. Most accelerator campaigns run for two to four weeks alongside your standard program showcase.</p>
+      </div>
+      <div class="icp-card icp-foundations">
+        <div class="icp-label">L1/L2 Foundations</div>
+        <p class="icp-body">We've run this format for Avalanche — $1.5M in transaction volume, 24 teams, 30 rounds. Foundation contracts run higher than accelerator engagements, and the format repeats on your hackathon calendar multiple times per year.</p>
+      </div>
+      <div class="icp-card icp-organizers">
+        <div class="icp-label">Event Organizers</div>
+        <p class="icp-body">One partnership adds the competitive voting layer to every event you run. We handle campaign design and execution; you bring the infrastructure and distribution. The business model is a product deal, not a per-event service fee.</p>
+      </div>
     </div>
 
     <!-- CASE STUDY -->

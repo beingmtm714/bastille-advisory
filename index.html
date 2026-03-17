@@ -208,7 +208,7 @@
        HOME — HERO
     ══════════════════════════════════════════ */
     .hero {
-      padding: 64px 36px 52px;
+      padding: 44px 36px 36px;
       border-bottom: 1px solid var(--border);
       margin: 0 -36px 0;
       position: relative;
@@ -244,7 +244,7 @@
     /* Full-bleed pink stripe */
     .hero-headline {
       font-family: var(--font-hero);
-      font-size: clamp(5rem, 14vw, 10.5rem);
+      font-size: clamp(3.8rem, 11vw, 7.8rem);
       line-height: 0.88;
       letter-spacing: 0.04em;
       color: transparent;
@@ -286,13 +286,39 @@
       font-family: 'Outfit', system-ui, sans-serif;
       font-style: normal;
       font-weight: 300;
-      font-size: 1.45rem;
+      font-size: 1.3rem;
       color: var(--cream);
-      margin: 32px 0 0;
+      margin: 22px 0 0;
       padding: 0;
       line-height: 1.6;
       letter-spacing: 0.01em;
     }
+    .hero-qualifier {
+      font-family: 'Outfit', system-ui, sans-serif;
+      font-weight: 300;
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--muted);
+      line-height: 1.75;
+      margin: 18px 0 0;
+      max-width: 520px;
+      letter-spacing: 0.01em;
+    }
+    .hero-cta {
+      display: inline-block;
+      margin-top: 22px;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      cursor: pointer;
+      border-bottom: 1px solid var(--border-lt);
+      padding-bottom: 2px;
+      text-decoration: none;
+      transition: color 0.15s, border-color 0.15s;
+    }
+    .hero-cta:hover { color: var(--pink-lt); border-color: var(--pink); }
 
     /* Who This Is For — row list */
     .who-section { margin-top: 72px; }
@@ -1012,67 +1038,75 @@
        DIAGNOSTIC BRIDGE — MARQUEE
     ══════════════════════════════════════════ */
     .diagnostic-bridge {
-      margin: 0 0 80px;
+      margin: 0 0 40px;
       border-bottom: 1px solid var(--border);
       overflow: hidden;
     }
     .db-opener {
-      padding: 40px 0 36px;
-      padding-left: 16px;
-      border-left: 2px solid var(--cobalt-lt);
+      padding: 0 0 28px;
       font-family: 'Outfit', system-ui, sans-serif;
-      font-weight: 300;
-      font-size: 1rem;
-      color: var(--muted);
-      line-height: 1.75;
-      max-width: 500px;
+      font-weight: 400;
+      font-size: 1.05rem;
+      color: var(--cobalt-lt);
+      line-height: 1.8;
+      max-width: 560px;
       letter-spacing: 0.01em;
     }
-    .db-ticker-wrap {
-      overflow: hidden;
+    .db-carousel-wrap {
       margin: 0 -36px;
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
-      padding: 22px 0;
-      background: var(--night-2);
+      padding: 36px 52px 28px;
+      background: var(--night-3);
     }
-    .db-ticker {
-      display: flex;
-      align-items: center;
-      white-space: nowrap;
-      width: max-content;
-      animation: db-marquee 38s linear infinite;
+    .db-carousel-track {
+      display: grid;
+      margin-bottom: 22px;
     }
-    .db-ticker:hover { animation-play-state: paused; }
-    @keyframes db-marquee {
-      0%   { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-    .db-tick-item {
+    .db-carousel-slide {
+      grid-area: 1 / 1;
       font-family: 'Outfit', system-ui, sans-serif;
       font-weight: 300;
-      font-size: 2rem;
+      font-size: 1.3rem;
       color: var(--cream);
-      padding: 0 52px;
+      line-height: 1.5;
       letter-spacing: 0.01em;
+      opacity: 0;
+      transition: opacity 0.55s ease;
+      pointer-events: none;
+    }
+    .db-carousel-slide.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .db-dots {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+    .db-dot {
+      height: 2px;
+      width: 24px;
+      background: rgba(255,255,255,0.15);
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s ease, width 0.3s ease;
+      padding: 0;
       flex-shrink: 0;
     }
-    .db-tick-sep {
-      color: var(--pink);
-      font-size: 1.4rem;
-      flex-shrink: 0;
-      opacity: 0.65;
+    .db-dot.active {
+      background: var(--pink);
+      width: 40px;
     }
     .db-closer {
-      padding: 36px 0 44px;
-      font-family: var(--font-hero);
-      font-size: 2.4rem;
-      letter-spacing: 0.07em;
+      padding: 28px 0 44px;
+      font-family: 'Outfit', system-ui, sans-serif;
+      font-weight: 400;
+      font-size: 1.05rem;
       color: var(--lime);
-      line-height: 1.1;
-      text-shadow:
-        -5px 3px 0 rgba(0, 56, 255, 0.4),
-        3px -2px 0 rgba(255, 0, 102, 0.2);
+      line-height: 1.8;
+      letter-spacing: 0.01em;
+      max-width: 560px;
     }
 
     /* ══════════════════════════════════════════
@@ -1122,11 +1156,10 @@
       nav a { margin-left: 18px; }
       nav a:first-child { margin-left: 0; }
       .hero { padding: 48px 24px 40px; margin: 0 -24px 0; }
-      .db-opener { padding: 32px 0 28px; padding-left: 14px; font-size: 0.92rem; max-width: 100%; }
-      .db-ticker-wrap { margin: 0 -24px; }
-      .db-tick-item { font-size: 1.4rem; padding: 0 32px; }
-      .db-tick-sep { font-size: 1rem; }
-      .db-closer { font-size: 1.65rem; padding: 28px 0 36px; }
+      .db-opener { padding: 0 0 20px; font-size: 0.95rem; max-width: 100%; }
+      .db-carousel-wrap { margin: 0 -24px; padding: 24px 24px 20px; }
+      .db-carousel-slide { font-size: 1.1rem; }
+      .db-closer { font-size: 0.95rem; padding: 20px 0 32px; }
       .hero-subhead { margin: 24px 0 0; padding: 0; font-size: 1.2rem; }
       .hero-headline { font-size: 4.2rem; }
       .section-label { margin: 0 -24px 36px; padding: 14px 24px 0; }
@@ -1217,7 +1250,7 @@
       </div>
       <nav>
         <a class="active" data-section="home" onclick="show('home',this)">Home</a>
-        <a data-section="approach" onclick="show('approach',this)">Services</a>
+        <a data-section="approach" onclick="show('approach',this)">The Work</a>
         <a data-section="about" onclick="show('about',this)">About</a>
         <a data-section="work" onclick="show('work',this)">Work</a>
         <a data-section="contact" onclick="show('contact',this)">Contact</a>
@@ -1235,24 +1268,22 @@
         <span class="hl-pink">PROBLEM.</span>
       </h1>
       <p class="hero-subhead" data-editable data-key="hero-subhead">You have signal. We turn it into a system.</p>
+      <p class="hero-qualifier">Bastille works with founders at the moment between having something real and getting the world to see it.</p>
+      <a class="hero-cta" onclick="show('approach', document.querySelector('nav a[data-section=approach]'))">How we work →</a>
     </div>
 
     <div class="diagnostic-bridge">
-      <div class="db-opener">Bastille works with founders at the moment between having something real and getting the world to see it.</div>
-      <div class="db-ticker-wrap" aria-label="Examples of the signal">
-        <div class="db-ticker">
-          <span class="db-tick-item">Getting feedback from investors. Not term sheets.</span>
-          <span class="db-tick-sep" aria-hidden="true">·</span>
-          <span class="db-tick-item">A customer segment that's working — and you can't yet explain why.</span>
-          <span class="db-tick-sep" aria-hidden="true">·</span>
-          <span class="db-tick-item">A narrative that made sense six months ago. Not anymore.</span>
-          <span class="db-tick-sep" aria-hidden="true">·</span>
-          <span class="db-tick-item">Getting feedback from investors. Not term sheets.</span>
-          <span class="db-tick-sep" aria-hidden="true">·</span>
-          <span class="db-tick-item">A customer segment that's working — and you can't yet explain why.</span>
-          <span class="db-tick-sep" aria-hidden="true">·</span>
-          <span class="db-tick-item">A narrative that made sense six months ago. Not anymore.</span>
-          <span class="db-tick-sep" aria-hidden="true">·</span>
+      <div class="section-label"><span class="section-label-text">The Signal</span></div>
+      <div class="db-carousel-wrap" aria-label="Examples of the signal">
+        <div class="db-carousel-track">
+          <div class="db-carousel-slide active">Getting feedback from investors instead of term sheets?</div>
+          <div class="db-carousel-slide">You have a customer segment that's working — but you can't yet explain why?</div>
+          <div class="db-carousel-slide">Your narrative made sense six months ago. Does it still?</div>
+        </div>
+        <div class="db-dots">
+          <button class="db-dot active" aria-label="Slide 1"></button>
+          <button class="db-dot" aria-label="Slide 2"></button>
+          <button class="db-dot" aria-label="Slide 3"></button>
         </div>
       </div>
       <div class="db-closer">In every case, the work is the same: read the signal, build the system, close the gap.</div>
@@ -1260,8 +1291,8 @@
 
     <div class="services-preview">
       <div class="section-label">
-        <span class="section-label-text">Services</span>
-        <a class="section-label-link" onclick="show('approach',document.querySelector('nav a[data-section=approach]'))">All services →</a>
+        <span class="section-label-text">The Work</span>
+        <a class="section-label-link" onclick="show('approach',document.querySelector('nav a[data-section=approach]'))">All work →</a>
       </div>
       <div class="svc-preview-grid">
         <div class="svc-preview-col svc-col-growth">
@@ -1328,7 +1359,7 @@
 
   <!-- ══ APPROACH ══ -->
   <section id="approach" class="section">
-    <div class="section-label"><span class="section-label-text">Services</span></div>
+    <div class="section-label"><span class="section-label-text">The Work</span></div>
     <p class="approach-intro" data-editable data-key="approach-intro">Three fractional roles — growth lead, fundraising narrative, and VC network ops. Take one, combine several, or run the full arc from GTM through close. <a onclick="show('about',document.querySelector('nav a[data-section=about]'))" style="cursor:pointer">The background behind the work →</a></p>
 
     <div class="svc-subsection-label">Full Engagements</div>
@@ -1711,6 +1742,30 @@ document.getElementById('admin-pw-input').addEventListener('keydown', e => {
 
 // Apply any saved edits on load
 applyStored();
+
+// Diagnostic bridge carousel
+(function() {
+  var slides = document.querySelectorAll('.db-carousel-slide');
+  var dots = document.querySelectorAll('.db-dot');
+  if (!slides.length) return;
+  var current = 0;
+  var timer;
+  function goTo(idx) {
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = (idx + slides.length) % slides.length;
+    slides[current].classList.add('active');
+    dots[current].classList.add('active');
+  }
+  function startTimer() {
+    clearInterval(timer);
+    timer = setInterval(function() { goTo(current + 1); }, 3800);
+  }
+  dots.forEach(function(dot, i) {
+    dot.addEventListener('click', function() { goTo(i); startTimer(); });
+  });
+  startTimer();
+})();
 
 function openInquiry(service) {
   var sub = service ? 'Seeking "' + service + '"' : 'General Inquiry — Bastille Advisory';

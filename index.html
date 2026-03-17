@@ -210,7 +210,7 @@
     .hero {
       padding: 80px 36px 72px;
       border-bottom: 1px solid var(--border);
-      margin: 0 -36px 88px;
+      margin: 0 -36px 0;
       position: relative;
       overflow: visible;
     }
@@ -283,34 +283,16 @@
     }
 
     .hero-subhead {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-style: italic;
+      font-family: 'Outfit', system-ui, sans-serif;
+      font-style: normal;
+      font-weight: 300;
       font-size: 1.45rem;
       color: var(--cream);
       margin: 32px 0 0;
       padding: 0;
       line-height: 1.6;
-    }
-    body.font-opt-b .hero-subhead {
-      font-family: 'Outfit', system-ui, sans-serif;
-      font-style: normal;
-      font-weight: 300;
       letter-spacing: 0.01em;
     }
-    .hero-qualifier {
-      margin: 28px -36px 0;
-      padding: 0 36px;
-    }
-    .hero-qualifier p {
-      font-size: 0.95rem;
-      font-weight: 300;
-      color: var(--muted);
-      line-height: 1.9;
-      padding: 18px 0;
-      border-bottom: 1px solid var(--border);
-    }
-    .hero-qualifier p:first-child { border-top: 1px solid var(--border); }
-    .hero-qualifier strong { color: var(--cream-dk); font-weight: 400; }
 
     /* Who This Is For — row list */
     .who-section { margin-top: 72px; }
@@ -668,6 +650,8 @@
     .svc-preview-col {
       padding: 28px 26px 32px;
       border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
     }
     .svc-preview-col:last-child { border-right: none; }
     .svc-preview-heading {
@@ -1025,27 +1009,70 @@
     .confirm-actions button.confirm-yes { border-color: var(--pink); color: var(--pink); }
 
     /* ══════════════════════════════════════════
-       DIAGNOSTIC BRIDGE
+       DIAGNOSTIC BRIDGE — MARQUEE
     ══════════════════════════════════════════ */
     .diagnostic-bridge {
       margin: 0 0 80px;
-      padding: 52px 0;
+      border-bottom: 1px solid var(--border);
+      overflow: hidden;
+    }
+    .db-opener {
+      padding: 40px 0 36px;
+      padding-left: 16px;
+      border-left: 2px solid var(--cobalt-lt);
+      font-family: 'Outfit', system-ui, sans-serif;
+      font-weight: 300;
+      font-size: 1rem;
+      color: var(--muted);
+      line-height: 1.75;
+      max-width: 500px;
+      letter-spacing: 0.01em;
+    }
+    .db-ticker-wrap {
+      overflow: hidden;
+      margin: 0 -36px;
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
+      padding: 22px 0;
+      background: var(--night-2);
     }
-    .diagnostic-bridge-prose {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-style: italic;
-      font-size: 1.15rem;
-      color: var(--muted);
-      line-height: 2;
-      max-width: 640px;
+    .db-ticker {
+      display: flex;
+      align-items: center;
+      white-space: nowrap;
+      width: max-content;
+      animation: db-marquee 38s linear infinite;
     }
-    body.font-opt-b .diagnostic-bridge-prose {
+    .db-ticker:hover { animation-play-state: paused; }
+    @keyframes db-marquee {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .db-tick-item {
       font-family: 'Outfit', system-ui, sans-serif;
-      font-style: normal;
       font-weight: 300;
+      font-size: 2rem;
+      color: var(--cream);
+      padding: 0 52px;
       letter-spacing: 0.01em;
+      flex-shrink: 0;
+    }
+    .db-tick-sep {
+      color: var(--pink);
+      font-size: 1.4rem;
+      flex-shrink: 0;
+      opacity: 0.65;
+    }
+    .db-closer {
+      padding: 36px 0 44px;
+      font-family: var(--font-hero);
+      font-size: 2.4rem;
+      letter-spacing: 0.07em;
+      color: var(--lime);
+      line-height: 1.1;
+      text-shadow:
+        -5px 3px 0 rgba(0, 56, 255, 0.4),
+        3px -2px 0 rgba(255, 0, 102, 0.2);
     }
 
     /* ══════════════════════════════════════════
@@ -1058,6 +1085,7 @@
       opacity: 0.7;
       line-height: 1.75;
       margin-bottom: 14px;
+      flex: 1;
     }
     .pillar-resolution {
       font-size: 0.92rem;
@@ -1075,54 +1103,15 @@
       border-top: 1px solid var(--border);
     }
     .approach-statement-text {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-style: italic;
+      font-family: 'Outfit', system-ui, sans-serif;
+      font-style: normal;
+      font-weight: 300;
       font-size: 1.2rem;
       color: var(--muted);
       line-height: 1.85;
       max-width: 540px;
-    }
-    body.font-opt-b .approach-statement-text {
-      font-family: 'Outfit', system-ui, sans-serif;
-      font-style: normal;
-      font-weight: 300;
       letter-spacing: 0.01em;
     }
-
-    /* ══════════════════════════════════════════
-       FONT REVIEW TOGGLE (remove after selection)
-    ══════════════════════════════════════════ */
-    .font-review-toggle {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin: 18px 0 0;
-      opacity: 0.45;
-      transition: opacity 0.15s;
-    }
-    .font-review-toggle:hover { opacity: 1; }
-    .font-review-label {
-      font-size: 0.52rem;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-    .font-review-btn {
-      background: none;
-      border: 1px solid var(--border-lt);
-      color: var(--muted);
-      font-family: var(--font-body);
-      font-size: 0.52rem;
-      letter-spacing: 0.1em;
-      padding: 3px 10px;
-      cursor: pointer;
-      text-transform: uppercase;
-      font-weight: 600;
-      transition: color 0.15s, border-color 0.15s;
-    }
-    .font-review-btn.active { border-color: var(--pink); color: var(--pink-lt); }
-    .font-review-btn:hover { color: var(--cream); }
 
     /* ══════════════════════════════════════════
        RESPONSIVE
@@ -1132,7 +1121,12 @@
       .header-top { flex-direction: column; align-items: flex-start; gap: 18px; }
       nav a { margin-left: 18px; }
       nav a:first-child { margin-left: 0; }
-      .hero { padding: 60px 24px 52px; margin: 0 -24px 60px; }
+      .hero { padding: 60px 24px 52px; margin: 0 -24px 0; }
+      .db-opener { padding: 32px 0 28px; padding-left: 14px; font-size: 0.92rem; max-width: 100%; }
+      .db-ticker-wrap { margin: 0 -24px; }
+      .db-tick-item { font-size: 1.4rem; padding: 0 32px; }
+      .db-tick-sep { font-size: 1rem; }
+      .db-closer { font-size: 1.65rem; padding: 28px 0 36px; }
       .hero-subhead { margin: 24px 0 0; padding: 0; font-size: 1.2rem; }
       .hero-headline { font-size: 4.2rem; }
       .section-label { margin: 0 -24px 36px; padding: 14px 24px 0; }
@@ -1241,18 +1235,27 @@
         <span class="hl-pink">PROBLEM.</span>
       </h1>
       <p class="hero-subhead" data-editable data-key="hero-subhead">You have signal. We turn it into a system.</p>
-      <div class="font-review-toggle" title="Font review — remove after selection">
-        <span class="font-review-label">Subhead font:</span>
-        <button class="font-review-btn active" onclick="setFontOption('a')">A — Serif</button>
-        <button class="font-review-btn" onclick="setFontOption('b')">B — Sans</button>
-      </div>
-      <div class="hero-qualifier">
-        <p data-editable data-key="hq-1">Bastille works with founders at the moment between having something real and getting the world to see it.</p>
-      </div>
     </div>
 
     <div class="diagnostic-bridge">
-      <p class="diagnostic-bridge-prose">The signal shows up in different places. Sometimes it's investor conversations generating feedback instead of term sheets. Sometimes it's a customer segment that's working but you can't explain why or repeat it. Sometimes it's a narrative that made sense six months ago but no longer matches what you're actually building. In every case, the work is the same: read the signal, build the system, close the gap.</p>
+      <div class="db-opener">Bastille works with founders at the moment between having something real and getting the world to see it.</div>
+      <div class="db-ticker-wrap" aria-label="Examples of the signal">
+        <div class="db-ticker">
+          <span class="db-tick-item">Getting feedback from investors. Not term sheets.</span>
+          <span class="db-tick-sep" aria-hidden="true">·</span>
+          <span class="db-tick-item">A customer segment that's working — and you can't yet explain why.</span>
+          <span class="db-tick-sep" aria-hidden="true">·</span>
+          <span class="db-tick-item">A narrative that made sense six months ago. Not anymore.</span>
+          <span class="db-tick-sep" aria-hidden="true">·</span>
+          <span class="db-tick-item">Getting feedback from investors. Not term sheets.</span>
+          <span class="db-tick-sep" aria-hidden="true">·</span>
+          <span class="db-tick-item">A customer segment that's working — and you can't yet explain why.</span>
+          <span class="db-tick-sep" aria-hidden="true">·</span>
+          <span class="db-tick-item">A narrative that made sense six months ago. Not anymore.</span>
+          <span class="db-tick-sep" aria-hidden="true">·</span>
+        </div>
+      </div>
+      <div class="db-closer">In every case, the work is the same: read the signal, build the system, close the gap.</div>
     </div>
 
     <div class="services-preview">
@@ -1620,12 +1623,6 @@ function showResetConfirm() { document.getElementById('reset-confirm').classList
 function hideResetConfirm() { document.getElementById('reset-confirm').classList.remove('visible'); }
 function resetAllContent() { localStorage.removeItem(STORE_KEY); hideResetConfirm(); location.reload(); }
 
-function setFontOption(opt) {
-  document.body.classList.toggle('font-opt-b', opt === 'b');
-  document.querySelectorAll('.font-review-btn').forEach((btn, i) => {
-    btn.classList.toggle('active', (i === 0 && opt === 'a') || (i === 1 && opt === 'b'));
-  });
-}
 
 function handleCaseClick(e, el) {
   if (adminActive) {

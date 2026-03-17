@@ -20,7 +20,7 @@
   <meta name="twitter:title" content="Bastille Advisory">
   <meta name="twitter:description" content="Growth. Narrative. Raise. Strategic advisory for founders who need to move fast and communicate clearly.">
   <meta name="twitter:image" content="https://bastilleadvisory.xyz/og-image.png">
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Serif+Display:ital@0;1&family=Playfair+Display:ital@1&family=Outfit:wght@300;400&display=swap" rel="stylesheet">
   <style>
     :root {
       --night:    #050505;
@@ -283,13 +283,19 @@
     }
 
     .hero-subhead {
-      font-family: var(--font-serif);
+      font-family: 'Playfair Display', Georgia, serif;
       font-style: italic;
       font-size: 1.45rem;
       color: var(--cream);
       margin: 32px 0 0;
       padding: 0;
       line-height: 1.6;
+    }
+    body.font-opt-b .hero-subhead {
+      font-family: 'Outfit', system-ui, sans-serif;
+      font-style: normal;
+      font-weight: 300;
+      letter-spacing: 0.01em;
     }
     .hero-qualifier {
       margin: 28px -36px 0;
@@ -1019,6 +1025,106 @@
     .confirm-actions button.confirm-yes { border-color: var(--pink); color: var(--pink); }
 
     /* ══════════════════════════════════════════
+       DIAGNOSTIC BRIDGE
+    ══════════════════════════════════════════ */
+    .diagnostic-bridge {
+      margin: 0 0 80px;
+      padding: 52px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .diagnostic-bridge-prose {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-style: italic;
+      font-size: 1.15rem;
+      color: var(--muted);
+      line-height: 2;
+      max-width: 640px;
+    }
+    body.font-opt-b .diagnostic-bridge-prose {
+      font-family: 'Outfit', system-ui, sans-serif;
+      font-style: normal;
+      font-weight: 300;
+      letter-spacing: 0.01em;
+    }
+
+    /* ══════════════════════════════════════════
+       THREE PILLARS
+    ══════════════════════════════════════════ */
+    .pillar-problem {
+      font-size: 0.95rem;
+      font-weight: 400;
+      color: var(--cream);
+      opacity: 0.7;
+      line-height: 1.75;
+      margin-bottom: 14px;
+    }
+    .pillar-resolution {
+      font-size: 0.92rem;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    /* ══════════════════════════════════════════
+       APPROACH STATEMENT
+    ══════════════════════════════════════════ */
+    .approach-statement {
+      margin: 0 0 80px;
+      padding: 40px 0;
+      border-top: 1px solid var(--border);
+    }
+    .approach-statement-text {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-style: italic;
+      font-size: 1.2rem;
+      color: var(--muted);
+      line-height: 1.85;
+      max-width: 540px;
+    }
+    body.font-opt-b .approach-statement-text {
+      font-family: 'Outfit', system-ui, sans-serif;
+      font-style: normal;
+      font-weight: 300;
+      letter-spacing: 0.01em;
+    }
+
+    /* ══════════════════════════════════════════
+       FONT REVIEW TOGGLE (remove after selection)
+    ══════════════════════════════════════════ */
+    .font-review-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 18px 0 0;
+      opacity: 0.45;
+      transition: opacity 0.15s;
+    }
+    .font-review-toggle:hover { opacity: 1; }
+    .font-review-label {
+      font-size: 0.52rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .font-review-btn {
+      background: none;
+      border: 1px solid var(--border-lt);
+      color: var(--muted);
+      font-family: var(--font-body);
+      font-size: 0.52rem;
+      letter-spacing: 0.1em;
+      padding: 3px 10px;
+      cursor: pointer;
+      text-transform: uppercase;
+      font-weight: 600;
+      transition: color 0.15s, border-color 0.15s;
+    }
+    .font-review-btn.active { border-color: var(--pink); color: var(--pink-lt); }
+    .font-review-btn:hover { color: var(--cream); }
+
+    /* ══════════════════════════════════════════
        RESPONSIVE
     ══════════════════════════════════════════ */
     @media (max-width: 620px) {
@@ -1130,43 +1236,23 @@
     <div class="hero">
       <div class="hero-eyebrow">Fractional Operator for Founders</div>
       <h1 class="hero-headline">
-        <span class="hl-blue">GROWTH.</span><br>
-        <span class="hl-lime">NARRATIVE.</span><br>
-        <span class="hl-pink">RAISE.</span>
+        <span class="hl-blue">YOU DON'T</span><br>
+        <span class="hl-lime">HAVE A PRODUCT</span><br>
+        <span class="hl-pink">PROBLEM.</span>
       </h1>
-      <p class="hero-subhead" data-editable data-key="hero-subhead">
-        Fractional growth lead, fundraising narrative, and VC network — embedded with your team from GTM through close.
-      </p>
+      <p class="hero-subhead" data-editable data-key="hero-subhead">You have signal. We turn it into a system.</p>
+      <div class="font-review-toggle" title="Font review — remove after selection">
+        <span class="font-review-label">Subhead font:</span>
+        <button class="font-review-btn active" onclick="setFontOption('a')">A — Serif</button>
+        <button class="font-review-btn" onclick="setFontOption('b')">B — Sans</button>
+      </div>
       <div class="hero-qualifier">
-        <p data-editable data-key="hq-1">Bastille embeds with <strong>founders who have traction and a thesis</strong> as a fractional operator — leading on GTM, building the fundraising narrative, and running the VC process. A small number of engagements at any given time.</p>
+        <p data-editable data-key="hq-1">Bastille works with founders at the moment between having something real and getting the world to see it.</p>
       </div>
-      <div class="who-section">
-        <div class="section-label">
-          <span class="section-label-text">Is This You?</span>
-        </div>
-        <div class="who-grid">
-          <div class="who-card">
-            <span class="who-card-num">01</span>
-            <div class="who-card-title" data-editable data-key="who-t1">Strong network, execution gap</div>
-            <div class="who-card-body" data-editable data-key="who-b1">You have <strong>investor relationships</strong> and a network. What you're missing is someone who will get into your GTM, sharpen the narrative, and <strong>run it alongside you</strong> — not hand you a plan and leave.</div>
-          </div>
-          <div class="who-card">
-            <span class="who-card-num">02</span>
-            <div class="who-card-title" data-editable data-key="who-t2">Traction, but the story isn't landing</div>
-            <div class="who-card-body" data-editable data-key="who-b2">Something is working — <strong>early revenue, user growth, a meaningful partnership</strong>. But the narrative hasn't caught up. The pitch doesn't reflect what's actually been proven, and the signal isn't registering.</div>
-          </div>
-          <div class="who-card">
-            <span class="who-card-num">03</span>
-            <div class="who-card-title" data-editable data-key="who-t3">In conversations that aren't moving</div>
-            <div class="who-card-body" data-editable data-key="who-b3">Investor or partner conversations are happening but <strong>staying warm</strong>. No structured process, no momentum. The gap is usually the same: unclear metric story and <strong>no one holding the process</strong>.</div>
-          </div>
-          <div class="who-card">
-            <span class="who-card-num">04</span>
-            <div class="who-card-title" data-editable data-key="who-t4">Referred by your fund</div>
-            <div class="who-card-body" data-editable data-key="who-b4">Portfolio companies whose investors want more <strong>focused execution support</strong> on narrative, GTM, and raise prep than they can provide in-house at this stage of the company.</div>
-          </div>
-        </div>
-      </div>
+    </div>
+
+    <div class="diagnostic-bridge">
+      <p class="diagnostic-bridge-prose">The signal shows up in different places. Sometimes it's investor conversations generating feedback instead of term sheets. Sometimes it's a customer segment that's working but you can't explain why or repeat it. Sometimes it's a narrative that made sense six months ago but no longer matches what you're actually building. In every case, the work is the same: read the signal, build the system, close the gap.</p>
     </div>
 
     <div class="services-preview">
@@ -1174,30 +1260,27 @@
         <span class="section-label-text">Services</span>
         <a class="section-label-link" onclick="show('approach',document.querySelector('nav a[data-section=approach]'))">All services →</a>
       </div>
-      <p class="svc-preview-intro">Three fractional roles, scoped to one engagement — fractional growth lead, fundraising narrative, and fundraising ops. Take one, combine several, or run the full arc.</p>
       <div class="svc-preview-grid">
         <div class="svc-preview-col svc-col-growth">
-          <div class="svc-preview-heading">GROWTH LEAD</div>
-          <ul class="svc-preview-list">
-            <li onclick="navigateToCard('svc-ecosystem-play')">The Ecosystem Play</li>
-            <li onclick="navigateToCard('svc-one-thing')">The One Thing</li>
-          </ul>
+          <div class="svc-preview-heading">GROWTH</div>
+          <p class="pillar-problem">You have traction in a pocket. You can't scale it, replicate it, or explain it yet.</p>
+          <p class="pillar-resolution">We identify what's actually working, build the playbook, and pressure-test the next customer type before you need them.</p>
         </div>
         <div class="svc-preview-col svc-col-narrative">
           <div class="svc-preview-heading">NARRATIVE</div>
-          <ul class="svc-preview-list">
-            <li onclick="navigateToCard('svc-deck-rebuild')">The Deck Rebuild</li>
-            <li onclick="navigateToCard('svc-investor-read')">The Investor Read</li>
-          </ul>
+          <p class="pillar-problem">Your business has evolved but your story hasn't caught up.</p>
+          <p class="pillar-resolution">We close the gap between what you've built and what investors, customers, and partners actually hear.</p>
         </div>
         <div class="svc-preview-col svc-col-raise">
-          <div class="svc-preview-heading">FUNDRAISING OPS</div>
-          <ul class="svc-preview-list">
-            <li onclick="navigateToCard('svc-raise-sprint')">The Raise Sprint</li>
-            <li onclick="navigateToCard('svc-standing-retainer')">The Standing Retainer</li>
-          </ul>
+          <div class="svc-preview-heading">RAISE</div>
+          <p class="pillar-problem">You're in the right conversations. They're not converting.</p>
+          <p class="pillar-resolution">We build the operational infrastructure, pressure-test the story against real investor feedback, and make the intros that matter.</p>
         </div>
       </div>
+    </div>
+
+    <div class="approach-statement">
+      <p class="approach-statement-text">Every engagement starts with a scoping conversation. The work takes whatever form the signal requires.</p>
     </div>
 
     <div class="work-section">
@@ -1536,6 +1619,13 @@ function exportHTML() {
 function showResetConfirm() { document.getElementById('reset-confirm').classList.add('visible'); }
 function hideResetConfirm() { document.getElementById('reset-confirm').classList.remove('visible'); }
 function resetAllContent() { localStorage.removeItem(STORE_KEY); hideResetConfirm(); location.reload(); }
+
+function setFontOption(opt) {
+  document.body.classList.toggle('font-opt-b', opt === 'b');
+  document.querySelectorAll('.font-review-btn').forEach((btn, i) => {
+    btn.classList.toggle('active', (i === 0 && opt === 'a') || (i === 1 && opt === 'b'));
+  });
+}
 
 function handleCaseClick(e, el) {
   if (adminActive) {

@@ -1157,16 +1157,57 @@
       margin: 0 0 56px;
       padding: 36px 0;
       border-top: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
     }
+    .approach-col {
+      padding-right: 36px;
+      display: flex;
+      flex-direction: column;
+    }
+    .approach-col + .approach-col {
+      padding-right: 0;
+      padding-left: 36px;
+      border-left: 1px solid var(--border);
+    }
+    .approach-col-eyebrow {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      display: block;
+    }
+    .approach-col-eyebrow.col-method { color: var(--cobalt-lt); }
+    .approach-col-eyebrow.col-access { color: var(--pink); }
     .approach-statement-text {
       font-family: 'Outfit', system-ui, sans-serif;
       font-style: normal;
       font-weight: 300;
-      font-size: 1.2rem;
+      font-size: 0.97rem;
       color: var(--cream);
+      opacity: 0.75;
       line-height: 1.85;
-      max-width: 540px;
       letter-spacing: 0.01em;
+      text-align: justify;
+      margin: 0;
+      flex: 1;
+    }
+    @media (max-width: 620px) {
+      .approach-statement {
+        grid-template-columns: 1fr;
+      }
+      .approach-col {
+        padding-right: 0;
+      }
+      .approach-col + .approach-col {
+        padding-left: 0;
+        border-left: none;
+        border-top: 1px solid var(--border);
+        padding-top: 28px;
+        margin-top: 28px;
+      }
     }
 
     /* ══════════════════════════════════════════
@@ -1212,6 +1253,298 @@
       .contact-row { grid-template-columns: 1fr; gap: 3px; }
       footer { margin: 72px -24px 0; padding: 24px 24px 48px; flex-direction: column; gap: 10px; align-items: flex-start; }
     }
+
+/* ── NEW APPROACH PAGE PILLARS ── */
+.ap-philosophy {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.25rem;
+  color: var(--muted);
+  max-width: 580px;
+  line-height: 1.9;
+  margin-bottom: 44px;
+}
+.ap-pillar-block {
+  padding: 32px 0;
+  border-bottom: 1px solid var(--border);
+}
+.ap-pillar-block:first-child { border-top: 1px solid var(--border); }
+.ap-pillar-label {
+  font-family: var(--font-hero);
+  font-size: 1.6rem;
+  letter-spacing: 0.08em;
+  margin-bottom: 16px;
+  line-height: 1;
+}
+.ap-pillar-label.is-growth   { color: var(--cobalt-lt); }
+.ap-pillar-label.is-narrative { color: var(--lime); }
+.ap-pillar-label.is-raise    { color: var(--pink); }
+.ap-pillar-expansion {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--cream);
+  line-height: 1.8;
+  margin-bottom: 14px;
+  max-width: 560px;
+}
+.ap-pillar-signal {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--muted);
+  line-height: 1.7;
+}
+.ap-engagement-model {
+  padding: 32px 0 10px;
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-weight: 300;
+  font-size: 1.1rem;
+  color: var(--cream);
+  line-height: 1.85;
+  max-width: 520px;
+  letter-spacing: 0.01em;
+  border-top: 1px solid var(--border);
+}
+.ap-soft-cta {
+  padding-bottom: 44px;
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: var(--muted);
+  line-height: 1.8;
+}
+.ap-soft-cta a {
+  color: var(--lime);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(212,255,0,0.3);
+  padding-bottom: 1px;
+  transition: border-color 0.15s, color 0.15s;
+}
+.ap-soft-cta a:hover { color: var(--white); border-color: var(--lime); }
+
+/* ── OFFICE HOURS HERO CTA ── */
+.hero-oh-cta {
+  display: block;
+  margin-top: 14px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--lime);
+  text-decoration: none;
+  opacity: 0.8;
+  transition: opacity 0.15s;
+}
+.hero-oh-cta:hover { opacity: 1; }
+
+/* ── CONTACT OFFICE HOURS ── */
+.contact-oh-block {
+  padding: 36px 0 32px;
+  border-bottom: 1px solid var(--border);
+}
+.contact-oh-framing {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--muted);
+  margin-bottom: 28px;
+  line-height: 1.8;
+}
+.contact-oh-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-hero);
+  font-size: 1.5rem;
+  letter-spacing: 0.06em;
+  color: var(--lime);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(212,255,0,0.25);
+  padding-bottom: 3px;
+  transition: border-color 0.15s, color 0.15s;
+}
+.contact-oh-link:hover { border-color: var(--lime); color: var(--white); }
+.contact-secondary {
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: var(--muted);
+  line-height: 1.8;
+}
+.contact-secondary a {
+  color: var(--cream);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border-lt);
+  transition: color 0.15s, border-color 0.15s;
+}
+.contact-secondary a:hover { color: var(--pink-lt); border-color: var(--pink); }
+.contact-availability {
+  padding: 20px 0;
+  font-size: 0.88rem;
+  font-weight: 300;
+  color: var(--muted);
+  font-style: italic;
+}
+
+/* ── PULL QUOTE ── */
+.pull-quote {
+  margin: 44px -36px;
+  padding: 28px 36px;
+  border-left: 3px solid var(--pink);
+  background: var(--night-2);
+}
+.pull-quote-text {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--cream);
+  line-height: 1.75;
+  opacity: 0.85;
+}
+
+/* ── WORK PAGE CASE PILLAR TAG ── */
+.case-pillar-tag {
+  display: inline-block;
+  font-size: 0.54rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  margin-bottom: 10px;
+}
+.case-pillar-tag.is-growth    { background: rgba(66,104,255,0.15); color: var(--cobalt-lt); }
+.case-pillar-tag.is-narrative { background: rgba(212,255,0,0.12); color: var(--lime); }
+.case-pillar-tag.is-raise     { background: rgba(255,0,102,0.15); color: var(--pink-lt); }
+.work-pending {
+  padding: 20px 0;
+  font-size: 0.88rem;
+  font-weight: 300;
+  color: var(--muted);
+  font-style: italic;
+  border-top: 1px solid var(--border);
+  margin-top: 4px;
+}
+
+/* ── BLOG / WRITING ── */
+.blog-intro {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--muted);
+  max-width: 520px;
+  line-height: 1.8;
+  margin-bottom: 36px;
+}
+.blog-post-list { display: flex; flex-direction: column; }
+.blog-post-item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0 24px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border);
+  text-decoration: none;
+  align-items: start;
+  transition: border-color 0.15s;
+}
+.blog-post-item:first-child { border-top: 1px solid var(--border); }
+.blog-post-item:hover { border-bottom-color: var(--pink); }
+.blog-post-title {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--cream);
+  line-height: 1.5;
+  margin-bottom: 5px;
+}
+.blog-post-excerpt {
+  font-size: 0.88rem;
+  font-weight: 300;
+  color: var(--muted);
+  line-height: 1.7;
+}
+.blog-post-date {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  white-space: nowrap;
+  padding-top: 3px;
+}
+.blog-placeholder {
+  padding: 36px 0;
+  font-size: 0.88rem;
+  color: var(--muted);
+  font-style: italic;
+}
+.blog-substack-cta {
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+.blog-substack-cta a {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border-lt);
+  padding-bottom: 1px;
+  transition: color 0.15s, border-color 0.15s;
+}
+.blog-substack-cta a:hover { color: var(--pink-lt); border-color: var(--pink); }
+
+/* ── THE NETWORK EDGE (homepage differentiator) ── */
+.network-bridge {
+  padding: 36px 0 40px;
+  border-top: 1px solid var(--border);
+  margin-bottom: 0;
+}
+.network-bridge-eyebrow {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--cobalt-lt);
+  opacity: 0.6;
+  margin-bottom: 14px;
+  display: block;
+}
+.network-bridge-body {
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-weight: 300;
+  font-size: 1.05rem;
+  color: var(--cream);
+  opacity: 0.75;
+  line-height: 1.8;
+  max-width: 560px;
+  letter-spacing: 0.01em;
+}
+@media (max-width: 620px) {
+  .network-bridge { padding: 28px 0 32px; }
+  .network-bridge-body { font-size: 0.97rem; }
+}
+
+/* ── FEATURED WRITING (homepage) ── */
+.featured-writing { margin-bottom: 56px; }
+.featured-writing-post {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0 24px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border);
+  text-decoration: none;
+  align-items: start;
+  transition: border-color 0.15s;
+}
+.featured-writing-post:first-child { border-top: 1px solid var(--border); }
+.featured-writing-post:hover { border-bottom-color: var(--pink); }
+
+@media (max-width: 620px) {
+  .pull-quote { margin: 36px -24px; padding: 22px 24px; }
+  .blog-post-item { grid-template-columns: 1fr; gap: 8px; }
+  .featured-writing-post { grid-template-columns: 1fr; gap: 8px; }
+}
   </style>
 </head>
 <body>
@@ -1273,9 +1606,10 @@
       <nav>
         <a class="active" data-section="home" onclick="show('home',this)">Home</a>
         <a data-section="approach" onclick="show('approach',this)">The Work</a>
-        <a data-section="about" onclick="show('about',this)">About</a>
-        <a data-section="work" onclick="show('work',this)">Work</a>
+        <a data-section="work" onclick="show('work',this)">Case Studies</a>
         <a data-section="contact" onclick="show('contact',this)">Contact</a>
+        <a data-section="writing" onclick="show('writing',this)">Writing</a>
+        <a data-section="about" onclick="show('about',this)">About</a>
       </nav>
     </div>
   </header>
@@ -1291,7 +1625,7 @@
       </h1>
       <p class="hero-subhead" data-editable data-key="hero-subhead">You have signal. We turn it into a system.</p>
       <p class="hero-qualifier">Bastille works with founders at the moment between having something real and getting the world to see it.</p>
-      <a class="hero-cta" onclick="show('approach', document.querySelector('nav a[data-section=approach]'))">How we work →</a>
+      <a class="hero-oh-cta" href="https://calendly.com/michael-bastilleadvisory/30min" target="_blank" rel="noopener noreferrer">Book a free office hours session →</a>
     </div>
     <div class="hero-stripe">
       <div class="hero-stripe-band" style="background:var(--cobalt)"></div>
@@ -1341,13 +1675,20 @@
     </div>
 
     <div class="approach-statement">
-      <p class="approach-statement-text">Every engagement starts with a scoping conversation. The work takes whatever form the signal requires.</p>
+      <div class="approach-col">
+        <span class="approach-col-eyebrow col-method">The Engagement</span>
+        <p class="approach-statement-text">Every engagement starts with a scoping conversation. The work takes whatever form the signal requires.</p>
+      </div>
+      <div class="approach-col">
+        <span class="approach-col-eyebrow col-access">The Access</span>
+        <p class="approach-statement-text">The investors and operators here are close enough to text. Every intro — capital, customer, or partner — carries real context.</p>
+      </div>
     </div>
 
     <div class="work-section">
       <div class="section-label">
-        <span class="section-label-text">Featured Work</span>
-        <a class="section-label-link" onclick="show('work',document.querySelector('nav a:nth-child(4)'))">All work →</a>
+        <span class="section-label-text">Case Studies</span>
+        <a class="section-label-link" onclick="show('work',document.querySelector('nav a[data-section=work]'))">All case studies →</a>
       </div>
       <div class="case-item" onclick="handleCaseClick(event,this)">
         <div class="case-header"><div class="case-name" data-editable data-key="feat1-name">Confetti</div><div class="case-year" data-editable data-key="feat1-year">2025</div></div>
@@ -1382,106 +1723,67 @@
       </div>
     </div>
 
+    <div class="featured-writing">
+      <div class="section-label">
+        <span class="section-label-text">Writing</span>
+        <a class="section-label-link" onclick="show('writing',document.querySelector('nav a[data-section=writing]'))">All posts →</a>
+      </div>
+      <div id="featured-post-container">
+        <!-- Populated by JS from Substack RSS -->
+      </div>
+    </div>
+
   </section>
 
   <!-- ══ APPROACH ══ -->
   <section id="approach" class="section">
     <div class="section-label"><span class="section-label-text">The Work</span></div>
-    <p class="approach-intro" data-editable data-key="approach-intro">Three fractional roles — growth lead, fundraising narrative, and VC network ops. Take one, combine several, or run the full arc from GTM through close. <a onclick="show('about',document.querySelector('nav a[data-section=about]'))" style="cursor:pointer">The background behind the work →</a></p>
+    <p class="ap-philosophy">Most advisory relationships begin when the founder is already in market — by then, the gaps are visible and the window is narrow.</p>
 
-    <div class="svc-subsection-label">Full Engagements</div>
-    <div class="svc-engagements-grid">
-
-      <div class="svc-engagement-card" id="svc-standing-retainer">
-        <div class="svc-engagement-name">The Standing Retainer</div>
-        <div class="svc-engagement-meta"><span class="svc-engagement-pillar svc-pillar-raise">RAISE</span><span>Ongoing</span></div>
-        <div class="svc-price">$2,500/month</div>
-        <div class="svc-engagement-desc">The full fractional operator role — embedded as your growth lead, narrative builder, and fundraising ops partner. Ongoing, without adding headcount or giving up equity.</div>
-        <a class="svc-btn" onclick="openInquiry('The Standing Retainer')">Inquire →</a>
-      </div>
-
-      <div class="svc-engagement-card" id="svc-raise-sprint">
-        <div class="svc-engagement-name">The Raise Sprint</div>
-        <div class="svc-engagement-meta"><span class="svc-engagement-pillar svc-pillar-raise">RAISE</span><span>4–6 weeks</span></div>
-        <div class="svc-price">from $7,500</div>
-        <div class="svc-engagement-desc">Raise readiness, start to finish. Opens with VC conversations in your specific category to establish what investors are underwriting right now — then builds narrative, materials, and process around those benchmarks. Runs through close.</div>
-        <ul class="svc-engagement-bullets">
-          <li>Investor calibration calls</li>
-          <li>Deck + data room</li>
-          <li>Investor targeting + warm intros</li>
-          <li>Process launch + management</li>
-        </ul>
-        <a class="svc-btn" onclick="openInquiry('The Raise Sprint')">Inquire →</a>
-      </div>
-
-      <div class="svc-engagement-card" id="svc-ecosystem-play">
-        <div class="svc-engagement-name">The Ecosystem Play</div>
-        <div class="svc-engagement-meta"><span class="svc-engagement-pillar svc-pillar-growth">GROWTH</span><span>1 month</span></div>
-        <div class="svc-price">from $4,000</div>
-        <div class="svc-engagement-desc">Protocol and platform ecosystem development. BD positioning, partner targeting, integration narratives, and relationship activation across the networks that move your category.</div>
-        <a class="svc-btn" onclick="openInquiry('The Ecosystem Play')">Inquire →</a>
-      </div>
-
-      <div class="svc-engagement-card" id="svc-right-fit">
-        <div class="svc-engagement-name">The Right Fit</div>
-        <div class="svc-engagement-desc" style="margin-top: 8px;">The listed offerings are reference points, not hard limits. If the scope, timing, or budget doesn't match — reach out anyway. Pricing is scoped to the engagement, and the engagement is scoped to the problem.</div>
-        <a class="svc-btn" onclick="openInquiry('')">Start a Conversation →</a>
-      </div>
-
+    <div class="ap-pillar-block">
+      <div class="ap-pillar-label is-growth">Growth</div>
+      <p class="ap-pillar-expansion">We find what's actually driving your traction, build the playbook, and pressure-test the next customer type before you need them.</p>
+      <p class="ap-pillar-signal">"You have users. You can't explain why — or how to find more."</p>
+    </div>
+    <div class="ap-pillar-block">
+      <div class="ap-pillar-label is-narrative">Narrative</div>
+      <p class="ap-pillar-expansion">We close the gap between what you've built and what investors, customers, and partners actually hear — which usually means rethinking the story before touching the deck.</p>
+      <p class="ap-pillar-signal">"You've changed. Your pitch hasn't."</p>
+    </div>
+    <div class="ap-pillar-block">
+      <div class="ap-pillar-label is-raise">Raise</div>
+      <p class="ap-pillar-expansion">We build the operational infrastructure — pipeline, data room, narrative — and make the introductions that matter. Targeted, sequenced, closed.</p>
+      <p class="ap-pillar-signal">"You're in the right conversations. They're not converting."</p>
     </div>
 
-    <div class="svc-subsection-label">Focused Work</div>
-    <div class="svc-oneoffs-grid">
-
-      <div class="svc-oneoff-card" id="svc-deck-rebuild" data-pillar="narrative">
-        <div class="svc-oneoff-tag">NARRATIVE</div>
-        <div class="svc-oneoff-name">The Deck Rebuild</div>
-        <div class="svc-oneoff-meta"><span>3 days</span><span class="svc-oneoff-price">$2,200</span></div>
-        <div class="svc-oneoff-desc">From-scratch narrative build. Structure, story, and slides rebuilt around what investors pattern-match for in your specific category right now.</div>
-        <a class="svc-btn svc-btn--book" onclick="openInquiry('The Deck Rebuild')">Book this →</a>
-      </div>
-
-      <div class="svc-oneoff-card" id="svc-investor-read" data-pillar="raise">
-        <div class="svc-oneoff-tag">RAISE</div>
-        <div class="svc-oneoff-name">The Investor Read</div>
-        <div class="svc-oneoff-meta"><span>2 days</span><span class="svc-oneoff-price">$1,500</span></div>
-        <div class="svc-oneoff-desc">A direct read on what investors in your category are actually underwriting right now — sourced from VC conversations, not third-hand intel. Metrics, narrative patterns, comps. The benchmark that guides everything else.</div>
-        <a class="svc-btn svc-btn--book" onclick="openInquiry('The Investor Read')">Book this →</a>
-      </div>
-
-      <div class="svc-oneoff-card" id="svc-one-thing" data-pillar="growth">
-        <div class="svc-oneoff-tag">GROWTH</div>
-        <div class="svc-oneoff-name">The One Thing</div>
-        <div class="svc-oneoff-meta"><span>1 week</span><span class="svc-oneoff-price">$3,500</span></div>
-        <div class="svc-oneoff-desc">One focused problem, solved in a week. The narrative that's not landing. The metric story. The pitch for a specific meeting. The outreach sequence. The competitive framing. Bring the constraint — we go deep on it.</div>
-        <a class="svc-btn svc-btn--book" onclick="openInquiry('The One Thing')">Book this →</a>
-      </div>
-
-      <div class="approach-note svc-oneoff-note" data-editable data-key="approach-note"><strong>On engagements:</strong> Work is scoped to where you are and where the leverage is. Some founders need the full arc. Others need one piece. Bastille takes a limited number of clients at any given time.</div>
-    </div>
+    <div class="ap-engagement-model">Every engagement starts with a scoping conversation. The work takes whatever form the signal requires.</div>
+    <div class="ap-soft-cta">Not sure which pillar fits? <a href="https://calendly.com/michael-bastilleadvisory/30min" target="_blank" rel="noopener noreferrer">Start with a free office hours session →</a></div>
   </section>
 
   <!-- ══ ABOUT ══ -->
   <section id="about" class="section">
     <div class="section-label"><span class="section-label-text">About</span></div>
+
     <div class="about-section">
       <div class="about-section-label">The Firm</div>
       <div class="about-body">
-        <p data-editable data-key="about-p1">Bastille operates as a fractional growth lead, fundraising narrative, and VC network — embedded, not advising from a distance. No equity ask. No full-time overhead.</p>
-        <p data-editable data-key="about-p2">A small number of engagements at any given time, scoped to where you are and where the leverage is.</p>
-        <p data-editable data-key="about-p3">The name comes from Bastille Day — July 14, 1789. In a few hours, a fortress that had stood for centuries was gone. The lesson isn't the destruction — it's the recognition that there was an opportunity for a new future and that the time to start building it was <em>now</em>.</p>
+        <p data-editable data-key="about-philosophy">Most founders who don't close rounds or convert customers don't have a product problem. They have a signal problem — and Bastille exists to close that gap.</p>
       </div>
     </div>
+
     <div class="about-section">
       <div class="about-section-label">Principal</div>
       <div class="principal-block">
         <div class="principal-left">
+          <!-- PRINCIPAL_LAST_NAME: pending — update display name below when confirmed -->
+          <!-- LINKEDIN_URL: pending — add href to principal-name anchor when confirmed -->
           <div class="principal-name" data-editable data-key="principal-name">Michael Martin</div>
           <div class="principal-title" data-editable data-key="principal-title">Founder & Principal</div>
         </div>
-        <div class="principal-bio" data-editable data-key="principal-bio">Built and ran the AI XPRIZE at the start of the current AI era, then embedded with AI-native founders at <strong>SignalFire</strong> before the wave hit. BD and narrative systems developed at <strong>M13</strong> across a top-quartile fund portfolio. Founded <strong>Codebase</strong> — the flagship Avalanche accelerator — with approximately 30 engagements across GTM, narrative, and investor prep. Bastille extends that model beyond any single vertical or ecosystem.</div>
+        <div class="principal-bio" data-editable data-key="principal-bio">Before the current AI era had a name, he was embedded with AI-native founders at <strong>SignalFire</strong> and operating across the <strong>M13</strong> portfolio — building the investor network and the fund-side perspective on what narrative actually moves capital. At <strong>XPRIZE</strong>, running competitions at the frontier of technology required pattern recognition across global ecosystems and the ability to position breakthrough ideas to audiences who had never seen them. At <strong>Ava Labs</strong>, that methodology became <strong>Codebase</strong> — the flagship Avalanche accelerator and the institution where the model was developed and proven at scale — founders placed on VC watchlists, with VC partners embedded from the front end. Bastille Advisory is the disaggregation of that model — available to any founder, on any chain, in any sector, at the moment when the work matters most.</div>
       </div>
     </div>
+
     <div class="about-section">
       <div class="about-section-label">The Pedigree</div>
       <div class="prov-logo-grid">
@@ -1523,27 +1825,96 @@
           <div class="prov-logo-url"><a href="https://xprize.org" target="_blank" rel="noopener noreferrer">xprize.org ↗</a></div>
         </div>
       </div>
-      <p class="provenance-footnote" data-editable data-key="prov-footnote">Bastille works with founders directly and with venture funds on behalf of their portfolio companies.</p>
+      <p class="provenance-footnote" data-editable data-key="prov-footnote">The introductions Bastille makes are direct — built over a decade across funds, ecosystems, and deal flow.</p>
     </div>
-    <div class="about-section">
-      <div class="about-section-label">Partners</div>
-      <div class="partners-placeholder"><div class="partners-placeholder-text" data-editable data-key="partners-placeholder">Partner listings coming soon.</div></div>
-    </div>
+
+    <!-- PARTNERS: awaiting logo, blurb, and URL from Elan Miller — do not display until populated -->
   </section>
 
   <!-- ══ WORK ══ -->
   <section id="work" class="section">
-    <div class="section-label"><span class="section-label-text">Work</span></div>
-    <p class="work-intro" data-editable data-key="work-intro">Selected engagements. Each reflects a different combination of the three fractional roles — growth, narrative, and fundraising ops.</p>
-    <p class="partners-placeholder-text" style="margin-top:24px;">More coming soon.</p>
+    <div class="section-label"><span class="section-label-text">Case Studies</span></div>
+    <p class="work-intro">Selected engagements. Each one started with a conversation about signal.</p>
+
+    <div class="case-item" onclick="handleCaseClick(event,this)">
+      <div class="case-pillar-tag is-growth">Growth</div>
+      <div class="case-header"><div class="case-name">Confetti</div><div class="case-year">2025</div></div>
+      <div class="case-tagline">Worked with Confetti's founder to design and execute a campaign that became the platform's highest-revenue engagement since its founding — $1.5M in transaction volume across 24 teams in 30 days.</div>
+      <div class="case-metrics">
+        <div class="metric"><span class="metric-val">$1.5M</span><span class="metric-label">Transaction volume</span></div>
+        <div class="metric"><span class="metric-val">24</span><span class="metric-label">Ecosystem teams · 30 days</span></div>
+        <div class="metric"><span class="metric-val">~300K</span><span class="metric-label">Onchain transactions</span></div>
+      </div>
+      <div class="case-expand">
+        <p>Confetti had a strong product — an onchain incentive platform operating across <strong>20+ blockchain ecosystems</strong> — but needed a flagship campaign to demonstrate its ceiling. The question was what kind of engagement would actually drive serious volume.</p>
+        <p>The engagement: bring Confetti into <strong>Avalanche</strong> as the infrastructure for a 30-day onchain bracket tournament — <strong>24 ecosystem teams</strong> competing in daily head-to-head rounds, community members voting with AVAX tokens, voters whose picks advanced receiving a share of the prize pool. Every round drove a new transaction cycle through Confetti's platform.</p>
+        <p>The campaign generated <strong>$1.5M in transaction volume over 30 days</strong> — the <strong>highest-revenue engagement in Confetti's history</strong> — and established a replicable playbook for future chain partnerships.</p>
+        <div class="case-url"><a href="https://confetti.win" target="_blank" rel="noopener noreferrer">confetti.win ↗</a></div>
+      </div>
+      <div class="expand-hint">↓ expand</div>
+    </div>
+
+    <div class="pull-quote">
+      <p class="pull-quote-text">"The best referral we get is from a VC who just passed. Not a no — a not yet."</p>
+    </div>
+
+    <div class="case-item" onclick="handleCaseClick(event,this)">
+      <div class="case-pillar-tag is-narrative">Narrative</div>
+      <div class="case-header"><div class="case-name">Blockticity</div><div class="case-year">2025</div></div>
+      <div class="case-tagline">Reframed the entire company narrative — from blockchain supply chain verification to zero-party data platform — and changed what round they were targeting.</div>
+      <div class="case-expand">
+        <p>Blockticity entered as a blockchain-based supply chain verification company — credible technology, real volume, no investor traction because they were landing with neither crypto nor traditional investors.</p>
+        <p>The reframe: the blockchain was infrastructure; the product was the metadata — 14 data points collected per good at massive scale, making Blockticity a zero-party data platform sitting at the intersection of physical commerce and verifiable provenance.</p>
+        <p>They restructured their narrative, skipped the seed round, and are now targeting a Series A at a significantly higher valuation.</p>
+      </div>
+      <div class="expand-hint">↓ expand</div>
+    </div>
+
+    <div class="case-item" onclick="handleCaseClick(event,this)">
+      <div class="case-pillar-tag is-raise">Raise</div>
+      <div class="case-header"><div class="case-name">Hashfire</div><div class="case-year">2025</div></div>
+      <div class="case-tagline">Worked with Hashfire from product to market — refining their GTM, rebuilding their narrative, facilitating 30+ investor introductions, and supporting the work that led to their first institutional customer and an $800K pre-seed close.</div>
+      <div class="case-metrics">
+        <div class="metric"><span class="metric-val">$800K</span><span class="metric-label">Pre-seed raised</span></div>
+        <div class="metric"><span class="metric-val">30+</span><span class="metric-label">Investor introductions</span></div>
+        <div class="metric"><span class="metric-val">1st</span><span class="metric-label">Institutional customer</span></div>
+      </div>
+      <div class="case-expand">
+        <p>Hashfire had built an onchain document authentication and instant payment protocol — a genuinely new approach to verifiable contracts and programmable settlement — but needed to land on the right GTM product, sharpen the narrative, and create the conditions for institutional fundraising.</p>
+        <p>Bastille worked across the full stack: iterating on the GTM product thesis, rebuilding the investor narrative from the ground up, and co-producing the deck used to pitch institutional capital. From there, Bastille facilitated over <strong>30 investor introductions</strong>, creating the deal flow that led to the pre-seed close and Hashfire's <strong>first institutional customer</strong> — a government-level pilot that validated the protocol.</p>
+        <div class="case-url"><a href="https://hashfire.xyz" target="_blank" rel="noopener noreferrer">hashfire.xyz ↗</a></div>
+      </div>
+      <div class="expand-hint">↓ expand</div>
+    </div>
+
+    <p class="work-pending">Additional cases in preparation.</p>
   </section>
 
   <!-- ══ CONTACT ══ -->
   <section id="contact" class="section">
     <div class="section-label"><span class="section-label-text">Contact</span></div>
-    <div class="contact-row"><div class="contact-label">Email</div><div class="contact-value"><a href="mailto:hello@bastilleadvisory.xyz" data-editable data-key="contact-email">hello@bastilleadvisory.xyz</a></div></div>
-    <div class="contact-row"><div class="contact-label">Based in</div><div class="contact-value" data-editable data-key="contact-location">New Orleans, Louisiana, USA</div></div>
-    <div class="contact-row"><div class="contact-label">Availability</div><div class="contact-value" data-editable data-key="contact-avail">Taking select engagements</div></div>
+
+    <div class="contact-oh-block">
+      <p class="contact-oh-framing">Not sure where to start? That's what the first session is for.</p>
+      <a class="contact-oh-link" href="https://calendly.com/michael-bastilleadvisory/30min" target="_blank" rel="noopener noreferrer">Book a free office hours session →</a>
+    </div>
+
+    <div class="contact-secondary">Or reach out directly: <a href="mailto:michael@bastilleadvisory.xyz">michael@bastilleadvisory.xyz</a></div>
+
+    <div class="contact-availability" data-editable data-key="contact-avail">Bastille takes select engagements. Currently reviewing new introductions.</div>
+  </section>
+
+  <!-- ══ WRITING ══ -->
+  <!-- SUBSTACK_URL: Set the SUBSTACK_URL constant in the script block below to your Substack publication URL (e.g. 'https://yourname.substack.com') to auto-populate posts -->
+  <section id="writing" class="section">
+    <div class="section-label"><span class="section-label-text">Writing</span></div>
+    <p class="blog-intro">Thinking on signal, systems, and what founders get wrong.</p>
+    <div id="blog-post-list" class="blog-post-list">
+      <div class="blog-placeholder">Posts coming soon.</div>
+    </div>
+    <div class="blog-substack-cta">
+      <a id="blog-substack-follow" href="https://substack.com" target="_blank" rel="noopener noreferrer">Follow on Substack →</a>
+    </div>
   </section>
 
   <footer>
@@ -1693,8 +2064,8 @@ function handleCaseClick(e, el) {
 }
 
 // ── Routing ────────────────────────────────────────────────
-const SECTION_SLUGS = { home:'/', approach:'/services', about:'/about', work:'/work', contact:'/contact' };
-const SLUG_TO_SECTION = { '':'home', 'services':'approach', 'about':'about', 'work':'work', 'contact':'contact' };
+const SECTION_SLUGS = { home:'/', approach:'/services', about:'/about', work:'/work', contact:'/contact', writing:'/writing' };
+const SLUG_TO_SECTION = { '':'home', 'services':'approach', 'about':'about', 'work':'work', 'contact':'contact', 'writing':'writing' };
 const CARD_SLUGS = {
   'svc-pre-seed-sprint':'the-pre-seed-sprint', 'svc-seed-prep':'the-seed-prep',
   'svc-standing-retainer':'the-standing-retainer', 'svc-one-thing':'the-one-thing',
@@ -1805,6 +2176,72 @@ function openInquiry(service) {
   ].join('\n');
   window.location.href = 'mailto:hello@bastilleadvisory.xyz?subject=' +
     encodeURIComponent(sub) + '&body=' + encodeURIComponent(body);
+}
+
+// ── Blog / Writing ────────────────────────────────────────────────────────
+// SUBSTACK_URL: Set this to your Substack publication URL to auto-load posts
+// Example: const SUBSTACK_URL = 'https://yourname.substack.com';
+const SUBSTACK_URL = '';
+
+(function initBlog() {
+  if (!SUBSTACK_URL) {
+    renderBlogPlaceholder();
+    return;
+  }
+  var rssUrl = encodeURIComponent(SUBSTACK_URL + '/feed');
+  fetch('https://api.rss2json.com/v1/api.json?rss_url=' + rssUrl + '&api_key=&count=10')
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      if (data.status === 'ok' && data.items && data.items.length) {
+        renderBlogPosts(data.items);
+        renderFeaturedPost(data.items[0]);
+        var followEl = document.getElementById('blog-substack-follow');
+        if (followEl) followEl.href = SUBSTACK_URL;
+      } else {
+        renderBlogPlaceholder();
+      }
+    })
+    .catch(function() { renderBlogPlaceholder(); });
+})();
+
+function formatPostDate(str) {
+  try { return new Date(str).toLocaleDateString('en-US', { year:'numeric', month:'short' }); }
+  catch(e) { return ''; }
+}
+
+function stripHtml(html) {
+  return (html || '').replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
+}
+
+function renderBlogPosts(items) {
+  var container = document.getElementById('blog-post-list');
+  if (!container) return;
+  container.innerHTML = items.map(function(item) {
+    var excerpt = stripHtml(item.description).slice(0, 130);
+    return '<a class="blog-post-item" href="' + item.link + '" target="_blank" rel="noopener noreferrer">' +
+      '<div><div class="blog-post-title">' + item.title + '</div>' +
+      '<div class="blog-post-excerpt">' + excerpt + '…</div></div>' +
+      '<div class="blog-post-date">' + formatPostDate(item.pubDate) + '</div>' +
+    '</a>';
+  }).join('');
+}
+
+function renderFeaturedPost(item) {
+  var container = document.getElementById('featured-post-container');
+  if (!container) return;
+  var excerpt = stripHtml(item.description).slice(0, 140);
+  container.innerHTML = '<a class="featured-writing-post" href="' + item.link + '" target="_blank" rel="noopener noreferrer">' +
+    '<div><div class="blog-post-title">' + item.title + '</div>' +
+    '<div class="blog-post-excerpt">' + excerpt + '…</div></div>' +
+    '<div class="blog-post-date">' + formatPostDate(item.pubDate) + '</div>' +
+  '</a>';
+}
+
+function renderBlogPlaceholder() {
+  var lc = document.getElementById('blog-post-list');
+  if (lc) lc.innerHTML = '<div class="blog-placeholder">Posts coming soon.</div>';
+  var fc = document.getElementById('featured-post-container');
+  if (fc) fc.innerHTML = '<div class="blog-placeholder" style="padding:16px 0;">Writing coming soon.</div>';
 }
 </script>
 </body>

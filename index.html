@@ -208,12 +208,17 @@
        HOME — HERO
     ══════════════════════════════════════════ */
     .hero {
-      padding: 44px 36px 36px;
-      border-bottom: 1px solid var(--border);
+      padding: 44px 36px 40px;
       margin: 0 -36px 0;
       position: relative;
       overflow: visible;
     }
+    .hero-stripe {
+      display: flex;
+      margin: 0 -36px;
+      height: 14px;
+    }
+    .hero-stripe-band { flex: 1; }
     /* Ghost watermark — pure poster energy */
     .hero::after {
       content: '1789';
@@ -558,7 +563,7 @@
     /* ══════════════════════════════════════════
        WORK / CASE ITEMS
     ══════════════════════════════════════════ */
-    .work-section { margin-bottom: 88px; }
+    .work-section { margin-bottom: 56px; }
     .case-item {
       padding: 26px 36px; border-bottom: 1px solid var(--border);
       cursor: pointer; position: relative;
@@ -665,7 +670,7 @@
     /* ══════════════════════════════════════════
        SERVICES PREVIEW (home page)
     ══════════════════════════════════════════ */
-    .services-preview { margin-top: 72px; margin-bottom: 88px; }
+    .services-preview { margin-top: 0; margin-bottom: 56px; }
     .svc-preview-intro { font-size: 0.97rem; font-weight: 300; color: var(--cream); opacity: 0.5; line-height: 1.75; margin-bottom: 24px; max-width: 580px; }
     .svc-preview-grid {
       display: grid;
@@ -1038,7 +1043,7 @@
        DIAGNOSTIC BRIDGE — MARQUEE
     ══════════════════════════════════════════ */
     .diagnostic-bridge {
-      margin: 0 0 40px;
+      margin: 40px 0;
       border-bottom: 1px solid var(--border);
       overflow: hidden;
     }
@@ -1072,11 +1077,15 @@
       line-height: 1.5;
       letter-spacing: 0.01em;
       opacity: 0;
-      transition: opacity 0.55s ease;
+      visibility: hidden;
+      z-index: 0;
+      transition: opacity 0.55s ease, visibility 0.55s ease;
       pointer-events: none;
     }
     .db-carousel-slide.active {
       opacity: 1;
+      visibility: visible;
+      z-index: 1;
       pointer-events: auto;
     }
     .db-dots {
@@ -1098,15 +1107,29 @@
       background: var(--pink);
       width: 40px;
     }
+    .diagnostic-bridge .section-label::before { display: none; }
     .db-closer {
       padding: 28px 0 44px;
-      font-family: 'Outfit', system-ui, sans-serif;
-      font-weight: 400;
-      font-size: 1.05rem;
+      font-family: var(--font-hero);
+      font-size: 1.6rem;
+      line-height: 1.2;
+      letter-spacing: 0.05em;
+      max-width: 640px;
+      filter: url(#riso-grain);
+    }
+    .db-closer-intro {
       color: var(--lime);
-      line-height: 1.8;
-      letter-spacing: 0.01em;
-      max-width: 560px;
+      text-shadow:
+        -3px 2px 0 rgba(0, 56, 255, 0.55),
+        2px -1px 0 rgba(255, 0, 102, 0.3),
+        -5px 3px 0 rgba(0, 56, 255, 0.12);
+    }
+    .db-closer-payoff {
+      color: var(--cobalt-lt);
+      text-shadow:
+        3px 2px 0 rgba(212, 255, 0, 0.5),
+        -2px -1px 0 rgba(255, 0, 102, 0.25),
+        5px 3px 0 rgba(212, 255, 0, 0.1);
     }
 
     /* ══════════════════════════════════════════
@@ -1132,8 +1155,8 @@
        APPROACH STATEMENT
     ══════════════════════════════════════════ */
     .approach-statement {
-      margin: 0 0 80px;
-      padding: 40px 0;
+      margin: 0 0 56px;
+      padding: 32px 0;
       border-top: 1px solid var(--border);
     }
     .approach-statement-text {
@@ -1157,9 +1180,9 @@
       nav a:first-child { margin-left: 0; }
       .hero { padding: 48px 24px 40px; margin: 0 -24px 0; }
       .db-opener { padding: 0 0 20px; font-size: 0.95rem; max-width: 100%; }
-      .db-carousel-wrap { margin: 0 -24px; padding: 24px 24px 20px; }
+      .db-carousel-wrap { margin: 0 -24px; padding: 24px 32px 20px; }
       .db-carousel-slide { font-size: 1.1rem; }
-      .db-closer { font-size: 0.95rem; padding: 20px 0 32px; }
+      .db-closer { font-size: 1.2rem; padding: 20px 0 32px; }
       .hero-subhead { margin: 24px 0 0; padding: 0; font-size: 1.2rem; }
       .hero-headline { font-size: 4.2rem; }
       .section-label { margin: 0 -24px 36px; padding: 14px 24px 0; }
@@ -1271,6 +1294,11 @@
       <p class="hero-qualifier">Bastille works with founders at the moment between having something real and getting the world to see it.</p>
       <a class="hero-cta" onclick="show('approach', document.querySelector('nav a[data-section=approach]'))">How we work →</a>
     </div>
+    <div class="hero-stripe">
+      <div class="hero-stripe-band" style="background:var(--cobalt)"></div>
+      <div class="hero-stripe-band" style="background:var(--lime)"></div>
+      <div class="hero-stripe-band" style="background:var(--pink)"></div>
+    </div>
 
     <div class="diagnostic-bridge">
       <div class="section-label"><span class="section-label-text">The Signal</span></div>
@@ -1286,7 +1314,7 @@
           <button class="db-dot" aria-label="Slide 3"></button>
         </div>
       </div>
-      <div class="db-closer">In every case, the work is the same: read the signal, build the system, close the gap.</div>
+      <div class="db-closer"><span class="db-closer-intro">In every case, the work is the same:</span><br><span class="db-closer-payoff">Read the signal, build the system, close the gap.</span></div>
     </div>
 
     <div class="services-preview">
@@ -1298,16 +1326,16 @@
         <div class="svc-preview-col svc-col-growth">
           <div class="svc-preview-heading">GROWTH</div>
           <p class="pillar-problem">You have traction in a pocket. You can't scale it, replicate it, or explain it yet.</p>
-          <p class="pillar-resolution">We identify what's actually working, build the playbook, and pressure-test the next customer type before you need them.</p>
+          <p class="pillar-resolution">We identify what's actually working, build and run the playbook, and make the customer introductions before you need them.</p>
         </div>
         <div class="svc-preview-col svc-col-narrative">
           <div class="svc-preview-heading">NARRATIVE</div>
-          <p class="pillar-problem">Your business has evolved but your story hasn't caught up.</p>
-          <p class="pillar-resolution">We close the gap between what you've built and what investors, customers, and partners actually hear.</p>
+          <p class="pillar-problem">Your business has evolved, but the narrative you're presenting to the world hasn't caught up.</p>
+          <p class="pillar-resolution">We close the gap between what you've built and what investors, customers, and partners hear — and make the new story hold.</p>
         </div>
         <div class="svc-preview-col svc-col-raise">
           <div class="svc-preview-heading">RAISE</div>
-          <p class="pillar-problem">You're in the right conversations. They're not converting.</p>
+          <p class="pillar-problem">You're in the right rooms with the right people. The conversations aren't converting.</p>
           <p class="pillar-resolution">We build the operational infrastructure, pressure-test the story against real investor feedback, and make the intros that matter.</p>
         </div>
       </div>

@@ -166,6 +166,73 @@
     nav a:hover { color: var(--cream); }
     nav a.active { color: var(--white); border-bottom-color: var(--pink); }
 
+    /* ── HAMBURGER ── */
+    .nav-hamburger {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px 0;
+      flex-direction: column;
+      gap: 5px;
+      margin-left: auto;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 22px;
+      height: 1.5px;
+      background: var(--cream);
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+    .nav-open .nav-hamburger span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .nav-open .nav-hamburger span:nth-child(2) { opacity: 0; }
+    .nav-open .nav-hamburger span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+    @media (max-width: 620px) {
+      .header-top { flex-direction: row; align-items: center; gap: 0; flex-wrap: nowrap; }
+      .nav-hamburger { display: flex; }
+      nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0; right: 0;
+        background: var(--night);
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+        padding: 24px 24px 28px;
+        flex-direction: column;
+        gap: 0;
+        z-index: 100;
+      }
+      .nav-open nav { display: flex; }
+      nav a {
+        margin-left: 0;
+        padding: 12px 0;
+        font-size: 0.75rem;
+        border-bottom: 1px solid var(--border);
+        border-right: none;
+      }
+      nav a:last-child { border-bottom: none; }
+      nav a.nav-cta {
+        margin-left: 0;
+        margin-top: 16px;
+        border: 1px solid rgba(255,0,102,0.4);
+        padding: 10px 14px;
+        text-align: center;
+        border-radius: 2px;
+      }
+    }
+    nav a.nav-cta {
+      color: var(--pink);
+      border: 1px solid rgba(255,0,102,0.35);
+      border-radius: 2px;
+      padding: 4px 10px;
+      margin-left: 20px;
+      letter-spacing: 0.12em;
+    }
+    nav a.nav-cta:hover { color: var(--white); border-color: var(--pink); background: rgba(255,0,102,0.08); }
+    nav a.nav-cta.active { color: var(--white); border-color: var(--pink); border-bottom-color: var(--pink); }
+
+
     /* ══════════════════════════════════════════
        SECTIONS
     ══════════════════════════════════════════ */
@@ -962,7 +1029,7 @@
        WORK PAGE
     ══════════════════════════════════════════ */
     .work-intro {
-      font-family: var(--font-serif); font-style: italic;
+      font-family: 'Outfit', system-ui, sans-serif; font-weight: 300; font-style: normal;
       font-size: 1.2rem; color: var(--muted); max-width: 540px; line-height: 1.8; margin-bottom: 44px;
     }
 
@@ -1220,7 +1287,7 @@
       nav a:first-child { margin-left: 0; }
       .hero { padding: 48px 24px 40px; margin: 0 -24px 0; }
       .db-opener { padding: 0 0 20px; font-size: 0.95rem; max-width: 100%; }
-      .db-carousel-wrap { margin: 0 -24px; padding: 24px 32px 20px; }
+      .db-carousel-wrap { margin: 0 -24px; padding: 24px 32px 20px 40px; }
       .db-carousel-slide { font-size: 1.1rem; }
       .db-closer { font-size: clamp(1.4rem, 5.5vw, 1.8rem); padding: 36px 0 32px; }
       .hero-subhead { margin: 24px 0 0; padding: 0; font-size: 1.2rem; }
@@ -1256,8 +1323,9 @@
 
 /* ── NEW APPROACH PAGE PILLARS ── */
 .ap-philosophy {
-  font-family: var(--font-serif);
-  font-style: italic;
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-weight: 300;
+  font-style: normal;
   font-size: 1.25rem;
   color: var(--muted);
   max-width: 580px;
@@ -1342,8 +1410,9 @@
   border-bottom: 1px solid var(--border);
 }
 .contact-oh-framing {
-  font-family: var(--font-serif);
-  font-style: italic;
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-weight: 300;
+  font-style: normal;
   font-size: 1.1rem;
   color: var(--muted);
   margin-bottom: 28px;
@@ -1427,8 +1496,9 @@
 
 /* ── BLOG / WRITING ── */
 .blog-intro {
-  font-family: var(--font-serif);
-  font-style: italic;
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-weight: 300;
+  font-style: normal;
   font-size: 1.1rem;
   color: var(--muted);
   max-width: 520px;
@@ -1603,13 +1673,16 @@
         <span class="logo-main">BASTILLE</span>
         <span class="logo-sub">Advisory</span>
       </div>
+      <button class="nav-hamburger" aria-label="Toggle menu" onclick="document.querySelector('.header-top').classList.toggle('nav-open')">
+        <span></span><span></span><span></span>
+      </button>
       <nav>
-        <a class="active" data-section="home" onclick="show('home',this)">Home</a>
-        <a data-section="approach" onclick="show('approach',this)">The Work</a>
-        <a data-section="work" onclick="show('work',this)">Case Studies</a>
-        <a data-section="contact" onclick="show('contact',this)">Contact</a>
-        <a data-section="writing" onclick="show('writing',this)">Writing</a>
-        <a data-section="about" onclick="show('about',this)">About</a>
+        <a class="active" data-section="home" onclick="show('home',this);document.querySelector('.header-top').classList.remove('nav-open')">Home</a>
+        <a data-section="approach" onclick="show('approach',this);document.querySelector('.header-top').classList.remove('nav-open')">Approach</a>
+        <a data-section="work" onclick="show('work',this);document.querySelector('.header-top').classList.remove('nav-open')">Case Studies</a>
+        <a data-section="writing" onclick="show('writing',this);document.querySelector('.header-top').classList.remove('nav-open')">Writing</a>
+        <a data-section="about" onclick="show('about',this);document.querySelector('.header-top').classList.remove('nav-open')">About</a>
+        <a class="nav-cta" data-section="contact" onclick="show('contact',this);document.querySelector('.header-top').classList.remove('nav-open')">Office Hours</a>
       </nav>
     </div>
   </header>
@@ -1737,7 +1810,7 @@
 
   <!-- ══ APPROACH ══ -->
   <section id="approach" class="section">
-    <div class="section-label"><span class="section-label-text">The Work</span></div>
+    <div class="section-label"><span class="section-label-text">Approach</span></div>
     <p class="ap-philosophy">Most advisory relationships begin when the founder is already in market — by then, the gaps are visible and the window is narrow.</p>
 
     <div class="ap-pillar-block">

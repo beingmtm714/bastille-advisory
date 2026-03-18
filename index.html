@@ -233,6 +233,27 @@
     nav a.nav-cta.active { color: var(--white); border-color: var(--pink); border-bottom-color: var(--pink); }
 
 
+    /* Interior page section-label: match About sub-header style */
+    section:not(#home) > .section-label {
+      margin-left: 0; margin-right: 0;
+      padding: 0 0 14px;
+      border-top: none;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 36px;
+    }
+    section:not(#home) > .section-label::before {
+      top: auto;
+      bottom: -1px;
+      left: 0;
+      width: 40px;
+      height: 3px;
+      background: var(--cobalt);
+    }
+    section:not(#home) > .section-label .section-label-text {
+      font-size: 1.35rem;
+      color: var(--cream);
+    }
+
     /* ══════════════════════════════════════════
        SECTIONS
     ══════════════════════════════════════════ */

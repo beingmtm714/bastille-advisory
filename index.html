@@ -1403,32 +1403,42 @@
   color: var(--muted);
   line-height: 1.7;
 }
-.ap-engagement-model {
-  padding: 32px 0 10px;
+.ap-cta-block {
+  margin-top: 52px;
+  margin-bottom: 8px;
+  padding: 36px 40px;
+  background: var(--night-2);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--pink);
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+.ap-cta-text {
   font-family: 'Outfit', system-ui, sans-serif;
-  font-weight: 300;
-  font-size: 1.1rem;
+  font-weight: 400;
+  font-size: 1.25rem;
   color: var(--cream);
-  line-height: 1.85;
-  max-width: 520px;
-  letter-spacing: 0.01em;
-  border-top: 1px solid var(--border);
+  line-height: 1.7;
+  max-width: 540px;
+  margin: 0;
 }
-.ap-soft-cta {
-  padding-bottom: 44px;
-  font-size: 0.9rem;
-  font-weight: 300;
-  color: var(--muted);
-  line-height: 1.8;
-}
-.ap-soft-cta a {
-  color: var(--lime);
+.ap-cta-btn {
+  display: inline-block;
+  align-self: flex-start;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--white);
+  background: var(--pink);
+  border: 1px solid var(--pink);
+  border-radius: 2px;
+  padding: 10px 18px;
   text-decoration: none;
-  border-bottom: 1px solid rgba(212,255,0,0.3);
-  padding-bottom: 1px;
-  transition: border-color 0.15s, color 0.15s;
+  transition: background 0.15s, border-color 0.15s;
 }
-.ap-soft-cta a:hover { color: var(--white); border-color: var(--lime); }
+.ap-cta-btn:hover { background: #e0005a; border-color: #e0005a; }
 
 /* ── OFFICE HOURS HERO CTA ── */
 .hero-oh-cta {
@@ -1951,8 +1961,10 @@
       <p style="margin-top:22px;padding-top:18px;border-top:1px solid var(--border);font-size:0.92rem;font-weight:300;color:var(--cream-dk);line-height:1.85;">Building outside the AI × crypto space? Bastille takes a small number of fractional engagements outside the core focus each year across GTM, narrative, and fundraising. <a href="mailto:michael@bastilleadvisory.xyz" style="color:var(--cream);text-decoration:none;border-bottom:1px solid var(--border-lt);">Get in touch →</a></p>
     </div>
 
-    <div class="ap-engagement-model">Every engagement starts with a scoping conversation. The work takes whatever form the signal requires.</div>
-    <div class="ap-soft-cta">Not sure which pillar fits? <a href="https://calendly.com/michael-bastilleadvisory/30min" target="_blank" rel="noopener noreferrer">Start with a free office hours session →</a></div>
+    <div class="ap-cta-block">
+      <p class="ap-cta-text">Every engagement starts with a scoping conversation. The work takes whatever form the signal requires.</p>
+      <a class="ap-cta-btn" href="https://calendly.com/michael-bastilleadvisory/30min" target="_blank" rel="noopener noreferrer">Book a free office hours session →</a>
+    </div>
   </section>
 
   <!-- ══ ABOUT ══ -->

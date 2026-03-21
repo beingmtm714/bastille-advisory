@@ -7,19 +7,19 @@
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <title>Bastille Advisory</title>
-  <meta name="description" content="Growth. Narrative. Raise. Strategic advisory for founders who need to move fast and communicate clearly.">
+  <!-- REVIEW: "strategic" usage --><meta name="description" content="Growth. Narrative. Raise. Strategic advisory for founders who need to move fast and communicate clearly.">
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://bastilleadvisory.xyz/">
   <meta property="og:title" content="Bastille Advisory">
-  <meta property="og:description" content="Growth. Narrative. Raise. Strategic advisory for founders who need to move fast and communicate clearly.">
+  <!-- REVIEW: "strategic" usage --><meta property="og:description" content="Growth. Narrative. Raise. Strategic advisory for founders who need to move fast and communicate clearly.">
   <meta property="og:image" content="https://bastilleadvisory.xyz/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Bastille Advisory">
-  <meta name="twitter:description" content="Growth. Narrative. Raise. Strategic advisory for founders who need to move fast and communicate clearly.">
+  <!-- REVIEW: "strategic" usage --><meta name="twitter:description" content="Growth. Narrative. Raise. Strategic advisory for founders who need to move fast and communicate clearly.">
   <meta name="twitter:image" content="https://bastilleadvisory.xyz/og-image.png">
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Serif+Display:ital@0;1&family=Playfair+Display:ital@1&family=Outfit:wght@300;400&display=swap" rel="stylesheet">
   <style>
@@ -771,7 +771,7 @@
       padding: 28px 26px 32px;
       border-right: 1px solid var(--border);
       display: grid;
-      grid-template-rows: auto 1fr auto;
+      grid-template-rows: auto 1fr auto auto;
     }
     .svc-preview-col:last-child { border-right: none; }
     .svc-preview-heading {
@@ -1616,6 +1616,29 @@
   .network-bridge-body { font-size: 0.97rem; }
 }
 
+/* ── PILLAR OUTPUT ── */
+.pillar-output {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+  font-size: 0.92rem;
+  font-weight: 300;
+  color: var(--muted);
+  line-height: 1.8;
+}
+.pillar-output-label {
+  font-size: 0.55rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted);
+  opacity: 0.55;
+  display: block;
+  margin-bottom: 5px;
+}
+.principal-bio p { margin-bottom: 18px; }
+.principal-bio p:last-child { margin-bottom: 0; }
+
 /* ── FEATURED WRITING (homepage) ── */
 .featured-writing { margin-bottom: 56px; }
 .featured-writing-post {
@@ -1711,13 +1734,13 @@
   <!-- ══ HOME ══ -->
   <section id="home" class="section active">
     <div class="hero">
-      <div class="hero-eyebrow">Fractional Operator for Founders</div>
+      <div class="hero-eyebrow">Embedded operator for founders building at the AI × crypto convergence</div>
       <h1 class="hero-headline">
-        <span class="hl-blue">YOU DON'T</span><br>
-        <span class="hl-lime">HAVE A PRODUCT</span><br>
-        <span class="hl-pink">PROBLEM.</span>
+        <span class="hl-blue">THEY GET</span><br>
+        <span class="hl-lime">CRYPTO OR AI.</span><br>
+        <span class="hl-pink">RARELY BOTH.</span>
       </h1>
-      <p class="hero-subhead" data-editable data-key="hero-subhead">You have signal. We turn it into a system.</p>
+      <p class="hero-subhead" data-editable data-key="hero-subhead">Bastille closes the gap.</p>
       <p class="hero-qualifier">Bastille works with founders at the moment between having something real and getting the world to see it.</p>
       <a class="hero-oh-cta" href="https://calendly.com/michael-bastilleadvisory/30min" target="_blank" rel="noopener noreferrer">Book a free office hours session →</a>
     </div>
@@ -1727,22 +1750,7 @@
       <div class="hero-stripe-band" style="background:var(--pink)"></div>
     </div>
 
-    <div class="diagnostic-bridge">
-      <div class="section-label"><span class="section-label-text">The Signal</span></div>
-      <div class="db-carousel-wrap" aria-label="Examples of the signal">
-        <div class="db-carousel-track">
-          <div class="db-carousel-slide active">Getting feedback from investors instead of term sheets?</div>
-          <div class="db-carousel-slide">You have a customer segment that's working — but you can't yet explain why?</div>
-          <div class="db-carousel-slide">Your narrative made sense six months ago. Does it still?</div>
-        </div>
-        <div class="db-dots">
-          <button class="db-dot active" aria-label="Slide 1"></button>
-          <button class="db-dot" aria-label="Slide 2"></button>
-          <button class="db-dot" aria-label="Slide 3"></button>
-        </div>
-      </div>
-      <div class="db-closer"><span class="db-closer-intro">In every case, the work is the same:</span><span class="db-closer-payoff">Read the signal, build the system, close the gap.</span></div>
-    </div>
+    <p class="ap-philosophy" style="margin-top:52px;margin-bottom:52px;">The gap shows up in every room: investor meetings, enterprise sales, ecosystem partnerships. The work is the same in each: translate the full picture for whoever is across the table.</p>
 
     <div class="services-preview">
       <div class="section-label">
@@ -1753,17 +1761,21 @@
         <div class="svc-preview-col svc-col-growth">
           <div class="svc-preview-heading">GROWTH</div>
           <p class="pillar-problem">You have traction in a pocket. You can't scale it, replicate it, or explain what's actually driving it.</p>
-          <p class="pillar-resolution">We identify what's actually working, build and run the playbook, and make the customer introductions before you need them.</p>
+          <p class="pillar-resolution">We identify what's actually working, build and run the playbook, and make the partner and investor introductions before you need them.</p>
+          <div class="pillar-output"><span class="pillar-output-label">Output</span>A GTM playbook built around your confirmed segment and product-market fit.</div>
         </div>
         <div class="svc-preview-col svc-col-narrative">
           <div class="svc-preview-heading">NARRATIVE</div>
           <p class="pillar-problem">Your business has evolved, but the narrative you're presenting to the world hasn't caught up.</p>
           <p class="pillar-resolution">We close the gap between what you've built and what investors, customers, and partners hear — and make the new story hold.</p>
+          <div class="pillar-output"><span class="pillar-output-label">Output</span>A story that lands with investors, customers, and ecosystem partners alike.</div>
         </div>
         <div class="svc-preview-col svc-col-raise">
           <div class="svc-preview-heading">RAISE</div>
           <p class="pillar-problem">You're in the right rooms with the right people. The conversations aren't converting.</p>
-          <p class="pillar-resolution">We build the operational infrastructure, pressure-test the story against real investor feedback, and make the intros that matter.</p>
+          <!-- REVIEW: "strategic" usage - "strategic upside" below -->
+          <p class="pillar-resolution">We build the operational infrastructure, pressure-test the story against real investor feedback, and make the introductions that matter: investors sequenced to your stage, partners with real strategic upside.</p>
+          <div class="pillar-output"><span class="pillar-output-label">Output</span>A raise that closes faster, at better terms, with less founder distraction.</div>
         </div>
       </div>
     </div>
@@ -1850,6 +1862,25 @@
       <p class="ap-pillar-signal">"You're in the right conversations. They're not converting."</p>
     </div>
 
+    <div class="about-section" style="margin-top:52px;">
+      <div class="about-section-label">The Work, Specifically</div>
+      <div class="about-body">
+        <p><strong>GTM Diagnosis:</strong> Identify the driver of traction, isolate the segment worth scaling, and build the playbook for the next one.</p>
+        <p><strong>Narrative Architecture:</strong> Rebuild the story so it holds across investor meetings, enterprise sales conversations, and ecosystem partnerships.</p>
+        <p><strong>Fundraising Operations:</strong> Pipeline structure, data room, investor sequencing, and introductions made with real context.</p>
+        <p><strong>Partner &amp; Ecosystem Introductions:</strong> Direct introductions to capital and ecosystem partners across crypto and AI. Every intro carries context.</p>
+        <p><strong>Ecosystem GTM:</strong> For founders at the AI × crypto convergence: positioning and distribution within protocol ecosystems, including grants, co-marketing, and institutional partnerships outside standard VC channels.</p>
+      </div>
+    </div>
+
+    <div class="about-section" style="margin-top:52px;">
+      <div class="about-section-label">Who This Is For</div>
+      <div class="about-body">
+        <p>Bastille works with early-stage founders, pre-seed through Series A, building at the AI × crypto convergence with something real and a raise approaching. You need signal worth building on. That's the starting point.</p>
+      </div>
+      <p class="ap-pillar-signal" style="margin-top:22px;padding-top:18px;border-top:1px solid var(--border);">Building outside the AI × crypto space? Bastille takes a small number of fractional engagements outside the core focus each year across GTM, narrative, and fundraising. <a href="mailto:michael@bastilleadvisory.xyz" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--border-lt);">Get in touch →</a></p>
+    </div>
+
     <div class="ap-engagement-model">Every engagement starts with a scoping conversation. The work takes whatever form the signal requires.</div>
     <div class="ap-soft-cta">Not sure which pillar fits? <a href="https://calendly.com/michael-bastilleadvisory/30min" target="_blank" rel="noopener noreferrer">Start with a free office hours session →</a></div>
   </section>
@@ -1857,6 +1888,14 @@
   <!-- ══ ABOUT ══ -->
   <section id="about" class="section">
     <div class="section-label"><span class="section-label-text">About</span></div>
+
+    <div class="about-section">
+      <div class="about-section-label">The Moment</div>
+      <div class="about-body">
+        <p>The companies worth watching sit at the AI × crypto convergence: autonomous agents operating onchain, AI-verified data provenance, decentralized inference networks, programmable trust layers. The category is real, the infrastructure is maturing, and capital is moving.</p>
+        <p>Founders building these companies face a problem few advisors can solve: their story requires fluency in two paradigms, for audiences that each speak only one. Bastille exists for this.</p>
+      </div>
+    </div>
 
     <div class="about-body" style="margin-bottom:44px;">
       <p data-editable data-key="about-philosophy">Most founders who don't close rounds or convert customers don't have a product problem. They have a clarity problem — and Bastille exists to close that gap.</p>
@@ -1869,7 +1908,7 @@
           <div class="principal-name" data-editable data-key="principal-name">Michael Martin</div>
           <div class="principal-title" data-editable data-key="principal-title">Founder & Principal</div>
         </div>
-        <div class="principal-bio" data-editable data-key="principal-bio">Before the current AI era had a name, he was embedded with AI-native founders at <strong>SignalFire</strong> and operating across the <strong>M13</strong> portfolio — building the investor network and the fund-side perspective on what narrative actually moves capital. At <strong>XPRIZE</strong>, running competitions at the frontier of technology required pattern recognition across global ecosystems and the ability to position breakthrough ideas to audiences who had never seen them. At <strong>Ava Labs</strong>, that methodology became <strong>Codebase</strong> — the flagship Avalanche accelerator and the institution where the model was developed and proven at scale — founders placed on VC watchlists, with VC partners embedded from the front end. Bastille Advisory is the disaggregation of that model — available to any founder, on any chain, in any sector, at the moment when the work matters most.</div>
+        <div class="principal-bio" data-editable data-key="principal-bio"><p>The convergence of AI and crypto is a structural shift. Most advisors can navigate one side of it, and few can navigate both.</p><p>At <strong>SignalFire</strong>, an AI-native venture firm built around proprietary data infrastructure, he worked most closely with the AI engineers building the companies — sitting alongside founders before the current era had a name, and developing the fund-side perspective on what narrative moves capital when the technology is genuinely new.</p><p>At <strong>XPRIZE</strong>, running frontier technology competitions meant positioning breakthrough ideas to audiences who had never encountered them. That's the same problem founders at the convergence face today.</p><p>At <strong>Ava Labs</strong>, that methodology became <strong>Codebase</strong>, the flagship Avalanche accelerator. The model ran across crypto-native companies: founders placed on VC watchlists, institutional partnerships formed, raises closed.</p><p>The problem is consistent: founders building something new, in a paradigm their investors and customers don't understand yet, trying to close the gap between what they've built and what the world can see. Bastille Advisory exists for founders at the AI × crypto convergence, where that gap is widest.</p></div>
       </div>
     </div>
 

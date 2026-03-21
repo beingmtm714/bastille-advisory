@@ -150,7 +150,7 @@
       color: var(--pink);
       padding-bottom: 4px;
     }
-    nav { display: flex; flex-wrap: nowrap; gap: 0; align-items: center; padding-bottom: 4px; }
+    nav { display: flex; flex-wrap: nowrap; gap: 0; align-items: flex-end; }
     nav a {
       color: var(--muted);
       text-decoration: none;
@@ -160,12 +160,25 @@
       text-transform: uppercase;
       padding: 4px 0;
       margin-left: 20px;
-      border-bottom: 2px solid transparent;
-      transition: color 0.15s, border-color 0.15s;
+      position: relative;
+      transition: color 0.15s;
       cursor: pointer;
     }
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0; right: 0;
+      height: 2px;
+      background: var(--pink);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.15s;
+    }
     nav a:hover { color: var(--cream); }
-    nav a.active { color: var(--white); border-bottom-color: var(--pink); }
+    nav a:hover::after { transform: scaleX(1); }
+    nav a.active { color: var(--white); }
+    nav a.active::after { transform: scaleX(1); }
 
     /* ── HAMBURGER ── */
     .nav-hamburger {
@@ -216,22 +229,26 @@
       nav a.nav-cta {
         margin-left: 0;
         margin-top: 16px;
-        border: 1px solid rgba(255,0,102,0.4);
+        background: var(--pink);
+        border: 1px solid var(--pink);
+        color: var(--white);
         padding: 10px 14px;
         text-align: center;
         border-radius: 2px;
       }
     }
     nav a.nav-cta {
-      color: var(--pink);
-      border: 1px solid rgba(255,0,102,0.35);
+      color: var(--white);
+      background: var(--pink);
+      border: 1px solid var(--pink);
       border-radius: 2px;
       padding: 4px 10px;
       margin-left: 20px;
       letter-spacing: 0.12em;
     }
-    nav a.nav-cta:hover { color: var(--white); border-color: var(--pink); background: rgba(255,0,102,0.08); }
-    nav a.nav-cta.active { color: var(--white); border-color: var(--pink); border-bottom-color: var(--pink); }
+    nav a.nav-cta::after { display: none; }
+    nav a.nav-cta:hover { background: #e0005a; border-color: #e0005a; color: var(--white); }
+    nav a.nav-cta.active { background: var(--pink); border-color: var(--pink); color: var(--white); }
 
 
     /* Interior page section-label: match About sub-header style */
@@ -772,8 +789,8 @@
     .svc-preview-col {
       padding: 28px 26px 32px;
       border-right: 1px solid var(--border);
-      display: grid;
-      grid-template-rows: auto 1fr auto auto;
+      display: flex;
+      flex-direction: column;
     }
     .svc-preview-col:last-child { border-right: none; }
     .svc-preview-heading {
@@ -1001,7 +1018,7 @@
     /* ══════════════════════════════════════════
        ABOUT PAGE
     ══════════════════════════════════════════ */
-    .about-section { margin-bottom: 60px; }
+    .about-section { margin-bottom: 44px; }
     .about-section-label {
       font-family: var(--font-serif); font-size: 1.35rem; letter-spacing: 0;
       color: var(--cream); margin-bottom: 26px; padding-bottom: 14px;
@@ -1232,13 +1249,13 @@
       opacity: 0.7;
       line-height: 1.75;
       margin-bottom: 14px;
-      align-self: start;
     }
     .pillar-resolution {
       font-size: 0.92rem;
       font-weight: 300;
       color: var(--muted);
       line-height: 1.8;
+      margin-top: auto;
     }
 
     /* ══════════════════════════════════════════
@@ -1351,10 +1368,10 @@
   font-family: 'Outfit', system-ui, sans-serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 1rem;
+  font-size: 1.25rem;
   color: var(--cream-dk);
-  max-width: 620px;
-  line-height: 1.95;
+  max-width: 660px;
+  line-height: 1.85;
   margin-bottom: 44px;
 }
 .ap-pillar-block {
@@ -1793,8 +1810,8 @@
 
     <div class="services-preview">
       <div class="section-label">
-        <span class="section-label-text">The Work</span>
-        <a class="section-label-link" onclick="show('approach',document.querySelector('nav a[data-section=approach]'))">All work →</a>
+        <span class="section-label-text">Our Approach</span>
+        <a class="section-label-link" onclick="show('approach',document.querySelector('nav a[data-section=approach]'))">Full approach →</a>
       </div>
       <div class="svc-preview-grid">
         <div class="svc-preview-col svc-col-growth">
@@ -1951,7 +1968,7 @@
       </div>
     </div>
 
-    <div class="about-body" style="margin-bottom:44px;">
+    <div class="about-body" style="margin-bottom:28px;">
       <p data-editable data-key="about-philosophy">Most founders who don't close rounds or convert customers don't have a product problem. They have a clarity problem — and Bastille exists to close that gap.</p>
     </div>
 

@@ -251,8 +251,10 @@
       background: var(--cobalt);
     }
     section:not(#home) > .section-label .section-label-text {
-      font-size: 1.35rem;
-      color: var(--cream);
+      font-family: var(--font-hero);
+      font-size: 3.8rem;
+      letter-spacing: 0.06em;
+      color: var(--white);
     }
 
     /* ══════════════════════════════════════════
@@ -1333,6 +1335,8 @@
       .svc-preview-grid { grid-template-columns: 1fr; }
       .svc-preview-col { border-right: none; border-bottom: 1px solid var(--border); }
       .svc-preview-col:last-child { border-bottom: none; }
+      .work-spec-grid { margin: 0 -24px; grid-template-columns: 1fr; }
+      .work-spec-card-last { grid-column: span 1; }
       .svc-engagements-grid { grid-template-columns: 1fr; }
       .svc-oneoffs-grid { grid-template-columns: 1fr 1fr; }
       .svc-oneoff-card:nth-last-child(2):nth-child(odd) { grid-column: span 2; }
@@ -1616,6 +1620,41 @@
   .network-bridge-body { font-size: 0.97rem; }
 }
 
+/* ── THE WORK, SPECIFICALLY — CARDS ── */
+.work-spec-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--border);
+  margin: 0 -36px;
+}
+.work-spec-card {
+  background: var(--night-2);
+  padding: 28px 28px 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: background 0.15s;
+}
+.work-spec-card:hover { background: var(--night-3); }
+.work-spec-card-last {
+  grid-column: span 2;
+  background: var(--night-3);
+}
+.work-spec-card-label {
+  font-family: var(--font-hero);
+  font-size: 1.35rem;
+  letter-spacing: 0.06em;
+  color: var(--cream);
+  line-height: 1;
+}
+.work-spec-card-desc {
+  font-size: 0.92rem;
+  font-weight: 400;
+  color: var(--muted);
+  line-height: 1.85;
+}
+
 /* ── PILLAR OUTPUT ── */
 .pillar-output {
   margin-top: 16px;
@@ -1864,12 +1903,27 @@
 
     <div class="about-section" style="margin-top:52px;">
       <div class="about-section-label">The Work, Specifically</div>
-      <div class="about-body">
-        <p><strong>GTM Diagnosis:</strong> Identify the driver of traction, isolate the segment worth scaling, and build the playbook for the next one.</p>
-        <p><strong>Narrative Architecture:</strong> Rebuild the story so it holds across investor meetings, enterprise sales conversations, and ecosystem partnerships.</p>
-        <p><strong>Fundraising Operations:</strong> Pipeline structure, data room, investor sequencing, and introductions made with real context.</p>
-        <p><strong>Partner &amp; Ecosystem Introductions:</strong> Direct introductions to capital and ecosystem partners across crypto and AI. Every intro carries context.</p>
-        <p><strong>Ecosystem GTM:</strong> For founders at the AI × crypto convergence: positioning and distribution within protocol ecosystems, including grants, co-marketing, and institutional partnerships outside standard VC channels.</p>
+      <div class="work-spec-grid">
+        <div class="work-spec-card">
+          <div class="work-spec-card-label">GTM Diagnosis</div>
+          <p class="work-spec-card-desc">Identify the driver of traction, isolate the segment worth scaling, and build the playbook for the next one.</p>
+        </div>
+        <div class="work-spec-card">
+          <div class="work-spec-card-label">Narrative Architecture</div>
+          <p class="work-spec-card-desc">Rebuild the story so it holds across investor meetings, enterprise sales conversations, and ecosystem partnerships.</p>
+        </div>
+        <div class="work-spec-card">
+          <div class="work-spec-card-label">Fundraising Operations</div>
+          <p class="work-spec-card-desc">Pipeline structure, data room, investor sequencing, and introductions made with real context.</p>
+        </div>
+        <div class="work-spec-card">
+          <div class="work-spec-card-label">Partner &amp; Ecosystem Introductions</div>
+          <p class="work-spec-card-desc">Direct introductions to capital and ecosystem partners across crypto and AI. Every intro carries context.</p>
+        </div>
+        <div class="work-spec-card work-spec-card-last">
+          <div class="work-spec-card-label">Ecosystem GTM</div>
+          <p class="work-spec-card-desc">For founders at the AI × crypto convergence: positioning and distribution within protocol ecosystems, including grants, co-marketing, and institutional partnerships outside standard VC channels.</p>
+        </div>
       </div>
     </div>
 
@@ -1878,7 +1932,7 @@
       <div class="about-body">
         <p>Bastille works with early-stage founders, pre-seed through Series A, building at the AI × crypto convergence with something real and a raise approaching. You need signal worth building on. That's the starting point.</p>
       </div>
-      <p class="ap-pillar-signal" style="margin-top:22px;padding-top:18px;border-top:1px solid var(--border);">Building outside the AI × crypto space? Bastille takes a small number of fractional engagements outside the core focus each year across GTM, narrative, and fundraising. <a href="mailto:michael@bastilleadvisory.xyz" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--border-lt);">Get in touch →</a></p>
+      <p style="margin-top:22px;padding-top:18px;border-top:1px solid var(--border);font-size:0.92rem;font-weight:300;color:var(--cream-dk);line-height:1.85;">Building outside the AI × crypto space? Bastille takes a small number of fractional engagements outside the core focus each year across GTM, narrative, and fundraising. <a href="mailto:michael@bastilleadvisory.xyz" style="color:var(--cream);text-decoration:none;border-bottom:1px solid var(--border-lt);">Get in touch →</a></p>
     </div>
 
     <div class="ap-engagement-model">Every engagement starts with a scoping conversation. The work takes whatever form the signal requires.</div>

@@ -61,17 +61,22 @@
 
     /* ── HEADER ── */
     header {
-      padding: 20px 0 18px;
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
       position: sticky;
       top: 0;
       z-index: 100;
+      width: 100%;
       background: rgba(5,5,5,0.92);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .header-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 18px 36px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
     .logo-icon-img {
       height: 28px;
@@ -90,6 +95,11 @@
       gap: 8px;
       text-decoration: none;
       cursor: pointer;
+    }
+    .logo-lockup {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
     }
     .logo-main { color: var(--white); line-height: 1; }
     .logo-sub {
@@ -630,16 +640,20 @@
 </head>
 <body>
 
-<div class="container">
-
-  <header>
+<header>
+  <div class="header-inner">
     <a class="logo" href="/">
       <img src="/bastille-torch.png" alt="Bastille" class="logo-icon-img">
-      <span class="logo-main">BASTILLE</span>
-      <span class="logo-sub">Advisory</span>
+      <span class="logo-lockup">
+        <span class="logo-main">BASTILLE</span>
+        <span class="logo-sub">Advisory</span>
+      </span>
     </a>
     <a class="header-oh-btn" href="https://calendly.com/michael-bastilleadvisory/30min" target="_blank" rel="noopener noreferrer">Book Office Hours →</a>
-  </header>
+  </div>
+</header>
+
+<div class="container">
 
   <!-- ══ HERO ══ -->
   <div class="hero">

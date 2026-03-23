@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <title>Bastille Advisory — A Private Introduction</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&family=DM+Serif+Display:ital@0;1&family=Outfit:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --night:    #050505;
+      --night-2:  #0E0E0E;
+      --night-3:  #191919;
+      --cobalt:   #0038FF;
+      --cobalt-lt:#4268FF;
+      --pink:     #FF0066;
+      --pink-lt:  #FF3385;
+      --lime:     #D4FF00;
+      --cream:    #F5F0DC;
+      --cream-dk: #C8C2A4;
+      --white:    #FFFFFF;
+      --muted:    #6A7080;
+      --border:   #202020;
+      --border-lt:#303030;
+      --font-hero: 'Bebas Neue', 'Arial Narrow', sans-serif;
+      --font-serif: 'DM Serif Display', Georgia, serif;
+      --font-body:  'DM Sans', system-ui, sans-serif;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { font-size: 16px; scroll-behavior: smooth; overflow-x: clip; }
+
+    body {
+      background: var(--night);
+      color: var(--cream-dk);
+      font-family: var(--font-body);
+      font-weight: 400;
+      line-height: 1.7;
+      min-height: 100vh;
+      overflow-x: clip;
+    }
+
+    body::after {
+      content: '';
+      position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      opacity: 0.05;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 160px 160px;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 36px;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* ── HEADER ── */
+    header {
+      padding: 28px 0 24px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .logo-main {
+      font-family: var(--font-hero);
+      font-size: 1.35rem;
+      letter-spacing: 0.12em;
+      color: var(--white);
+      line-height: 1;
+    }
+    .logo-sub {
+      font-family: var(--font-body);
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .private-badge {
+      font-size: 0.58rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      border: 1px solid var(--border-lt);
+      padding: 4px 10px;
+      opacity: 0.7;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 72px 0 56px;
+      border-bottom: 1px solid var(--border);
+    }
+    .hero-eyebrow {
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+    .hero-headline {
+      font-family: var(--font-hero);
+      font-size: clamp(4.5rem, 10vw, 7.5rem);
+      letter-spacing: 0.03em;
+      line-height: 0.95;
+      margin-bottom: 32px;
+    }
+    .hl-blue  { color: var(--cobalt-lt); }
+    .hl-lime  { color: var(--lime); }
+    .hl-pink  { color: var(--pink); }
+    .hl-white { color: var(--white); }
+
+    .hero-subhead {
+      font-family: 'Outfit', system-ui, sans-serif;
+      font-weight: 400;
+      font-size: 1.5rem;
+      color: var(--cream);
+      line-height: 1.4;
+      max-width: 540px;
+      margin-bottom: 20px;
+    }
+    .hero-note {
+      font-family: 'Outfit', system-ui, sans-serif;
+      font-weight: 400;
+      font-style: italic;
+      font-size: 0.95rem;
+      color: var(--cream-dk);
+      line-height: 1.75;
+      max-width: 520px;
+    }
+
+    /* ── HERO STRIPE ── */
+    .hero-stripe {
+      display: flex;
+      height: 3px;
+      margin: 0 0 0;
+    }
+    .hero-stripe-band { flex: 1; }
+
+    /* ── PAGE SECTIONS ── */
+    .page-section {
+      padding: 64px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .page-section:last-of-type { border-bottom: none; }
+
+    .section-eyebrow {
+      font-size: 0.58rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 28px;
+      display: block;
+    }
+    .section-headline {
+      font-family: var(--font-hero);
+      font-size: 3.5rem;
+      letter-spacing: 0.06em;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 28px;
+    }
+    .section-lede {
+      font-family: 'Outfit', system-ui, sans-serif;
+      font-weight: 400;
+      font-size: 1.2rem;
+      color: var(--cream);
+      line-height: 1.85;
+      max-width: 640px;
+      margin-bottom: 44px;
+    }
+    .section-body {
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--cream-dk);
+      line-height: 1.9;
+      max-width: 620px;
+    }
+    .section-body p { margin-bottom: 20px; }
+    .section-body p:last-child { margin-bottom: 0; }
+
+    /* ── THREE PILLARS ── */
+    .pillar-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      margin-bottom: 0;
+    }
+    .pillar-col {
+      padding: 28px 26px 32px;
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+    }
+    .pillar-col:last-child { border-right: none; }
+    .pillar-name {
+      font-family: var(--font-hero);
+      font-size: 1.7rem;
+      letter-spacing: 0.08em;
+      margin-bottom: 18px;
+      line-height: 1;
+    }
+    .pillar-col.is-growth   .pillar-name { color: var(--cobalt-lt); }
+    .pillar-col.is-narrative .pillar-name { color: var(--lime); }
+    .pillar-col.is-raise    .pillar-name { color: var(--pink); }
+    .pillar-problem {
+      font-size: 0.95rem;
+      font-weight: 400;
+      color: var(--cream);
+      opacity: 0.8;
+      line-height: 1.75;
+      margin-bottom: 14px;
+    }
+    .pillar-resolution {
+      font-size: 0.92rem;
+      font-weight: 400;
+      color: var(--cream-dk);
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+    .pillar-output {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+      font-size: 0.92rem;
+      font-weight: 400;
+      color: var(--cream-dk);
+      line-height: 1.8;
+    }
+    .pillar-output-label {
+      font-size: 0.55rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted);
+      opacity: 0.55;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    /* ── WORK SPECIFICALLY CARDS ── */
+    .work-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+    .work-card {
+      background: var(--night-2);
+      padding: 28px 28px 26px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transition: background 0.15s;
+    }
+    .work-card:hover { background: var(--night-3); }
+    .work-card-last { grid-column: span 2; background: var(--night-3); }
+    .work-card-label {
+      font-family: var(--font-hero);
+      font-size: 1.35rem;
+      letter-spacing: 0.06em;
+      color: var(--cream);
+      line-height: 1;
+    }
+    .work-card-desc {
+      font-size: 0.92rem;
+      font-weight: 400;
+      color: var(--cream-dk);
+      line-height: 1.85;
+    }
+
+    /* ── CASE STUDIES ── */
+    .case-item {
+      padding: 28px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .case-item:first-child { border-top: 1px solid var(--border); }
+    .case-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+    .case-name {
+      font-family: var(--font-hero);
+      font-size: 1.5rem;
+      letter-spacing: 0.07em;
+      color: var(--white);
+    }
+    .case-year {
+      font-size: 0.68rem;
+      color: var(--muted);
+      letter-spacing: 0.12em;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    .case-pillar-tag {
+      display: inline-block;
+      font-size: 0.54rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 2px 8px;
+      margin-bottom: 10px;
+    }
+    .is-growth    { background: rgba(66,104,255,0.15); color: var(--cobalt-lt); }
+    .is-narrative { background: rgba(212,255,0,0.12); color: var(--lime); }
+    .is-raise     { background: rgba(255,0,102,0.15); color: var(--pink-lt); }
+    .case-tagline {
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--cream-dk);
+      margin-bottom: 18px;
+      line-height: 1.7;
+    }
+    .case-metrics {
+      display: flex;
+      gap: 44px;
+      margin-bottom: 0;
+      flex-wrap: wrap;
+    }
+    .metric-val {
+      display: block;
+      font-family: var(--font-hero);
+      font-size: 1.65rem;
+      letter-spacing: 0.04em;
+      color: var(--lime);
+      line-height: 1;
+      margin-bottom: 3px;
+    }
+    .metric:nth-child(2) .metric-val { color: var(--cobalt-lt); }
+    .metric:nth-child(3) .metric-val { color: var(--pink-lt); }
+    .metric-label {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ── ABOUT ── */
+    .principal-block {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 0 40px;
+      padding: 28px 0;
+      border-top: 3px solid var(--pink);
+      border-bottom: 1px solid var(--border);
+    }
+    .principal-left { display: flex; flex-direction: column; gap: 5px; padding-top: 2px; }
+    .principal-name {
+      font-family: var(--font-hero);
+      font-size: 1.25rem;
+      letter-spacing: 0.07em;
+      color: var(--white);
+    }
+    .principal-title {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .principal-bio {
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--cream-dk);
+      line-height: 1.9;
+    }
+    .principal-bio p { margin-bottom: 18px; }
+    .principal-bio p:last-child { margin-bottom: 0; }
+    .principal-bio strong { color: var(--cream); font-weight: 500; }
+
+    /* ── PEDIGREE ── */
+    .pedigree-strip {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+      padding: 28px 0;
+      border-bottom: 1px solid var(--border);
+      align-items: center;
+    }
+    .pedigree-name {
+      font-family: var(--font-hero);
+      font-size: 1.15rem;
+      letter-spacing: 0.08em;
+      color: var(--cream);
+      opacity: 0.55;
+      transition: opacity 0.15s;
+    }
+    .pedigree-name:hover { opacity: 1; }
+    .pedigree-divider {
+      color: var(--border-lt);
+      font-size: 0.8rem;
+    }
+
+    /* ── CTA BLOCK ── */
+    .cta-block {
+      padding: 52px 48px;
+      background: var(--night-3);
+      border: 1px solid var(--border-lt);
+      border-top: 3px solid var(--pink);
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      margin: 64px 0 0;
+    }
+    .cta-eyebrow {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--pink);
+    }
+    .cta-headline {
+      font-family: var(--font-hero);
+      font-size: 2.4rem;
+      letter-spacing: 0.04em;
+      color: var(--white);
+      line-height: 1.05;
+      max-width: 560px;
+    }
+    .cta-sub {
+      font-family: 'Outfit', system-ui, sans-serif;
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--cream-dk);
+      line-height: 1.8;
+      max-width: 520px;
+    }
+    .cta-btn {
+      display: inline-block;
+      align-self: flex-start;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--pink);
+      border: 1px solid var(--pink);
+      border-radius: 2px;
+      padding: 14px 28px;
+      text-decoration: none;
+      transition: background 0.15s, border-color 0.15s;
+    }
+    .cta-btn:hover { background: #e0005a; border-color: #e0005a; }
+
+    /* ── DIVIDER ── */
+    .section-divider {
+      height: 1px;
+      background: var(--border);
+      margin: 0;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 28px 0 48px;
+      margin-top: 64px;
+      border-top: 1px solid var(--border);
+    }
+    .footer-text {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+    .footer-text a {
+      color: var(--muted);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border-lt);
+      transition: color 0.15s;
+    }
+    .footer-text a:hover { color: var(--pink-lt); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 680px) {
+      .container { padding: 0 24px; }
+      .hero { padding: 48px 0 40px; }
+      .hero-headline { font-size: 4rem; }
+      .pillar-grid { grid-template-columns: 1fr; }
+      .pillar-col { border-right: none; border-bottom: 1px solid var(--border); }
+      .pillar-col:last-child { border-bottom: none; }
+      .work-grid { grid-template-columns: 1fr; }
+      .work-card-last { grid-column: span 1; }
+      .principal-block { grid-template-columns: 1fr; gap: 12px; }
+      .cta-block { padding: 36px 28px; }
+      .cta-headline { font-size: 1.8rem; }
+      footer { flex-direction: column; gap: 10px; align-items: flex-start; padding-bottom: 48px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <header>
+    <a class="logo" href="/">
+      <span class="logo-main">BASTILLE</span>
+      <span class="logo-sub">Advisory</span>
+    </a>
+    <span class="private-badge">Private · Not indexed</span>
+  </header>
+
+  <!-- ══ HERO ══ -->
+  <div class="hero">
+    <div class="hero-eyebrow">A private introduction</div>
+    <h1 class="hero-headline">
+      <span class="hl-blue">SOMETHING</span><br>
+      <span class="hl-lime">IS WORKING.</span><br>
+      <span class="hl-pink">THE PITCH ISN'T.</span>
+    </h1>
+    <p class="hero-subhead">Bastille closes the gap.</p>
+    <p class="hero-note">This page isn't on the main site. I share it with founders I've spoken with when I think the work might be relevant — it's a more direct look at what an engagement actually involves.</p>
+  </div>
+  <div class="hero-stripe">
+    <div class="hero-stripe-band" style="background:var(--cobalt)"></div>
+    <div class="hero-stripe-band" style="background:var(--lime)"></div>
+    <div class="hero-stripe-band" style="background:var(--pink)"></div>
+  </div>
+
+  <!-- ══ THE PROBLEM ══ -->
+  <div class="page-section">
+    <span class="section-eyebrow">The problem</span>
+    <h2 class="section-headline">THE GAP</h2>
+    <p class="section-lede">The problems I work on don't require a specific industry. They show up in every room, at every stage, regardless of what you've built.</p>
+    <div class="section-body">
+      <p>Traction that can't explain itself. Narratives that work in some rooms and stall in others. Raises that move slowly despite the right access. None of these are product problems — they're clarity problems. The company is further along than the story around it.</p>
+      <p>Bastille works with founders at the stage where the gap is most expensive: when the company is real and a raise is approaching. The engagement is designed to close the distance between what you've built and what investors, customers, and partners are actually hearing.</p>
+    </div>
+  </div>
+
+  <!-- ══ THREE PILLARS ══ -->
+  <div class="page-section">
+    <span class="section-eyebrow">What I work on</span>
+    <h2 class="section-headline">THREE DISCIPLINES</h2>
+    <p class="section-lede">Every engagement sits in one or spans all three. The work is always scoped to where the company actually is.</p>
+    <div class="pillar-grid">
+      <div class="pillar-col is-growth">
+        <div class="pillar-name">GROWTH</div>
+        <p class="pillar-problem">You have traction in a pocket. You can't scale it, replicate it, or explain what's driving it.</p>
+        <p class="pillar-resolution">We identify what's actually working, build the playbook, and sequence the next customer motion before you need it.</p>
+        <div class="pillar-output"><span class="pillar-output-label">Output</span>A GTM playbook built around your confirmed segment and what's actually driving growth.</div>
+      </div>
+      <div class="pillar-col is-narrative">
+        <div class="pillar-name">NARRATIVE</div>
+        <p class="pillar-problem">Your company has evolved. The way you're explaining it hasn't caught up — different rooms hear different things.</p>
+        <p class="pillar-resolution">We close the gap between what you've built and what investors, customers, and partners actually hear — and make the new story hold.</p>
+        <div class="pillar-output"><span class="pillar-output-label">Output</span>A story that lands consistently across investor meetings, enterprise sales, and partnership conversations.</div>
+      </div>
+      <div class="pillar-col is-raise">
+        <div class="pillar-name">RAISE</div>
+        <p class="pillar-problem">You're in the right rooms with the right people. The right conversations aren't converting.</p>
+        <p class="pillar-resolution">We build the infrastructure and make targeted introductions: investors sequenced to your stage, partners with real context behind every intro.</p>
+        <div class="pillar-output"><span class="pillar-output-label">Output</span>A raise that closes faster, at better terms, with less founder distraction.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ THE WORK, SPECIFICALLY ══ -->
+  <div class="page-section">
+    <span class="section-eyebrow">In practice</span>
+    <h2 class="section-headline">THE WORK, SPECIFICALLY</h2>
+    <p class="section-lede">Every engagement starts with a scoping conversation to determine which of these — or which combination — fits where you are.</p>
+    <div class="work-grid">
+      <div class="work-card">
+        <div class="work-card-label">GTM Diagnosis</div>
+        <p class="work-card-desc">Identify the driver of traction, isolate the segment worth scaling, and build the playbook for the next one.</p>
+      </div>
+      <div class="work-card">
+        <div class="work-card-label">Narrative Architecture</div>
+        <p class="work-card-desc">Rebuild the story so it holds across investor meetings, enterprise sales conversations, and ecosystem partnerships.</p>
+      </div>
+      <div class="work-card">
+        <div class="work-card-label">Fundraising Operations</div>
+        <p class="work-card-desc">Pipeline structure, data room, investor sequencing, and introductions made with real context.</p>
+      </div>
+      <div class="work-card">
+        <div class="work-card-label">Partner &amp; Ecosystem Introductions</div>
+        <p class="work-card-desc">Direct introductions to capital and ecosystem partners. Every intro carries context — no cold warm intros.</p>
+      </div>
+      <div class="work-card work-card-last">
+        <div class="work-card-label">Full-Stack Engagement</div>
+        <p class="work-card-desc">For companies that need all three disciplines running in parallel: GTM motion, investor narrative, and active raise support — scoped and sequenced across the engagement.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ CASE STUDIES ══ -->
+  <div class="page-section">
+    <span class="section-eyebrow">Proof of work</span>
+    <h2 class="section-headline">SELECTED ENGAGEMENTS</h2>
+    <p class="section-lede">Each one started with a conversation about what wasn't working.</p>
+
+    <div class="case-item">
+      <div class="case-pillar-tag is-growth">Growth · Narrative · Raise</div>
+      <div class="case-header">
+        <div class="case-name">Confetti</div>
+        <div class="case-year">2024</div>
+      </div>
+      <div class="case-tagline">Designed and ran a live tournament campaign that became the highest-revenue engagement in Confetti's history — generating $1.5M in transaction volume in 30 days and establishing a replicable go-to-market playbook.</div>
+      <div class="case-metrics">
+        <div class="metric"><span class="metric-val">$1.5M</span><span class="metric-label">Transaction volume</span></div>
+        <div class="metric"><span class="metric-val">30</span><span class="metric-label">Days</span></div>
+        <div class="metric"><span class="metric-val">1st</span><span class="metric-label">Replicable GTM playbook</span></div>
+      </div>
+    </div>
+
+    <div class="case-item">
+      <div class="case-pillar-tag is-raise">Narrative · Raise</div>
+      <div class="case-header">
+        <div class="case-name">Hashfire</div>
+        <div class="case-year">2025</div>
+      </div>
+      <div class="case-tagline">Worked with Hashfire from product to market — refining their GTM, rebuilding their investor narrative, facilitating 30+ investor introductions, and supporting the raise that closed an $800K pre-seed alongside their first institutional customer.</div>
+      <div class="case-metrics">
+        <div class="metric"><span class="metric-val">$800K</span><span class="metric-label">Pre-seed raised</span></div>
+        <div class="metric"><span class="metric-val">30+</span><span class="metric-label">Investor introductions</span></div>
+        <div class="metric"><span class="metric-val">1st</span><span class="metric-label">Institutional customer</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ ABOUT ══ -->
+  <div class="page-section">
+    <span class="section-eyebrow">Who you'd be working with</span>
+    <h2 class="section-headline">PRINCIPAL</h2>
+
+    <div class="principal-block">
+      <div class="principal-left">
+        <div class="principal-name">Michael Martin</div>
+        <div class="principal-title">Founder &amp; Principal</div>
+      </div>
+      <div class="principal-bio">
+        <p>The problems Bastille works on are consistent across industries: founders building something new, trying to close the gap between what they've built and what the world is ready to see. The methodology transfers because the gap is universal.</p>
+        <p>At <strong>SignalFire</strong>, an AI-native venture firm built around proprietary data infrastructure, I worked most closely with the AI engineers and founders before the current era had a name — developing the fund-side perspective on what narrative actually moves capital when the technology is genuinely new.</p>
+        <p>At <strong>XPRIZE</strong>, running frontier technology competitions meant positioning breakthrough ideas to audiences who had never encountered them. That's the same problem every early-stage founder faces, in every vertical.</p>
+        <p>At <strong>Ava Labs</strong>, that methodology became <strong>Codebase</strong>, the flagship Avalanche accelerator. Founders placed on VC watchlists, institutional partnerships formed, raises closed — the playbook ran across a diverse cohort of companies.</p>
+        <p>The work is designed to be embedded, not advisory. I'm in the room when it matters, not reviewing a deck after the fact.</p>
+      </div>
+    </div>
+
+    <div class="pedigree-strip">
+      <span class="pedigree-name">Ava Labs</span>
+      <span class="pedigree-divider">·</span>
+      <span class="pedigree-name">SignalFire</span>
+      <span class="pedigree-divider">·</span>
+      <span class="pedigree-name">M13</span>
+      <span class="pedigree-divider">·</span>
+      <span class="pedigree-name">XPRIZE</span>
+    </div>
+  </div>
+
+  <!-- ══ CTA ══ -->
+  <div class="cta-block">
+    <span class="cta-eyebrow">Next step</span>
+    <p class="cta-headline">The first conversation is free. No pitch — just a scoping session.</p>
+    <p class="cta-sub">30 minutes. We'll talk through where you are, what's not working, and whether there's a fit. No obligation on either side.</p>
+    <a class="cta-btn" href="https://calendly.com/michael-bastilleadvisory/30min" target="_blank" rel="noopener noreferrer">Book a free office hours session →</a>
+  </div>
+
+  <footer>
+    <span class="footer-text">Bastille Advisory © 2026</span>
+    <span class="footer-text"><a href="mailto:michael@bastilleadvisory.xyz">michael@bastilleadvisory.xyz</a></span>
+  </footer>
+
+</div>
+</body>
+</html>

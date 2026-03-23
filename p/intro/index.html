@@ -74,13 +74,21 @@
       text-decoration: none;
       cursor: pointer;
     }
+    .logo-icon-img {
+      height: 20px;
+      width: auto;
+      display: block;
+      opacity: 0.9;
+      flex-shrink: 0;
+      margin-bottom: 2px;
+    }
     .logo {
       font-family: var(--font-hero);
       font-size: 1.65rem;
       letter-spacing: 0.18em;
       color: var(--white);
       display: flex;
-      align-items: baseline;
+      align-items: center;
       gap: 10px;
     }
     .logo-main { color: var(--white); line-height: 1; }
@@ -128,11 +136,30 @@
       letter-spacing: 0.03em;
       line-height: 0.95;
       margin-bottom: 32px;
+      color: transparent;
       filter: url(#riso-grain-intro);
     }
-    .hl-blue  { color: var(--cobalt-lt); }
-    .hl-lime  { color: var(--lime); }
-    .hl-pink  { color: var(--pink); }
+    .hl-blue {
+      color: var(--cobalt-lt);
+      text-shadow:
+        8px 4px 0 rgba(255, 0, 102, 0.7),
+        -3px -2px 0 rgba(212, 255, 0, 0.25),
+        12px 6px 0 rgba(255, 0, 102, 0.15);
+    }
+    .hl-lime {
+      color: var(--lime);
+      text-shadow:
+        -7px 5px 0 rgba(0, 56, 255, 0.65),
+        4px -3px 0 rgba(255, 0, 102, 0.3),
+        -11px 8px 0 rgba(0, 56, 255, 0.12);
+    }
+    .hl-pink {
+      color: var(--pink);
+      text-shadow:
+        7px -4px 0 rgba(212, 255, 0, 0.65),
+        -4px 3px 0 rgba(0, 56, 255, 0.3),
+        11px -7px 0 rgba(212, 255, 0, 0.12);
+    }
     .hl-white { color: var(--white); }
 
     .hero-subhead {
@@ -245,8 +272,8 @@
       line-height: 1.8;
       margin-bottom: 16px;
     }
+    .pillar-spacer { flex: 1; }
     .pillar-output {
-      margin-top: auto;
       padding-top: 16px;
       border-top: 1px solid var(--border);
       font-size: 0.92rem;
@@ -263,6 +290,17 @@
       opacity: 0.55;
       display: block;
       margin-bottom: 5px;
+    }
+
+    /* ── PRINCIPAL BLURB ── */
+    .principal-blurb {
+      font-family: 'Outfit', system-ui, sans-serif;
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: var(--cream);
+      line-height: 1.75;
+      max-width: 600px;
+      margin-bottom: 32px;
     }
 
     /* ── MODEL SPLIT ── */
@@ -286,15 +324,28 @@
     .model-col-label.is-founder  { color: var(--lime); }
     .model-col-label.is-bastille { color: var(--pink); }
     .model-row {
-      padding: 12px 0;
+      padding: 12px 0 12px 18px;
       border-bottom: 1px solid var(--border);
       font-size: 0.95rem;
       font-weight: 400;
       line-height: 1.5;
+      position: relative;
+    }
+    .model-row::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%) rotate(45deg);
+      width: 5px;
+      height: 5px;
+      flex-shrink: 0;
     }
     .model-row:last-child { border-bottom: none; }
     .model-col:first-child .model-row { color: var(--cream); }
+    .model-col:first-child .model-row::before { background: var(--lime); }
     .model-col:last-child  .model-row { color: var(--cream-dk); }
+    .model-col:last-child  .model-row::before { background: var(--pink); }
 
     /* ── WORK SPECIFICALLY CARDS ── */
     .work-grid {
@@ -566,6 +617,7 @@
 
   <header>
     <a class="logo" href="/">
+      <img src="/logo-icon.svg" alt="Bastille" class="logo-icon-img">
       <span class="logo-main">BASTILLE</span>
       <span class="logo-sub">Advisory</span>
     </a>
@@ -614,26 +666,29 @@
   <!-- ══ THREE PILLARS ══ -->
   <div class="page-section">
     <span class="section-eyebrow">What I work on</span>
-    <h2 class="section-headline">GROWTH. NARRATIVE. RAISE.</h2>
+    <h2 class="section-headline">WHERE FOUNDERS HIT THE CEILING</h2>
     <p class="section-lede">Every engagement sits in one or spans all three. In each case, the same logic applies: founder time goes to the highest-leverage work, and I run the execution layer around it.</p>
     <div class="pillar-grid">
       <div class="pillar-col is-growth">
         <div class="pillar-name">GROWTH</div>
         <p class="pillar-problem">You have traction in a pocket. You can't scale it, replicate it, or explain what's driving it.</p>
         <p class="pillar-resolution">You're with your highest-value customers. I run the tier-two layer — gathering feedback, finding signal, informing the next move.</p>
+        <div class="pillar-spacer"></div>
         <div class="pillar-output"><span class="pillar-output-label">Output</span>A GTM playbook built around your confirmed segment and what's actually driving growth.</div>
       </div>
       <div class="pillar-col is-narrative">
         <div class="pillar-name">NARRATIVE</div>
         <p class="pillar-problem">Your company has evolved. The way you're explaining it hasn't caught up — different rooms hear different things.</p>
         <p class="pillar-resolution">You're in the critical meetings. I run the story through every other room — tracking where it breaks and what needs to change.</p>
-        <div class="pillar-output"><span class="pillar-output-label">Output</span>A story that lands consistently across investor meetings, enterprise sales, and partnership conversations.</div>
+        <div class="pillar-spacer"></div>
+        <div class="pillar-output"><span class="pillar-output-label">Output</span>A story that lands across investor, customer, and ecosystem partner conversations.</div>
       </div>
       <div class="pillar-col is-raise">
         <div class="pillar-name">RAISE</div>
         <p class="pillar-problem">You're in the right rooms with the right people. The right conversations aren't converting.</p>
         <p class="pillar-resolution">You're in the partner meetings. I run the infrastructure — pipeline, introductions, data room, and the pressure that makes leads move.</p>
-        <div class="pillar-output"><span class="pillar-output-label">Output</span>A raise that closes faster, at better terms, with less founder distraction.</div>
+        <div class="pillar-spacer"></div>
+        <div class="pillar-output"><span class="pillar-output-label">Output</span>A raise that closes faster, at better terms, with less distraction from building.</div>
       </div>
     </div>
   </div>
@@ -720,6 +775,7 @@
         <div class="principal-name">Michael Martin</div>
         <div class="principal-title">Founder &amp; Principal</div>
       </div>
+      <p class="principal-blurb">Embedded operator for founders who need capacity, not a deck. I work across growth, narrative, and fundraising — running the execution layer in parallel with building, so the company moves forward on all fronts.</p>
 
       <div class="prov-grid">
         <div class="prov-card">

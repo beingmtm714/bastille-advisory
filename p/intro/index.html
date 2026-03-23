@@ -383,8 +383,15 @@
     .case-item {
       padding: 28px 0;
       border-bottom: 1px solid var(--border);
+      cursor: pointer;
+      position: relative;
+      border-left: 3px solid transparent;
+      margin-left: -3px;
+      padding-left: 3px;
+      transition: border-left-color 0.15s, background 0.15s;
     }
     .case-item:first-child { border-top: 1px solid var(--border); }
+    .case-item:hover { background: rgba(255,0,102,0.04); border-left-color: var(--pink); }
     .case-header {
       display: flex;
       align-items: baseline;
@@ -423,6 +430,16 @@
       margin-bottom: 18px;
       line-height: 1.7;
     }
+    .case-expand { display: none; margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--border); animation: up 0.15s ease; }
+    .case-expand.open { display: block; }
+    .case-expand p { font-size: 1rem; font-weight: 400; color: var(--cream-dk); line-height: 1.9; margin-bottom: 16px; }
+    .case-expand p:last-of-type { margin-bottom: 0; }
+    .case-expand p strong { color: var(--cream); font-weight: 500; }
+    .expand-hint { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; color: var(--muted); margin-top: 14px; text-transform: uppercase; }
+    .case-url { margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--border); }
+    .case-url a { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); text-decoration: none; border-bottom: 1px solid var(--border-lt); padding-bottom: 1px; transition: color 0.15s, border-color 0.15s; }
+    .case-url a:hover { color: var(--pink-lt); border-color: var(--pink); }
+    @keyframes up { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
     .case-metrics {
       display: flex;
       gap: 44px;
@@ -728,32 +745,45 @@
     <h2 class="section-headline">SELECTED ENGAGEMENTS</h2>
     <p class="section-lede">Each one started with a conversation about where the company was, what the founder saw as the biggest constraint, and what was possible in the next 60–90 days.</p>
 
-    <div class="case-item">
-      <div class="case-pillar-tag is-growth">Growth · Narrative · Raise</div>
+    <div class="case-item" onclick="handleCaseClick(event,this)">
+      <div class="case-pillar-tag is-growth">Growth</div>
       <div class="case-header">
         <div class="case-name">Confetti</div>
-        <div class="case-year">2024</div>
+        <div class="case-year">2025</div>
       </div>
-      <div class="case-tagline">Designed and ran a live tournament campaign that became the highest-revenue engagement in Confetti's history — generating $1.5M in transaction volume in 30 days and establishing a replicable go-to-market playbook.</div>
+      <div class="case-tagline">Worked with Confetti's founder to design and execute a campaign that became the platform's highest-revenue engagement since its founding — $1.5M in transaction volume across 24 teams in 30 days.</div>
       <div class="case-metrics">
         <div class="metric"><span class="metric-val">$1.5M</span><span class="metric-label">Transaction volume</span></div>
-        <div class="metric"><span class="metric-val">30</span><span class="metric-label">Days</span></div>
-        <div class="metric"><span class="metric-val">1st</span><span class="metric-label">Replicable GTM playbook</span></div>
+        <div class="metric"><span class="metric-val">24</span><span class="metric-label">Ecosystem teams · 30 days</span></div>
+        <div class="metric"><span class="metric-val">~300K</span><span class="metric-label">Onchain transactions</span></div>
       </div>
+      <div class="case-expand">
+        <p>Confetti had a strong product — an onchain incentive platform operating across <strong>20+ blockchain ecosystems</strong> — but needed a flagship campaign to demonstrate its ceiling. The question was what kind of engagement would actually drive serious volume.</p>
+        <p>The engagement: bring Confetti into <strong>Avalanche</strong> as the infrastructure for a 30-day onchain bracket tournament — <strong>24 ecosystem teams</strong> competing in daily head-to-head rounds, community members voting with AVAX tokens, voters whose picks advanced receiving a share of the prize pool. Every round drove a new transaction cycle through Confetti's platform.</p>
+        <p>The campaign generated <strong>$1.5M in transaction volume over 30 days</strong> — the <strong>highest-revenue engagement in Confetti's history</strong> — and established a replicable playbook for future chain partnerships.</p>
+        <div class="case-url"><a href="https://confetti.win" target="_blank" rel="noopener noreferrer">confetti.win ↗</a></div>
+      </div>
+      <div class="expand-hint">↓ expand</div>
     </div>
 
-    <div class="case-item">
-      <div class="case-pillar-tag is-raise">Narrative · Raise</div>
+    <div class="case-item" onclick="handleCaseClick(event,this)">
+      <div class="case-pillar-tag is-raise">Raise</div>
       <div class="case-header">
         <div class="case-name">Hashfire</div>
         <div class="case-year">2025</div>
       </div>
-      <div class="case-tagline">Worked with Hashfire from product to market — refining their GTM, rebuilding their investor narrative, facilitating 30+ investor introductions, and supporting the raise that closed an $800K pre-seed alongside their first institutional customer.</div>
+      <div class="case-tagline">Worked with Hashfire from product to market — refining their GTM, rebuilding their narrative, facilitating 30+ investor introductions, and supporting the work that led to their first institutional customer and an $800K pre-seed close.</div>
       <div class="case-metrics">
         <div class="metric"><span class="metric-val">$800K</span><span class="metric-label">Pre-seed raised</span></div>
         <div class="metric"><span class="metric-val">30+</span><span class="metric-label">Investor introductions</span></div>
         <div class="metric"><span class="metric-val">1st</span><span class="metric-label">Institutional customer</span></div>
       </div>
+      <div class="case-expand">
+        <p>Hashfire had built an onchain document authentication and instant payment protocol — a genuinely new approach to verifiable contracts and programmable settlement — but needed to land on the right GTM product, sharpen the narrative, and create the conditions for institutional fundraising.</p>
+        <p>Bastille worked across the full stack: iterating on the GTM product thesis, rebuilding the investor narrative from the ground up, and co-producing the deck used to pitch institutional capital. From there, Bastille facilitated over <strong>30 investor introductions</strong>, creating the deal flow that led to the pre-seed close and Hashfire's <strong>first institutional customer</strong> — a government-level pilot that validated the protocol.</p>
+        <div class="case-url"><a href="https://hashfire.xyz" target="_blank" rel="noopener noreferrer">hashfire.xyz ↗</a></div>
+      </div>
+      <div class="expand-hint">↓ expand</div>
     </div>
   </div>
 
@@ -775,7 +805,7 @@
         <div class="principal-name">Michael Martin</div>
         <div class="principal-title">Founder &amp; Principal</div>
       </div>
-      <p class="principal-blurb">Embedded operator for founders who need capacity, not a deck. I work across growth, narrative, and fundraising — running the execution layer in parallel with building, so the company moves forward on all fronts.</p>
+      <p class="principal-blurb">Embedded operator for founders who need capacity, not just a deck. I work across growth, narrative, and fundraising — running the execution layer in parallel with building, so the company moves forward on all fronts.</p>
 
       <div class="prov-grid">
         <div class="prov-card">
@@ -848,6 +878,13 @@ function handleBioClick(el) {
   const hint    = el.querySelector('.bio-expand-hint');
   content.classList.toggle('open');
   hint.textContent = content.classList.contains('open') ? '↑ collapse' : '↓ expand';
+}
+
+function handleCaseClick(e, el) {
+  const exp  = el.querySelector('.case-expand');
+  const hint = el.querySelector('.expand-hint');
+  exp.classList.toggle('open');
+  hint.textContent = exp.classList.contains('open') ? '↑ collapse' : '↓ expand';
 }
 </script>
 

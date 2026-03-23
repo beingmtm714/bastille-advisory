@@ -74,18 +74,21 @@
       text-decoration: none;
       cursor: pointer;
     }
-    .logo-main {
+    .logo {
       font-family: var(--font-hero);
-      font-size: 1.35rem;
-      letter-spacing: 0.12em;
+      font-size: 1.65rem;
+      letter-spacing: 0.18em;
       color: var(--white);
-      line-height: 1;
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
     }
+    .logo-main { color: var(--white); line-height: 1; }
     .logo-sub {
       font-family: var(--font-body);
-      font-size: 0.62rem;
+      font-size: 0.58rem;
       font-weight: 600;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
       color: var(--muted);
     }
@@ -395,77 +398,60 @@
     }
 
     /* ── ABOUT / PRINCIPAL ── */
-    .principal-block {
-      border-top: 3px solid var(--pink);
-      padding: 28px 0 0;
+    .principal-block { border-top: 3px solid var(--pink); padding: 28px 0 0; }
+    .principal-id { display: flex; flex-direction: column; gap: 5px; margin-bottom: 28px; }
+    .principal-name { font-family: var(--font-hero); font-size: 1.25rem; letter-spacing: 0.07em; color: var(--white); }
+    .principal-title { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
+
+    /* Provenance cards */
+    .prov-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin-bottom: 0;
     }
-    .principal-header {
+    .prov-card {
+      background: var(--night-2);
+      padding: 28px 28px 24px;
       display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 32px;
-      padding-bottom: 20px;
+      flex-direction: column;
+      gap: 0;
     }
-    .principal-id { display: flex; flex-direction: column; gap: 5px; flex-shrink: 0; }
-    .principal-name {
-      font-family: var(--font-hero);
-      font-size: 1.25rem;
-      letter-spacing: 0.07em;
-      color: var(--white);
+    .prov-logo { margin-bottom: 16px; }
+    .prov-logo img { max-height: 30px; max-width: 150px; object-fit: contain; object-position: left center; opacity: 0.85; display: block; }
+    .prov-desc { font-size: 0.9rem; font-weight: 400; color: var(--cream-dk); line-height: 1.75; flex: 1; margin-bottom: 16px; }
+    .prov-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 16px; }
+    .prov-tag {
+      font-size: 0.52rem; font-weight: 700; letter-spacing: 0.16em;
+      text-transform: uppercase; padding: 3px 9px;
     }
-    .principal-title {
-      font-size: 0.62rem;
-      font-weight: 700;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-    .principal-org-strip {
-      display: flex;
-      align-items: center;
-      gap: 28px;
-      flex-wrap: wrap;
-      padding-top: 4px;
-    }
-    .principal-org-link {
-      display: block;
-      opacity: 0.45;
-      transition: opacity 0.15s;
-      text-decoration: none;
-    }
-    .principal-org-link:hover { opacity: 1; }
-    .principal-org-link img {
-      max-height: 22px;
-      max-width: 110px;
-      object-fit: contain;
-      object-position: left center;
-      display: block;
-      filter: brightness(0) invert(1);
-    }
-    .bio-toggle {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: none;
-      border: none;
+    .prov-tag-growth   { background: rgba(66,104,255,0.2); color: var(--cobalt-lt); }
+    .prov-tag-narrative{ background: rgba(212,255,0,0.15); color: var(--lime); }
+    .prov-tag-raise    { background: rgba(255,0,102,0.2);  color: var(--pink-lt); }
+    .prov-url { padding-top: 12px; border-top: 1px solid var(--border); }
+    .prov-url a { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); text-decoration: none; border-bottom: 1px solid var(--border-lt); padding-bottom: 1px; transition: color 0.15s, border-color 0.15s; }
+    .prov-url a:hover { color: var(--pink-lt); border-color: var(--pink); }
+
+    /* Bio expand — case-study style */
+    .bio-item {
+      padding: 20px 0;
       border-top: 1px solid var(--border);
-      width: 100%;
-      padding: 13px 0;
+      border-bottom: 1px solid var(--border);
       cursor: pointer;
-      font-family: var(--font-body);
-      font-size: 0.6rem;
-      font-weight: 700;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--muted);
-      transition: color 0.15s;
+      position: relative;
+      border-left: 3px solid transparent;
+      margin: 0 -3px 0 -3px;
+      padding-left: 3px;
+      transition: border-left-color 0.15s, background 0.15s;
     }
-    .bio-toggle:hover { color: var(--cream-dk); }
-    .bio-toggle-arrow { display: inline-block; transition: transform 0.2s; }
-    .bio-toggle.open { color: var(--cream-dk); }
-    .bio-toggle.open .bio-toggle-arrow { transform: rotate(180deg); }
-    .bio-expand { display: none; padding: 24px 0; border-top: 1px solid var(--border); }
-    .bio-expand.open { display: block; animation: bio-in 0.2s ease; }
+    .bio-item:hover { background: rgba(255,0,102,0.04); border-left-color: var(--pink); }
+    .bio-item-header { display: flex; justify-content: space-between; align-items: baseline; }
+    .bio-item-label { font-family: var(--font-hero); font-size: 1.5rem; letter-spacing: 0.07em; color: var(--white); }
+    .bio-expand-hint { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; color: var(--muted); text-transform: uppercase; margin-top: 6px; }
+    .bio-content { display: none; margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--border); animation: bio-in 0.15s ease; }
+    .bio-content.open { display: block; }
     @keyframes bio-in { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
     .principal-bio { font-size: 1rem; font-weight: 400; color: var(--cream-dk); line-height: 1.9; }
     .principal-bio p { margin-bottom: 18px; }
@@ -564,8 +550,7 @@
       .pillar-col:last-child { border-bottom: none; }
       .work-grid { grid-template-columns: 1fr; }
       .work-card-last { grid-column: span 1; }
-      .principal-header { flex-direction: column; gap: 16px; }
-      .principal-org-strip { gap: 20px; }
+      .prov-grid { grid-template-columns: 1fr; }
       .model-split { grid-template-columns: 1fr; }
       .model-col:first-child { padding: 16px 0; border-right: none; border-bottom: 1px solid var(--border); }
       .model-col:last-child  { padding: 16px 0; }
@@ -731,37 +716,64 @@
     <h2 class="section-headline">PRINCIPAL</h2>
 
     <div class="principal-block">
-      <div class="principal-header">
-        <div class="principal-id">
-          <div class="principal-name">Michael Martin</div>
-          <div class="principal-title">Founder &amp; Principal</div>
+      <div class="principal-id">
+        <div class="principal-name">Michael Martin</div>
+        <div class="principal-title">Founder &amp; Principal</div>
+      </div>
+
+      <div class="prov-grid">
+        <div class="prov-card">
+          <div class="prov-logo"><img src="/logos/avalanche.svg" alt="Ava Labs"></div>
+          <div class="prov-desc">Global blockchain ecosystem powering builders with real use cases for real impact. Lightning fast. Scalable by design. Natively interconnected.</div>
+          <div class="prov-tags">
+            <span class="prov-tag prov-tag-growth">GROWTH</span>
+            <span class="prov-tag prov-tag-narrative">NARRATIVE</span>
+            <span class="prov-tag prov-tag-raise">RAISE</span>
+          </div>
+          <div class="prov-url"><a href="https://avax.network" target="_blank" rel="noopener noreferrer">avax.network ↗</a></div>
         </div>
-        <div class="principal-org-strip">
-          <a class="principal-org-link" href="https://signalfire.com" target="_blank" rel="noopener noreferrer">
-            <img src="/logos/signalfire.svg" alt="SignalFire">
-          </a>
-          <a class="principal-org-link" href="https://avax.network" target="_blank" rel="noopener noreferrer">
-            <img src="/logos/avalanche.svg" alt="Ava Labs">
-          </a>
-          <a class="principal-org-link" href="https://m13.co" target="_blank" rel="noopener noreferrer">
-            <img src="/logos/m13.svg" alt="M13">
-          </a>
-          <a class="principal-org-link" href="https://xprize.org" target="_blank" rel="noopener noreferrer">
-            <img src="/logos/xprize.svg" alt="XPRIZE">
-          </a>
+        <div class="prov-card">
+          <div class="prov-logo"><img src="/logos/signalfire.svg" alt="SignalFire"></div>
+          <div class="prov-desc">Venture capital built like a tech company — AI-native and data-driven, with unmatched portfolio support and deep sector expertise.</div>
+          <div class="prov-tags">
+            <span class="prov-tag prov-tag-growth">GROWTH</span>
+            <span class="prov-tag prov-tag-raise">RAISE</span>
+          </div>
+          <div class="prov-url"><a href="https://signalfire.com" target="_blank" rel="noopener noreferrer">signalfire.com ↗</a></div>
+        </div>
+        <div class="prov-card">
+          <div class="prov-logo"><img src="/logos/m13.svg" alt="M13"></div>
+          <div class="prov-desc">Early-stage VC investing in visionary founders building disruptive software businesses. A full-stack partner with operators to help you scale.</div>
+          <div class="prov-tags">
+            <span class="prov-tag prov-tag-narrative">NARRATIVE</span>
+            <span class="prov-tag prov-tag-raise">RAISE</span>
+          </div>
+          <div class="prov-url"><a href="https://m13.co" target="_blank" rel="noopener noreferrer">m13.co ↗</a></div>
+        </div>
+        <div class="prov-card">
+          <div class="prov-logo"><img src="/logos/xprize.svg" alt="XPRIZE"></div>
+          <div class="prov-desc">Catalyzing the breakthroughs humanity needs — turning bold ideas into world-changing impact through audacious, tested prize competitions.</div>
+          <div class="prov-tags">
+            <span class="prov-tag prov-tag-growth">GROWTH</span>
+            <span class="prov-tag prov-tag-narrative">NARRATIVE</span>
+          </div>
+          <div class="prov-url"><a href="https://xprize.org" target="_blank" rel="noopener noreferrer">xprize.org ↗</a></div>
         </div>
       </div>
-      <button class="bio-toggle" onclick="this.classList.toggle('open'); document.getElementById('bio-expand').classList.toggle('open')">
-        <span>Background</span>
-        <span class="bio-toggle-arrow">↓</span>
-      </button>
-      <div class="bio-expand" id="bio-expand">
-        <div class="principal-bio">
-          <p>The problems Bastille works on are consistent across industries: founders building something new, trying to close the gap between what they've built and what the world is ready to see. The methodology transfers because the gap is universal.</p>
-          <p>At <strong>SignalFire</strong>, an AI-native venture firm built around proprietary data infrastructure, I worked most closely with the AI engineers and founders before the current era had a name — developing the fund-side perspective on what narrative actually moves capital when the technology is genuinely new.</p>
-          <p>At <strong>XPRIZE</strong>, running frontier technology competitions meant positioning breakthrough ideas to audiences who had never encountered them. That's the same problem every early-stage founder faces, in every vertical.</p>
-          <p>At <strong>Ava Labs</strong>, that methodology became <strong>Codebase</strong>, the flagship Avalanche accelerator. Founders placed on VC watchlists, institutional partnerships formed, raises closed — the playbook ran across a diverse cohort of companies.</p>
-          <p>The work is designed to be embedded, not advisory. I'm in the room when it matters, not reviewing a deck after the fact.</p>
+
+      <div class="bio-item" onclick="handleBioClick(this)">
+        <div class="bio-item-header">
+          <div class="bio-item-label">Background</div>
+        </div>
+        <div class="bio-expand-hint">↓ expand</div>
+        <div class="bio-content">
+          <div class="principal-bio">
+            <p>The problems Bastille works on are consistent across industries: founders building something new, trying to close the gap between what they've built and what the world is ready to see. The methodology transfers because the gap is universal.</p>
+            <p>At <strong>SignalFire</strong>, an AI-native venture firm built around proprietary data infrastructure, I worked most closely with the AI engineers and founders before the current era had a name — developing the fund-side perspective on what narrative actually moves capital when the technology is genuinely new.</p>
+            <p>At <strong>XPRIZE</strong>, running frontier technology competitions meant positioning breakthrough ideas to audiences who had never encountered them. That's the same problem every early-stage founder faces, in every vertical.</p>
+            <p>At <strong>Ava Labs</strong>, that methodology became <strong>Codebase</strong>, the flagship Avalanche accelerator. Founders placed on VC watchlists, institutional partnerships formed, raises closed — the playbook ran across a diverse cohort of companies.</p>
+            <p>The work is designed to be embedded, not advisory. I'm in the room when it matters, not reviewing a deck after the fact.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -773,6 +785,15 @@
   </footer>
 
 </div>
+
+<script>
+function handleBioClick(el) {
+  const content = el.querySelector('.bio-content');
+  const hint    = el.querySelector('.bio-expand-hint');
+  content.classList.toggle('open');
+  hint.textContent = content.classList.contains('open') ? '↑ collapse' : '↓ expand';
+}
+</script>
 
 <!-- Risograph SVG filter -->
 <svg style="display:none" aria-hidden="true" focusable="false">

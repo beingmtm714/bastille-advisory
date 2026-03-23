@@ -131,13 +131,20 @@
       height: 1px;
       background: var(--border);
     }
+    .logo-icon-img {
+      height: 28px;
+      width: auto;
+      display: block;
+      flex-shrink: 0;
+      mix-blend-mode: screen;
+    }
     .logo {
       font-family: var(--font-hero);
       font-size: 1.65rem;
       letter-spacing: 0.18em;
       cursor: pointer;
       color: var(--white);
-      display: flex; align-items: baseline; gap: 10px;
+      display: flex; align-items: center; gap: 8px;
       position: relative;
     }
     .logo-main { color: var(--white); line-height: 1; }
@@ -1832,6 +1839,7 @@
   <header>
     <div class="header-top">
       <div class="logo" onclick="show('home', document.querySelector('nav a:first-child'))">
+        <img src="/bastille-torch.png" alt="Bastille" class="logo-icon-img">
         <span class="logo-main">BASTILLE</span>
         <span class="logo-sub">Advisory</span>
       </div>

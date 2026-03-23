@@ -61,26 +61,24 @@
 
     /* ── HEADER ── */
     header {
-      padding: 28px 0 24px;
+      padding: 20px 0 18px;
       border-bottom: 1px solid var(--border);
       display: flex;
       align-items: center;
       justify-content: space-between;
-    }
-    .logo {
-      display: flex;
-      align-items: baseline;
-      gap: 6px;
-      text-decoration: none;
-      cursor: pointer;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(5,5,5,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
     }
     .logo-icon-img {
-      height: 20px;
+      height: 28px;
       width: auto;
       display: block;
-      opacity: 0.9;
       flex-shrink: 0;
-      margin-bottom: 2px;
+      mix-blend-mode: screen;
     }
     .logo {
       font-family: var(--font-hero);
@@ -89,7 +87,9 @@
       color: var(--white);
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
+      text-decoration: none;
+      cursor: pointer;
     }
     .logo-main { color: var(--white); line-height: 1; }
     .logo-sub {
@@ -634,7 +634,7 @@
 
   <header>
     <a class="logo" href="/">
-      <img src="/logo-icon.svg" alt="Bastille" class="logo-icon-img">
+      <img src="/bastille-torch.png" alt="Bastille" class="logo-icon-img">
       <span class="logo-main">BASTILLE</span>
       <span class="logo-sub">Advisory</span>
     </a>

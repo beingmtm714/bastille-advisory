@@ -89,16 +89,22 @@
       text-transform: uppercase;
       color: var(--muted);
     }
-    .private-badge {
-      font-size: 0.58rem;
+    .header-oh-btn {
+      display: inline-block;
+      font-size: 0.62rem;
       font-weight: 700;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: var(--muted);
-      border: 1px solid var(--border-lt);
-      padding: 4px 10px;
-      opacity: 0.7;
+      color: var(--white);
+      background: var(--pink);
+      border: 1px solid var(--pink);
+      border-radius: 2px;
+      padding: 7px 14px;
+      text-decoration: none;
+      transition: background 0.15s, border-color 0.15s;
+      white-space: nowrap;
     }
+    .header-oh-btn:hover { background: #e0005a; border-color: #e0005a; }
 
     /* ── HERO ── */
     .hero {
@@ -119,6 +125,7 @@
       letter-spacing: 0.03em;
       line-height: 0.95;
       margin-bottom: 32px;
+      filter: url(#riso-grain-intro);
     }
     .hl-blue  { color: var(--cobalt-lt); }
     .hl-lime  { color: var(--lime); }
@@ -236,7 +243,7 @@
       margin-bottom: 16px;
     }
     .pillar-output {
-      margin-top: 16px;
+      margin-top: auto;
       padding-top: 16px;
       border-top: 1px solid var(--border);
       font-size: 0.92rem;
@@ -254,6 +261,37 @@
       display: block;
       margin-bottom: 5px;
     }
+
+    /* ── MODEL SPLIT ── */
+    .model-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      margin-top: 36px;
+      border-top: 1px solid var(--border);
+    }
+    .model-col:first-child { padding: 20px 36px 8px 0; border-right: 1px solid var(--border); }
+    .model-col:last-child  { padding: 20px 0 8px 36px; }
+    .model-col-label {
+      font-size: 0.55rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+      display: block;
+    }
+    .model-col-label.is-founder  { color: var(--lime); }
+    .model-col-label.is-bastille { color: var(--pink); }
+    .model-row {
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.95rem;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    .model-row:last-child { border-bottom: none; }
+    .model-col:first-child .model-row { color: var(--cream); }
+    .model-col:last-child  .model-row { color: var(--cream-dk); }
 
     /* ── WORK SPECIFICALLY CARDS ── */
     .work-grid {
@@ -277,7 +315,7 @@
       font-family: var(--font-hero);
       font-size: 1.35rem;
       letter-spacing: 0.06em;
-      color: var(--cream);
+      color: var(--lime);
       line-height: 1;
     }
     .work-card-desc {
@@ -356,16 +394,19 @@
       color: var(--muted);
     }
 
-    /* ── ABOUT ── */
+    /* ── ABOUT / PRINCIPAL ── */
     .principal-block {
-      display: grid;
-      grid-template-columns: 160px 1fr;
-      gap: 0 40px;
-      padding: 28px 0;
       border-top: 3px solid var(--pink);
-      border-bottom: 1px solid var(--border);
+      padding: 28px 0 0;
     }
-    .principal-left { display: flex; flex-direction: column; gap: 5px; padding-top: 2px; }
+    .principal-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 32px;
+      padding-bottom: 20px;
+    }
+    .principal-id { display: flex; flex-direction: column; gap: 5px; flex-shrink: 0; }
     .principal-name {
       font-family: var(--font-hero);
       font-size: 1.25rem;
@@ -379,38 +420,57 @@
       text-transform: uppercase;
       color: var(--muted);
     }
-    .principal-bio {
-      font-size: 1rem;
-      font-weight: 400;
-      color: var(--cream-dk);
-      line-height: 1.9;
+    .principal-org-strip {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      flex-wrap: wrap;
+      padding-top: 4px;
     }
+    .principal-org-link {
+      display: block;
+      opacity: 0.45;
+      transition: opacity 0.15s;
+      text-decoration: none;
+    }
+    .principal-org-link:hover { opacity: 1; }
+    .principal-org-link img {
+      max-height: 22px;
+      max-width: 110px;
+      object-fit: contain;
+      object-position: left center;
+      display: block;
+      filter: brightness(0) invert(1);
+    }
+    .bio-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: none;
+      border: none;
+      border-top: 1px solid var(--border);
+      width: 100%;
+      padding: 13px 0;
+      cursor: pointer;
+      font-family: var(--font-body);
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      transition: color 0.15s;
+    }
+    .bio-toggle:hover { color: var(--cream-dk); }
+    .bio-toggle-arrow { display: inline-block; transition: transform 0.2s; }
+    .bio-toggle.open { color: var(--cream-dk); }
+    .bio-toggle.open .bio-toggle-arrow { transform: rotate(180deg); }
+    .bio-expand { display: none; padding: 24px 0; border-top: 1px solid var(--border); }
+    .bio-expand.open { display: block; animation: bio-in 0.2s ease; }
+    @keyframes bio-in { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
+    .principal-bio { font-size: 1rem; font-weight: 400; color: var(--cream-dk); line-height: 1.9; }
     .principal-bio p { margin-bottom: 18px; }
     .principal-bio p:last-child { margin-bottom: 0; }
     .principal-bio strong { color: var(--cream); font-weight: 500; }
-
-    /* ── PEDIGREE ── */
-    .pedigree-strip {
-      display: flex;
-      gap: 32px;
-      flex-wrap: wrap;
-      padding: 28px 0;
-      border-bottom: 1px solid var(--border);
-      align-items: center;
-    }
-    .pedigree-name {
-      font-family: var(--font-hero);
-      font-size: 1.15rem;
-      letter-spacing: 0.08em;
-      color: var(--cream);
-      opacity: 0.55;
-      transition: opacity 0.15s;
-    }
-    .pedigree-name:hover { opacity: 1; }
-    .pedigree-divider {
-      color: var(--border-lt);
-      font-size: 0.8rem;
-    }
 
     /* ── CTA BLOCK ── */
     .cta-block {
@@ -504,7 +564,11 @@
       .pillar-col:last-child { border-bottom: none; }
       .work-grid { grid-template-columns: 1fr; }
       .work-card-last { grid-column: span 1; }
-      .principal-block { grid-template-columns: 1fr; gap: 12px; }
+      .principal-header { flex-direction: column; gap: 16px; }
+      .principal-org-strip { gap: 20px; }
+      .model-split { grid-template-columns: 1fr; }
+      .model-col:first-child { padding: 16px 0; border-right: none; border-bottom: 1px solid var(--border); }
+      .model-col:last-child  { padding: 16px 0; }
       .cta-block { padding: 36px 28px; }
       .cta-headline { font-size: 1.8rem; }
       footer { flex-direction: column; gap: 10px; align-items: flex-start; padding-bottom: 48px; }
@@ -520,19 +584,18 @@
       <span class="logo-main">BASTILLE</span>
       <span class="logo-sub">Advisory</span>
     </a>
-    <span class="private-badge">Private · Not indexed</span>
+    <a class="header-oh-btn" href="https://calendly.com/michael-bastilleadvisory/30min" target="_blank" rel="noopener noreferrer">Book Office Hours →</a>
   </header>
 
   <!-- ══ HERO ══ -->
   <div class="hero">
-    <div class="hero-eyebrow">A private introduction</div>
+    <div class="hero-eyebrow">Fractional operator for early-stage teams</div>
     <h1 class="hero-headline">
       <span class="hl-blue">YOU KNOW</span><br>
       <span class="hl-lime">WHAT NEEDS</span><br>
       <span class="hl-pink">TO HAPPEN.</span>
     </h1>
     <p class="hero-subhead">The constraint isn't clarity — it's capacity.</p>
-    <p class="hero-note">This page isn't on the main site. I share it with founders I've spoken with when I think the work is a fit. The engagement is built for founders who know exactly what the company needs but don't have the bandwidth to run it all in parallel. You stay focused on the highest-leverage relationships and decisions. I build the systematic layer around it.</p>
   </div>
   <div class="hero-stripe">
     <div class="hero-stripe-band" style="background:var(--cobalt)"></div>
@@ -545,16 +608,28 @@
     <span class="section-eyebrow">How it works</span>
     <h2 class="section-headline">EMBEDDED, NOT ADVISORY</h2>
     <p class="section-lede">Most advisory relationships produce decks. This one produces work. The distinction matters at the stage where the list of things that need to happen is always longer than the time to do them.</p>
-    <div class="section-body">
-      <p>The model is simple: you should be in the rooms and relationships where your presence is irreplaceable — your highest-value customers, the investors who need to hear it from you, the partners where trust is the product. Everything that can be systematized, delegated, and run in parallel doesn't need to be in your calendar.</p>
-      <p>The point of embedded engagement is that it compounds. Every week of structured execution makes the founder's time more leveraged, not less.</p>
+    <div class="model-split">
+      <div class="model-col">
+        <span class="model-col-label is-founder">Your focus</span>
+        <div class="model-row">Highest-value customer relationships</div>
+        <div class="model-row">Investor meetings that require your presence</div>
+        <div class="model-row">Partner trust — where you are the product</div>
+        <div class="model-row">Core product and hiring decisions</div>
+      </div>
+      <div class="model-col">
+        <span class="model-col-label is-bastille">The execution layer</span>
+        <div class="model-row">Tier-two user engagement &amp; feedback loops</div>
+        <div class="model-row">Narrative stress-testing across audiences</div>
+        <div class="model-row">Pipeline, sequencing &amp; data room</div>
+        <div class="model-row">Signal from the noise, fed back as intelligence</div>
+      </div>
     </div>
   </div>
 
   <!-- ══ THREE PILLARS ══ -->
   <div class="page-section">
     <span class="section-eyebrow">What I work on</span>
-    <h2 class="section-headline">THREE DISCIPLINES</h2>
+    <h2 class="section-headline">GROWTH. NARRATIVE. RAISE.</h2>
     <p class="section-lede">Every engagement sits in one or spans all three. In each case, the same logic applies: founder time goes to the highest-leverage work, and I run the execution layer around it.</p>
     <div class="pillar-grid">
       <div class="pillar-col is-growth">
@@ -611,7 +686,7 @@
   <div class="page-section">
     <span class="section-eyebrow">Proof of work</span>
     <h2 class="section-headline">SELECTED ENGAGEMENTS</h2>
-    <p class="section-lede">Each one started with a conversation about what wasn't working.</p>
+    <p class="section-lede">Each one started with a conversation about where the company was, what the founder saw as the biggest constraint, and what was possible in the next 60–90 days.</p>
 
     <div class="case-item">
       <div class="case-pillar-tag is-growth">Growth · Narrative · Raise</div>
@@ -642,42 +717,54 @@
     </div>
   </div>
 
+  <!-- ══ CTA ══ -->
+  <div class="cta-block">
+    <span class="cta-eyebrow">Next step</span>
+    <p class="cta-headline">The first conversation is free. No pitch — just a scoping session.</p>
+    <p class="cta-sub">30 minutes. We'll talk through where you are, what you're trying to unlock, and whether there's a fit. No obligation on either side.</p>
+    <a class="cta-btn" href="https://calendly.com/michael-bastilleadvisory/30min" target="_blank" rel="noopener noreferrer">Book a free office hours session →</a>
+  </div>
+
   <!-- ══ ABOUT ══ -->
   <div class="page-section">
     <span class="section-eyebrow">Who you'd be working with</span>
     <h2 class="section-headline">PRINCIPAL</h2>
 
     <div class="principal-block">
-      <div class="principal-left">
-        <div class="principal-name">Michael Martin</div>
-        <div class="principal-title">Founder &amp; Principal</div>
+      <div class="principal-header">
+        <div class="principal-id">
+          <div class="principal-name">Michael Martin</div>
+          <div class="principal-title">Founder &amp; Principal</div>
+        </div>
+        <div class="principal-org-strip">
+          <a class="principal-org-link" href="https://signalfire.com" target="_blank" rel="noopener noreferrer">
+            <img src="/logos/signalfire.svg" alt="SignalFire">
+          </a>
+          <a class="principal-org-link" href="https://avax.network" target="_blank" rel="noopener noreferrer">
+            <img src="/logos/avalanche.svg" alt="Ava Labs">
+          </a>
+          <a class="principal-org-link" href="https://m13.co" target="_blank" rel="noopener noreferrer">
+            <img src="/logos/m13.svg" alt="M13">
+          </a>
+          <a class="principal-org-link" href="https://xprize.org" target="_blank" rel="noopener noreferrer">
+            <img src="/logos/xprize.svg" alt="XPRIZE">
+          </a>
+        </div>
       </div>
-      <div class="principal-bio">
-        <p>The problems Bastille works on are consistent across industries: founders building something new, trying to close the gap between what they've built and what the world is ready to see. The methodology transfers because the gap is universal.</p>
-        <p>At <strong>SignalFire</strong>, an AI-native venture firm built around proprietary data infrastructure, I worked most closely with the AI engineers and founders before the current era had a name — developing the fund-side perspective on what narrative actually moves capital when the technology is genuinely new.</p>
-        <p>At <strong>XPRIZE</strong>, running frontier technology competitions meant positioning breakthrough ideas to audiences who had never encountered them. That's the same problem every early-stage founder faces, in every vertical.</p>
-        <p>At <strong>Ava Labs</strong>, that methodology became <strong>Codebase</strong>, the flagship Avalanche accelerator. Founders placed on VC watchlists, institutional partnerships formed, raises closed — the playbook ran across a diverse cohort of companies.</p>
-        <p>The work is designed to be embedded, not advisory. I'm in the room when it matters, not reviewing a deck after the fact.</p>
+      <button class="bio-toggle" onclick="this.classList.toggle('open'); document.getElementById('bio-expand').classList.toggle('open')">
+        <span>Background</span>
+        <span class="bio-toggle-arrow">↓</span>
+      </button>
+      <div class="bio-expand" id="bio-expand">
+        <div class="principal-bio">
+          <p>The problems Bastille works on are consistent across industries: founders building something new, trying to close the gap between what they've built and what the world is ready to see. The methodology transfers because the gap is universal.</p>
+          <p>At <strong>SignalFire</strong>, an AI-native venture firm built around proprietary data infrastructure, I worked most closely with the AI engineers and founders before the current era had a name — developing the fund-side perspective on what narrative actually moves capital when the technology is genuinely new.</p>
+          <p>At <strong>XPRIZE</strong>, running frontier technology competitions meant positioning breakthrough ideas to audiences who had never encountered them. That's the same problem every early-stage founder faces, in every vertical.</p>
+          <p>At <strong>Ava Labs</strong>, that methodology became <strong>Codebase</strong>, the flagship Avalanche accelerator. Founders placed on VC watchlists, institutional partnerships formed, raises closed — the playbook ran across a diverse cohort of companies.</p>
+          <p>The work is designed to be embedded, not advisory. I'm in the room when it matters, not reviewing a deck after the fact.</p>
+        </div>
       </div>
     </div>
-
-    <div class="pedigree-strip">
-      <span class="pedigree-name">Ava Labs</span>
-      <span class="pedigree-divider">·</span>
-      <span class="pedigree-name">SignalFire</span>
-      <span class="pedigree-divider">·</span>
-      <span class="pedigree-name">M13</span>
-      <span class="pedigree-divider">·</span>
-      <span class="pedigree-name">XPRIZE</span>
-    </div>
-  </div>
-
-  <!-- ══ CTA ══ -->
-  <div class="cta-block">
-    <span class="cta-eyebrow">Next step</span>
-    <p class="cta-headline">The first conversation is free. No pitch — just a scoping session.</p>
-    <p class="cta-sub">30 minutes. We'll talk through where you are, what's not working, and whether there's a fit. No obligation on either side.</p>
-    <a class="cta-btn" href="https://calendly.com/michael-bastilleadvisory/30min" target="_blank" rel="noopener noreferrer">Book a free office hours session →</a>
   </div>
 
   <footer>
@@ -686,5 +773,20 @@
   </footer>
 
 </div>
+
+<!-- Risograph SVG filter -->
+<svg style="display:none" aria-hidden="true" focusable="false">
+  <defs>
+    <filter id="riso-grain-intro" x="-5%" y="-5%" width="110%" height="110%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="4" seed="8" stitchTiles="stitch" result="noise"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0, 0 0 0 0 0, 0 0 0 0 0, 0 0 0 -5 4.8" in="noise" result="dots"/>
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="3" stitchTiles="stitch" result="fine"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0, 0 0 0 0 0, 0 0 0 0 0, 0 0 0 -12 10" in="fine" result="finedots"/>
+      <feMerge result="combined"><feMergeNode in="dots"/><feMergeNode in="finedots"/></feMerge>
+      <feComposite in="SourceGraphic" in2="combined" operator="in"/>
+    </filter>
+  </defs>
+</svg>
+
 </body>
 </html>

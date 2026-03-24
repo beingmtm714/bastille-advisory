@@ -365,8 +365,8 @@
     /* Full-bleed pink stripe */
     .hero-headline {
       font-family: var(--font-hero);
-      font-size: clamp(1.8rem, calc(9vw - 6.5px), 5rem);
-      line-height: 0.92;
+      font-size: clamp(3.5rem, 10vw, 7.5rem);
+      line-height: 0.9;
       letter-spacing: 0.04em;
       color: transparent;
       margin-bottom: 0;
@@ -406,23 +406,24 @@
     .hero-subhead {
       font-family: 'Outfit', system-ui, sans-serif;
       font-style: normal;
-      font-weight: 300;
-      font-size: 1.3rem;
+      font-weight: 400;
+      font-size: clamp(1.1rem, 2.2vw, 1.5rem);
       color: var(--cream);
-      margin: 22px 0 0;
+      margin: 28px 0 0;
       padding: 0;
-      line-height: 1.6;
+      line-height: 1.5;
       letter-spacing: 0.01em;
+      max-width: 100%;
     }
     .hero-qualifier {
       font-family: 'Outfit', system-ui, sans-serif;
       font-weight: 400;
       font-style: normal;
-      font-size: 1rem;
+      font-size: clamp(0.95rem, 1.6vw, 1.15rem);
       color: var(--cream-dk);
-      line-height: 1.75;
-      margin: 18px 0 0;
-      max-width: 520px;
+      line-height: 1.8;
+      margin: 16px 0 0;
+      max-width: 100%;
       letter-spacing: 0.01em;
     }
     .hero-cta {
@@ -1338,7 +1339,7 @@
       .db-carousel-slide { font-size: 1.1rem; }
       .db-closer { font-size: clamp(1.4rem, 5.5vw, 1.8rem); padding: 36px 0 32px; }
       .hero-subhead { margin: 24px 0 0; padding: 0; font-size: 1.2rem; }
-      .hero-headline { font-size: clamp(1.8rem, calc(9vw - 6.5px), 5rem); }
+      .hero-headline { font-size: clamp(3.5rem, 10vw, 7.5rem); }
       .section-label { margin: 0 -24px 36px; padding: 14px 24px 0; }
       .section-label::before { left: 24px; }
       .hero-qualifier { margin: 20px -24px 0; padding: 0 24px; }

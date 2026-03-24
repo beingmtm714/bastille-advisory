@@ -324,10 +324,13 @@
        HOME — HERO
     ══════════════════════════════════════════ */
     .hero {
-      padding: 44px 36px 40px;
+      padding: 44px 36px 52px;
       margin: 0 -36px 0;
       position: relative;
       overflow: visible;
+      min-height: calc(100svh - 120px);
+      display: flex;
+      flex-direction: column;
     }
     .hero-stripe {
       display: flex;
@@ -365,7 +368,7 @@
     /* Full-bleed pink stripe */
     .hero-headline {
       font-family: var(--font-hero);
-      font-size: clamp(1.4rem, calc(8.6vw - 6px), 5rem);
+      font-size: clamp(3.5rem, 10vw, 7.5rem);
       line-height: 0.88;
       letter-spacing: 0.02em;
       color: transparent;
@@ -409,7 +412,7 @@
       font-weight: 400;
       font-size: clamp(1.1rem, 2.2vw, 1.5rem);
       color: var(--cream);
-      margin: 28px 0 0;
+      margin: auto 0 0;
       padding: 0;
       line-height: 1.5;
       letter-spacing: 0.01em;
@@ -1339,7 +1342,22 @@
       .db-carousel-slide { font-size: 1.1rem; }
       .db-closer { font-size: clamp(1.4rem, 5.5vw, 1.8rem); padding: 36px 0 32px; }
       .hero-subhead { margin: 24px 0 0; padding: 0; font-size: 1.2rem; }
-      .hero-headline { font-size: clamp(1.4rem, calc(8.6vw - 6px), 5rem); }
+      .hero-headline { font-size: clamp(3rem, 10vw, 7.5rem); }
+      .hero-headline .hl-blue {
+        text-shadow:
+          4px 2px 0 rgba(255, 0, 102, 0.5),
+          -2px -1px 0 rgba(212, 255, 0, 0.2);
+      }
+      .hero-headline .hl-lime {
+        text-shadow:
+          -3px 2px 0 rgba(0, 56, 255, 0.5),
+          2px -1px 0 rgba(255, 0, 102, 0.2);
+      }
+      .hero-headline .hl-pink {
+        text-shadow:
+          3px -2px 0 rgba(212, 255, 0, 0.5),
+          -2px 1px 0 rgba(0, 56, 255, 0.2);
+      }
       .section-label { margin: 0 -24px 36px; padding: 14px 24px 0; }
       .section-label::before { left: 24px; }
       .hero-qualifier { margin: 20px -24px 0; padding: 0 24px; }
@@ -1869,7 +1887,7 @@
         <span class="hl-pink">A PRODUCT PROBLEM.</span>
       </h1>
       <p class="hero-subhead" data-editable data-key="hero-subhead">What you need isn't advice. It's an operator embedded in the work.</p>
-      <p class="hero-qualifier">Finding what's driving traction and building the playbook around it. Rebuilding the story so it holds across investor meetings, customer conversations, and ecosystem partnerships. Running the raise as an operation — pipeline, data room, sequenced introductions. Inside the company, not orbiting it.</p>
+      <p class="hero-qualifier">Building the GTM playbook from what's actually working. Rebuilding the story so it lands. Running the raise as an operation — pipeline, introductions, data room. Inside the company, not orbiting it.</p>
       <a class="hero-oh-cta" href="https://calendly.com/michael-bastilleadvisory/30min" target="_blank" rel="noopener noreferrer">Book a free office hours session →</a>
     </div>
     <div class="hero-stripe">

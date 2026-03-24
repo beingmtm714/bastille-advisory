@@ -215,7 +215,7 @@
         display: none;
         position: absolute;
         top: 100%;
-        left: 0; right: 0;
+        left: -36px; right: -36px;
         background: var(--night);
         border-top: 1px solid var(--border);
         border-bottom: 1px solid var(--border);
@@ -1330,8 +1330,7 @@
     ══════════════════════════════════════════ */
     @media (max-width: 620px) {
       .container { padding: 0 24px; }
-      nav a { margin-left: 18px; }
-      nav a:first-child { margin-left: 0; }
+      nav { left: -24px; right: -24px; }
       .hero { padding: 48px 24px 40px; margin: 0 -24px 0; }
       .db-opener { padding: 0 0 20px; font-size: 0.95rem; max-width: 100%; }
       .db-carousel-wrap { margin: 0 -24px; padding: 24px 32px 20px 40px; }

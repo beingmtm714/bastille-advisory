@@ -331,15 +331,8 @@
       min-height: calc(100svh - 120px);
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
     }
     .hero-top {}
-    .hero-bottom {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      padding-top: 10px;
-    }
     .hero-stripe {
       display: flex;
       margin: 0 -36px;
@@ -1530,15 +1523,16 @@
 .hero-oh-cta {
   display: inline-flex;
   align-items: center;
-  margin-top: 0;
-  font-size: 0.72rem;
+  align-self: flex-start;
+  margin: auto 0;
+  font-size: 0.85rem;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--lime);
   text-decoration: none;
   border: 1.5px solid var(--lime);
-  padding: 12px 24px;
+  padding: 16px 32px;
   border-radius: 2px;
   transition: background 0.15s, color 0.15s;
 }
@@ -1901,9 +1895,7 @@
         </h1>
         <p class="hero-subhead" data-editable data-key="hero-subhead">What you need isn't advice. It's an operator embedded in the work.</p>
       </div>
-      <div class="hero-bottom">
-        <a class="hero-oh-cta" href="https://calendly.com/michael-bastilleadvisory/30min" target="_blank" rel="noopener noreferrer">Book a free office hours session →</a>
-      </div>
+      <a class="hero-oh-cta" href="https://calendly.com/michael-bastilleadvisory/30min" target="_blank" rel="noopener noreferrer">Book a free office hours session →</a>
     </div>
     <div class="hero-stripe">
       <div class="hero-stripe-band" style="background:var(--cobalt)"></div>

@@ -2364,8 +2364,16 @@ function navigateToCard(cardId) {
   setTimeout(() => { var el = document.getElementById(cardId); if (el) el.scrollIntoView({ behavior:'smooth', block:'center' }); }, 80);
 }
 
+var PRIVATE_REDIRECTS = {
+  'disgo': 'https://accidental-corn-e41.notion.site/DRAFT-Proposal-Disgo-Bastille-Advisory-32c417e8200a8030b79ef7f268ca1b86?source=copy_link'
+};
+
 function handleRoute(path) {
   var parts = path.replace(/^\//, '').split('/').filter(Boolean);
+  if (parts[0] === 'p' && parts[1] && PRIVATE_REDIRECTS[parts[1]]) {
+    window.location.replace(PRIVATE_REDIRECTS[parts[1]]);
+    return;
+  }
   var sectionId = SLUG_TO_SECTION[parts[0] || ''] || 'home';
   show(sectionId, null, false);
   if (parts[1]) {

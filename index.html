@@ -331,6 +331,14 @@
       min-height: calc(100svh - 120px);
       display: flex;
       flex-direction: column;
+      justify-content: space-between;
+    }
+    .hero-top {}
+    .hero-bottom {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 24px;
     }
     .hero-stripe {
       display: flex;
@@ -368,7 +376,7 @@
     /* Full-bleed pink stripe */
     .hero-headline {
       font-family: var(--font-hero);
-      font-size: clamp(1.8rem, calc(10.4vw - 7px), 5.6rem);
+      font-size: clamp(3.5rem, 11vw, 9rem);
       line-height: 0.88;
       letter-spacing: 0.02em;
       color: transparent;
@@ -412,7 +420,7 @@
       font-weight: 400;
       font-size: clamp(1.1rem, 2.2vw, 1.5rem);
       color: var(--cream);
-      margin: 28px 0 0;
+      margin: 0;
       padding: 0;
       line-height: 1.5;
       letter-spacing: 0.01em;
@@ -1337,12 +1345,12 @@
       .container { padding: 0 24px; }
       nav { left: -24px; right: -24px; }
       .hero { padding: 48px 24px 44px; margin: 0 -24px 0; min-height: auto; }
-      .hero-subhead { margin: 20px 0 0; padding: 0; font-size: 1.1rem; }
+      .hero-subhead { margin: 0; padding: 0; font-size: 1.1rem; }
       .db-opener { padding: 0 0 20px; font-size: 0.95rem; max-width: 100%; }
       .db-carousel-wrap { margin: 0 -24px; padding: 24px 32px 20px 40px; }
       .db-carousel-slide { font-size: 1.1rem; }
       .db-closer { font-size: clamp(1.4rem, 5.5vw, 1.8rem); padding: 36px 0 32px; }
-      .hero-headline { font-size: clamp(1.8rem, calc(10.4vw - 7px), 5.6rem); }
+      .hero-headline { font-size: clamp(2.8rem, 11vw, 9rem); }
       .hero-headline .hl-blue {
         text-shadow:
           3px 1px 0 rgba(255, 0, 102, 0.35),
@@ -1522,7 +1530,7 @@
 .hero-oh-cta {
   display: inline-flex;
   align-items: center;
-  margin-top: 28px;
+  margin-top: 0;
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.14em;
@@ -1884,14 +1892,18 @@
   <!-- ══ HOME ══ -->
   <section id="home" class="section active">
     <div class="hero">
-      <div class="hero-eyebrow">Embedded operator for early-stage crypto founders</div>
-      <h1 class="hero-headline">
-        <span class="hl-blue">YOU DON'T</span><br>
-        <span class="hl-pink">HAVE A</span><br>
-        <span class="hl-lime">PRODUCT PROBLEM.</span>
-      </h1>
-      <p class="hero-subhead" data-editable data-key="hero-subhead">What you need isn't advice. It's an operator embedded in the work.</p>
-      <a class="hero-oh-cta" href="https://calendly.com/michael-bastilleadvisory/30min" target="_blank" rel="noopener noreferrer">Book a free office hours session →</a>
+      <div class="hero-top">
+        <div class="hero-eyebrow">Embedded operator for early-stage crypto founders</div>
+        <h1 class="hero-headline">
+          <span class="hl-blue">YOU DON'T</span><br>
+          <span class="hl-pink">HAVE A</span><br>
+          <span class="hl-lime">PRODUCT PROBLEM.</span>
+        </h1>
+      </div>
+      <div class="hero-bottom">
+        <p class="hero-subhead" data-editable data-key="hero-subhead">What you need isn't advice. It's an operator embedded in the work.</p>
+        <a class="hero-oh-cta" href="https://calendly.com/michael-bastilleadvisory/30min" target="_blank" rel="noopener noreferrer">Book a free office hours session →</a>
+      </div>
     </div>
     <div class="hero-stripe">
       <div class="hero-stripe-band" style="background:var(--cobalt)"></div>

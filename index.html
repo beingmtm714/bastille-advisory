@@ -312,13 +312,13 @@
       color: var(--white);
     }
     .section-label-link {
-      font-size: 0.65rem; font-weight: 600; letter-spacing: 0.12em;
-      color: var(--muted); cursor: pointer; text-decoration: none;
-      border-bottom: 1px solid var(--border-lt); padding-bottom: 1px;
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em;
+      color: var(--cream); cursor: pointer; text-decoration: none;
+      border: 1px solid var(--border-lt); padding: 7px 14px;
       text-transform: uppercase;
-      transition: color 0.15s, border-color 0.15s;
+      transition: color 0.15s, border-color 0.15s, background 0.15s;
     }
-    .section-label-link:hover { color: var(--pink-lt); border-color: var(--pink); }
+    .section-label-link:hover { color: var(--white); border-color: var(--cream); background: rgba(255,255,255,0.05); }
 
     /* ══════════════════════════════════════════
        HOME — HERO
@@ -368,7 +368,7 @@
     /* Full-bleed pink stripe */
     .hero-headline {
       font-family: var(--font-hero);
-      font-size: clamp(2rem, calc(12vw - 8.6px), 6.7rem);
+      font-size: clamp(1.8rem, calc(10.4vw - 7px), 5.6rem);
       line-height: 0.88;
       letter-spacing: 0.02em;
       color: transparent;
@@ -412,7 +412,7 @@
       font-weight: 400;
       font-size: clamp(1.1rem, 2.2vw, 1.5rem);
       color: var(--cream);
-      margin: auto 0 0;
+      margin: 28px 0 0;
       padding: 0;
       line-height: 1.5;
       letter-spacing: 0.01em;
@@ -1342,7 +1342,7 @@
       .db-carousel-wrap { margin: 0 -24px; padding: 24px 32px 20px 40px; }
       .db-carousel-slide { font-size: 1.1rem; }
       .db-closer { font-size: clamp(1.4rem, 5.5vw, 1.8rem); padding: 36px 0 32px; }
-      .hero-headline { font-size: clamp(2rem, calc(12vw - 8.6px), 6.7rem); }
+      .hero-headline { font-size: clamp(1.8rem, calc(10.4vw - 7px), 5.6rem); }
       .hero-headline .hl-blue {
         text-shadow:
           3px 1px 0 rgba(255, 0, 102, 0.35),
@@ -1520,18 +1520,21 @@
 
 /* ── OFFICE HOURS HERO CTA ── */
 .hero-oh-cta {
-  display: block;
-  margin-top: 14px;
+  display: inline-flex;
+  align-items: center;
+  margin-top: 28px;
   font-size: 0.72rem;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--lime);
   text-decoration: none;
-  opacity: 0.8;
-  transition: opacity 0.15s;
+  border: 1.5px solid var(--lime);
+  padding: 12px 24px;
+  border-radius: 2px;
+  transition: background 0.15s, color 0.15s;
 }
-.hero-oh-cta:hover { opacity: 1; }
+.hero-oh-cta:hover { background: var(--lime); color: var(--night); }
 
 /* ── CONTACT OFFICE HOURS ── */
 .contact-oh-block {
@@ -1750,7 +1753,7 @@
   font-family: var(--font-hero);
   font-size: 1.35rem;
   letter-spacing: 0.06em;
-  color: var(--cream);
+  color: var(--cobalt-lt);
   line-height: 1;
 }
 .work-spec-card-desc {
@@ -1883,12 +1886,11 @@
     <div class="hero">
       <div class="hero-eyebrow">Embedded operator for early-stage crypto founders</div>
       <h1 class="hero-headline">
-        <span class="hl-blue">YOU DON'T HAVE</span><br>
-        <span class="hl-pink">A PRODUCT</span><br>
-        <span class="hl-lime">PROBLEM.</span>
+        <span class="hl-blue">YOU DON'T</span><br>
+        <span class="hl-pink">HAVE A</span><br>
+        <span class="hl-lime">PRODUCT PROBLEM.</span>
       </h1>
       <p class="hero-subhead" data-editable data-key="hero-subhead">What you need isn't advice. It's an operator embedded in the work.</p>
-      <p class="hero-qualifier">Building the GTM playbook from what's actually working. Rebuilding the story so it lands. Running the raise as an operation — pipeline, introductions, data room. Inside the company, not orbiting it.</p>
       <a class="hero-oh-cta" href="https://calendly.com/michael-bastilleadvisory/30min" target="_blank" rel="noopener noreferrer">Book a free office hours session →</a>
     </div>
     <div class="hero-stripe">
@@ -1897,7 +1899,7 @@
       <div class="hero-stripe-band" style="background:var(--pink)"></div>
     </div>
 
-    <p class="ap-philosophy" style="margin-top:52px;margin-bottom:52px;">Embedded means different things depending on what's stuck. Three disciplines — each one a place where an operator changes the outcome.</p>
+    <p class="ap-philosophy" style="margin-top:52px;margin-bottom:52px;">Building the GTM playbook from what's actually working. Rebuilding the story so it lands. Running the raise as an operation — pipeline, introductions, data room. Inside the company, not orbiting it.</p>
 
     <div class="services-preview">
       <div class="section-label">
@@ -2012,23 +2014,23 @@
       <div class="about-section-label">The Work, Specifically</div>
       <div class="work-spec-grid">
         <div class="work-spec-card">
-          <div class="work-spec-card-label">GTM Diagnosis</div>
+          <div class="work-spec-card-label" style="color:var(--cobalt-lt)">GTM Diagnosis</div>
           <p class="work-spec-card-desc">Identify the driver of traction, isolate the segment worth scaling, and build the playbook for the next one.</p>
         </div>
         <div class="work-spec-card">
-          <div class="work-spec-card-label">Narrative Architecture</div>
+          <div class="work-spec-card-label" style="color:var(--lime)">Narrative Architecture</div>
           <p class="work-spec-card-desc">Rebuild the story so it holds across investor meetings, enterprise sales conversations, and ecosystem partnerships.</p>
         </div>
         <div class="work-spec-card">
-          <div class="work-spec-card-label">Fundraising Operations</div>
+          <div class="work-spec-card-label" style="color:var(--pink)">Fundraising Operations</div>
           <p class="work-spec-card-desc">Pipeline structure, data room, investor sequencing, and introductions made with real context.</p>
         </div>
         <div class="work-spec-card">
-          <div class="work-spec-card-label">Partner &amp; Ecosystem Introductions</div>
+          <div class="work-spec-card-label" style="color:var(--cobalt-lt)">Partner &amp; Ecosystem Introductions</div>
           <p class="work-spec-card-desc">Direct introductions to capital and ecosystem partners across crypto. Every intro carries context — no cold forwards.</p>
         </div>
         <div class="work-spec-card work-spec-card-last">
-          <div class="work-spec-card-label">Ecosystem GTM</div>
+          <div class="work-spec-card-label" style="color:var(--lime)">Ecosystem GTM</div>
           <p class="work-spec-card-desc">Positioning and distribution within protocol ecosystems — grants, co-marketing, and institutional partnerships outside standard VC channels.</p>
         </div>
       </div>

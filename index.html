@@ -368,7 +368,7 @@
     /* Full-bleed pink stripe */
     .hero-headline {
       font-family: var(--font-hero);
-      font-size: clamp(3.5rem, 10vw, 7.5rem);
+      font-size: clamp(2rem, calc(12vw - 8.6px), 6.7rem);
       line-height: 0.88;
       letter-spacing: 0.02em;
       color: transparent;
@@ -1342,21 +1342,21 @@
       .db-carousel-wrap { margin: 0 -24px; padding: 24px 32px 20px 40px; }
       .db-carousel-slide { font-size: 1.1rem; }
       .db-closer { font-size: clamp(1.4rem, 5.5vw, 1.8rem); padding: 36px 0 32px; }
-      .hero-headline { font-size: clamp(2.5rem, 14vw, 7.5rem); }
+      .hero-headline { font-size: clamp(2rem, calc(12vw - 8.6px), 6.7rem); }
       .hero-headline .hl-blue {
         text-shadow:
-          4px 2px 0 rgba(255, 0, 102, 0.5),
-          -2px -1px 0 rgba(212, 255, 0, 0.2);
+          3px 1px 0 rgba(255, 0, 102, 0.35),
+          -1px -1px 0 rgba(212, 255, 0, 0.15);
       }
       .hero-headline .hl-lime {
         text-shadow:
-          -3px 2px 0 rgba(0, 56, 255, 0.5),
-          2px -1px 0 rgba(255, 0, 102, 0.2);
+          -2px 1px 0 rgba(0, 56, 255, 0.35),
+          1px -1px 0 rgba(255, 0, 102, 0.15);
       }
       .hero-headline .hl-pink {
         text-shadow:
-          3px -2px 0 rgba(212, 255, 0, 0.5),
-          -2px 1px 0 rgba(0, 56, 255, 0.2);
+          2px -1px 0 rgba(212, 255, 0, 0.35),
+          -1px 1px 0 rgba(0, 56, 255, 0.15);
       }
       .section-label { margin: 0 -24px 36px; padding: 14px 24px 0; }
       .section-label::before { left: 24px; }
@@ -1884,7 +1884,8 @@
       <div class="hero-eyebrow">Embedded operator for early-stage crypto founders</div>
       <h1 class="hero-headline">
         <span class="hl-blue">YOU DON'T HAVE</span><br>
-        <span class="hl-pink">A PRODUCT PROBLEM.</span>
+        <span class="hl-pink">A PRODUCT</span><br>
+        <span class="hl-lime">PROBLEM.</span>
       </h1>
       <p class="hero-subhead" data-editable data-key="hero-subhead">What you need isn't advice. It's an operator embedded in the work.</p>
       <p class="hero-qualifier">Building the GTM playbook from what's actually working. Rebuilding the story so it lands. Running the raise as an operation — pipeline, introductions, data room. Inside the company, not orbiting it.</p>

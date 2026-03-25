@@ -1389,6 +1389,8 @@
       .svc-oneoff-note { margin: 0; padding: 24px 20px; grid-column: span 2; }
       .principal-block { grid-template-columns: 1fr; gap: 8px; }
       .contact-row { grid-template-columns: 1fr; gap: 3px; }
+      .contact-layout { grid-template-columns: 1fr; gap: 32px; }
+      .contact-right .calendly-inline-widget { height: 600px; min-height: 500px; }
       footer { margin: 72px -24px 0; padding: 24px 24px 48px; flex-direction: column; gap: 10px; align-items: flex-start; }
     }
 
@@ -1541,10 +1543,22 @@
 .hero-oh-cta:hover { background: var(--lime); color: var(--night); }
 
 /* ── CONTACT OFFICE HOURS ── */
-#contact > .section-label { margin-bottom: 16px; }
-.contact-oh-block {
-  padding: 0 0 32px;
-  border-bottom: 1px solid var(--border);
+#contact > .section-label { margin-bottom: 24px; }
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 52px;
+  align-items: start;
+}
+.contact-left {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.contact-right .calendly-inline-widget {
+  width: 100%;
+  height: calc(100svh - 180px);
+  min-height: 500px;
 }
 .contact-oh-framing {
   font-family: 'Outfit', system-ui, sans-serif;
@@ -1552,9 +1566,8 @@
   font-style: normal;
   font-size: 1.25rem;
   color: var(--cream);
-  margin-bottom: 20px;
+  margin: 0;
   line-height: 1.85;
-  max-width: 660px;
 }
 .contact-oh-link {
   display: inline-flex;
@@ -2173,14 +2186,16 @@
   <section id="contact" class="section">
     <div class="section-label"><span class="section-label-text">Contact</span></div>
 
-    <div class="contact-oh-block">
-      <p class="contact-oh-framing">Not sure where to start? That's what the first session is for.</p>
-      <div class="calendly-inline-widget" data-url="https://calendly.com/michael-bastilleadvisory/officehours?hide_gdpr_banner=1&background_color=0e0e0e&text_color=f5f0dc&primary_color=d4ff00" style="min-width:320px;height:calc(100svh - 260px);min-height:480px;max-height:560px;"></div>
+    <div class="contact-layout">
+      <div class="contact-left">
+        <p class="contact-oh-framing">Not sure where to start? That's what the first session is for.</p>
+        <div class="contact-secondary">Or reach out directly: <a href="mailto:michael@bastilleadvisory.xyz">michael@bastilleadvisory.xyz</a></div>
+        <div class="contact-availability" data-editable data-key="contact-avail">Bastille takes select engagements. Currently reviewing new introductions.</div>
+      </div>
+      <div class="contact-right">
+        <div class="calendly-inline-widget" data-url="https://calendly.com/michael-bastilleadvisory/officehours?hide_gdpr_banner=1&background_color=0e0e0e&text_color=f5f0dc&primary_color=d4ff00"></div>
+      </div>
     </div>
-
-    <div class="contact-secondary">Or reach out directly: <a href="mailto:michael@bastilleadvisory.xyz">michael@bastilleadvisory.xyz</a></div>
-
-    <div class="contact-availability" data-editable data-key="contact-avail">Bastille takes select engagements. Currently reviewing new introductions.</div>
   </section>
 
   <!-- ══ WRITING ══ -->

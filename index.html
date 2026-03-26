@@ -1346,6 +1346,7 @@
     @media (max-width: 620px) {
       .container { padding: 0 24px; }
       nav { left: -24px; right: -24px; }
+      header { padding: 0; }
       .logo-icon-img { height: 32px; transition: height 0.2s ease; }
       .logo { font-size: 1.2rem; }
       .header-top { padding-top: 8px; padding-bottom: 10px; }
@@ -1406,7 +1407,7 @@
       .contact-row { grid-template-columns: 1fr; gap: 3px; }
       .contact-layout { display: flex !important; flex-direction: column !important; gap: 36px; }
       .contact-left-top { grid-column: unset !important; grid-row: unset !important; order: 1; width: 100%; }
-      .contact-right { grid-column: unset !important; grid-row: unset !important; order: 2; border-left: none; padding-left: 0; width: 100%; }
+      .contact-right { grid-column: unset !important; grid-row: unset !important; order: 2; border-left: none !important; padding-left: 0 !important; text-align: left !important; width: 100%; }
       .contact-left-bottom { grid-column: unset !important; grid-row: unset !important; order: 3; padding-top: 0; width: 100%; }
       .contact-cal-label {
         display: block;
@@ -1420,9 +1421,9 @@
       }
       .contact-cal-clip {
         overflow: hidden;
-        height: 370px;
-        margin-left: -28px;
-        width: calc(100% + 28px);
+        height: 325px;
+        margin-left: -90px;
+        width: calc(100% + 90px);
         margin-top: 8px;
         margin-bottom: 8px;
       }

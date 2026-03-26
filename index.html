@@ -1900,7 +1900,9 @@
         <a class="active" data-section="home" onclick="show('home',this);document.querySelector('.header-top').classList.remove('nav-open')">Home</a>
         <a data-section="approach" onclick="show('approach',this);document.querySelector('.header-top').classList.remove('nav-open')">Approach</a>
         <a data-section="work" onclick="show('work',this);document.querySelector('.header-top').classList.remove('nav-open')">Case Studies</a>
+        <!-- writing nav hidden until content exists
         <a data-section="writing" onclick="show('writing',this);document.querySelector('.header-top').classList.remove('nav-open')">Writing</a>
+        -->
         <a data-section="about" onclick="show('about',this);document.querySelector('.header-top').classList.remove('nav-open')">About</a>
         <a class="nav-cta" data-section="contact" onclick="show('contact',this);document.querySelector('.header-top').classList.remove('nav-open')">Office Hours</a>
       </nav>
@@ -2006,15 +2008,16 @@
       </div>
     </div>
 
+    <!-- featured-writing hidden until content exists
     <div class="featured-writing">
       <div class="section-label">
         <span class="section-label-text">Writing</span>
         <a class="section-label-link" onclick="show('writing',document.querySelector('nav a[data-section=writing]'))">All posts →</a>
       </div>
       <div id="featured-post-container">
-        <!-- Populated by JS from Substack RSS -->
       </div>
     </div>
+    -->
 
   </section>
 
@@ -2206,9 +2209,9 @@
     </div>
   </section>
 
-  <!-- ══ WRITING ══ -->
+  <!-- ══ WRITING ══ hidden until content exists -->
   <!-- SUBSTACK_URL: Set the SUBSTACK_URL constant in the script block below to your Substack publication URL (e.g. 'https://yourname.substack.com') to auto-populate posts -->
-  <section id="writing" class="section">
+  <section id="writing" class="section" style="display:none">
     <div class="section-label"><span class="section-label-text">Writing</span></div>
     <p class="blog-intro">Thinking on strategy, positioning, and what founders get wrong.</p>
     <div id="blog-post-list" class="blog-post-list">

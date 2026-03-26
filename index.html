@@ -1339,8 +1339,9 @@
     @media (max-width: 620px) {
       .container { padding: 0 24px; }
       nav { left: -24px; right: -24px; }
-      .hero { padding: 48px 24px 44px; margin: 0 -24px 0; min-height: auto; }
-      .hero-subhead { margin: 0; padding: 0; font-size: 1.1rem; }
+      .hero { padding: 48px 24px 44px; margin: 0 -24px 0; min-height: calc(100svh - 120px); justify-content: space-between; }
+      .hero-bottom { gap: 20px; }
+      .hero-subhead { margin: 16px 0 0; padding: 0; font-size: 1.05rem; }
       .db-opener { padding: 0 0 20px; font-size: 0.95rem; max-width: 100%; }
       .db-carousel-wrap { margin: 0 -24px; padding: 24px 32px 20px 40px; }
       .db-carousel-slide { font-size: 1.1rem; }

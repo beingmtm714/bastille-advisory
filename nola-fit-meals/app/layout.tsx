@@ -1,28 +1,7 @@
 import type { Metadata } from "next";
-import { Bebas_Neue, Pacifico, Inter } from "next/font/google";
 import "./globals.css";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
-
-const bebasNeue = Bebas_Neue({
-  weight: "400",
-  subsets: ["latin"],
-  variable: "--font-bebas",
-  display: "swap",
-});
-
-const pacifico = Pacifico({
-  weight: "400",
-  subsets: ["latin"],
-  variable: "--font-pacifico",
-  display: "swap",
-});
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   title: "NOLA Fit Meals — Fresh Weekly Meal Prep in Metairie, LA",
@@ -43,10 +22,27 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="en"
-      className={`${bebasNeue.variable} ${pacifico.variable} ${inter.variable}`}
-    >
+    <html lang="en">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        {/* Bebas Neue — hero/headings, Pacifico — category labels, Inter — body */}
+        <link
+          href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=Pacifico&display=swap"
+          rel="stylesheet"
+        />
+        <style>{`
+          :root {
+            --font-bebas: 'Bebas Neue', sans-serif;
+            --font-pacifico: 'Pacifico', cursive;
+            --font-inter: 'Inter', sans-serif;
+          }
+        `}</style>
+      </head>
       <body className="bg-brand-black text-brand-white font-inter min-h-screen flex flex-col">
         <NavBar />
         <main className="flex-1">{children}</main>

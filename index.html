@@ -151,8 +151,11 @@
       letter-spacing: 0.18em;
       cursor: pointer;
       color: var(--white);
-      display: flex; align-items: flex-end; gap: 8px;
+      display: flex; align-items: center; gap: 8px;
       position: relative;
+    }
+    .logo-lockup {
+      display: flex; align-items: center; gap: 10px;
     }
     .logo-main { color: var(--white); line-height: 1; }
     .logo-sub {
@@ -162,7 +165,6 @@
       letter-spacing: 0.28em;
       text-transform: uppercase;
       color: var(--pink);
-      padding-bottom: 4px;
     }
     nav { display: flex; flex-wrap: nowrap; gap: 0; align-items: flex-end; }
     nav a {
@@ -1945,7 +1947,7 @@
     <div class="header-top">
       <div class="logo" onclick="show('home', document.querySelector('nav a:first-child'))">
         <img src="bastille-torch.png" alt="Bastille" class="logo-icon-img">
-        <span class="logo-lockup" style="display:flex;align-items:baseline;gap:10px;">
+        <span class="logo-lockup">
           <span class="logo-main">BASTILLE</span>
           <span class="logo-sub">Advisory</span>
         </span>

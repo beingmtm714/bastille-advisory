@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <title>Bastille Advisory — Exitous</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Gloock:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink:       oklch(12% 0.008 260);
+      --ink-2:     oklch(28% 0.008 260);
+      --ink-3:     oklch(44% 0.008 260);
+      --paper:     oklch(98% 0.008 87);
+      --paper-2:   oklch(95% 0.012 87);
+      --paper-3:   oklch(91% 0.014 87);
+      --pink:      oklch(54% 0.28 8);
+      --pink-lt:   oklch(62% 0.24 8);
+      --cobalt:    oklch(42% 0.27 264);
+      --cobalt-lt: oklch(50% 0.22 264);
+      --lime-dk:   oklch(52% 0.18 125);
+      --rule:      oklch(85% 0.010 87);
+      --rule-lt:   oklch(90% 0.010 87);
+      --font-hero: 'Bebas Neue', 'Arial Narrow', sans-serif;
+      --font-serif: 'Gloock', Georgia, serif;
+      --font-body:  'Barlow', system-ui, sans-serif;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { font-size: 16px; scroll-behavior: smooth; }
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--font-body);
+      font-weight: 400;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    .container { max-width: 720px; margin: 0 auto; padding: 0 36px; }
+
+    /* ── HEADER ── */
+    header {
+      border-top: 3px solid var(--pink);
+      padding: 28px 0 22px;
+      border-bottom: 1px solid var(--rule);
+      margin-bottom: 56px;
+    }
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 24px;
+    }
+    .logo-text { text-decoration: none; }
+    .logo-main {
+      font-family: var(--font-hero);
+      font-size: 1.2rem;
+      letter-spacing: 0.18em;
+      color: var(--ink);
+      line-height: 1;
+    }
+    .logo-sub {
+      font-family: var(--font-body);
+      font-size: 0.55rem;
+      font-weight: 600;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--pink);
+    }
+    .header-contact {
+      font-size: 0.72rem;
+      font-weight: 400;
+      color: var(--ink-3);
+      text-align: right;
+      line-height: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .header-contact a {
+      color: var(--ink-3);
+      text-decoration: none;
+      border-bottom: 1px solid var(--rule);
+      transition: color 0.15s, border-color 0.15s;
+    }
+    .header-contact a:hover { color: var(--pink); border-color: var(--pink); }
+
+    /* ── DOCUMENT TITLE ── */
+    .doc-meta { margin-bottom: 52px; }
+    .doc-eyebrow {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+      margin-bottom: 14px;
+    }
+    .doc-title {
+      font-family: var(--font-hero);
+      font-size: clamp(2.4rem, 6vw, 3.6rem);
+      letter-spacing: 0.04em;
+      line-height: 1.02;
+      color: var(--ink);
+      margin-bottom: 20px;
+    }
+    .doc-title .accent { color: var(--pink); }
+    .doc-for {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding-top: 16px;
+      border-top: 1px solid var(--rule);
+    }
+
+    .doc-for-names {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      font-style: italic;
+      color: var(--ink-2);
+    }
+
+    .company-logo {
+      height: 32px;
+      width: auto;
+      display: block;
+      flex-shrink: 0;
+      /* Full-color logo on cream — no filter needed */
+    }
+
+    .company-logo[src=""] { display: none; }
+
+    /* ── SECTIONS ── */
+    section { margin-bottom: 52px; }
+    .section-heading {
+      font-family: var(--font-hero);
+      font-size: 1.1rem;
+      letter-spacing: 0.1em;
+      color: var(--ink);
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--rule);
+      position: relative;
+    }
+    .section-heading::after {
+      content: '';
+      position: absolute;
+      bottom: -1px; left: 0;
+      width: 32px; height: 2px;
+      background: var(--pink);
+    }
+    .section-heading.lime::after   { background: var(--lime-dk); }
+    .section-heading.cobalt::after { background: var(--cobalt-lt); }
+
+    p { font-size: 1rem; color: var(--ink-2); line-height: 1.75; margin-bottom: 16px; }
+    p:last-child { margin-bottom: 0; }
+    strong { font-weight: 600; color: var(--ink); }
+
+    sup {
+      font-size: 0.65rem;
+      color: var(--ink-3);
+      vertical-align: super;
+      line-height: 0;
+    }
+
+    /* ── FINDING LIST ── */
+    .finding-list {
+      list-style: none;
+      border-top: 1px solid var(--rule);
+      margin-bottom: 0;
+    }
+    .finding-list li {
+      padding: 14px 0;
+      border-bottom: 1px solid var(--rule-lt);
+      display: grid;
+      grid-template-columns: 8px 1fr;
+      gap: 14px;
+      align-items: baseline;
+      font-size: 0.97rem;
+      color: var(--ink-2);
+      line-height: 1.6;
+    }
+    .finding-list li::before {
+      content: '';
+      display: block;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--lime-dk);
+      margin-top: 8px;
+    }
+    .finding-list li strong { font-weight: 600; color: var(--ink); }
+    .finding-list li sup { font-size: 0.65rem; color: var(--ink-3); vertical-align: super; line-height: 0; }
+
+    /* ── WORKSTREAMS ── */
+    .workstream-list { list-style: none; border-top: 1px solid var(--rule); }
+    .workstream-list li {
+      padding: 20px 0;
+      border-bottom: 1px solid var(--rule-lt);
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+    .ws-title {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--cobalt-lt);
+      padding-top: 3px;
+      line-height: 1.4;
+    }
+    .ws-body { font-size: 0.97rem; color: var(--ink-2); line-height: 1.7; }
+
+    /* ── TERMS BLOCK ── */
+    .terms {
+      background: var(--paper-2);
+      border: 1px solid var(--rule);
+      padding: 24px 28px;
+      margin-top: 8px;
+    }
+    .terms p { font-size: 0.95rem; margin-bottom: 0; }
+
+    /* ── FOOTNOTES ── */
+    .footnotes { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--rule); }
+    .footnotes ol { padding-left: 18px; }
+    .footnotes li {
+      font-size: 0.75rem;
+      color: var(--ink-3);
+      line-height: 1.6;
+      margin-bottom: 6px;
+    }
+    .footnotes li a { color: var(--ink-3); word-break: break-all; }
+
+    /* ── FOOTER ── */
+    footer {
+      margin-top: 64px;
+      padding: 24px 0;
+      border-top: 1px solid var(--rule);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+    .footer-brand { font-family: var(--font-hero); font-size: 0.9rem; letter-spacing: 0.18em; color: var(--ink-3); }
+    .footer-note { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); }
+
+    @media print {
+      header { position: static; }
+      body { background: white; }
+      .terms { background: #f7f5f0; }
+    }
+    @media (max-width: 620px) {
+      .container { padding: 0 24px; }
+      .workstream-list li { grid-template-columns: 1fr; gap: 6px; }
+      .header-inner { flex-direction: column; gap: 10px; }
+      .header-contact { text-align: left; }
+      footer { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <header>
+      <div class="header-inner">
+        <a class="logo-text" href="https://bastilleadvisory.xyz">
+          <div class="logo-main">BASTILLE</div>
+          <div class="logo-sub">Advisory</div>
+        </a>
+        <div class="header-contact">
+          Michael Martin<br>
+          <a href="mailto:michael@bastilleadvisory.xyz">michael@bastilleadvisory.xyz</a>
+        </div>
+      </div>
+    </header>
+
+    <div class="doc-meta">
+      <div class="doc-eyebrow">April 2026</div>
+      <h1 class="doc-title">Exitous:<br><span class="accent">Perspective</span> &amp; Potential Support</h1>
+      <div class="doc-for">
+        <span class="doc-for-names">For Keita Wangari &amp; Stacy</span>
+        <img src="https://images.squarespace-cdn.com/content/v1/640f656bd540994fe5e3f8d0/8efa480a-2b38-4775-abb8-539ed3b14a4a/Exitous+-+Primary+Logo+-+Full+Color+-+RGB.png?format=1500w" alt="Exitous" class="company-logo">
+      </div>
+    </div>
+
+    <section>
+      <h2 class="section-heading">What I Heard</h2>
+      <p>Our conversation surfaced three structural problems.</p>
+      <p><strong>First</strong>, the buyer timing is broken: HR teams managing a RIF are budget-constrained, distracted, and often facing their own exits.</p>
+      <p><strong>Second</strong>, the event driving product usage — a layoff — is episodic, which creates a ceiling on any recurring subscription model.</p>
+      <p><strong>Third</strong>, there are five parallel channel bets (HR direct, outplacement partners, benefits brokers, consultants, federal grants) with no sequencing logic between them.</p>
+      <p>The founding story is real and rare. Keita built this after witnessing the human cost of the Google and Meta layoffs firsthand. That matters — but it hasn't been translated into the commercial pitch the right buyers need to hear.</p>
+    </section>
+
+    <section>
+      <h2 class="section-heading lime">What I Found</h2>
+      <ul class="finding-list">
+        <li>The dedicated offboarding software market is $244M today. The broader outplacement services market is $5B+, growing at 7%+ annually — structural AI-led workforce restructuring, not a cyclical blip.</li>
+        <li>Enterprise is owned. Lee Hecht Harrison, Right Management, and RiseSmart have locked it up. Nobody owns the SME segment.</li>
+        <li>The post-employment experience layer is wide open. Rippling, BambooHR, and Workday handle IT offboarding. None of them have built personalized, expert-backed guidance for the employee after they walk out the door.</li>
+        <li>SMEs are the fastest-growing segment in outplacement at 10%+ CAGR. Benefits brokers and PEOs already sell into this market and are actively looking for differentiated products to bundle.</li>
+        <li>PEOs are a strong GTM. They sit between Exitous and hundreds of SME clients, own the HR relationship, and have direct incentive to reduce offboarding liability for their book of business.</li>
+        <li>Recruiting firms are the other lever. Laid-off, actively-searching talent is pre-qualified pipeline firms will pay to access. The right entry point is firms like Riviera Partners — but the volume play is second and third-tier firms who don't have proprietary sourcing advantages and need the pipeline more.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 class="section-heading cobalt">How I Can Help</h2>
+      <p>My work at Bastille is fractional and sprint-based — I come in for defined phases, deliver specific things, and leave the team stronger. Here's where I see fit:</p>
+      <ul class="workstream-list">
+        <li>
+          <div class="ws-title">Channel Sequencing &amp; GTM Architecture</div>
+          <div class="ws-body">I've built two-track B2B/B2C GTM strategies for early-stage fintech and advised pre-seed companies on channel prioritization. I can map which of the five channels to lead with, what proof points each buyer needs, and how to sequence the rest.</div>
+        </li>
+        <li>
+          <div class="ws-title">Narrative &amp; Positioning</div>
+          <div class="ws-body">The commercial pitch needs to shift. The HR buyer isn't buying compassion — they're buying 5+ hours saved per exit and litigation risk reduction. Stacy said it clearly: "throw money at the problem and take it off my plate." That line belongs at the top of the deck. I can rebuild the narrative architecture around it.</div>
+        </li>
+        <li>
+          <div class="ws-title">Fundraising Readiness</div>
+          <div class="ws-body">The push to build engagement data at Oracle, Snap, and Block layoff populations reads as pre-raise behavior. I've built pitch materials and investor outreach strategies for pre-seed and seed rounds. If a raise is coming, I can connect the mission story to a fundable growth thesis and identify the right investor profiles.</div>
+        </li>
+        <li>
+          <div class="ws-title">Partnership Structure</div>
+          <div class="ws-body">Two partner channels worth formalizing. PEOs own the SME HR relationship and have direct incentive to reduce offboarding liability across their book — structuring Exitous as a bundled benefit is a natural fit. On the recruiting side, firms like Riviera are a credible first pilot, but the volume target is second and third-tier firms who need pre-qualified pipeline and don't have proprietary sourcing to fall back on. I can build a partner tier framework covering terms, revenue model, and pilot structure for both.</div>
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 class="section-heading">How I Work</h2>
+      <div class="terms">
+        <p>Engagements run as short sprints — typically 2–4 weeks — with defined deliverables and a checkpoint before any extension. 50% upfront, work begins on receipt. I move fast and deliver things you can use: a channel strategy document, a repositioned deck, a partner pitch template.</p>
+      </div>
+    </section>
+
+    <div class="footnotes">
+      <ol>
+        <li>DataInsights Market. "Offboarding Software Market Dynamics: Drivers and Barriers to Growth 2025–2033." August 2025. <a href="https://www.datainsightsmarket.com/reports/offboarding-software-197077">datainsightsmarket.com</a></li>
+        <li>Mordor Intelligence. "Outplacement Market Size, Share, Trends, 2030 Report." June 2025. <a href="https://www.mordorintelligence.com/industry-reports/outplacement-market">mordorintelligence.com</a></li>
+        <li>Research and Markets. "Outplacement Services Market Size, Share &amp; Forecast to 2030." <a href="https://www.researchandmarkets.com/report/global-outplacement-market">researchandmarkets.com</a></li>
+        <li>Newployee. "10 Best Employee Offboarding Software in the USA (2025 Guide)." June 2025. <a href="https://www.newployee.com/blog/10-best-employee-offboarding-software-in-usa-2025">newployee.com</a></li>
+        <li>Mordor Intelligence. "Outplacement Market Size, Share, Trends, 2030 Report." June 2025. <a href="https://www.mordorintelligence.com/industry-reports/outplacement-market">mordorintelligence.com</a></li>
+      </ol>
+    </div>
+
+    <footer>
+      <span class="footer-brand">BASTILLE ADVISORY</span>
+      <span class="footer-note">bastilleadvisory.xyz · Confidential</span>
+    </footer>
+
+  </div>
+</body>
+</html>

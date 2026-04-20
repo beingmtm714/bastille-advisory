@@ -28,7 +28,7 @@
     }
 
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    html { font-size: 16px; scroll-behavior: smooth; }
+    html { font-size: 18px; scroll-behavior: smooth; }
     body {
       background: var(--paper);
       color: var(--ink);
@@ -38,14 +38,17 @@
       min-height: 100vh;
     }
 
-    .container { max-width: 720px; margin: 0 auto; padding: 0 36px; }
+    .container { max-width: 820px; margin: 0 auto; padding: 0 40px; }
 
     /* ── HEADER ── */
     header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: var(--paper);
       border-top: 3px solid var(--pink);
-      padding: 28px 0 22px;
       border-bottom: 1px solid var(--rule);
-      margin-bottom: 56px;
+      padding: 20px 0;
     }
     .header-inner {
       display: flex;
@@ -53,7 +56,7 @@
       align-items: flex-start;
       gap: 24px;
     }
-    .logo-text { text-decoration: none; }
+    .logo-text { text-decoration: none; display: block; }
     .logo-main {
       font-family: var(--font-hero);
       font-size: 1.2rem;
@@ -68,6 +71,8 @@
       letter-spacing: 0.28em;
       text-transform: uppercase;
       color: var(--pink);
+      line-height: 1;
+      margin-top: 3px;
     }
     .header-contact {
       font-size: 0.72rem;
@@ -88,7 +93,7 @@
     .header-contact a:hover { color: var(--pink); border-color: var(--pink); }
 
     /* ── DOCUMENT TITLE ── */
-    .doc-meta { margin-bottom: 52px; }
+    .doc-meta { padding-top: 52px; margin-bottom: 52px; }
     .doc-eyebrow {
       font-size: 0.62rem;
       font-weight: 700;
@@ -136,7 +141,7 @@
     section { margin-bottom: 52px; }
     .section-heading {
       font-family: var(--font-hero);
-      font-size: 1.1rem;
+      font-size: 1.3rem;
       letter-spacing: 0.1em;
       color: var(--ink);
       margin-bottom: 20px;
@@ -205,7 +210,7 @@
       align-items: start;
     }
     .ws-title {
-      font-size: 0.68rem;
+      font-size: 0.72rem;
       font-weight: 700;
       letter-spacing: 0.14em;
       text-transform: uppercase;
@@ -263,9 +268,9 @@
   </style>
 </head>
 <body>
-  <div class="container">
 
-    <header>
+  <header>
+    <div class="container">
       <div class="header-inner">
         <a class="logo-text" href="https://bastilleadvisory.xyz">
           <div class="logo-main">BASTILLE</div>
@@ -276,7 +281,10 @@
           <a href="mailto:michael@bastilleadvisory.xyz">michael@bastilleadvisory.xyz</a>
         </div>
       </div>
-    </header>
+    </div>
+  </header>
+
+  <div class="container">
 
     <div class="doc-meta">
       <div class="doc-eyebrow">April 2026</div>

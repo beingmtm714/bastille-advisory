@@ -99,8 +99,9 @@
       padding-bottom: 10px;
     }
     header.scrolled .logo-icon-img {
-      height: 28px;
+      height: 20px;
     }
+    header.scrolled .logo { align-items: center; }
     /* Thin pink rule — full bleed via 100vw trick */
     header::before {
       content: '';
@@ -122,7 +123,7 @@
       z-index: -1;
     }
     .header-top {
-      display: flex; justify-content: space-between; align-items: flex-end;
+      display: flex; justify-content: space-between; align-items: flex-start;
       flex-wrap: nowrap; gap: 20px;
       padding-bottom: 22px;
       position: relative;
@@ -138,7 +139,7 @@
       background: var(--border);
     }
     .logo-icon-img {
-      height: 72px;
+      height: 50px;
       width: auto;
       transition: height 0.2s ease;
       display: block;
@@ -151,7 +152,7 @@
       letter-spacing: 0.18em;
       cursor: pointer;
       color: var(--white);
-      display: flex; align-items: center; gap: 8px;
+      display: flex; align-items: flex-start; gap: 8px;
       position: relative;
     }
     .logo-lockup {
@@ -166,7 +167,7 @@
       text-transform: uppercase;
       color: var(--pink);
     }
-    nav { display: flex; flex-wrap: nowrap; gap: 0; align-items: flex-end; }
+    nav { display: flex; flex-wrap: nowrap; gap: 0; align-items: flex-start; }
     nav a {
       color: var(--cream);
       text-decoration: none;
@@ -219,7 +220,7 @@
     .nav-open .nav-hamburger span:nth-child(2) { opacity: 0; }
     .nav-open .nav-hamburger span:nth-child(3) { transform: translateY(-10px) rotate(-45deg); }
     @media (max-width: 900px) {
-      .header-top { flex-direction: row; align-items: flex-end; gap: 0; flex-wrap: nowrap; }
+      .header-top { flex-direction: row; align-items: flex-start; gap: 0; flex-wrap: nowrap; }
       .nav-hamburger { display: flex; }
       nav {
         display: none;
@@ -743,7 +744,14 @@
     .metric:nth-child(2) .metric-val { color: var(--cobalt-lt); }
     .metric:nth-child(3) .metric-val { color: var(--pink-lt); }
     .metric-label { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
-    .expand-hint { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; color: var(--muted); margin-top: 14px; text-transform: uppercase; }
+    .expand-hint {
+      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em;
+      color: var(--muted); margin-top: 18px; text-transform: uppercase;
+      display: inline-flex; align-items: center;
+      border: 1px solid var(--border-lt); padding: 5px 12px;
+      transition: color 0.15s, border-color 0.15s;
+    }
+    .case-item:hover .expand-hint { color: var(--pink-lt); border-color: rgba(255,51,133,0.4); }
     .case-url { margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--border); }
     .case-url a {
       font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
@@ -820,8 +828,11 @@
       border-right: 1px solid var(--border);
       display: flex;
       flex-direction: column;
+      background: var(--night-2);
+      transition: background 0.15s;
     }
     .svc-preview-col:last-child { border-right: none; }
+    .svc-preview-col:hover { background: var(--night-3); }
     .svc-preview-heading {
       font-family: var(--font-hero);
       font-size: 1.7rem;
@@ -1871,6 +1882,43 @@
 .principal-bio p { margin-bottom: 18px; }
 .principal-bio p:last-child { margin-bottom: 0; }
 
+/* ── ABOUT PAGE CTA (after case studies on homepage) ── */
+.about-cta-bridge {
+  margin: 0 0 56px;
+  padding: 32px 0;
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+.about-cta-copy {
+  font-size: 0.97rem;
+  font-weight: 400;
+  color: var(--cream-dk);
+  line-height: 1.75;
+  max-width: 480px;
+}
+.about-cta-btn {
+  display: inline-block;
+  flex-shrink: 0;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cream);
+  border: 1px solid var(--border-lt);
+  padding: 12px 22px;
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color 0.15s, border-color 0.15s, background 0.15s;
+}
+.about-cta-btn:hover { color: var(--white); border-color: var(--cream); background: rgba(255,255,255,0.05); }
+@media (max-width: 620px) {
+  .about-cta-bridge { flex-direction: column; align-items: flex-start; gap: 20px; }
+}
+
 /* ── FEATURED WRITING (homepage) ── */
 .featured-writing { margin-bottom: 56px; }
 .featured-writing-post {
@@ -2084,6 +2132,11 @@
         </div>
         <div class="expand-hint">↓ expand</div>
       </div>
+    </div>
+
+    <div class="about-cta-bridge">
+      <p class="about-cta-copy">Bastille is one person. The operator behind every engagement is the same one who built the playbooks, ran the raises, and made the introductions.</p>
+      <a class="about-cta-btn" href="#" onclick="show('about',document.querySelector('nav a[data-section=about]'));return false;">Meet the principal →</a>
     </div>
 
     <!-- featured-writing hidden until content exists

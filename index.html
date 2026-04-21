@@ -102,6 +102,8 @@
       height: 20px;
     }
     header.scrolled .logo { align-items: center; }
+    /* In scrolled state icon (20px) is shorter than text — no offset needed */
+    header.scrolled nav { padding-top: 0; }
     /* Thin pink rule — full bleed via 100vw trick */
     header::before {
       content: '';
@@ -152,7 +154,7 @@
       letter-spacing: 0.18em;
       cursor: pointer;
       color: var(--white);
-      display: flex; align-items: flex-start; gap: 8px;
+      display: flex; align-items: center; gap: 8px;
       position: relative;
     }
     .logo-lockup {
@@ -167,7 +169,8 @@
       text-transform: uppercase;
       color: var(--pink);
     }
-    nav { display: flex; flex-wrap: nowrap; gap: 0; align-items: flex-start; }
+    /* padding-top offsets nav links to the top of the BASTILLE wordmark — (icon 50px − text 1.65rem) / 2 */
+    nav { display: flex; flex-wrap: nowrap; gap: 0; align-items: flex-start; padding-top: calc((50px - 1.65rem) / 2); }
     nav a {
       color: var(--cream);
       text-decoration: none;

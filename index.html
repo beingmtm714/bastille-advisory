@@ -832,22 +832,10 @@
       padding: 28px 26px 32px;
       display: flex;
       flex-direction: column;
-      background: var(--night-2);
+      background: var(--night-3);
       transition: background 0.15s;
-      position: relative;
-      overflow: hidden;
     }
-    .svc-preview-col:hover { background: var(--night-3); }
-    /* Pillar-color top accent bar */
-    .svc-preview-col::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-    }
-    .svc-col-growth::before   { background: var(--cobalt); opacity: 0.55; }
-    .svc-col-narrative::before { background: var(--lime); opacity: 0.25; }
-    .svc-col-raise::before    { background: var(--pink); opacity: 0.55; }
+    .svc-preview-col:hover { background: oklch(from var(--pink) l c h / 0.04); }
     .svc-preview-heading {
       font-family: var(--font-hero);
       font-size: 1.7rem;

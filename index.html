@@ -1873,9 +1873,10 @@
 
 /* ── ABOUT PAGE CTA (after case studies on homepage) ── */
 .about-cta-bridge {
-  margin: 0 0 56px;
-  padding: 32px 0;
-  border-top: 1px solid var(--border);
+  margin: 72px -36px 0;
+  padding: 36px 36px;
+  border-top: 3px solid var(--pink);
+  background: var(--night-2);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -1905,7 +1906,7 @@
 }
 .about-cta-btn:hover { color: var(--white); border-color: var(--cream); background: rgba(255,255,255,0.05); }
 @media (max-width: 620px) {
-  .about-cta-bridge { flex-direction: column; align-items: flex-start; gap: 20px; }
+  .about-cta-bridge { margin: 72px -24px 0; padding: 28px 24px; flex-direction: column; align-items: flex-start; gap: 20px; }
 }
 
 /* ── FEATURED WRITING (homepage) ── */
@@ -2124,7 +2125,7 @@
     </div>
 
     <div class="about-cta-bridge">
-      <p class="about-cta-copy">Bastille is one person. The operator behind every engagement is the same one who built the playbooks, ran the raises, and made the introductions.</p>
+      <p class="about-cta-copy">GTM diagnosis, narrative architecture, and fundraising operations — the three capabilities that account for most Bastille engagements. The About page covers the background behind the methodology.</p>
       <a class="about-cta-btn" href="#" onclick="show('about',document.querySelector('nav a[data-section=about]'));return false;">Meet the principal →</a>
     </div>
 

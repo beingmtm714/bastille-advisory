@@ -98,11 +98,10 @@
       padding-top: 8px;
       padding-bottom: 10px;
     }
-    header.scrolled .logo-icon-img {
-      height: 20px;
-    }
+    /* Hide the torch mark when sticky — only the wordmark remains */
+    header.scrolled .logo-icon-img { display: none; }
     header.scrolled .logo { align-items: center; }
-    /* In scrolled state icon (20px) is shorter than text — no offset needed */
+    /* In scrolled state there is no icon offset — reset nav padding */
     header.scrolled nav { padding-top: 0; }
     /* Thin pink rule — full bleed via 100vw trick */
     header::before {
@@ -169,8 +168,8 @@
       text-transform: uppercase;
       color: var(--pink);
     }
-    /* padding-top offsets nav links to the top of the BASTILLE wordmark — (icon 50px − text 1.65rem) / 2 */
-    nav { display: flex; flex-wrap: nowrap; gap: 0; align-items: flex-start; padding-top: calc((50px - 1.65rem) / 2); }
+    /* Offset nav to top of BASTILLE wordmark: (icon 50px − text 1.65rem) / 2, minus the 4px top padding already on each nav a */
+    nav { display: flex; flex-wrap: nowrap; gap: 0; align-items: flex-start; padding-top: calc((50px - 1.65rem) / 2 - 4px); }
     nav a {
       color: var(--cream);
       text-decoration: none;
@@ -832,10 +831,10 @@
       padding: 28px 26px 32px;
       display: flex;
       flex-direction: column;
-      background: var(--night-3);
+      background: oklch(30% 0.008 350);
       transition: background 0.15s;
     }
-    .svc-preview-col:hover { background: oklch(from var(--pink) l c h / 0.04); }
+    .svc-preview-col:hover { background: oklch(from var(--pink) l c h / 0.08); }
     .svc-preview-heading {
       font-family: var(--font-hero);
       font-size: 1.7rem;
@@ -1300,23 +1299,20 @@
        APPROACH STATEMENT
     ══════════════════════════════════════════ */
     .approach-statement {
-      margin: 0 0 56px;
-      padding: 36px 0;
-      border-top: 1px solid var(--border);
+      margin: 0 -36px 56px;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 0;
+      gap: 1px;
+      background: var(--border);
     }
     .approach-col {
-      padding-right: 36px;
+      padding: 28px 36px 32px;
       display: flex;
       flex-direction: column;
+      background: oklch(30% 0.008 350);
+      transition: background 0.15s;
     }
-    .approach-col + .approach-col {
-      padding-right: 0;
-      padding-left: 36px;
-      border-left: 1px solid var(--border);
-    }
+    .approach-col:hover { background: oklch(from var(--pink) l c h / 0.08); }
     .approach-col-eyebrow {
       font-size: 0.6rem;
       font-weight: 700;
@@ -1340,17 +1336,8 @@
     }
     @media (max-width: 620px) {
       .approach-statement {
+        margin: 0 -24px 56px;
         grid-template-columns: 1fr;
-      }
-      .approach-col {
-        padding-right: 0;
-      }
-      .approach-col + .approach-col {
-        padding-left: 0;
-        border-left: none;
-        border-top: 1px solid var(--border);
-        padding-top: 28px;
-        margin-top: 28px;
       }
     }
 

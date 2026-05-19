@@ -2,11 +2,421 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="0; url=https://www.notion.so/DRAFT-Proposal-Singularity-Bastille-Advisory-32e417e8200a80dc97ffd64418eb8798?source=copy_link">
-  <link rel="canonical" href="https://www.notion.so/DRAFT-Proposal-Singularity-Bastille-Advisory-32e417e8200a80dc97ffd64418eb8798?source=copy_link">
-  <title>Redirecting…</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <title>Bastille Advisory — Singularity</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Gloock:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink:       oklch(12% 0.008 260);
+      --ink-2:     oklch(28% 0.008 260);
+      --ink-3:     oklch(44% 0.008 260);
+      --paper:     oklch(98% 0.008 87);
+      --paper-2:   oklch(95% 0.012 87);
+      --pink:      oklch(54% 0.28 8);
+      --pink-lt:   oklch(62% 0.24 8);
+      --cobalt-lt: oklch(50% 0.22 264);
+      --lime-dk:   oklch(52% 0.18 125);
+      --rule:      oklch(85% 0.010 87);
+      --rule-lt:   oklch(90% 0.010 87);
+      --font-hero: 'Bebas Neue', 'Arial Narrow', sans-serif;
+      --font-serif: 'Gloock', Georgia, serif;
+      --font-body:  'Barlow', system-ui, sans-serif;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { font-size: 18px; scroll-behavior: smooth; }
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--font-body);
+      font-weight: 400;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    .container { max-width: 820px; margin: 0 auto; padding: 0 40px; }
+
+    /* ── HEADER ── */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: var(--paper);
+      border-top: 3px solid var(--pink);
+      border-bottom: 1px solid var(--rule);
+      padding: 20px 0;
+    }
+
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 24px;
+    }
+
+    .logo-text { text-decoration: none; display: block; }
+
+    .logo-main {
+      font-family: var(--font-hero);
+      font-size: 1.2rem;
+      letter-spacing: 0.18em;
+      color: var(--ink);
+      line-height: 1;
+    }
+
+    .logo-sub {
+      font-family: var(--font-body);
+      font-size: 0.55rem;
+      font-weight: 600;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--pink);
+      line-height: 1;
+      margin-top: 3px;
+    }
+
+    .header-contact {
+      font-size: 0.72rem;
+      font-weight: 400;
+      color: var(--ink-3);
+      text-align: right;
+      line-height: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .header-contact a {
+      color: var(--ink-3);
+      text-decoration: none;
+      border-bottom: 1px solid var(--rule);
+      transition: color 0.15s, border-color 0.15s;
+    }
+
+    .header-contact a:hover { color: var(--pink); border-color: var(--pink); }
+
+    /* ── DOCUMENT TITLE ── */
+    .doc-meta { padding-top: 52px; margin-bottom: 52px; }
+
+    .doc-eyebrow {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--pink);
+      margin-bottom: 14px;
+    }
+
+    .doc-title {
+      font-family: var(--font-hero);
+      font-size: clamp(2.4rem, 6vw, 3.6rem);
+      letter-spacing: 0.04em;
+      line-height: 1.02;
+      color: var(--ink);
+      margin-bottom: 20px;
+    }
+
+    .doc-title .accent { color: var(--pink); }
+
+    .doc-for {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding-top: 16px;
+      border-top: 1px solid var(--rule);
+    }
+
+    .doc-for-names {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      font-style: italic;
+      color: var(--ink-2);
+    }
+
+    .company-logo {
+      height: 32px;
+      width: auto;
+      display: block;
+      flex-shrink: 0;
+    }
+
+    .company-logo[src=""] { display: none; }
+
+    /* ── SECTIONS ── */
+    section { margin-bottom: 52px; }
+
+    .section-heading {
+      font-family: var(--font-hero);
+      font-size: 1.3rem;
+      letter-spacing: 0.1em;
+      color: var(--ink);
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--rule);
+      position: relative;
+    }
+
+    .section-heading::after {
+      content: '';
+      position: absolute;
+      bottom: -1px; left: 0;
+      width: 48px; height: 2px;
+      background: var(--pink);
+    }
+
+    .section-heading.lime::after   { background: var(--lime-dk); }
+    .section-heading.cobalt::after { background: var(--cobalt-lt); }
+
+    p { font-size: 1rem; color: var(--ink-2); line-height: 1.75; margin-bottom: 16px; }
+    p:last-child { margin-bottom: 0; }
+    strong { font-weight: 600; color: var(--ink); }
+
+    /* Tricolor on section-specific labels */
+    .section-heard strong { color: var(--pink); }
+    .section-found strong { color: var(--lime-dk); }
+
+    /* ── FINDING LIST (What I Found bullets) ── */
+    .finding-list {
+      list-style: none;
+      border-top: 1px solid var(--rule);
+    }
+
+    .finding-list li {
+      padding: 14px 0 14px 24px;
+      border-bottom: 1px solid var(--rule-lt);
+      font-size: 0.97rem;
+      color: var(--ink-2);
+      line-height: 1.6;
+      position: relative;
+    }
+
+    .finding-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 22px;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--lime-dk);
+    }
+
+    .finding-list li > span { display: block; }
+
+    .finding-list li strong { font-weight: 600; color: var(--lime-dk); }
+
+    /* ── WORKSTREAMS ── */
+    .workstream-list { list-style: none; border-top: 1px solid var(--rule); }
+
+    .workstream-list li {
+      padding: 20px 0;
+      border-bottom: 1px solid var(--rule-lt);
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .ws-title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--cobalt-lt);
+      padding-top: 3px;
+      line-height: 1.4;
+    }
+
+    .ws-body { font-size: 0.97rem; color: var(--ink-2); line-height: 1.7; }
+    .ws-body ul { list-style: none; padding: 0; margin: 0; }
+    .ws-body ul li {
+      padding: 0;
+      border: none;
+      display: block;
+      margin-bottom: 8px;
+      padding-left: 16px;
+      position: relative;
+    }
+    .ws-body ul li::before {
+      content: '\00B7';
+      position: absolute;
+      left: 0;
+      font-weight: 700;
+      color: var(--cobalt-lt);
+    }
+
+    /* ── TERMS BLOCK ── */
+    .terms {
+      background: var(--paper-2);
+      border: 1px solid var(--rule);
+      border-left: 3px solid var(--pink);
+      padding: 24px 28px;
+      margin-top: 8px;
+    }
+
+    .terms p { font-size: 0.95rem; margin-bottom: 0; }
+
+    /* ── FOOTNOTES ── */
+    .footnotes { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--rule); }
+    .footnotes-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--cobalt-lt);
+      margin-bottom: 10px;
+    }
+    .footnotes ol { padding-left: 18px; }
+    .footnotes li { font-size: 0.75rem; color: var(--ink-3); line-height: 1.6; margin-bottom: 6px; }
+    .footnotes li a { color: var(--ink-3); word-break: break-all; }
+
+    /* ── FOOTER ── */
+    footer {
+      margin-top: 64px;
+      padding: 24px 0;
+      border-top: 1px solid var(--rule);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .footer-brand { font-family: var(--font-hero); font-size: 0.9rem; letter-spacing: 0.18em; color: var(--pink); }
+    .footer-note { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); }
+
+    @media print {
+      header { position: static; }
+      body { background: white; }
+      .terms { background: #f7f5f0; }
+    }
+
+    @media (max-width: 620px) {
+      .container { padding: 0 24px; }
+      .header-inner { flex-direction: column; gap: 10px; }
+      .header-contact { text-align: left; }
+      .workstream-list li { grid-template-columns: 1fr; gap: 6px; }
+      footer { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
 </head>
 <body>
-  <script>window.location.replace('https://www.notion.so/DRAFT-Proposal-Singularity-Bastille-Advisory-32e417e8200a80dc97ffd64418eb8798?source=copy_link');</script>
+
+  <header>
+    <div class="container">
+      <div class="header-inner">
+        <a class="logo-text" href="https://bastilleadvisory.xyz">
+          <div class="logo-main">BASTILLE</div>
+          <div class="logo-sub">Advisory</div>
+        </a>
+        <div class="header-contact">
+          Michael Martin<br>
+          <a href="mailto:michael@bastilleadvisory.xyz">michael@bastilleadvisory.xyz</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <!-- ── DOCUMENT TITLE ── -->
+    <div class="doc-meta">
+      <div class="doc-eyebrow">May 2026</div>
+      <h1 class="doc-title">Singularity:<br><span class="accent">Ecosystem Activation</span> &amp; Builder Pipeline</h1>
+      <div class="doc-for">
+        <span class="doc-for-names">For Ahyaan Sayed, Naman, and the Singularity team</span>
+        <img src="" alt="Singularity" class="company-logo">
+      </div>
+    </div>
+
+
+    <!-- ── WHAT I HEARD ── -->
+    <section class="section-heard">
+      <h2 class="section-heading">What I Heard</h2>
+      <p><strong>First</strong>, Singularity spent months wrapping the chain in application layers that obscured what it is: a horizontally scalable L1 with multi-language smart contract support and native cross-ecosystem composability.</p>
+      <p><strong>Second</strong>, the team has committed to a two-track strategy — bring in a first tranche of early-stage builders who believe in the vision while developing an in-house application — but the ecosystem activation infrastructure to source, qualify, and onboard those builders does not exist yet.</p>
+      <p><strong>Third</strong>, Bishar and his BD team cover social, content, brand, and protocol intros. The missing function is a systematic pipeline that sources early-stage builders and emerging protocols, qualifies them against Singularity's technical differentiation, and moves them from first contact to testnet deployment. This first tranche is not general-purpose developer acquisition. These builders are Singularity's core evangelists. They need to be selected for both technical fit and amplification potential, then equipped with the tools and context to credibly advocate for the ecosystem when the in-house app launches and programmatic scaling begins.</p>
+    </section>
+
+
+    <!-- ── WHAT I FOUND ── -->
+    <section>
+      <h2 class="section-heading lime">What I Found</h2>
+      <ul class="finding-list">
+        <li><span><strong>Developer acquisition is the defining L1 competition.</strong> Ethereum added 16,181 new developers in the first nine months of 2025; Solana added 11,534. Ecosystems below the top three trail under 7,000. Electric Capital's annual report is the benchmark investors and partners use to assess ecosystem health.</span></li>
+        <li><span><strong>AI agent infrastructure creates a timing window.</strong> The agentic AI market reached $7.3B in 2025, projected at $9–11B in 2026, growing 40–46% year over year. Google, AWS, and Visa shipped blockchain-based machine-to-machine transaction protocols in late 2025. Autonomous agents need rails built for negotiation and execution between machines. Singularity's positioning as purpose-built agent infrastructure targets the fastest-growing demand category in crypto.</span></li>
+        <li><span><strong>The highest-value builder targets are protocols already deployed on 3+ chains.</strong> Multi-chain DeFi protocols, gaming studios, and agent infrastructure companies maintain separate deployments across Ethereum, Solana, Base, Avalanche, and others. Each deployment requires separate audits, governance, and engineering maintenance. Singularity's native composability pitch — deploy once, reach users across all chains — converts the multi-chain operational tax into the acquisition wedge. Builders already paying that tax are the highest-probability converts.</span></li>
+        <li><span><strong>Solana's Superteam model proves the ecosystem sourcing playbook.</strong> Superteam distributed over $1.7M in community GDP through microgrants, bounties, and direct builder engagement. The model combines active sourcing with a clear onboarding path. Singularity needs a version of this scaled to its stage.</span></li>
+        <li><span><strong>Established L1s are investing aggressively in builder incentives.</strong> Avalanche launched a $40M Retro9000 grant program in Q1 2026. Base onboarded 1,600 developers in its first year. Singularity does not need to match these dollar figures, but it needs a systematic pipeline that competes for the same builders' attention.</span></li>
+        <li><span><strong>The headwind is the cold-start problem.</strong> A new L1 without testnet deployments faces a credibility gap with builders who prefer ecosystems with visible traction. The first 10–20 active builders on the testnet create the social proof that unlocks the next 100. The acquisition strategy — deploy alongside your existing chain, then consolidate to Singularity as composability proves itself — lowers the switching cost to near zero, but the pipeline has to generate those first deployments fast. These early builders carry a second job: they are the distribution channel for Singularity's narrative before a marketing budget exists. Selecting them for reach matters as much as selecting them for technical alignment.</span></li>
+      </ul>
+    </section>
+
+
+    <!-- ── HOW I CAN HELP ── -->
+    <section>
+      <h2 class="section-heading cobalt">How I Can Help</h2>
+
+      <ul class="workstream-list">
+        <li>
+          <div class="ws-title">Builder Pipeline &amp; Automated Sourcing</div>
+          <div class="ws-body">
+            <ul>
+              <li>Build an automated sourcing engine using Web3Alerts, Twitter/X monitoring, and Drippi for outreach sequencing, targeting early-stage builders and emerging protocols across DeFi, agent infrastructure, and cross-chain tooling</li>
+              <li>Define a qualification framework weighted toward both technical fit and evangelist potential. Technical fit: number of current chain deployments (3+ = high priority), horizontal scaling need, multi-language development preference, agent infrastructure use case. Evangelist potential: Twitter/X following and engagement rate, developer community size (Discord/Telegram members), GitHub stars and contributor count, conference speaking history, newsletter or content audience, and cross-community influence. Evangelist criteria to be refined collaboratively during the first two weeks of the engagement.</li>
+              <li>Run the pipeline week over week: source, qualify, execute first-touch outreach, book and run first meetings, hand off qualified leads to Bishar's team with a defined handoff protocol</li>
+              <li>Stand up an Airtable tracker segmented by three tiers (early builders, emerging protocols, established protocols) with pipeline stage, contact status, conversion metrics, and an evangelist score combining technical fit and amplification reach</li>
+              <li>Deliver a weekly pipeline review with Ahyaan: leads sourced, meetings booked, protocols moving toward testnet deployment, and evangelist pipeline health</li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <div class="ws-title">Engagement Playbook &amp; Evangelist Enablement</div>
+          <div class="ws-body">
+            <ul>
+              <li>Write the engagement playbook: scripted first-touch outreach templates, first-meeting agenda and talking points, objection handling for builders evaluating a new L1, and close/handoff criteria</li>
+              <li>Design an evangelist enablement package for the first tranche of builders: a briefing doc on Singularity's composability thesis and technical differentiation, talking points for their own communities, draft tweet/post templates, a shared content calendar for coordinated announcements around testnet milestones, and early access to the team for questions their communities will ask</li>
+              <li>Spec a developer quickstart guide ("deploy on Singularity in 30 minutes") for the engineering team to build, covering smart contract deployment, multi-language examples, and testnet access</li>
+              <li>Design the handoff protocol between pipeline (my function) and onboarding (Bishar's team): what a qualified lead looks like, what information transfers, who owns the relationship post-handoff</li>
+              <li>Identify and pursue up to two marquee partnership targets per month through second-degree network mapping and direct outreach, focused on mid-tier protocols deployed on 3+ chains with a strategic reason to consolidate</li>
+              <li>Build a reusable system: outreach templates, qualification criteria, evangelist scoring model, Airtable structure, and playbook documentation that Singularity's team can operate independently after the engagement ends</li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+
+    <!-- ── HOW I WORK ── -->
+    <section>
+      <h2 class="section-heading">Draft Engagement Details</h2>
+      <div class="terms">
+        <p>Bastille is an embedded operator. I work inside the company, not around it. This engagement runs as a 60-day initial sprint with a 30-day checkpoint. Ten hours per week at $175/hour ($7,000/month). 50% of Month 1 upfront; work begins on receipt. Deliverables: a working automated sourcing engine, a qualified builder pipeline in Airtable, an engagement playbook with outreach templates and meeting scripts, an evangelist enablement package, a developer quickstart spec, and a weekly pipeline review cadence.</p>
+      </div>
+    </section>
+
+
+    <!-- ── WORKS CITED ── -->
+    <div class="footnotes">
+      <p class="footnotes-label">Works Cited</p>
+      <ol>
+        <li>Electric Capital, <em>Developer Report 2025</em>, as reported by the Ethereum Foundation and CryptoRank (October 2025).</li>
+        <li>0G Labs, <em>Agentic AI Market at $7.3B: Infrastructure Gaps Blocking Scale</em> (March 2026).</li>
+        <li>Solana Compass, <em>Superteam on Solana: Project Review, Programs, Token, Metrics</em> (2025).</li>
+        <li>Nansen, <em>Avalanche Q1 2026 Report</em> (May 2026).</li>
+        <li>CoinLaw, <em>Blockchain Developer Activity Statistics 2026: Growth Insights</em> (February 2026).</li>
+      </ol>
+    </div>
+
+
+    <!-- ── FOOTER ── -->
+    <footer>
+      <span class="footer-brand">BASTILLE ADVISORY</span>
+      <span class="footer-note">bastilleadvisory.xyz · Confidential</span>
+    </footer>
+
+  </div>
 </body>
 </html>

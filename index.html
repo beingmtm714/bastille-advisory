@@ -1709,6 +1709,64 @@
   margin-top: 4px;
 }
 
+/* ── STAT STRIP ── */
+    .stat-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--border);
+      margin: 0 -36px 56px;
+    }
+    .stat-strip-item {
+      background: var(--night-2);
+      padding: 24px 24px 22px;
+      display: flex;
+      flex-direction: column;
+    }
+    .stat-strip-val {
+      font-family: var(--font-hero);
+      font-size: 2.1rem;
+      letter-spacing: 0.04em;
+      color: var(--lime);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .stat-strip-item:nth-child(2) .stat-strip-val { color: var(--cobalt-lt); }
+    .stat-strip-item:nth-child(3) .stat-strip-val { color: var(--pink-lt); }
+    .stat-strip-item:nth-child(4) .stat-strip-val { color: var(--cream); opacity: 0.75; }
+    .stat-strip-label {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+    @media (max-width: 620px) {
+      .stat-strip { grid-template-columns: 1fr 1fr; margin: 0 -24px 44px; }
+    }
+
+    /* ── PROV LOGO OUTCOMES ── */
+    .prov-logo-outcomes {
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+      font-size: 0.82rem;
+      font-weight: 400;
+      color: var(--cream-dk);
+      line-height: 1.75;
+    }
+    .prov-logo-outcomes-label {
+      font-size: 0.58rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      opacity: 0.6;
+      display: block;
+      margin-bottom: 6px;
+    }
+
 /* ── BLOG / WRITING ── */
 .blog-intro {
   font-family: var(--font-body);
@@ -2011,9 +2069,9 @@
       <div class="hero-top">
         <div class="hero-eyebrow">Embedded operator for early-stage tech founders</div>
         <h1 class="hero-headline">
-          <span class="hl-blue">YOU DON'T</span><br>
-          <span class="hl-pink">HAVE A</span><br>
-          <span class="hl-lime">PRODUCT PROBLEM.</span>
+          <span class="hl-blue">WHAT YOU NEED</span><br>
+          <span class="hl-pink">ISN'T ADVICE.</span><br>
+          <span class="hl-lime">IT'S BANDWIDTH.</span>
         </h1>
       </div>
       <div class="hero-bottom">
@@ -2027,7 +2085,26 @@
       <div class="hero-stripe-band" style="background:var(--pink)"></div>
     </div>
 
-    <p class="ap-philosophy" style="margin-top:52px;margin-bottom:52px;">Building the GTM playbook from what's actually working. Rebuilding the story so it lands. Running the raise as an operation — pipeline, introductions, data room. Inside the company, not orbiting it.</p>
+    <div class="stat-strip">
+      <div class="stat-strip-item">
+        <span class="stat-strip-val">$8M+</span>
+        <span class="stat-strip-label">Raised by portfolio companies</span>
+      </div>
+      <div class="stat-strip-item">
+        <span class="stat-strip-val">$1.5M</span>
+        <span class="stat-strip-label">Transaction volume in 30 days (Confetti)</span>
+      </div>
+      <div class="stat-strip-item">
+        <span class="stat-strip-val">$880K</span>
+        <span class="stat-strip-label">Seed raised at $30M valuation (Hashfire)</span>
+      </div>
+      <div class="stat-strip-item">
+        <span class="stat-strip-val">1,000+</span>
+        <span class="stat-strip-label">Investor &amp; advisor introductions across career</span>
+      </div>
+    </div>
+
+    <p class="ap-philosophy" style="margin-top:0;margin-bottom:52px;">Building the GTM playbook from what's actually working. Rebuilding the story so it lands. Running the raise as an operation — pipeline, introductions, data room. Inside the company, not orbiting it.</p>
 
     <div class="services-preview">
       <div class="section-label">
@@ -2108,9 +2185,9 @@
       </div>
       <div class="case-item" onclick="handleCaseClick(event,this)">
         <div class="case-header"><div class="case-name">Hashfire</div><div class="case-year">2025</div></div>
-        <div class="case-tagline">Took Hashfire from product to market — refining GTM, rebuilding the narrative, facilitating 30+ investor introductions, and supporting the work that led to their first institutional customer and an $800K pre-seed close.</div>
+        <div class="case-tagline">Took Hashfire from product to market — refining GTM, rebuilding the narrative, facilitating 30+ investor introductions, and supporting the work that led to their first institutional customer and an $880K seed close at a $30M valuation.</div>
         <div class="case-metrics">
-          <div class="metric"><span class="metric-val">$800K</span><span class="metric-label">Pre-seed raised</span></div>
+          <div class="metric"><span class="metric-val">$880K</span><span class="metric-label">Seed at $30M valuation</span></div>
           <div class="metric"><span class="metric-val">30+</span><span class="metric-label">Investor introductions</span></div>
           <div class="metric"><span class="metric-val">1st</span><span class="metric-label">Institutional customer</span></div>
         </div>
@@ -2187,6 +2264,26 @@
       </div>
     </div>
 
+    <div class="about-section" style="margin-top:56px;">
+      <div class="about-section-label">Proprietary Tools</div>
+      <p style="font-size:0.97rem;font-weight:400;color:var(--cream-dk);line-height:1.85;margin-bottom:8px;max-width:620px;">The frameworks are productized. Every engagement draws on systems built for this specific work.</p>
+      <p style="font-size:0.72rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:24px;">Available to Bastille clients — not public products</p>
+      <div class="work-spec-grid">
+        <div class="work-spec-card">
+          <div class="work-spec-card-label" style="color:var(--lime)">Throughline</div>
+          <p class="work-spec-card-desc">GTM-to-investment readiness system. Generates a cohort-aware metrics dashboard calibrated to the founder's vertical and stage, then runs AI devil's-advocate mock investor and customer interviews to pressure-test the narrative before live rooms.</p>
+        </div>
+        <div class="work-spec-card">
+          <div class="work-spec-card-label" style="color:var(--cobalt-lt)">RADIUS</div>
+          <p class="work-spec-card-desc">Portfolio intelligence application. Classifies companies against strategic lenses, runs natural-language portfolio Q&amp;A with a saveable scenario library, and scores new-company fit with confidence-rated classifications and team-handoff routing. Built for venture and corp-dev contexts.</p>
+        </div>
+        <div class="work-spec-card work-spec-card-last">
+          <div class="work-spec-card-label" style="color:var(--pink-lt)">Sonar</div>
+          <p class="work-spec-card-desc">Market-mapping tool. Plots competitive positioning across a landscape, surfaces adjacent players, and identifies the whitespace a founder's narrative should claim.</p>
+        </div>
+      </div>
+    </div>
+
     <div class="ap-cta-block">
       <span class="ap-cta-eyebrow">Start here</span>
       <p class="ap-cta-text">Every engagement starts with a scoping conversation.</p>
@@ -2217,7 +2314,7 @@
           <div class="principal-name" data-editable data-key="principal-name">Michael Martin</div>
           <div class="principal-title" data-editable data-key="principal-title">Founder & Principal</div>
         </div>
-        <div class="principal-bio" data-editable data-key="principal-bio"><p>The problem is consistent across stages and categories: founders building something real, in a paradigm their investors and customers don't fully understand yet, trying to close the gap between what they've built and what the world can see.</p><p>At <strong>SignalFire</strong>, an AI-native venture firm built around proprietary data infrastructure, he worked closely with AI engineers and founders — developing the fund-side perspective on what narrative moves capital when the technology is genuinely new.</p><p>At <strong>XPRIZE</strong>, running frontier technology competitions meant positioning breakthrough ideas to audiences who had never encountered them — the same translation problem founders in emerging categories face every day.</p><p>At <strong>Ava Labs</strong>, that methodology became <strong>Codebase</strong>, the flagship Avalanche accelerator. Over multiple cohorts, founders were placed on VC watchlists, institutional partnerships formed, and raises closed — across crypto infrastructure, DeFi, and consumer.</p><p>Bastille Advisory is the same work — without the institutional layer between the operator and the founder.</p></div>
+        <div class="principal-bio" data-editable data-key="principal-bio"><p>Sixteen years across venture capital, frontier technology competitions, and protocol ecosystems — positioning genuinely new ideas to audiences still learning how to see them. The through-line is consistent: founders building something real in a paradigm their investors and customers don't fully understand yet.</p><p>At <strong>SignalFire</strong> ($4B AUM), he built the AI Talent Community from zero — 1,000+ engineers and data scientists engaging monthly as investment signal and deal flow. He cultivated ~25 Fortune 500 CXO advisory relationships, concentrated them into ~30 active CXO-to-portfolio engagements, and facilitated a $1M+ direct investment from a CXO into a portfolio company. The fund-side view of what actually moves capital when the technology is genuinely new.</p><p>At <strong>XPRIZE</strong>, he ran the $11M AI XPRIZE as its primary operator — account lead for IBM Watson, 156 teams recruited from 22 countries, 50+ institutional partnerships worth $4M+ in cash and in-kind (United Nations, Stanford, MIT, Harvard, CMU, AWS, GCP). He sat on the organizing committee of the inaugural <a href="https://aiforgood.itu.int/" target="_blank" rel="noopener noreferrer" style="color:var(--cobalt-lt);text-decoration:none;border-bottom:1px solid rgba(66,104,255,0.35);">United Nations AI for Good Global Summit</a> and helped produce the public debut of Stanford HAI. The summit still runs.</p><p>At <strong>M13</strong> ($1B AUM), he closed $200K in partnership commitments in year one, activated 15 institutional partners including AWS, GCP, and JP Morgan, and ran 70+ events that engaged 3,000+ founders and investors.</p><p>At <strong>Ava Labs</strong>, the methodology became <strong>Codebase</strong> — four cohorts, 28 companies, ~$8M raised across the portfolio. He built a 300+ investor network and a 15+ fund VC advisory board structured as a two-sided exchange: their deal flow and founder advice in, proprietary deals routed to their pipelines out. Mezzanine closed $1.7M led by Coinbase Ventures. Hashfire raised an $880K seed at a $30M valuation.</p><p>Bastille Advisory is the same work — without the institutional layer between the operator and the founder.</p></div>
       </div>
     </div>
 
@@ -2227,6 +2324,10 @@
         <div class="prov-logo-card">
           <div class="prov-logo-img"><img src="logos/avalanche.svg" alt="Avalanche"></div>
           <div class="prov-logo-blurb" data-editable data-key="prov4-desc">Global blockchain ecosystem powering builders with real use cases for real impact. Lightning fast. Scalable by design. Natively interconnected.</div>
+          <div class="prov-logo-outcomes">
+            <span class="prov-logo-outcomes-label">Michael's role</span>
+            Founded and ran Codebase — 4 cohorts, 28 companies, ~$8M raised by portfolio graduates. Built a 300+ investor network and a 15+ fund VC advisory board as a two-sided exchange. Mezzanine closed $1.7M led by Coinbase Ventures. Reached 10,000+ student developers through the university program.
+          </div>
           <div class="prov-logo-tags">
             <span class="prov-tag prov-tag-growth">GROWTH</span>
             <span class="prov-tag prov-tag-narrative">NARRATIVE</span>
@@ -2237,6 +2338,10 @@
         <div class="prov-logo-card">
           <div class="prov-logo-img"><img src="logos/signalfire.svg" alt="SignalFire"></div>
           <div class="prov-logo-blurb" data-editable data-key="prov2-desc">Venture capital built like a tech company — AI-native and data-driven, with unmatched portfolio support and deep sector expertise.</div>
+          <div class="prov-logo-outcomes">
+            <span class="prov-logo-outcomes-label">Michael's role</span>
+            Built the AI Talent Community from zero — 1,000+ engineers and data scientists engaging monthly. Developed ~25 Fortune 500 CXO advisory relationships, concentrated into ~30 active CXO-to-portfolio engagements. Facilitated a $1M+ direct investment from a CXO into a portfolio company.
+          </div>
           <div class="prov-logo-tags">
             <span class="prov-tag prov-tag-growth">GROWTH</span>
             <span class="prov-tag prov-tag-raise">RAISE</span>
@@ -2246,6 +2351,10 @@
         <div class="prov-logo-card">
           <div class="prov-logo-img"><img src="logos/m13.svg" alt="M13"></div>
           <div class="prov-logo-blurb" data-editable data-key="prov3-desc">Early-stage VC investing in visionary founders building disruptive software businesses. A full-stack partner with operators to help you scale.</div>
+          <div class="prov-logo-outcomes">
+            <span class="prov-logo-outcomes-label">Michael's role</span>
+            Closed $200K in partnership commitments in year one, activating 15 institutional partners including AWS, GCP, and JP Morgan. Ran 70+ events engaging 3,000+ founders and investors. Originated 2 deals through network infrastructure.
+          </div>
           <div class="prov-logo-tags">
             <span class="prov-tag prov-tag-narrative">NARRATIVE</span>
             <span class="prov-tag prov-tag-raise">RAISE</span>
@@ -2255,6 +2364,10 @@
         <div class="prov-logo-card">
           <div class="prov-logo-img"><img src="logos/xprize.svg" alt="XPRIZE"></div>
           <div class="prov-logo-blurb" data-editable data-key="prov1-desc">Catalyzing the breakthroughs humanity needs — turning bold ideas into world-changing impact through audacious, tested prize competitions.</div>
+          <div class="prov-logo-outcomes">
+            <span class="prov-logo-outcomes-label">Michael's role</span>
+            Ran the $11M AI XPRIZE — primary account lead for IBM Watson, 156 teams from 22 countries, 50+ institutional partnerships ($4M+ in cash and in-kind). Organizing committee member, inaugural <a href="https://aiforgood.itu.int/" target="_blank" rel="noopener noreferrer" style="color:var(--cobalt-lt);text-decoration:none;border-bottom:1px solid rgba(66,104,255,0.35);">United Nations AI for Good Global Summit</a>. Built a 15-ambassador global recruitment network.
+          </div>
           <div class="prov-logo-tags">
             <span class="prov-tag prov-tag-growth">GROWTH</span>
             <span class="prov-tag prov-tag-narrative">NARRATIVE</span>
@@ -2313,16 +2426,69 @@
     <div class="case-item" onclick="handleCaseClick(event,this)">
       <div class="case-pillar-tag is-raise">Raise</div>
       <div class="case-header"><div class="case-name">Hashfire</div><div class="case-year">2025</div></div>
-      <div class="case-tagline">Took Hashfire from product to market — refining GTM, rebuilding the narrative, facilitating 30+ investor introductions, and supporting the work that led to their first institutional customer and an $800K pre-seed close.</div>
+      <div class="case-tagline">Took Hashfire from product to market — refining GTM, rebuilding the narrative, facilitating 30+ investor introductions, and supporting the work that led to their first institutional customer and an $880K seed close at a $30M valuation.</div>
       <div class="case-metrics">
-        <div class="metric"><span class="metric-val">$800K</span><span class="metric-label">Pre-seed raised</span></div>
+        <div class="metric"><span class="metric-val">$880K</span><span class="metric-label">Seed at $30M valuation</span></div>
         <div class="metric"><span class="metric-val">30+</span><span class="metric-label">Investor introductions</span></div>
         <div class="metric"><span class="metric-val">1st</span><span class="metric-label">Institutional customer</span></div>
       </div>
       <div class="case-expand">
         <p>Hashfire had built a document authentication and instant payment protocol — a genuinely new approach to verifiable contracts and programmable settlement — but needed to land on the right GTM product, sharpen the narrative, and create the conditions for institutional fundraising. Pre-revenue, pre-customer, and working through how to position a technical infrastructure product to enterprise buyers and investors at the same time.</p>
-        <p>Bastille worked across the full stack: iterating on the GTM product thesis, rebuilding the investor narrative from the ground up, and co-producing the deck used to pitch institutional capital. From there, Bastille facilitated over <strong>30 investor introductions</strong>, creating the deal flow that led to the pre-seed close and Hashfire's <strong>first institutional customer</strong> — a government-level pilot that validated the protocol.</p>
+        <p>Bastille worked across the full stack: iterating on the GTM product thesis, rebuilding the investor narrative from the ground up, and co-producing the deck used to pitch institutional capital. From there, Bastille facilitated over <strong>30 investor introductions</strong>, creating the deal flow that led to the $880K seed close at a $30M valuation and Hashfire's <strong>first institutional customer</strong> — a government-level pilot that validated the protocol.</p>
         <div class="case-url"><a href="https://hashfire.xyz" target="_blank" rel="noopener noreferrer">hashfire.xyz ↗</a></div>
+      </div>
+      <div class="expand-hint">↓ expand</div>
+    </div>
+
+    <div class="case-item" onclick="handleCaseClick(event,this)">
+      <div class="case-pillar-tag is-narrative">Marketing</div>
+      <div class="case-header"><div class="case-name">Codebase</div><div class="case-year">2023 – 2025</div></div>
+      <div class="case-tagline">Built the Avalanche accelerator as a marketing engine — turning founders into distribution and Demo Day into a reusable fundraise asset — while running 90th-percentile founder NPS as a deliberate top OKR.</div>
+      <div class="case-metrics">
+        <div class="metric"><span class="metric-val">28</span><span class="metric-label">Companies across 4 cohorts</span></div>
+        <div class="metric"><span class="metric-val">$8M+</span><span class="metric-label">Raised by portfolio graduates</span></div>
+        <div class="metric"><span class="metric-val">300+</span><span class="metric-label">Investor network built</span></div>
+      </div>
+      <div class="case-expand">
+        <p>Codebase's dual mandate was never just accelerator programming — it was to get companies building on Avalanche, then leverage them for marketing. The top OKR was co-developing use cases with the marketing team so the market could see builders choosing Avalanche, and turning those founders into distribution: on stage, on podcasts, co-writing posts. Satisfied founders become case studies. That logic made 90th-percentile founder NPS a business metric, not a vanity one.</p>
+        <p>The third-cohort Demo Day reinvention is the cleanest standalone case. The public livestream format was replaced with a small, private VC-only event — eliminating audience noise and creating a room worth getting into. Each founder got TikTok-format video assets: founder story, brief demo, what they got from Codebase. Distributed across social and hosted on YouTube, the assets served dual purposes: marketing for the program and a reusable artifact each founder could put in their deck and outreach. The format created value for the program and the portfolio simultaneously.</p>
+        <p>On the sourcing side, the program evolved from inbound-driven to operating like an in-house VC — with LP-partnered funds as the primary sourcing channel. A 15+ fund VC advisory board ran as a two-sided exchange: their deal flow and founder advice in, proprietary portfolio deals routed back to their pipelines. That structure passed 6 net-new qualified deals to BD in 6 weeks during a single sourcing sprint.</p>
+        <div class="case-url"><a href="https://codebaseavax.xyz" target="_blank" rel="noopener noreferrer">codebaseavax.xyz ↗</a></div>
+      </div>
+      <div class="expand-hint">↓ expand</div>
+    </div>
+
+    <div class="case-item" onclick="handleCaseClick(event,this)">
+      <div class="case-pillar-tag is-narrative">Narrative / Marketing</div>
+      <div class="case-header"><div class="case-name">XPRIZE AI for Good</div><div class="case-year">2017 – 2018</div></div>
+      <div class="case-tagline">Ran the $11M AI XPRIZE as a marketing initiative — co-launching the inaugural United Nations AI for Good Global Summit and shaping the "AI for good" narrative for both XPRIZE and 156 competing teams across 22 countries.</div>
+      <div class="case-metrics">
+        <div class="metric"><span class="metric-val">$11M</span><span class="metric-label">AI XPRIZE competition</span></div>
+        <div class="metric"><span class="metric-val">156</span><span class="metric-label">Teams from 22 countries</span></div>
+        <div class="metric"><span class="metric-val">50+</span><span class="metric-label">Institutional partnerships · $4M+ value</span></div>
+      </div>
+      <div class="case-expand">
+        <p>Running the AI XPRIZE meant solving two problems at once: recruit 156 teams from 22 countries, then give the whole thing enough public narrative that the participating teams — not just XPRIZE — benefited from being in it. The prize was the mechanism. The marketing was the product.</p>
+        <p>The recruitment challenge was structural. XPRIZE could not outbid Andreessen or Google for marquee AI teams. So the strategy was to reach the middle and long tail of global builders — the people who weren't already in the room — through 15 ambassadors organized into local nodes across 22 countries. Community organizing 101: know the people who know the people, then give those people the tools to recruit (press kits, standardized criteria, monthly syncs, office hours). The ambassador network ran for three years.</p>
+        <p>The narrative play was the <a href="https://aiforgood.itu.int/" target="_blank" rel="noopener noreferrer" style="color:var(--cobalt-lt);text-decoration:none;border-bottom:1px solid rgba(66,104,255,0.35);">United Nations AI for Good Global Summit</a> — co-organized with the United Nations, with XPRIZE and Partnership on AI as founding partners. The summit gave the competition an institutional home and an "AI for good" frame that did marketing work for every team in the field. IBM Watson was the marquee account. Stanford HAI's public debut was a co-produced day-long summit. The XPRIZE AI for Good Summit still runs annually.</p>
+      </div>
+      <div class="expand-hint">↓ expand</div>
+    </div>
+
+    <div class="case-item" onclick="handleCaseClick(event,this)">
+      <div class="case-pillar-tag is-growth">Growth / Partnerships</div>
+      <div class="case-header"><div class="case-name">SignalFire CXO Program</div><div class="case-year">2018 – 2021</div></div>
+      <div class="case-tagline">Built a Fortune 500 CXO advisory network from zero and converted it into commercial outcomes — pilot programs, structured enterprise-to-portfolio co-marketing, and a $1M+ direct investment from a CXO into a portfolio company.</div>
+      <div class="case-metrics">
+        <div class="metric"><span class="metric-val">~25</span><span class="metric-label">Fortune 500 CXO relationships</span></div>
+        <div class="metric"><span class="metric-val">~30</span><span class="metric-label">Active CXO-to-portfolio engagements</span></div>
+        <div class="metric"><span class="metric-val">$1M+</span><span class="metric-label">CXO investment into portfolio company</span></div>
+      </div>
+      <div class="case-expand">
+        <p>SignalFire's thesis was that the best signal in venture is human — knowing who the top engineers are before they become founders, and knowing which enterprise buyers are ready to move on emerging technology before the rest of the market does. The CXO program was the enterprise side of that thesis.</p>
+        <p>The work started with relationship building: engage Fortune 500 CXOs around SignalFire's portfolio companies at a moment of genuine relevance to their own problems. Advisory dinners, roundtables, structured introductions. From a broad base of ~25 CXO relationships, the higher-engagement cohort was concentrated into ~30 active CXO-to-portfolio-company advisory relationships — where the executive had a named company they were actively working with.</p>
+        <p>The commercial outcomes came from that depth. Where the advisory relationship had the right fit, it evolved into pilot programs and structured co-marketing between the enterprise and the portfolio company. The most direct outcome: a CXO invested $1M+ directly into a portfolio company, sourced through the advisory relationship. That's the right-side model — turn advisory into investment, not just advice.</p>
+        <div class="case-url"><a href="https://signalfire.com" target="_blank" rel="noopener noreferrer">signalfire.com ↗</a></div>
       </div>
       <div class="expand-hint">↓ expand</div>
     </div>

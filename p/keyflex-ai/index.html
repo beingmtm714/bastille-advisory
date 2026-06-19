@@ -252,6 +252,69 @@
     .footer-brand { font-family: var(--font-hero); font-size: 0.9rem; letter-spacing: 0.18em; color: var(--ink-3); }
     .footer-note { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); }
 
+    .month-label {
+      font-family: var(--font-hero);
+      font-size: 1.05rem;
+      letter-spacing: 0.08em;
+      color: var(--cobalt-lt);
+      padding: 28px 0 4px;
+      border-top: 2px solid var(--rule);
+      margin-top: 28px;
+    }
+
+    .ws-hrs {
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-size: 0.72rem;
+      letter-spacing: 0.05em;
+      text-transform: none;
+      color: var(--ink-3);
+      margin-top: 2px;
+      display: block;
+    }
+
+    .deliverables {
+      background: var(--paper-2);
+      border: 1px solid var(--rule);
+      padding: 20px 24px;
+      margin: 8px 0 0;
+    }
+
+    .deliverables-label {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+      margin-bottom: 14px;
+    }
+
+    .deliverables ul { list-style: none; padding: 0; margin: 0; }
+
+    .deliverables li {
+      font-size: 0.95rem;
+      color: var(--ink-2);
+      line-height: 1.65;
+      padding: 0 0 10px 16px;
+      position: relative;
+      border: none;
+      display: block;
+      grid-template-columns: none;
+    }
+
+    .deliverables li:last-child { padding-bottom: 0; }
+
+    .deliverables li::before {
+      content: '·';
+      position: absolute;
+      left: 0;
+      top: -1px;
+      color: var(--cobalt-lt);
+      font-weight: 700;
+      font-size: 1.2rem;
+      line-height: 1.4;
+    }
+
     @media print {
       header { position: static; }
       body { background: white; }
@@ -297,66 +360,107 @@
     </div>
 
 
-    <!-- ── WHAT I HEARD ── -->
+    <!-- ── EXECUTIVE SUMMARY ── -->
     <section>
-      <h2 class="section-heading">What I Heard</h2>
-      <p><strong>First</strong>, you can build almost anything with AI now, so the hard problem is deciding what to build next, and that call has to come from customer signal rather than founder instinct.</p>
-      <p><strong>Second</strong>, one developer carries the entire product, so every new design partner competes for the same hours, and you need a way to grow demand without losing control of what you can ship.</p>
-      <p><strong>Third</strong>, founder-led attention on your priority customers is the right call, since high NPS and design-partner trust depend on it, but that same hands-on approach won't stretch across 76 warm leads and 300 attendees, and the rest of the list needs a parallel track.</p>
-      <p>Keyflex AI is its own first customer. You built it inside Keyflex Ventures, a midterm-rental operation that crossed $1M in revenue and peaked near 26 units, because you ran the workflow yourself and knew the tooling didn't exist. Most vertical-AI founders guess at the operator's day. You lived it.</p>
+      <h2 class="section-heading">Overview</h2>
+      <p>Keyflex AI is an operating system for midterm rental operators, built by people who ran the workflow themselves. Incorporated April 2026. First agent in production by May. Coming out of MTR Summit: one paying customer at $1,000/month, one stalled LOI, 76 warm leads, and 306 attendees in the database. The product is stable enough to promise to new customers. The open questions are what to charge, who to close first, and how to build a fundraising pipeline that reflects what's been proven.</p>
+      <p>Three areas are running on instinct where they should be running on process: pricing and cohort strategy, operator pipeline activation, and fundraise operations. The decisions in each area cascade into the others. Pricing determines who to go after. Who you go after determines what JR builds. What JR builds determines what you can show investors. Month 1 builds the foundation across all three at the same time, because they can't be sequenced.</p>
     </section>
 
 
-    <!-- ── HOW I CAN HELP ── -->
+    <!-- ── THE ENGAGEMENT ── -->
     <section>
-      <h2 class="section-heading cobalt">How I Can Help</h2>
-      <p>My work at Bastille is fractional and sprint-based. I come in for defined phases, deliver specific things, and leave the team stronger. The work falls into three areas.</p>
+      <h2 class="section-heading cobalt">The Engagement</h2>
+      <p>Three months, defined in advance, evaluated at the end of each. Month 1 is 30 hours and produces six deliverables — playbooks and frameworks Camille and JR own and run after I'm out of them. Months 2 and 3 are each 25 hours: running the sprint cadence with JR, refining pricing against real market data, following through on investor conversations, and bringing in introductions from my network in vertical AI. Month 3 closes with a process handoff and a cohort read-out.</p>
 
+      <div class="month-label">Month 1 — 30 hours / $5,250</div>
       <ul class="workstream-list">
         <li>
-          <div class="ws-title">Operating Plan &amp; Scope Discipline</div>
-          <div class="ws-body">
-            <ul>
-              <li>Map the milestones from today to a defined target: recurring billing from Rebecca, the first cohort signed, and the point where the product pays for its own development.</li>
-              <li>Build the iteration-scoping framework: define the signals that trigger a build decision, so the roadmap moves on customer evidence, not on whatever is possible that week.</li>
-              <li>Turn the six-month roadmap into a sprint plan divided into two-week sprints, so you and JR see what ships when and protect focus against scope creep.</li>
-              <li>Translate cohort feedback into a prioritized feature queue, weighting the 20-to-40-unit operators who share the same problems and setting aside the outliers that pollute the signal.</li>
-            </ul>
-          </div>
+          <div class="ws-title">Pricing &amp; Cohort Strategy<span class="ws-hrs">~6 hrs</span></div>
+          <div class="ws-body">The three customer tranches you described — self-serve, core SaaS at 20–40 units, custom/enterprise at 100+ — want different things from the product and will pay different amounts for it. This work maps each tranche to what can ship today versus in 30 and 90 days, then builds the pricing playbook: structured tests at increasing price points, feedback capture, tier-by-tier framing, and criteria for when to move the number up or hold. Revenue forecast built at different close rates.</div>
         </li>
         <li>
-          <div class="ws-title">Pipeline Activation</div>
-          <div class="ws-body">
-            <ul>
-              <li>Tranche the 76 warm leads and 300 attendees into priority groups, with tier one routed to Camille for founder-led sales and the rest to a scaled process.</li>
-              <li>Run stakeholder interviews at scale: 15-minute calls with tier-two and tier-three operators that gather workflow detail and close with a soft introduction to what you shipped that week.</li>
-              <li>Define design-partner intake: a fixed scope for what a design partner gets, so each one stays inside what JR can deliver.</li>
-              <li>Stand up a private update channel for operators who complete an interview, where they watch their feedback turn into shipped features and stay warm until the product is ready for them.</li>
-              <li>Set up outreach as a campaign rather than one-off sends: sourcing, sequencing, and tooling, built in the stack you already pay for or in Claude Code.</li>
-            </ul>
-          </div>
+          <div class="ws-title">Design-Partner Conversion<span class="ws-hrs">~4 hrs</span></div>
+          <div class="ws-body">Camille is running tier-one conversations. This work is about making those conversations land: what to ask, how to frame the design-partner ask, how to handle objections by type, when to close versus keep warm. The output is a playbook she can run without me in the room — plus the materials that go with it: a one-pager and a follow-up template with send timing. Target: 3–5 confirmations from the MTR Summit lead list.</div>
         </li>
         <li>
-          <div class="ws-title">Fundraise Readiness</div>
-          <div class="ws-body">
-            <p class="ws-note">Your call, when you want it.</p>
-            <ul>
-              <li>Comp your milestones to the numbers a raise requires: the ARR, customer count, and retention the firms funding vertical AI fund against.</li>
-              <li>Open direct conversations with those investors, so your targets reflect what they fund.</li>
-              <li>Build the narrative from the operator-built origin and cohort traction, framed for the people who write the check.</li>
-              <li>Make the introductions. My network includes a real part of the vertical-AI investor base.</li>
-            </ul>
-          </div>
+          <div class="ws-title">Operator Engagement<span class="ws-hrs">~7 hrs</span></div>
+          <div class="ws-body">76 warm leads and 300 attendees is a segmentation problem before it's an outreach problem. This work tranches the list, builds the interview script, runs stakeholder interviews directly with tier-two and tier-three operators, stands up the private update channel, and defines the follow-up cadence and criteria for graduating contacts from interview to active conversation. The output is a playbook Camille owns — not a one-time list pull.</div>
+        </li>
+        <li>
+          <div class="ws-title">Product Prioritization<span class="ws-hrs">~3 hrs</span></div>
+          <div class="ws-body">JR is making build decisions against competing inputs from design partners. This work, built with JR, is the mechanism that translates cohort feedback into sprint inputs — so the roadmap moves on customer evidence rather than what's technically possible that week.</div>
+        </li>
+        <li>
+          <div class="ws-title">Fundraise Ops<span class="ws-hrs">~10 hrs</span></div>
+          <div class="ws-body">Start with who Camille and JR already know: operators, angels, advisors, anyone with a check to write or a name that opens rooms. Build the pipeline doc, stage every contact, define the outreach sequence and meeting prep framework. Build the investor and advisor deck. Prep Camille and JR for every conversation. By month end: all first-round angel and strategic conversations done or actively scheduled, with a clear read on who's moving and who isn't.</div>
+        </li>
+      </ul>
+
+      <div class="deliverables">
+        <div class="deliverables-label">Month 1 Deliverables</div>
+        <ul>
+          <li>Customer tranche map with feature availability by tier (today / 30 days / 90 days)</li>
+          <li><strong>Pricing Playbook:</strong> price discovery test sequence, feedback capture mechanism, tier-by-tier framing guidance, criteria for when to move the number up or hold, revenue forecast at different close rates</li>
+          <li><strong>Design-Partner Sales Playbook:</strong> question set for tier-one conversations, objection handling by type, close vs. hold criteria, one-pager for prospects, follow-up template and send timing</li>
+          <li><strong>Operator Engagement Playbook:</strong> segmentation criteria for the full lead list (76 warm leads and 300 attendees tiered), stakeholder interview script, completed interviews with tier-two and tier-three operators, private update channel stood up and seeded, follow-up cadence and content rhythm, criteria for graduating contacts from interview to active conversation</li>
+          <li>Product prioritization framework: cohort feedback → sprint input process, built with JR</li>
+          <li><strong>Fundraise Operations Playbook:</strong> contact mapping process and completed map of everyone Camille and JR already know, pipeline staging criteria, outreach sequencing, meeting prep framework, investor and advisor deck working draft, first-round angel and strategic outreach done or actively scheduled with a status read on each</li>
+        </ul>
+      </div>
+
+      <div class="month-label">Month 2 — ~25 hours / est. $4,375</div>
+      <ul class="workstream-list">
+        <li>
+          <div class="ws-title">Feedback Synthesis &amp; Sprint Inputs<span class="ws-hrs">~6 hrs</span></div>
+          <div class="ws-body">Camille is running daily calls with design partners. This work takes that raw input, structures it into a ranked feature queue for JR, and filters out the outlier requests that would pull the roadmap off course. The output drops directly into JR's sprint. Where the product prioritization framework from month 1 defined the process, this is the first full execution cycle — in it with JR, not handing it off.</div>
+        </li>
+        <li>
+          <div class="ws-title">Sprint Planning with JR<span class="ws-hrs">~4 hrs</span></div>
+          <div class="ws-body">Two two-week sprints scoped for the month, built from the cohort synthesis. The work here is translation: customer signal into sprint inputs, and a pressure-test on whether what JR plans to ship matches what the cohort asked for. By the end of month 2 this cadence should be something JR can run without me — month 2 is where we find out if the framework holds under real sprint pressure.</div>
+        </li>
+        <li>
+          <div class="ws-title">Pricing Playbook Iteration<span class="ws-hrs">~5 hrs</span></div>
+          <div class="ws-body">Month 1 pricing tests have results. This work analyzes what came back, produces a working recommendation on the number to pitch and how to frame it by tier, and updates the revenue forecast at different close rates. The Pricing Playbook gets its first real revision — adjusted for what the market actually said, not what we modeled.</div>
+        </li>
+        <li>
+          <div class="ws-title">Fundraise Follow-Through<span class="ws-hrs">~7 hrs</span></div>
+          <div class="ws-body">Month 1 conversations are resolved or in motion. Anyone who said yes or maybe gets a clear next step. Anyone who went quiet gets one more touch. Managing the pipeline alongside Camille — not reporting on it from the outside. The pipeline doc stays current. No false optimism.</div>
+        </li>
+        <li>
+          <div class="ws-title">Operator Engagement Iteration<span class="ws-hrs">~3 hrs</span></div>
+          <div class="ws-body">Review what the month 1 interviews produced, adjust the script where the signal says to, and flag which interview completers are warm enough for Camille to move into a direct conversation. The Operator Engagement Playbook gets its first real test — month 2 is where we find out what the cadence actually does to contact temperature.</div>
+        </li>
+      </ul>
+
+      <div class="month-label">Month 3 — ~25 hours / est. $4,375</div>
+      <ul class="workstream-list">
+        <li>
+          <div class="ws-title">Investor Narrative<span class="ws-hrs">~7 hrs</span></div>
+          <div class="ws-body">Retention data, a tested price point, design partners on record. The deck shifts from "here's what we're building" to "here's what we've proven." This work sharpens it into something you'd put in front of a fund — and updates the Fundraise Operations Playbook to reflect what the first two months of conversations actually taught us about who moves and who doesn't.</div>
+        </li>
+        <li>
+          <div class="ws-title">Investor Intros &amp; Prep<span class="ws-hrs">~8 hrs</span></div>
+          <div class="ws-body">Month 3 is where my network comes in — warm intros to pre-seed funds and angels in vertical AI. Every intro carries context. Prep before every meeting, debrief after. Not hand-offs: in the room on the prep and on the read-out.</div>
+        </li>
+        <li>
+          <div class="ws-title">ICP &amp; Cohort Read-Out<span class="ws-hrs">~5 hrs</span></div>
+          <div class="ws-body">Cross-cohort analysis of everything the design partners and stakeholder interviews produced across two months: does the 20–40 unit ICP hold, does pricing converge, what does the signal say about the next cohort? A short memo that either confirms the strategy or names where it needs to adjust. This is the first real test of whether the playbooks produced durable signal or noise.</div>
+        </li>
+        <li>
+          <div class="ws-title">Process Handoff<span class="ws-hrs">~5 hrs</span></div>
+          <div class="ws-body">The four playbooks built in month 1 and iterated in month 2 get their final version here — documented so Camille owns all of them going into month 4, regardless of whether the engagement continues. The handoff includes a short walkthrough session with Camille so nothing lives only in my head.</div>
         </li>
       </ul>
     </section>
 
 
-    <!-- ── HOW I WORK ── -->
+    <!-- ── TERMS ── -->
     <section>
-      <h2 class="section-heading">How I Work</h2>
+      <h2 class="section-heading">Terms</h2>
       <div class="terms">
-        <p>I work as an embedded operator, inside the company on the actual work. Engagements run as monthly retainers built around sprints, with milestones set at the start and reviewed at the end. We start with one month. At the close we check what we set out to hit, what we hit, and why, then decide whether to continue. 50% upfront, work begins on receipt. Month one produces a milestone map from June to your target, a two-week sprint plan against the six-month roadmap, the iteration-scoping framework, a tranched outreach list with a stakeholder-interview process, and the structure for your design-partner nurture channel.</p>
+        <p>Month 1 retainer: <strong>$5,250</strong> (30 hrs at $175/hr). 50% upfront, work begins on receipt. Balance due at month end.</p>
+        <p>Months 2 and 3 are each estimated at <strong>$4,375</strong> (25 hrs at $175/hr). Hours are confirmed at the close of the prior month against what the work actually requires. Whether we move forward is a decision made together at the end of each month — based on whether the deliverables landed and the engagement is producing.</p>
       </div>
     </section>
 

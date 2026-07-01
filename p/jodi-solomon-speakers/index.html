@@ -115,10 +115,26 @@
       letter-spacing: 0.04em;
       line-height: 1.02;
       color: var(--ink);
-      margin-bottom: 0;
+      margin-bottom: 20px;
     }
 
     .doc-title .accent { color: var(--pink); }
+
+    .doc-for {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding-top: 16px;
+      border-top: 1px solid var(--rule);
+    }
+
+    .doc-for-names {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      font-style: italic;
+      color: var(--ink-2);
+    }
 
     /* ── SECTIONS ── */
     section { margin-bottom: 52px; }
@@ -350,6 +366,9 @@
     <div class="doc-meta">
       <div class="doc-eyebrow">Bastille Advisory · June 2026</div>
       <h1 class="doc-title">Jodi Solomon Speakers<br><span class="accent">Engagement Overview</span></h1>
+      <div class="doc-for">
+        <span class="doc-for-names">For Katie Dupuree</span>
+      </div>
     </div>
 
 

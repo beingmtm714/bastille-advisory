@@ -175,12 +175,11 @@
     /* ── FINDING LIST (What I Found bullets) ── */
     .finding-list {
       list-style: none;
-      border-top: 1px solid var(--rule);
+      margin-top: 4px;
     }
 
     .finding-list li {
-      padding: 14px 0;
-      border-bottom: 1px solid var(--rule-lt);
+      padding: 7px 0;
       display: grid;
       grid-template-columns: 8px 1fr;
       gap: 14px;
@@ -202,15 +201,20 @@
     .finding-list li strong { font-weight: 600; color: var(--ink); }
 
     /* ── WORKSTREAMS ── */
-    .workstream-list { list-style: none; border-top: 1px solid var(--rule); }
+    .workstream-list { list-style: none; margin-top: 4px; }
 
     .workstream-list li {
-      padding: 24px 0;
-      border-bottom: 1px solid var(--rule-lt);
+      padding: 4px 0;
       display: grid;
       grid-template-columns: 180px 1fr;
       gap: 24px;
       align-items: start;
+    }
+
+    .workstream-list li + li {
+      margin-top: 32px;
+      padding-top: 32px;
+      border-top: 1px solid var(--rule);
     }
 
     .ws-title {
@@ -314,13 +318,12 @@
     }
 
     /* ── NEXT STEPS (ordered) ── */
-    .steps { list-style: none; counter-reset: step; padding: 0; margin: 0; border-top: 1px solid var(--rule); }
+    .steps { list-style: none; counter-reset: step; padding: 0; margin: 4px 0 0; }
 
     .steps > li {
       counter-increment: step;
       position: relative;
-      padding: 16px 0 16px 44px;
-      border-bottom: 1px solid var(--rule-lt);
+      padding: 10px 0 10px 44px;
       font-size: 0.98rem;
       color: var(--ink-2);
       line-height: 1.65;
@@ -330,7 +333,7 @@
       content: counter(step);
       position: absolute;
       left: 0;
-      top: 16px;
+      top: 10px;
       width: 26px;
       height: 26px;
       border-radius: 50%;
@@ -427,7 +430,7 @@
     <section>
       <h2 class="section-heading">What I Heard</h2>
       <p>Our conversation surfaced three structural problems. None of them is the product. The product is real and ahead of the story. Eight of the top ten funds are in trial.</p>
-      <p><strong>First</strong>, the trials aren't converting. You learned this week the cycles run closer to six months than six weeks.</p>
+      <p><strong>First</strong>, the trials aren't converting. You learned last week the cycles run closer to six months than six weeks.</p>
       <p><strong>Second</strong>, you carry all of sales and ops yourself.</p>
       <p><strong>Third</strong>, the narrative is underbuilt, for buyers and investors both, with the September raise on a three-month clock.</p>
     </section>

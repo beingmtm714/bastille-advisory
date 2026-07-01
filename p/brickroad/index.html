@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <title>Bastille Advisory — Brickroad</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Gloock:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink:       oklch(12% 0.008 260);
+      --ink-2:     oklch(28% 0.008 260);
+      --ink-3:     oklch(44% 0.008 260);
+      --paper:     oklch(98% 0.008 87);
+      --paper-2:   oklch(95% 0.012 87);
+      --pink:      oklch(54% 0.28 8);
+      --pink-lt:   oklch(62% 0.24 8);
+      --cobalt-lt: oklch(50% 0.22 264);
+      --lime-dk:   oklch(52% 0.18 125);
+      --rule:      oklch(85% 0.010 87);
+      --rule-lt:   oklch(90% 0.010 87);
+      --font-hero: 'Bebas Neue', 'Arial Narrow', sans-serif;
+      --font-serif: 'Gloock', Georgia, serif;
+      --font-body:  'Barlow', system-ui, sans-serif;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { font-size: 18px; scroll-behavior: smooth; }
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--font-body);
+      font-weight: 400;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    .container { max-width: 820px; margin: 0 auto; padding: 0 40px; }
+
+    /* ── HEADER ── */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: var(--paper);
+      border-top: 3px solid var(--pink);
+      border-bottom: 1px solid var(--rule);
+      padding: 20px 0;
+    }
+
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 24px;
+    }
+
+    .logo-text { text-decoration: none; display: block; }
+
+    .logo-main {
+      font-family: var(--font-hero);
+      font-size: 1.2rem;
+      letter-spacing: 0.18em;
+      color: var(--ink);
+      line-height: 1;
+    }
+
+    .logo-sub {
+      font-family: var(--font-body);
+      font-size: 0.55rem;
+      font-weight: 600;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--pink);
+      line-height: 1;
+      margin-top: 3px;
+    }
+
+    .header-contact {
+      font-size: 0.72rem;
+      font-weight: 400;
+      color: var(--ink-3);
+      text-align: right;
+      line-height: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .header-contact a {
+      color: var(--ink-3);
+      text-decoration: none;
+      border-bottom: 1px solid var(--rule);
+      transition: color 0.15s, border-color 0.15s;
+    }
+
+    .header-contact a:hover { color: var(--pink); border-color: var(--pink); }
+
+    /* ── DOCUMENT TITLE ── */
+    .doc-meta { padding-top: 52px; margin-bottom: 52px; }
+
+    .doc-eyebrow {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+      margin-bottom: 14px;
+    }
+
+    .doc-title {
+      font-family: var(--font-hero);
+      font-size: clamp(2.4rem, 6vw, 3.6rem);
+      letter-spacing: 0.04em;
+      line-height: 1.02;
+      color: var(--ink);
+      margin-bottom: 20px;
+    }
+
+    .doc-title .accent { color: var(--pink); }
+
+    .doc-for {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding-top: 16px;
+      border-top: 1px solid var(--rule);
+    }
+
+    .doc-for-names {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      font-style: italic;
+      color: var(--ink-2);
+    }
+
+    .company-logo {
+      height: 30px;
+      width: auto;
+      display: block;
+      flex-shrink: 0;
+    }
+
+    /* ── SECTIONS ── */
+    section { margin-bottom: 52px; }
+
+    .section-heading {
+      font-family: var(--font-hero);
+      font-size: 1.3rem;
+      letter-spacing: 0.1em;
+      color: var(--ink);
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--rule);
+      position: relative;
+    }
+
+    .section-heading::after {
+      content: '';
+      position: absolute;
+      bottom: -1px; left: 0;
+      width: 32px; height: 2px;
+      background: var(--pink);
+    }
+
+    .section-heading.lime::after   { background: var(--lime-dk); }
+    .section-heading.cobalt::after { background: var(--cobalt-lt); }
+
+    p { font-size: 1rem; color: var(--ink-2); line-height: 1.75; margin-bottom: 16px; }
+    p:last-child { margin-bottom: 0; }
+    strong { font-weight: 600; color: var(--ink); }
+
+    /* ── FINDING LIST (What I Found bullets) ── */
+    .finding-list {
+      list-style: none;
+      border-top: 1px solid var(--rule);
+    }
+
+    .finding-list li {
+      padding: 14px 0;
+      border-bottom: 1px solid var(--rule-lt);
+      display: grid;
+      grid-template-columns: 8px 1fr;
+      gap: 14px;
+      font-size: 0.97rem;
+      color: var(--ink-2);
+      line-height: 1.6;
+    }
+
+    .finding-list li::before {
+      content: '';
+      display: block;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--lime-dk);
+      margin-top: 8px;
+    }
+
+    .finding-list li strong { font-weight: 600; color: var(--ink); }
+
+    /* ── WORKSTREAMS ── */
+    .workstream-list { list-style: none; border-top: 1px solid var(--rule); }
+
+    .workstream-list li {
+      padding: 24px 0;
+      border-bottom: 1px solid var(--rule-lt);
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .ws-title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--cobalt-lt);
+      padding-top: 3px;
+      line-height: 1.4;
+    }
+
+    .ws-seq {
+      display: block;
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 0.62rem;
+      letter-spacing: 0.05em;
+      text-transform: none;
+      color: var(--ink-3);
+      margin-top: 4px;
+    }
+
+    .ws-body { font-size: 0.97rem; color: var(--ink-2); line-height: 1.7; }
+    .ws-body p { font-size: 0.97rem; }
+
+    .ws-note {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 0.92rem;
+      color: var(--ink-3);
+      margin-bottom: 12px;
+    }
+
+    .ws-body ul { list-style: none; margin: 0; padding: 0; }
+
+    .ws-body > ul > li {
+      display: block;
+      position: relative;
+      padding: 0 0 10px 16px;
+      border: none;
+      grid-template-columns: none;
+      gap: 0;
+    }
+
+    .ws-body > ul > li:last-child { padding-bottom: 0; }
+
+    .ws-body > ul > li::before {
+      content: '·';
+      position: absolute;
+      left: 0;
+      top: -1px;
+      color: var(--cobalt-lt);
+      font-weight: 700;
+      font-size: 1.2rem;
+      line-height: 1.4;
+    }
+
+    /* nested sub-bullets */
+    .ws-body ul ul { margin: 8px 0 2px; }
+    .ws-body ul ul li {
+      display: block;
+      position: relative;
+      padding: 0 0 6px 16px;
+      font-size: 0.93rem;
+      color: var(--ink-3);
+    }
+    .ws-body ul ul li::before {
+      content: '–';
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--ink-3);
+      font-weight: 600;
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    /* ── SCOPE QUESTIONS ── */
+    .scope-list { list-style: none; padding: 0; margin: 0; }
+
+    .scope-list li {
+      font-size: 0.98rem;
+      color: var(--ink-2);
+      line-height: 1.65;
+      padding: 0 0 12px 18px;
+      position: relative;
+    }
+
+    .scope-list li:last-child { padding-bottom: 0; }
+
+    .scope-list li::before {
+      content: '?';
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--pink);
+      font-family: var(--font-hero);
+      font-size: 1rem;
+      line-height: 1.65;
+    }
+
+    /* ── NEXT STEPS (ordered) ── */
+    .steps { list-style: none; counter-reset: step; padding: 0; margin: 0; border-top: 1px solid var(--rule); }
+
+    .steps > li {
+      counter-increment: step;
+      position: relative;
+      padding: 16px 0 16px 44px;
+      border-bottom: 1px solid var(--rule-lt);
+      font-size: 0.98rem;
+      color: var(--ink-2);
+      line-height: 1.65;
+    }
+
+    .steps > li::before {
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: 16px;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: var(--ink);
+      color: var(--paper);
+      font-family: var(--font-hero);
+      font-size: 0.85rem;
+      letter-spacing: 0.02em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+    }
+
+    .step-note {
+      margin-top: 8px;
+      font-size: 0.88rem;
+      color: var(--ink-3);
+      line-height: 1.6;
+      padding-left: 14px;
+      border-left: 2px solid var(--rule);
+    }
+
+    /* ── TERMS / CALLOUT BLOCK ── */
+    .terms {
+      background: var(--paper-2);
+      border: 1px solid var(--rule);
+      padding: 24px 28px;
+      margin-top: 8px;
+    }
+
+    .terms p { font-size: 0.95rem; }
+
+    /* ── FOOTER ── */
+    footer {
+      margin-top: 64px;
+      padding: 24px 0;
+      border-top: 1px solid var(--rule);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .footer-brand { font-family: var(--font-hero); font-size: 0.9rem; letter-spacing: 0.18em; color: var(--ink-3); }
+    .footer-note { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); }
+
+    @media print {
+      header { position: static; }
+      body { background: white; }
+      .terms { background: #f7f5f0; }
+    }
+
+    @media (max-width: 620px) {
+      .container { padding: 0 24px; }
+      .header-inner { flex-direction: column; gap: 10px; }
+      .header-contact { text-align: left; }
+      .workstream-list li { grid-template-columns: 1fr; gap: 8px; }
+      footer { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <div class="header-inner">
+        <a class="logo-text" href="https://bastilleadvisory.xyz">
+          <div class="logo-main">BASTILLE</div>
+          <div class="logo-sub">Advisory</div>
+        </a>
+        <div class="header-contact">
+          Michael Martin<br>
+          <a href="mailto:michael@bastilleadvisory.xyz">michael@bastilleadvisory.xyz</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <!-- ── DOCUMENT TITLE ── -->
+    <div class="doc-meta">
+      <div class="doc-eyebrow">July 2026 · Confidential</div>
+      <h1 class="doc-title">Brickroad:<br><span class="accent">Perspective</span> &amp; Potential Support</h1>
+      <div class="doc-for">
+        <span class="doc-for-names">For Freeman Lewin</span>
+        <img src="brickroad-logo.png" alt="Brickroad" class="company-logo">
+      </div>
+    </div>
+
+
+    <!-- ── WHAT I HEARD ── -->
+    <section>
+      <h2 class="section-heading">What I Heard</h2>
+      <p>Our conversation surfaced three structural problems. None of them is the product. The product is real and ahead of the story. Eight of the top ten funds are in trial.</p>
+      <p><strong>First</strong>, the trials aren't converting. You learned this week the cycles run closer to six months than six weeks.</p>
+      <p><strong>Second</strong>, you carry all of sales and ops yourself.</p>
+      <p><strong>Third</strong>, the narrative is underbuilt, for buyers and investors both, with the September raise on a three-month clock.</p>
+    </section>
+
+
+    <!-- ── WHAT I FOUND ── -->
+    <section>
+      <h2 class="section-heading lime">What I Found</h2>
+      <p>The diagnostic from our first call named four gaps that resolve into one commercial function:</p>
+      <ul class="finding-list">
+        <li><span><strong>Vertical sequencing.</strong> Which buyer profile comes after hedge funds, sized and ranked, ready to be a slide for the raise.</span></li>
+        <li><span><strong>Narrative and the raise.</strong> One spine, split for two rooms. The buyer story and the investor story share it.</span></li>
+        <li><span><strong>The closing motion.</strong> Two sales live inside trial conversion. The hedge-fund quant-data sale wants a specialist closer. The relationship-led verticals want a generalist commercial operator.</span></li>
+        <li><span><strong>Retention.</strong> Your value compounds with usage. The contract layer flags renewals by design. No one owns this yet.</span></li>
+      </ul>
+      <p style="margin-top:24px;">That's the full build. Since then you've named what narrows it.</p>
+      <ul class="finding-list">
+        <li><span>You're wary of a full-time hire and the dilution it costs.</span></li>
+        <li><span>You stop selling on August 1 to run the raise.</span></li>
+        <li><span>The trials run six-month cycles, so revenue won't carry September on its own.</span></li>
+        <li><span>You "don't want a repeat of the last raise."</span></li>
+      </ul>
+      <p style="margin-top:24px;">So this proposal is the down-scope: the two pieces that have to move before September, in order. Raise readiness leads, because the clock is shortest there. Commercial architecture follows, scoped and ready to build. Both are below.</p>
+    </section>
+
+
+    <!-- ── HOW I CAN HELP ── -->
+    <section>
+      <h2 class="section-heading cobalt">How I Can Help</h2>
+      <p>Bastille is an embedded operator. One person, in the work, alongside you. Three months, with the option to extend as needs evolve. Two workstreams, sequenced.</p>
+
+      <ul class="workstream-list">
+        <li>
+          <div class="ws-title">Raise Readiness<span class="ws-seq">Leads · on-ramp week of July 27</span></div>
+          <div class="ws-body">
+            <p class="ws-note">Live the moment you step off sales on August 1.</p>
+            <ul>
+              <li>I collaborate with you to refine what exists today into one narrative and keep the numbers current across the deck and every follow-up, so nothing goes stale between the first send and the close.</li>
+              <li>I act as a pitch and narrative player-coach. The first time you pitch shouldn't be in front of an investor. We run regular 1-1s where you pitch, we refine the deck, pressure-test the narrative and its sequencing, and iterate as real feedback comes in.</li>
+              <li>I use my warm investor relationships, alongside yours, to define the milestones investors deploy against, not the ones we assume.
+                <ul>
+                  <li>We co-define the usage proxies that carry the story until revenue lands: daily searches, dataset pulls, platform use for ideation, shown as a clean climb toward the J-curve.</li>
+                  <li>These relationships also put what you're building in front of investors before you open the raise, building signal and interest for when it opens.</li>
+                </ul>
+              </li>
+              <li>I run the IR prep and facilitate warm introductions before you need them: pipeline development, tools to triage the list (or integration with yours), and the follow-through that gets leads closed.</li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <div class="ws-title">Commercial Architecture<span class="ws-seq">Follows · build-ready end of August</span></div>
+          <div class="ws-body">
+            <p class="ws-note">The retention plan gets designed before the raise, not improvised during it.</p>
+            <p>Investors will want both sides: top-of-funnel acquisition with its CAC and GMV, and your plan to prevent churn and land-and-expand within existing accounts. You can design the second part today, with your trial partners, and it's essential to show in investor conversations.</p>
+            <p>I work with you and the team to evaluate the current system, set success metrics for today through the next few quarters (internal and client-facing), then design backwards from today's gaps layered with the best practices enterprise accounts demand. The output: client-facing northstars that drive retention, plus tactical processes and playbooks to deploy as the client base scales.</p>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+
+    <!-- ── WHAT COMES AFTER ── -->
+    <section>
+      <h2 class="section-heading">What Comes After</h2>
+      <p>The three months stand on their own. Where it goes next is a decision for both of us once we've worked together and the raise is moving. Continued advisory, a deeper commercial role, or a clean handoff. No presumption now.</p>
+    </section>
+
+
+    <!-- ── TO SCOPE THIS TOGETHER ── -->
+    <section>
+      <h2 class="section-heading">To Scope This Together</h2>
+      <p>A couple of open questions from our last call:</p>
+      <ul class="scope-list">
+        <li>Are all trials free right now?</li>
+        <li>Are there smaller, buyable products that compress the six-month cycle?</li>
+      </ul>
+    </section>
+
+
+    <!-- ── NEXT STEPS ── -->
+    <section>
+      <h2 class="section-heading cobalt">Next Steps</h2>
+      <ol class="steps">
+        <li>Confirm the above looks right. If so, I draft a set of deliverables.</li>
+        <li>Confirm hours per month and draft the retainer with fee.
+          <div class="step-note">I price the retainer off a $250/hr rate. I don't track time by the minute. The hours estimate behind the math keeps us both aligned on scope. The deliverables we agree to in the SOW are what I work toward, and they get done even if the time runs over.</div>
+        </li>
+        <li>Draft the SOW with deliverables, send for signing, execute.</li>
+        <li>Begin the engagement the week of July 27.</li>
+      </ol>
+    </section>
+
+
+    <!-- ── FOOTER ── -->
+    <footer>
+      <span class="footer-brand">BASTILLE ADVISORY</span>
+      <span class="footer-note">bastilleadvisory.xyz · Confidential</span>
+    </footer>
+
+  </div>
+</body>
+</html>

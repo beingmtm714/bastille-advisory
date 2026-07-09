@@ -167,26 +167,24 @@
     em { color: var(--ink-2); }
 
     /* ── FINDING LIST (Current Status) ── */
-    .finding-list {
-      list-style: none;
-      border-top: 1px solid var(--rule);
-    }
+    .finding-list { list-style: none; }
 
     .finding-list li {
       position: relative;
-      padding: 14px 0 14px 22px;
-      border-bottom: 1px solid var(--rule-lt);
+      padding: 10px 0 10px 22px;
       font-size: 0.97rem;
       color: var(--ink-2);
       line-height: 1.6;
     }
 
+    /* top offset = (line-height in px − dot diameter) / 2, so the dot centers on the
+       FIRST LINE of the bullet's text, not the full (possibly multi-line) item:
+       0.97rem (17.46px) × 1.6 line-height = 27.94px line box; (27.94 − 5) / 2 ≈ 11.5px */
     .finding-list li::before {
       content: '';
       position: absolute;
       left: 0;
-      top: 50%;
-      transform: translateY(-50%);
+      top: 11.5px;
       width: 5px;
       height: 5px;
       border-radius: 50%;
@@ -194,11 +192,10 @@
     }
 
     /* ── WORKSTREAMS (Scope of Work) ── */
-    .workstream-list { list-style: none; border-top: 1px solid var(--rule); }
+    .workstream-list { list-style: none; }
 
     .workstream-list > li {
-      padding: 24px 0;
-      border-bottom: 1px solid var(--rule-lt);
+      padding: 20px 0;
       display: grid;
       grid-template-columns: 180px 1fr;
       gap: 24px;
@@ -225,24 +222,18 @@
       margin-bottom: 10px;
     }
     .ws-bullets > li:last-child { margin-bottom: 0; }
-    /* top:50% + translateY(-50%) centers the dot on the li's full rendered height —
-       stays correct regardless of how many lines the deliverable text wraps to, and
-       (unlike flex) doesn't disturb the nested <ul> below the advisory-board bullet's text */
+    /* first-line centering: 0.97rem (17.46px) × 1.7 line-height = 29.68px line box;
+       (29.68 − 5) / 2 ≈ 12.3px. Aligns to the bullet's first line even when the text
+       wraps to several lines or (as with the advisory-board bullet) is followed by a
+       nested <ul> — the dot never drifts down to "center on the whole item." */
     .ws-bullets > li::before {
       content: '';
       position: absolute;
       left: 0;
-      top: 50%;
-      transform: translateY(-50%);
+      top: 12.3px;
       width: 5px; height: 5px;
       border-radius: 50%;
       background: var(--cobalt-lt);
-    }
-    /* the advisory-board bullet's marker should sit on its own first line, not centered
-       across the text plus the nested sub-bullets below it */
-    .ws-bullets > li:has(.ws-sub-bullets)::before {
-      top: 0.78em;
-      transform: none;
     }
 
     .ws-sub-bullets { list-style: none; margin-top: 8px; }
@@ -258,8 +249,7 @@
       content: '–';
       position: absolute;
       left: 0;
-      top: 50%;
-      transform: translateY(-50%);
+      top: 0;
       color: var(--ink-3);
     }
 
@@ -283,11 +273,12 @@
       color: var(--ink-2);
     }
     .terms li:last-child { margin-bottom: 0; }
+    /* first-line centering: 0.95rem (17.1px) × 1.7 line-height (inherited from body)
+       = 29.07px line box; (29.07 − 5) / 2 ≈ 12px */
     .terms li::before {
       content: '';
       position: absolute;
-      left: 0; top: 50%;
-      transform: translateY(-50%);
+      left: 0; top: 12px;
       width: 5px; height: 5px;
       border-radius: 50%;
       background: var(--pink);
@@ -363,7 +354,7 @@
         <li>14 protocols in active conversation; no onboarding path currently exists for them.</li>
         <li>40 members in the Telegram community; no fixed communication cadence in place.</li>
         <li>Testnet launch timeline not yet finalized internally.</li>
-        <li>Prior funding conversation (a16z) concluded with a request for demonstrated user and developer traction prior to further evaluation.</li>
+        <li>Prior funding conversation (a16z) concluded pending demonstrated user and developer traction.</li>
       </ul>
     </section>
 
@@ -377,16 +368,16 @@
           <div class="ws-body">
             <p class="ws-overview">Builds the system that keeps the current community engaged and channels its highest-leverage members into a structured advisory board.</p>
             <ul class="ws-bullets">
-              <li>Written engagement and retention framework, delivered in playbook format, covering communication cadence, content themes, response protocols, and the entry sequence for new protocols joining following onboarding.</li>
-              <li>Tooling configuration required to execute the framework, including content calendar scheduling, plus baseline engagement metrics enabling before/after comparison.</li>
-              <li>Advisory board, formed from the community's highest-leverage members (not simply the most active) to provide structured product feedback and testnet validation ahead of public launch, and to serve as a referral channel feeding new protocols into the Acquisition pipeline:
+              <li>Engagement and retention playbook: communication cadence, content themes, response protocols, and new-protocol entry sequence.</li>
+              <li>Tooling configuration (content calendar scheduling) plus baseline engagement metrics.</li>
+              <li>Advisory board of the community's highest-leverage members (not simply the most active): product feedback, testnet validation, and a referral channel into Acquisition.
                 <ul class="ws-sub-bullets">
-                  <li>Scoring criteria to identify members for transition, weighted toward leverage and relevant expertise over activity alone.</li>
-                  <li>Structured onboarding sequence covering expectations, cadence, and compensation.</li>
-                  <li>Documented process for rotation and offboarding.</li>
+                  <li>Scoring criteria weighted toward leverage and expertise, not activity.</li>
+                  <li>Onboarding sequence: expectations, cadence, compensation.</li>
+                  <li>Documented rotation and offboarding process.</li>
                 </ul>
               </li>
-              <li>Feedback-capture mechanism routing advisory board input back into product and roadmap decisions.</li>
+              <li>Feedback-capture mechanism routing input into product and roadmap decisions.</li>
             </ul>
           </div>
         </li>
@@ -396,10 +387,10 @@
           <div class="ws-body">
             <p class="ws-overview">Turns the existing protocol database into an outreach system BD associates can run directly, with a defined path for what happens once a protocol converts.</p>
             <ul class="ws-bullets">
-              <li>Review of current outreach tooling and process, with recommendations for additional tooling where gaps exist.</li>
-              <li>Evaluation and selection of outreach tooling, fully configured for sequencing logic, follow-up timing, and deliverability safeguards.</li>
-              <li>Handoff of configured tooling, primed with the leads list — including referrals sourced through the advisory board — and baseline conversion metrics, ready for BD associate use.</li>
-              <li>Defined conversion process specifying next steps once a protocol confirms interest, including handoff into the community entry sequence.</li>
+              <li>Review of current outreach tooling, with recommendations where gaps exist.</li>
+              <li>Outreach tooling selected and configured: sequencing, follow-up timing, deliverability safeguards.</li>
+              <li>Tooling handed off primed with the leads list (including advisory-board referrals) and baseline conversion metrics.</li>
+              <li>Conversion process defining next steps once a protocol confirms interest, handing off into the community entry sequence.</li>
             </ul>
           </div>
         </li>
@@ -409,8 +400,8 @@
           <div class="ws-body">
             <p class="ws-overview">Consolidates the retention and acquisition systems into documentation the team can run without ongoing involvement from Bastille.</p>
             <ul class="ws-bullets">
-              <li>Written system covering the engagement and retention framework and the outreach tooling configuration.</li>
-              <li>Structured for use by internal personnel without ongoing dependency on this engagement.</li>
+              <li>Written system covering the retention framework and outreach tooling configuration.</li>
+              <li>Structured for internal use, without ongoing dependency on this engagement.</li>
             </ul>
           </div>
         </li>
@@ -420,10 +411,10 @@
           <div class="ws-body">
             <p class="ws-overview">Provides advisory availability across organizational, positioning, and fundraising topics beyond the deliverables defined above.</p>
             <ul class="ws-bullets">
-              <li>Availability for advisory calls as needed throughout the engagement period, in addition to scheduled workstream check-ins (approximately 8 hours).</li>
-              <li>Coverage includes organizational strategy, positioning, and investor and fundraising preparation.</li>
-              <li>Go-to-market strategy addressed directly through the Acquisition and Community Retention workstreams above.</li>
-              <li>Advisory support for discovery of the compute futures product (or successor application), ensuring continued momentum alongside the chain-level workstreams above.</li>
+              <li>Advisory calls available as needed (~8 hours), beyond scheduled check-ins.</li>
+              <li>Coverage: organizational strategy, positioning, investor and fundraising preparation.</li>
+              <li>GTM strategy addressed directly through Acquisition and Community Retention above.</li>
+              <li>Advisory support for compute futures (or successor product) discovery, alongside the workstreams above.</li>
             </ul>
           </div>
         </li>
@@ -434,7 +425,7 @@
             <p class="ws-overview">Closes out Month 1 with a results review and a proposed path for continued engagement.</p>
             <ul class="ws-bullets">
               <li>Written close-out review assessing results against Community Retention and Acquisition baseline metrics.</li>
-              <li>Recommended Month 2 scope and priorities, delivered as part of close-out, ahead of the renewal decision.</li>
+              <li>Recommended Month 2 scope and priorities, delivered ahead of the renewal decision.</li>
             </ul>
           </div>
         </li>
@@ -444,10 +435,10 @@
           <div class="ws-body">
             <p class="ws-overview">Extends the acquisition and retention systems into live operation and opens fundraising and product-layer workstreams as traction develops. Scope contingent on Month 1 outcomes, testnet launch status, and continued fit; finalized as part of the Month 1 close-out.</p>
             <ul class="ws-bullets">
-              <li>Acquisition scaling beyond the initial primed list, directed at the developer and user traction levels raised in prior fundraising conversations.</li>
-              <li>Live management and iteration of the community engagement cadence and advisory board, adjusted against Month 1 baseline metrics.</li>
-              <li>Fundraising Operations Playbook and investor narrative: contact mapping, pipeline structure, a working investor and advisor deck, and positioning work translating testnet and acquisition results into a differentiated narrative, built once traction data exists to support the raise.</li>
-              <li>Expanded operational support for the compute futures product (or successor application) as it moves toward launch, covering frameworks, tooling, and implementation in addition to general advisory.</li>
+              <li>Acquisition scaling beyond the initial list, targeting the traction levels raised in fundraising conversations.</li>
+              <li>Live management of the engagement cadence and advisory board, iterated against Month 1 baselines.</li>
+              <li>Fundraising Operations Playbook: contact mapping, pipeline, investor deck, and a differentiated narrative built from testnet and acquisition results.</li>
+              <li>Expanded operational support for compute futures as it moves toward launch: frameworks, tooling, implementation.</li>
             </ul>
           </div>
         </li>

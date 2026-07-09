@@ -186,12 +186,13 @@
       line-height: 1.6;
     }
 
+    /* first-line centering: 0.97rem (17.46px) × 1.6 line-height = 27.94px line box;
+       (27.94 − 5) / 2 ≈ 11.5px */
     .finding-list li::before {
       content: '';
       position: absolute;
       left: 0;
-      top: 50%;
-      transform: translateY(-50%);
+      top: 11.5px;
       width: 5px;
       height: 5px;
       border-radius: 50%;
@@ -211,10 +212,10 @@
       align-items: start;
     }
 
+    /* spacing only — dividers exist between top-level sections, not between
+       workstreams within Scope of Work */
     .workstream-list > li + li {
       margin-top: 32px;
-      padding-top: 32px;
-      border-top: 1px solid var(--rule);
     }
 
     .ws-title {
@@ -266,8 +267,7 @@
       content: '·';
       position: absolute;
       left: 0;
-      top: 50%;
-      transform: translateY(-50%);
+      top: 2px;
       color: var(--cobalt-lt);
       font-weight: 700;
       font-size: 1.2rem;
@@ -287,8 +287,7 @@
       content: '–';
       position: absolute;
       left: 0;
-      top: 50%;
-      transform: translateY(-50%);
+      top: 0;
       color: var(--ink-3);
       font-weight: 600;
       font-size: 0.9rem;
@@ -312,8 +311,7 @@
       content: '?';
       position: absolute;
       left: 0;
-      top: 50%;
-      transform: translateY(-50%);
+      top: 0;
       color: var(--pink);
       font-family: var(--font-hero);
       font-size: 1rem;
@@ -336,8 +334,7 @@
       content: counter(step);
       position: absolute;
       left: 0;
-      top: 50%;
-      transform: translateY(-50%);
+      top: 10px;
       width: 26px;
       height: 26px;
       border-radius: 50%;

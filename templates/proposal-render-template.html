@@ -179,29 +179,24 @@
     strong { font-weight: 600; color: var(--ink); }
 
     /* ── FINDING LIST (What I Found bullets) ── */
-    .finding-list {
-      list-style: none;
-      border-top: 1px solid var(--rule);
-    }
+    .finding-list { list-style: none; }
 
     .finding-list li {
       position: relative;
-      padding: 14px 0 14px 22px;
-      border-bottom: 1px solid var(--rule-lt);
+      padding: 10px 0 10px 22px;
       font-size: 0.97rem;
       color: var(--ink-2);
       line-height: 1.6;
     }
 
-    /* top:50% + translateY(-50%) centers the dot on the li's full rendered height —
-       stays correct regardless of font-size or how many lines the text wraps to,
-       and (unlike flex) never disturbs inline content like <strong> or nested lists */
+    /* top offset = (line-height in px − dot diameter) / 2, so the dot centers on the
+       FIRST LINE of the bullet's text, not the full (possibly multi-line) item:
+       0.97rem (17.46px) × 1.6 line-height = 27.94px line box; (27.94 − 5) / 2 ≈ 11.5px */
     .finding-list li::before {
       content: '';
       position: absolute;
       left: 0;
-      top: 50%;
-      transform: translateY(-50%);
+      top: 11.5px;
       width: 5px;
       height: 5px;
       border-radius: 50%;
@@ -211,11 +206,12 @@
     .finding-list li strong { font-weight: 600; color: var(--ink); }
 
     /* ── WORKSTREAMS ── */
-    .workstream-list { list-style: none; border-top: 1px solid var(--rule); }
+    /* Dividers exist only between top-level sections (the .section-heading rule below
+       each heading) — not between workstreams or bullets within a section. */
+    .workstream-list { list-style: none; }
 
     .workstream-list li {
       padding: 20px 0;
-      border-bottom: 1px solid var(--rule-lt);
       display: grid;
       grid-template-columns: 180px 1fr;
       gap: 24px;
@@ -242,24 +238,18 @@
       margin-bottom: 10px;
     }
     .ws-bullets > li:last-child { margin-bottom: 0; }
-    /* top:50% + translateY(-50%) centers the dot on the li's full rendered height —
-       stays correct regardless of font-size or how many lines the deliverable wraps to,
-       and (unlike flex) never breaks a nested <ul> or an inline <strong> inside the li */
+    /* first-line centering: 0.97rem (17.46px) × 1.7 line-height = 29.68px line box;
+       (29.68 − 5) / 2 ≈ 12.3px. Aligns to the bullet's first line even when the text
+       wraps to several lines or is followed by a nested <ul> — the dot never drifts
+       down to "center on the whole item." */
     .ws-bullets > li::before {
       content: '';
       position: absolute;
       left: 0;
-      top: 50%;
-      transform: translateY(-50%);
+      top: 12.3px;
       width: 5px; height: 5px;
       border-radius: 50%;
       background: var(--cobalt-lt);
-    }
-    /* a bullet with a nested sub-list should mark its own first line, not the
-       combined height of its text plus the sub-bullets below it */
-    .ws-bullets > li:has(.ws-sub-bullets)::before {
-      top: 0.78em;
-      transform: none;
     }
 
     .ws-sub-bullets { list-style: none; margin-top: 8px; }
@@ -275,8 +265,7 @@
       content: '–';
       position: absolute;
       left: 0;
-      top: 50%;
-      transform: translateY(-50%);
+      top: 0;
       color: var(--ink-3);
     }
 
@@ -300,12 +289,13 @@
       color: var(--ink-2);
     }
     .terms li:last-child { margin-bottom: 0; }
+    /* first-line centering: 0.95rem (17.1px) × 1.7 line-height (inherited from body)
+       = 29.07px line box; (29.07 − 5) / 2 ≈ 12px */
     .terms li::before {
       content: '';
       position: absolute;
       left: 0;
-      top: 50%;
-      transform: translateY(-50%);
+      top: 12px;
       width: 5px; height: 5px;
       border-radius: 50%;
       background: var(--pink);

@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <title>Bastille Advisory — Jodi Solomon Speakers</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Gloock:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink:       oklch(12% 0.008 260);
+      --ink-2:     oklch(28% 0.008 260);
+      --ink-3:     oklch(44% 0.008 260);
+      --paper:     oklch(98% 0.008 87);
+      --paper-2:   oklch(95% 0.012 87);
+      --pink:      oklch(54% 0.28 8);
+      --pink-lt:   oklch(62% 0.24 8);
+      --cobalt-lt: oklch(50% 0.22 264);
+      --lime-dk:   oklch(52% 0.18 125);
+      --rule:      oklch(85% 0.010 87);
+      --rule-lt:   oklch(90% 0.010 87);
+      --font-hero: 'Bebas Neue', 'Arial Narrow', sans-serif;
+      --font-serif: 'Gloock', Georgia, serif;
+      --font-body:  'Barlow', system-ui, sans-serif;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { font-size: 18px; scroll-behavior: smooth; }
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--font-body);
+      font-weight: 400;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    .container { max-width: 820px; margin: 0 auto; padding: 0 40px; }
+
+    /* ── HEADER ── */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: var(--paper);
+      border-top: 3px solid var(--pink);
+      border-bottom: 1px solid var(--rule);
+      padding: 20px 0;
+    }
+
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 24px;
+    }
+
+    .logo-text { text-decoration: none; display: block; }
+
+    .logo-main {
+      font-family: var(--font-hero);
+      font-size: 1.2rem;
+      letter-spacing: 0.18em;
+      color: var(--ink);
+      line-height: 1;
+    }
+
+    .logo-sub {
+      font-family: var(--font-body);
+      font-size: 0.55rem;
+      font-weight: 600;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--pink);
+      line-height: 1;
+      margin-top: 3px;
+    }
+
+    .header-contact {
+      font-size: 0.72rem;
+      font-weight: 400;
+      color: var(--ink-3);
+      text-align: right;
+      line-height: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .header-contact a {
+      color: var(--ink-3);
+      text-decoration: none;
+      border-bottom: 1px solid var(--rule);
+      transition: color 0.15s, border-color 0.15s;
+    }
+
+    .header-contact a:hover { color: var(--pink); border-color: var(--pink); }
+
+    /* ── DOCUMENT TITLE ── */
+    .doc-meta { padding-top: 52px; margin-bottom: 52px; }
+
+    .doc-eyebrow {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+      margin-bottom: 14px;
+    }
+
+    .doc-title {
+      font-family: var(--font-hero);
+      font-size: clamp(2.4rem, 6vw, 3.6rem);
+      letter-spacing: 0.04em;
+      line-height: 1.02;
+      color: var(--ink);
+      margin-bottom: 20px;
+    }
+
+    .doc-title .accent { color: var(--pink); }
+
+    .doc-for {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding-top: 16px;
+      border-top: 1px solid var(--rule);
+    }
+
+    .doc-for-names {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      font-style: italic;
+      color: var(--ink-2);
+    }
+
+    .company-logo {
+      height: 32px;
+      width: auto;
+      display: block;
+      flex-shrink: 0;
+    }
+
+    .company-logo[src=""] { display: none; }
+
+    /* ── SECTIONS ── */
+    section { margin-bottom: 52px; }
+
+    .section-heading {
+      font-family: var(--font-hero);
+      font-size: 1.3rem;
+      letter-spacing: 0.1em;
+      color: var(--ink);
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--rule);
+      position: relative;
+    }
+
+    .section-heading::after {
+      content: '';
+      position: absolute;
+      bottom: -1px; left: 0;
+      width: 32px; height: 2px;
+      background: var(--pink);
+    }
+
+    .section-heading.lime::after   { background: var(--lime-dk); }
+    .section-heading.cobalt::after { background: var(--cobalt-lt); }
+
+    p { font-size: 1rem; color: var(--ink-2); line-height: 1.75; margin-bottom: 16px; }
+    p:last-child { margin-bottom: 0; }
+    strong { font-weight: 600; color: var(--ink); }
+
+    /* ── PHASE HEADER (Phase 1 · price · timeline) ── */
+    .terms {
+      background: var(--paper-2);
+      border: 1px solid var(--rule);
+      padding: 24px 28px;
+      margin-bottom: 8px;
+    }
+
+    .terms p { font-size: 0.95rem; margin-bottom: 0; }
+
+    /* ── WORKSTREAM LIST (title + body pairs, one divider per item) ── */
+    .workstream-list { list-style: none; margin-top: 4px; }
+
+    .workstream-list li {
+      padding: 4px 0;
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .workstream-list > li + li {
+      margin-top: 32px;
+      padding-top: 32px;
+      border-top: 1px solid var(--rule);
+    }
+
+    .ws-title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--cobalt-lt);
+      padding-top: 3px;
+      line-height: 1.4;
+    }
+
+    .ws-body { font-size: 0.97rem; color: var(--ink-2); line-height: 1.7; }
+    .ws-body p { font-size: 0.97rem; }
+
+    .ws-note {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 0.92rem;
+      color: var(--ink-3);
+      margin-bottom: 12px;
+    }
+
+    /* Deliverable bullets inside a workstream body: dot marker, no divider lines */
+    .ws-body ul { list-style: none; margin: 0; padding: 0; }
+
+    .ws-body ul li {
+      display: block;
+      position: relative;
+      padding: 0 0 10px 16px;
+      font-size: 0.97rem;
+    }
+
+    .ws-body ul li:last-child { padding-bottom: 0; }
+
+    .ws-body ul li::before {
+      content: '·';
+      position: absolute;
+      left: 0;
+      top: 2px;
+      color: var(--cobalt-lt);
+      font-weight: 700;
+      font-size: 1.2rem;
+      line-height: 1.4;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      margin-top: 64px;
+      padding: 24px 0;
+      border-top: 1px solid var(--rule);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .footer-brand { font-family: var(--font-hero); font-size: 0.9rem; letter-spacing: 0.18em; color: var(--ink-3); }
+    .footer-note { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); }
+
+    @media print {
+      header { position: static; }
+      body { background: white; }
+      .terms { background: #f7f5f0; }
+    }
+
+    @media (max-width: 620px) {
+      .container { padding: 0 24px; }
+      .header-inner { flex-direction: column; gap: 10px; }
+      .header-contact { text-align: left; }
+      .workstream-list li { grid-template-columns: 1fr; gap: 6px; }
+      footer { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <div class="header-inner">
+        <a class="logo-text" href="https://bastilleadvisory.xyz">
+          <div class="logo-main">BASTILLE</div>
+          <div class="logo-sub">Advisory</div>
+        </a>
+        <div class="header-contact">
+          Michael Martin<br>
+          <a href="mailto:michael@bastilleadvisory.xyz">michael@bastilleadvisory.xyz</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <!-- ── DOCUMENT TITLE ── -->
+    <div class="doc-meta">
+      <div class="doc-eyebrow">July 2026</div>
+      <h1 class="doc-title">Speaker Acquisition System <span class="accent">&amp; Website Redesign</span></h1>
+      <div class="doc-for">
+        <span class="doc-for-names">For Jodi Solomon Speakers</span>
+        <img src="https://jodisolomonspeakers.com/wp-content/uploads/2026/03/JSS-website-logo-w-years_36-300x125.png" alt="Jodi Solomon Speakers" class="company-logo">
+      </div>
+    </div>
+
+
+    <!-- ── EXECUTIVE SUMMARY ── -->
+    <section>
+      <h2 class="section-heading">Executive Summary</h2>
+      <p>Jodi Solomon Speakers Bureau is seeking to diversify its revenue base by expanding its roster with new speaking talent capable of driving ticket sales.</p>
+      <p>The objective of this engagement is to build a systematic capability for identifying, evaluating, and onboarding new talent, reducing reliance on any single source of revenue.</p>
+      <p>This proposal establishes a system for candidate research, evaluation, and outreach, supported by a redesigned website aligned to the audience this new talent represents. The venue relationships required to book new talent are already in place; the gap this engagement closes is identifying and securing the talent itself.</p>
+    </section>
+
+
+    <!-- ── THE BUILD ── -->
+    <section>
+      <h2 class="section-heading cobalt">The Build</h2>
+
+      <div class="terms">
+        <p><strong>Phase 1 · The System · $7,500.</strong> Delivered in approximately six weeks.</p>
+      </div>
+
+      <ul class="workstream-list">
+        <li>
+          <div class="ws-title">Ideal Candidate Profile</div>
+          <div class="ws-body">
+            <p class="ws-note">Collaborative discovery process to define what makes a candidate worth pursuing.</p>
+            <ul>
+              <li>One structured discovery session to define candidate criteria</li>
+              <li>Written candidate profile document, including criteria and weighting</li>
+              <li>Client sign-off required prior to sourcing</li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <div class="ws-title">Sourcing</div>
+          <div class="ws-body">
+            <p class="ws-note">Research and compilation of a candidate list against the approved profile.</p>
+            <ul>
+              <li>List of approximately 1,000 unrepresented speakers matching the candidate profile</li>
+              <li>Per-candidate research: recent publications, press coverage, social growth, podcast activity, tour history</li>
+              <li>Organized candidate list delivered for scoring</li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <div class="ws-title">Scoring</div>
+          <div class="ws-body">
+            <p class="ws-note">Ranking of the sourced list against the candidate profile.</p>
+            <ul>
+              <li>All sourced candidates (~1,000) ranked against the candidate profile</li>
+              <li>Shortlist of the top 10 priority candidates</li>
+              <li>Documented rationale for each ranking</li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <div class="ws-title">Outreach System</div>
+          <div class="ws-body">
+            <p class="ws-note">Selection and configuration of outreach tooling for the ranked candidate list.</p>
+            <ul>
+              <li>Evaluation and selection of outreach tool(s) matched to candidate channels (email, LinkedIn, social)</li>
+              <li>Full configuration: sequencing logic, follow-up timing, deliverability safeguards</li>
+              <li>Review-and-send workflow for all outreach, requiring one action per message</li>
+              <li>Documented process for reuse in future campaigns</li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <div class="ws-title">Signal Monitoring and Triage</div>
+          <div class="ws-body">
+            <p class="ws-note">No existing tool performs this function. A custom monitoring system is built and delivered as software you own outright.</p>
+            <ul>
+              <li>Custom-built software, owned entirely by Jodi Solomon Speakers, not a subscription or licensed product</li>
+              <li>Monitors the sourced candidate list for public signals: book deals, press coverage, and social activity</li>
+              <li>Automated signal classification and drafted outreach generated for each qualifying signal</li>
+              <li>Operates on approximately $25–$50 per month in data costs (or $225–$350 with expanded social monitoring), billed directly to client accounts</li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <div class="ws-title">Website</div>
+          <div class="ws-body">
+            <p class="ws-note">Redesign of the existing site to appeal to the new, younger market segment this system targets, since the current site was not built with that audience in mind.</p>
+            <ul>
+              <li>Competitive research on comparable speaker bureau and talent websites</li>
+              <li>One design consultation session to align on direction</li>
+              <li>Full website redesign, roster-forward and contemporary in tone and design</li>
+              <li>Integration with existing tools, preserving current buyer and talent intake functionality</li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <div class="ws-title">Playbook</div>
+          <div class="ws-body">
+            <p class="ws-note">Full documentation of the system to support independent operation.</p>
+            <ul>
+              <li>Written documentation of the candidate profile, sourcing methodology, scoring rubric, outreach configuration, and triage rules</li>
+              <li>Handoff package enabling operation without ongoing engagement</li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+
+    <!-- ── HOW IT WOULD WORK ── -->
+    <section>
+      <h2 class="section-heading">How It Would Work</h2>
+      <div class="terms">
+        <p><strong>$7,500 fixed.</strong> Half up front, half on delivery of the playbook.</p>
+        <p><strong>Roughly six weeks</strong>, front-loaded.</p>
+        <p><strong>What I'd need from you:</strong> the discovery session and design consultation scheduled early.</p>
+      </div>
+    </section>
+
+
+    <!-- ── BEYOND THE BUILD ── -->
+    <section>
+      <h2 class="section-heading lime">Beyond the Build</h2>
+      <p>Once this system is running and you want to widen it:</p>
+      <ul class="workstream-list">
+        <li>
+          <div class="ws-title">Corporate &amp; Conferences</div>
+          <div class="ws-body">High flat fees, no ticket risk, booked year-round.</div>
+        </li>
+        <li>
+          <div class="ws-title">Season Packages</div>
+          <div class="ws-body">Sell P1 venues a season instead of a single date. You already run this format for lecture series; this extends it.</div>
+        </li>
+        <li>
+          <div class="ws-title">College Routing</div>
+          <div class="ws-body">Cluster campuses by geography so a speaker headed to one school picks up others on the same trip.</div>
+        </li>
+        <li>
+          <div class="ws-title">Venues as Scouts</div>
+          <div class="ws-body">Your venues see who sells tickets in their market before you do. A path for a room to flag an unrepresented name, you sign and tour them, and the venue earns a finder's fee or first date when the act comes through.</div>
+        </li>
+      </ul>
+    </section>
+
+
+    <!-- ── NEXT STEP ── -->
+    <section>
+      <h2 class="section-heading">Next Step</h2>
+      <p>Sign off on this scope, or tell me what still needs to move. Once it's set, I turn it into a Scope of Work we sign and execute.</p>
+    </section>
+
+
+    <!-- ── FOOTER ── -->
+    <footer>
+      <span class="footer-brand">BASTILLE ADVISORY</span>
+      <span class="footer-note">bastilleadvisory.xyz · Confidential</span>
+    </footer>
+
+  </div>
+</body>
+</html>

@@ -46,7 +46,7 @@ My work at Bastille is fractional and sprint-based — I come in for defined pha
 
 ## How I Work
 
-Engagements run as short sprints — typically 2–4 weeks — with defined deliverables and a checkpoint before any extension. Full fee due at signing, net 0, work begins on receipt. I move fast and deliver things you can use: {{DELIVERABLE_EXAMPLES — e.g., a channel strategy document, a repositioned deck, a partner pitch template}}.
+Engagements run as short sprints — typically 2–4 weeks — with defined deliverables and a checkpoint before any extension. Full fee due at signing, work begins on receipt. I move fast and deliver things you can use: {{DELIVERABLE_EXAMPLES — e.g., a channel strategy document, a repositioned deck, a partner pitch template}}.
 
 ---
 

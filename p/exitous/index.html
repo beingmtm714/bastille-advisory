@@ -183,12 +183,13 @@
       line-height: 1.6;
     }
     /* first-line centering: 0.97rem (17.46px) × 1.6 line-height = 27.94px line box;
-       (27.94 − 5) / 2 ≈ 11.5px */
+       (27.94 − 5) / 2 ≈ 11.5px, plus the li's own 10px padding-top since top is
+       relative to the padding box: 10 + 11.5 = 21.5px */
     .finding-list li::before {
       content: '';
       position: absolute;
       left: 0;
-      top: 11.5px;
+      top: 21.5px;
       width: 5px;
       height: 5px;
       border-radius: 50%;

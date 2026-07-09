@@ -191,12 +191,14 @@
 
     /* top offset = (line-height in px − dot diameter) / 2, so the dot centers on the
        FIRST LINE of the bullet's text, not the full (possibly multi-line) item:
-       0.97rem (17.46px) × 1.6 line-height = 27.94px line box; (27.94 − 5) / 2 ≈ 11.5px */
+       0.97rem (17.46px) × 1.6 line-height = 27.94px line box; (27.94 − 5) / 2 ≈ 11.5px.
+       top is relative to the li's padding box, so add the li's own 10px padding-top:
+       10 + 11.5 = 21.5px */
     .finding-list li::before {
       content: '';
       position: absolute;
       left: 0;
-      top: 11.5px;
+      top: 21.5px;
       width: 5px;
       height: 5px;
       border-radius: 50%;

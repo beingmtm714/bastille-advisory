@@ -173,11 +173,9 @@
     }
 
     .finding-list li {
-      padding: 14px 0;
+      position: relative;
+      padding: 14px 0 14px 22px;
       border-bottom: 1px solid var(--rule-lt);
-      display: grid;
-      grid-template-columns: 8px 1fr;
-      gap: 14px;
       font-size: 0.97rem;
       color: var(--ink-2);
       line-height: 1.6;
@@ -185,12 +183,14 @@
 
     .finding-list li::before {
       content: '';
-      display: block;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
       width: 5px;
       height: 5px;
       border-radius: 50%;
       background: var(--lime-dk);
-      margin-top: 8px;
     }
 
     /* ── WORKSTREAMS (Scope of Work) ── */
@@ -225,19 +225,30 @@
       margin-bottom: 10px;
     }
     .ws-bullets > li:last-child { margin-bottom: 0; }
+    /* top:50% + translateY(-50%) centers the dot on the li's full rendered height —
+       stays correct regardless of how many lines the deliverable text wraps to, and
+       (unlike flex) doesn't disturb the nested <ul> below the advisory-board bullet's text */
     .ws-bullets > li::before {
       content: '';
       position: absolute;
-      left: 0; top: 0.55em;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
       width: 5px; height: 5px;
       border-radius: 50%;
       background: var(--cobalt-lt);
+    }
+    /* the advisory-board bullet's marker should sit on its own first line, not centered
+       across the text plus the nested sub-bullets below it */
+    .ws-bullets > li:has(.ws-sub-bullets)::before {
+      top: 0.78em;
+      transform: none;
     }
 
     .ws-sub-bullets { list-style: none; margin-top: 8px; }
     .ws-sub-bullets li {
       position: relative;
-      padding-left: 16px;
+      padding-left: 14px;
       margin-bottom: 6px;
       font-size: 0.92rem;
       color: var(--ink-3);
@@ -246,7 +257,9 @@
     .ws-sub-bullets li::before {
       content: '–';
       position: absolute;
-      left: 0; top: 0;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
       color: var(--ink-3);
     }
 
@@ -273,7 +286,8 @@
     .terms li::before {
       content: '';
       position: absolute;
-      left: 0; top: 0.5em;
+      left: 0; top: 50%;
+      transform: translateY(-50%);
       width: 5px; height: 5px;
       border-radius: 50%;
       background: var(--pink);

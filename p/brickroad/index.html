@@ -179,10 +179,8 @@
     }
 
     .finding-list li {
-      padding: 7px 0;
-      display: grid;
-      grid-template-columns: 8px 1fr;
-      gap: 14px;
+      position: relative;
+      padding: 7px 0 7px 22px;
       font-size: 0.97rem;
       color: var(--ink-2);
       line-height: 1.6;
@@ -190,12 +188,14 @@
 
     .finding-list li::before {
       content: '';
-      display: block;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
       width: 5px;
       height: 5px;
       border-radius: 50%;
       background: var(--lime-dk);
-      margin-top: 12px;
     }
 
     .finding-list li strong { font-weight: 600; color: var(--ink); }
@@ -266,7 +266,8 @@
       content: '·';
       position: absolute;
       left: 0;
-      top: 2px;
+      top: 50%;
+      transform: translateY(-50%);
       color: var(--cobalt-lt);
       font-weight: 700;
       font-size: 1.2rem;
@@ -286,7 +287,8 @@
       content: '–';
       position: absolute;
       left: 0;
-      top: 0;
+      top: 50%;
+      transform: translateY(-50%);
       color: var(--ink-3);
       font-weight: 600;
       font-size: 0.9rem;
@@ -310,7 +312,8 @@
       content: '?';
       position: absolute;
       left: 0;
-      top: 0;
+      top: 50%;
+      transform: translateY(-50%);
       color: var(--pink);
       font-family: var(--font-hero);
       font-size: 1rem;
@@ -333,7 +336,8 @@
       content: counter(step);
       position: absolute;
       left: 0;
-      top: 10px;
+      top: 50%;
+      transform: translateY(-50%);
       width: 26px;
       height: 26px;
       border-radius: 50%;

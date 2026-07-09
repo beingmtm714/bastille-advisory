@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
-  <title>Bastille Advisory — Blockticity</title>
+  <title>Bastille Advisory — {{COMPANY}}</title>
   <meta name="robots" content="noindex, nofollow">
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Gloock:ital@0;1&display=swap" rel="stylesheet">
   <style>
@@ -56,6 +56,7 @@
       gap: 24px;
     }
 
+    /* display:block prevents inline-element rendering quirks across browsers */
     .logo-text { text-decoration: none; display: block; }
 
     .logo-main {
@@ -77,6 +78,7 @@
       margin-top: 3px;
     }
 
+    /* line-height:1 removes half-leading that causes visual misalignment with logo-main */
     .header-contact {
       font-size: 0.72rem;
       font-weight: 400;
@@ -98,6 +100,7 @@
     .header-contact a:hover { color: var(--pink); border-color: var(--pink); }
 
     /* ── DOCUMENT TITLE ── */
+    /* padding-top replaces the margin-bottom removed from header */
     .doc-meta { padding-top: 52px; margin-bottom: 52px; }
 
     .doc-eyebrow {
@@ -167,6 +170,7 @@
       background: var(--pink);
     }
 
+    /* Tricolor accent: What I Found = lime, How I Can Help = cobalt, others = pink */
     .section-heading.lime::after   { background: var(--lime-dk); }
     .section-heading.cobalt::after { background: var(--cobalt-lt); }
 
@@ -174,7 +178,7 @@
     p:last-child { margin-bottom: 0; }
     strong { font-weight: 600; color: var(--ink); }
 
-    /* ── FINDING LIST ── */
+    /* ── FINDING LIST (What I Found bullets) ── */
     .finding-list {
       list-style: none;
       border-top: 1px solid var(--rule);
@@ -189,6 +193,9 @@
       line-height: 1.6;
     }
 
+    /* top:50% + translateY(-50%) centers the dot on the li's full rendered height —
+       stays correct regardless of font-size or how many lines the text wraps to,
+       and (unlike flex) never disturbs inline content like <strong> or nested lists */
     .finding-list li::before {
       content: '';
       position: absolute;
@@ -210,7 +217,7 @@
       padding: 20px 0;
       border-bottom: 1px solid var(--rule-lt);
       display: grid;
-      grid-template-columns: 200px 1fr;
+      grid-template-columns: 180px 1fr;
       gap: 24px;
       align-items: start;
     }
@@ -226,29 +233,51 @@
     }
 
     .ws-body { font-size: 0.97rem; color: var(--ink-2); line-height: 1.7; }
+    .ws-body .ws-overview { font-family: var(--font-serif); font-style: italic; color: var(--ink-2); margin-bottom: 14px; font-size: 0.95rem; }
 
-    .ws-body ul {
-      list-style: none;
-      margin-top: 4px;
-    }
-
-    .ws-body ul li {
+    .ws-bullets { list-style: none; }
+    .ws-bullets > li {
       position: relative;
-      padding: 3px 0 3px 16px;
+      padding-left: 16px;
+      margin-bottom: 10px;
     }
-
-    /* top:50% + translateY(-50%) centers the dot on the li's full rendered height,
-       regardless of font-size or how many lines the text wraps to */
-    .ws-body ul li::before {
+    .ws-bullets > li:last-child { margin-bottom: 0; }
+    /* top:50% + translateY(-50%) centers the dot on the li's full rendered height —
+       stays correct regardless of font-size or how many lines the deliverable wraps to,
+       and (unlike flex) never breaks a nested <ul> or an inline <strong> inside the li */
+    .ws-bullets > li::before {
       content: '';
       position: absolute;
       left: 0;
       top: 50%;
       transform: translateY(-50%);
-      width: 5px;
-      height: 5px;
+      width: 5px; height: 5px;
       border-radius: 50%;
-      background: var(--ink-3);
+      background: var(--cobalt-lt);
+    }
+    /* a bullet with a nested sub-list should mark its own first line, not the
+       combined height of its text plus the sub-bullets below it */
+    .ws-bullets > li:has(.ws-sub-bullets)::before {
+      top: 0.78em;
+      transform: none;
+    }
+
+    .ws-sub-bullets { list-style: none; margin-top: 8px; }
+    .ws-sub-bullets li {
+      position: relative;
+      padding-left: 14px;
+      margin-bottom: 6px;
+      font-size: 0.92rem;
+      color: var(--ink-3);
+    }
+    .ws-sub-bullets li:last-child { margin-bottom: 0; }
+    .ws-sub-bullets li::before {
+      content: '–';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--ink-3);
     }
 
     /* ── TERMS BLOCK ── */
@@ -259,20 +288,34 @@
       margin-top: 8px;
     }
 
-    .terms p { font-size: 0.95rem; margin-bottom: 0; }
+    .terms p { font-size: 0.95rem; margin-bottom: 12px; }
+    .terms p:last-of-type { margin-bottom: 0; }
 
-    /* ── WORKS CITED ── */
-    .works-cited { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--rule); }
-    .works-cited-label {
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--ink-3);
+    .terms ul { list-style: none; }
+    .terms li {
+      position: relative;
+      padding-left: 16px;
       margin-bottom: 10px;
+      font-size: 0.95rem;
+      color: var(--ink-2);
     }
-    .works-cited ol { padding-left: 18px; }
-    .works-cited li { font-size: 0.75rem; color: var(--ink-3); line-height: 1.6; margin-bottom: 6px; }
+    .terms li:last-child { margin-bottom: 0; }
+    .terms li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--pink);
+    }
+
+    /* ── FOOTNOTES ── */
+    .footnotes { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--rule); }
+    .footnotes ol { padding-left: 18px; }
+    .footnotes li { font-size: 0.75rem; color: var(--ink-3); line-height: 1.6; margin-bottom: 6px; }
+    .footnotes li a { color: var(--ink-3); word-break: break-all; }
 
     /* ── FOOTER ── */
     footer {
@@ -305,6 +348,7 @@
 </head>
 <body>
 
+  <!-- Header outside .container so sticky spans full viewport width -->
   <header>
     <div class="container">
       <div class="header-inner">
@@ -324,86 +368,124 @@
 
     <!-- ── DOCUMENT TITLE ── -->
     <div class="doc-meta">
-      <div class="doc-eyebrow">April 2026</div>
-      <h1 class="doc-title">Blockticity:<br><span class="accent">Perspective</span> &amp; Potential Support</h1>
+      <div class="doc-eyebrow">{{MONTH_YEAR}}</div>
+      <h1 class="doc-title">{{COMPANY}}:<br><span class="accent">Perspective</span> &amp; Potential Support</h1>
       <div class="doc-for">
-<img src="" alt="Blockticity" class="company-logo">
+        <span class="doc-for-names">For {{RECIPIENT_NAMES}}</span>
+        <!-- Fetch logo from company website. Remove img if unavailable. -->
+        <img src="{{COMPANY_LOGO_URL}}" alt="{{COMPANY}}" class="company-logo">
       </div>
     </div>
+
+
+    <!-- ── EXECUTIVE SUMMARY ── -->
+    <!-- 3-5 sentences: the engagement's goal and the expected outcomes. No hours, no
+         hourly rate — state deliverables and results, not how the time breaks down. -->
+    <section>
+      <h2 class="section-heading">Executive Summary</h2>
+      <p>{{EXEC_SUMMARY — goal of the engagement and expected outcomes, 3-5 sentences}}</p>
+    </section>
+
 
     <!-- ── WHAT I HEARD ── -->
     <section>
       <h2 class="section-heading">What I Heard</h2>
-      <p><strong>First</strong>, June compresses three high-stakes outcomes into a single window — the government grant decision, Christie's JV, and an active commercial pipeline closing across polysilicon, coffee, and Walk Global — with no coordinated infrastructure built to support whichever path opens.</p>
-      <p><strong>Second</strong>, the pipeline is converting, but Mike and Ian are running every deal personally. There are no commercial systems that survive without them. As the pipeline grows, that becomes a ceiling.</p>
-      <p><strong>Third</strong>, that bandwidth is already spoken for. DC trips, ASTM committee work, Christie's negotiations, strategy sessions in Lakeland — founders have drawn a hard line that their time stays on clients and standards. The work that isn't getting done is the work no one has time to do.</p>
+      <p>Our conversation surfaced {{NUMBER}} structural problems.</p>
+      <p><strong>First</strong>, {{PROBLEM_1}}.</p>
+      <p><strong>Second</strong>, {{PROBLEM_2}}.</p>
+      <p><strong>Third</strong>, {{PROBLEM_3}}.</p>
+      <!-- Optional founding story paragraph — delete if not needed -->
+      <p>{{FOUNDING_STORY}}</p>
     </section>
 
+
     <!-- ── WHAT I FOUND ── -->
+    <!-- Each <li> is one scannable finding. Lime dots auto-apply via CSS. -->
     <section>
       <h2 class="section-heading lime">What I Found</h2>
       <ul class="finding-list">
-        <li>The digital product passport market reaches $1.78B by 2030 at 45.7% CAGR; blockchain supply chain hits $33.25B by 2033. Companies closing contracts now build the reference relationships that define the category.</li>
-        <li>GS1 — 2 million user companies, 10 billion daily transactions — is structurally a non-profit. It cannot own the commercial layer. Blockchain authentication is 54.3% of the authentication and brand protection market, but the for-profit, standards-writing, multi-vertical contract holder doesn't exist.</li>
-        <li>Blockticity is the only company positioned to write the ASTM standard and hold live contracts across critical supply chain verticals simultaneously. GS1 can't compete commercially. IBM's platform failed at execution. The position is unoccupied.</li>
-        <li>Demand is structural, not cyclical. The US is import-dependent on 12 critical minerals entirely and 29 more partially. Section 232 investigations now cover polysilicon, semiconductors, pharmaceuticals, and copper. Authenticated provenance is a compliance requirement, not a product feature.</li>
-        <li>ASTM committee participation is the primary GTM channel. 150+ companies entered CIRPASS in 2024 solely to influence DPP standards — whoever writes the standard gets the first call. F49.07 replicates that dynamic, and Blockticity holds the chair.</li>
-        <li>Walk Global is the volume play and the warning. Walmart reduced traceability from 7 days to 2.2 seconds, then shelved the platform — a commercial failure, not a technical one. ASTM mandates compliance rather than requesting it; layer-zero sits beneath existing systems; Section 232 answers the ROI question before the conversation starts.</li>
+        <li>{{FINDING_1 — market size with number}}</li>
+        <li>{{FINDING_2 — who owns what, what nobody owns}}</li>
+        <li>{{FINDING_3 — the gap: what exists that no one built}}</li>
+        <li>{{FINDING_4 — fastest-growing segment, CAGR}}</li>
+        <li>{{FINDING_5 — GTM channel 1 and why}}</li>
+        <li>{{FINDING_6 — GTM channel 2 and the volume play}}</li>
       </ul>
     </section>
+
 
     <!-- ── HOW I CAN HELP ── -->
+    <!-- One <li> per workstream/pillar. Each gets:
+         - a one-sentence overview (.ws-overview) stating what its bullets accomplish
+         - named deliverables as bullets (.ws-bullets), NOT prose paragraphs
+         - 4 bullets maximum per workstream — condense related items rather than exceeding 4
+         - formal business language: precise, deliverable-oriented, no hedging or hype
+         - no hours, no hourly rate, anywhere in this list — see Engagement Terms below
+         Add or remove <li> workstreams as the engagement requires. -->
     <section>
       <h2 class="section-heading cobalt">How I Can Help</h2>
-      <p>My work at Bastille is fractional and sprint-based — I come in for defined phases, deliver specific things, and leave the team stronger. Here's where I see fit:</p>
-
       <ul class="workstream-list">
         <li>
-          <div class="ws-title">Commercial Infrastructure &amp; BD Execution</div>
+          <div class="ws-title">{{WORKSTREAM_1_TITLE}}</div>
           <div class="ws-body">
-            <ul>
-              <li>Score the three data monetization customer profiles — stock traders, commodity traders, industry associations — against revenue potential, speed to close, and data readiness</li>
-              <li>Build the outreach playbook: target lists, messaging templates, qualification criteria, and a prioritization framework across the 50 non-competitive verticals</li>
-              <li>Activate outreach to the highest-scored profiles and carry the early pipeline conversations</li>
-              <li>Provide hands-on BD support on the highest-value active deals — Walk Global, polysilicon, coffee — to pull closes forward</li>
-              <li>Hand off documented systems that run without Bastille</li>
+            <p class="ws-overview">{{WORKSTREAM_1_OVERVIEW — one sentence}}</p>
+            <ul class="ws-bullets">
+              <li>{{WORKSTREAM_1_DELIVERABLE_1}}</li>
+              <li>{{WORKSTREAM_1_DELIVERABLE_2}}</li>
+              <li>{{WORKSTREAM_1_DELIVERABLE_3}}</li>
+              <li>{{WORKSTREAM_1_DELIVERABLE_4}}</li>
             </ul>
           </div>
         </li>
         <li>
-          <div class="ws-title">Grant Pipeline</div>
+          <div class="ws-title">{{WORKSTREAM_2_TITLE}}</div>
           <div class="ws-body">
-            <ul>
-              <li>Research Base (Coinbase Ventures) and OP Enterprise development grant programs, assess eligibility and award sizes, draft and submit the strongest 1–2 applications</li>
-              <li>Structure a referral arrangement for any grants that land</li>
+            <p class="ws-overview">{{WORKSTREAM_2_OVERVIEW — one sentence}}</p>
+            <ul class="ws-bullets">
+              <li>{{WORKSTREAM_2_DELIVERABLE_1}}</li>
+              <li>{{WORKSTREAM_2_DELIVERABLE_2}}</li>
+              <li>{{WORKSTREAM_2_DELIVERABLE_3}}</li>
+            </ul>
+          </div>
+        </li>
+        <!-- Add or remove workstream items as needed -->
+        <li>
+          <div class="ws-title">{{WORKSTREAM_3_TITLE}}</div>
+          <div class="ws-body">
+            <p class="ws-overview">{{WORKSTREAM_3_OVERVIEW — one sentence}}</p>
+            <ul class="ws-bullets">
+              <li>{{WORKSTREAM_3_DELIVERABLE_1}}</li>
+              <li>{{WORKSTREAM_3_DELIVERABLE_2}}</li>
             </ul>
           </div>
         </li>
       </ul>
     </section>
 
-    <!-- ── HOW I WORK ── -->
+
+    <!-- ── HOW I WORK / ENGAGEMENT TERMS ── -->
+    <!-- State the fee as a fixed amount or range only. Never state hours worked or an
+         hourly rate in client-facing text — that's internal math, not client-facing content. -->
     <section>
       <h2 class="section-heading">How I Work</h2>
       <div class="terms">
-        <p>Bastille works as an embedded operator, not an advisor — inside the company, not orbiting it. The work takes whatever form the signal requires. This engagement runs as a defined sprint with specific deliverables and a checkpoint before any extension. 50% upfront, work begins on receipt. Deliverables: a scored customer profile matrix, a live outreach playbook across the 50 verticals, hands-on deal support on Walk Global and the active pipeline, and grant applications ready to submit.</p>
+        <ul>
+          <li>{{ENGAGEMENT_STRUCTURE — sprint length, cadence}}</li>
+          <li>{{FEE — fixed amount or range, no hourly rate or hours}}</li>
+          <li>{{PAYMENT_TERMS — e.g. 50% on start, balance on delivery}}</li>
+        </ul>
       </div>
     </section>
 
-    <!-- ── WORKS CITED ── -->
-    <div class="works-cited">
-      <p class="works-cited-label">Works Cited</p>
+
+    <!-- ── FOOTNOTES — delete section if no citations ── -->
+    <div class="footnotes">
       <ol>
-        <li>MarketsandMarkets, <em>Digital Product Passport (DPP) Market</em> (February 2025).</li>
-        <li>SCNSoft, <em>Blockchain for Supply Chain</em> (2024).</li>
-        <li>LeadIQ / Wikipedia, <em>GS1 Company Overview</em> (April 2026).</li>
-        <li>Mordor Intelligence, <em>Authentication and Brand Protection Market</em> (January 2026).</li>
-        <li>U.S. Chamber of Commerce, <em>Section 232 Critical Minerals Comments</em> (May 2025).</li>
-        <li>White &amp; Case, <em>Section 232 Investigations on Polysilicon</em> (July 2025).</li>
-        <li>MarketsandMarkets, <em>DPP Market</em> (2025). EU CIRPASS consortium.</li>
-        <li>Hyperledger Foundation, <em>Walmart Case Study</em> (2025); PYMNTS (December 2022).</li>
+        <li>{{FOOTNOTE_1}}</li>
+        <li>{{FOOTNOTE_2}}</li>
       </ol>
     </div>
+
 
     <!-- ── FOOTER ── -->
     <footer>

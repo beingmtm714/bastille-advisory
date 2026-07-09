@@ -105,7 +105,7 @@
       font-weight: 700;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--pink);
+      color: var(--ink-3);
       margin-bottom: 14px;
     }
 
@@ -136,15 +136,6 @@
       color: var(--ink-2);
     }
 
-    .company-logo {
-      height: 32px;
-      width: auto;
-      display: block;
-      flex-shrink: 0;
-    }
-
-    .company-logo[src=""] { display: none; }
-
     /* ── SECTIONS ── */
     section { margin-bottom: 52px; }
 
@@ -163,7 +154,7 @@
       content: '';
       position: absolute;
       bottom: -1px; left: 0;
-      width: 48px; height: 2px;
+      width: 32px; height: 2px;
       background: var(--pink);
     }
 
@@ -173,46 +164,40 @@
     p { font-size: 1rem; color: var(--ink-2); line-height: 1.75; margin-bottom: 16px; }
     p:last-child { margin-bottom: 0; }
     strong { font-weight: 600; color: var(--ink); }
+    em { color: var(--ink-2); }
 
-    /* Tricolor on section-specific labels */
-    .section-heard strong { color: var(--pink); }
-    .section-found strong { color: var(--lime-dk); }
-
-    /* ── FINDING LIST (What I Found bullets) ── */
+    /* ── FINDING LIST (Current Status) ── */
     .finding-list {
       list-style: none;
       border-top: 1px solid var(--rule);
     }
 
     .finding-list li {
-      padding: 14px 0 14px 24px;
+      padding: 14px 0;
       border-bottom: 1px solid var(--rule-lt);
+      display: grid;
+      grid-template-columns: 8px 1fr;
+      gap: 14px;
       font-size: 0.97rem;
       color: var(--ink-2);
       line-height: 1.6;
-      position: relative;
     }
 
     .finding-list li::before {
       content: '';
-      position: absolute;
-      left: 0;
-      top: 22px;
+      display: block;
       width: 5px;
       height: 5px;
       border-radius: 50%;
       background: var(--lime-dk);
+      margin-top: 8px;
     }
 
-    .finding-list li > span { display: block; }
-
-    .finding-list li strong { font-weight: 600; color: var(--lime-dk); }
-
-    /* ── WORKSTREAMS ── */
+    /* ── WORKSTREAMS (Scope of Work) ── */
     .workstream-list { list-style: none; border-top: 1px solid var(--rule); }
 
-    .workstream-list li {
-      padding: 20px 0;
+    .workstream-list > li {
+      padding: 24px 0;
       border-bottom: 1px solid var(--rule-lt);
       display: grid;
       grid-template-columns: 180px 1fr;
@@ -231,47 +216,68 @@
     }
 
     .ws-body { font-size: 0.97rem; color: var(--ink-2); line-height: 1.7; }
-    .ws-body ul { list-style: none; padding: 0; margin: 0; }
-    .ws-body ul li {
-      padding: 0;
-      border: none;
-      display: block;
-      margin-bottom: 8px;
-      padding-left: 16px;
+    .ws-body .ws-overview { font-family: var(--font-serif); font-style: italic; color: var(--ink-2); margin-bottom: 14px; font-size: 0.95rem; }
+
+    .ws-bullets { list-style: none; }
+    .ws-bullets > li {
       position: relative;
+      padding-left: 16px;
+      margin-bottom: 10px;
     }
-    .ws-body ul li::before {
-      content: '\00B7';
+    .ws-bullets > li:last-child { margin-bottom: 0; }
+    .ws-bullets > li::before {
+      content: '';
       position: absolute;
-      left: 0;
-      font-weight: 700;
-      color: var(--cobalt-lt);
+      left: 0; top: 0.55em;
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--cobalt-lt);
+    }
+
+    .ws-sub-bullets { list-style: none; margin-top: 8px; }
+    .ws-sub-bullets li {
+      position: relative;
+      padding-left: 16px;
+      margin-bottom: 6px;
+      font-size: 0.92rem;
+      color: var(--ink-3);
+    }
+    .ws-sub-bullets li:last-child { margin-bottom: 0; }
+    .ws-sub-bullets li::before {
+      content: '–';
+      position: absolute;
+      left: 0; top: 0;
+      color: var(--ink-3);
     }
 
     /* ── TERMS BLOCK ── */
     .terms {
       background: var(--paper-2);
       border: 1px solid var(--rule);
-      border-left: 3px solid var(--pink);
       padding: 24px 28px;
       margin-top: 8px;
     }
 
-    .terms p { font-size: 0.95rem; margin-bottom: 0; }
+    .terms p { font-size: 0.95rem; margin-bottom: 12px; }
+    .terms p:last-of-type { margin-bottom: 0; }
 
-    /* ── FOOTNOTES ── */
-    .footnotes { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--rule); }
-    .footnotes-label {
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--cobalt-lt);
+    .terms ul { list-style: none; }
+    .terms li {
+      position: relative;
+      padding-left: 16px;
       margin-bottom: 10px;
+      font-size: 0.95rem;
+      color: var(--ink-2);
     }
-    .footnotes ol { padding-left: 18px; }
-    .footnotes li { font-size: 0.75rem; color: var(--ink-3); line-height: 1.6; margin-bottom: 6px; }
-    .footnotes li a { color: var(--ink-3); word-break: break-all; }
+    .terms li:last-child { margin-bottom: 0; }
+    .terms li::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0.5em;
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--pink);
+    }
 
     /* ── FOOTER ── */
     footer {
@@ -284,7 +290,7 @@
       gap: 16px;
     }
 
-    .footer-brand { font-family: var(--font-hero); font-size: 0.9rem; letter-spacing: 0.18em; color: var(--pink); }
+    .footer-brand { font-family: var(--font-hero); font-size: 0.9rem; letter-spacing: 0.18em; color: var(--ink-3); }
     .footer-note { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); }
 
     @media print {
@@ -297,7 +303,7 @@
       .container { padding: 0 24px; }
       .header-inner { flex-direction: column; gap: 10px; }
       .header-contact { text-align: left; }
-      .workstream-list li { grid-template-columns: 1fr; gap: 6px; }
+      .workstream-list > li { grid-template-columns: 1fr; gap: 8px; }
       footer { flex-direction: column; align-items: flex-start; }
     }
   </style>
@@ -323,93 +329,143 @@
 
     <!-- ── DOCUMENT TITLE ── -->
     <div class="doc-meta">
-      <div class="doc-eyebrow">May 2026</div>
-      <h1 class="doc-title">Singularity:<br><span class="accent">Ecosystem Activation</span> &amp; Builder Pipeline</h1>
+      <div class="doc-eyebrow">July 2026</div>
+      <h1 class="doc-title">Singularity:<br><span class="accent">Retention</span> &amp; Acquisition Framework</h1>
       <div class="doc-for">
-        <span class="doc-for-names">For Ahyaan Sayed, Naman, and the Singularity team</span>
-        <img src="" alt="Singularity" class="company-logo">
+        <span class="doc-for-names">For Ahyaan Sayed, Naman, Ujwal</span>
       </div>
     </div>
 
-
-    <!-- ── WHAT I HEARD ── -->
-    <section class="section-heard">
-      <h2 class="section-heading">What I Heard</h2>
-      <p><strong>First</strong>, Singularity spent months wrapping the chain in application layers that obscured what it is: a horizontally scalable L1 with multi-language smart contract support and native cross-ecosystem composability.</p>
-      <p><strong>Second</strong>, the team has committed to a two-track strategy — bring in a first tranche of early-stage builders who believe in the vision while developing an in-house application — but the ecosystem activation infrastructure to source, qualify, and onboard those builders does not exist yet.</p>
-      <p><strong>Third</strong>, Bishar and his BD team cover social, content, brand, and protocol intros. The missing function is a systematic pipeline that sources early-stage builders and emerging protocols, qualifies them against Singularity's technical differentiation, and moves them from first contact to testnet deployment. This first tranche is not general-purpose developer acquisition. These builders are Singularity's core evangelists. They need to be selected for both technical fit and amplification potential, then equipped with the tools and context to credibly advocate for the ecosystem when the in-house app launches and programmatic scaling begins.</p>
+    <!-- ── EXECUTIVE SUMMARY ── -->
+    <section>
+      <h2 class="section-heading">Executive Summary</h2>
+      <p>This engagement builds the systems required to retain Singularity's existing community, convert its protocol pipeline into onboarded users, and prepare the ground for its next fundraising conversation. Month 1 delivers a community engagement and advisory board framework, a configured outreach system handed off ready for use, and consolidated documentation for internal reference. Expected outcomes are a functioning retention cadence, an outreach system primed for BD execution, and baseline metrics establishing a measurement point for Month 2 results. Month 2, scoped at Month 1 close-out, extends this work into live operation, fundraising preparation, and advisory support for the compute futures product as it develops.</p>
     </section>
 
-
-    <!-- ── WHAT I FOUND ── -->
+    <!-- ── CURRENT STATUS ── -->
     <section>
-      <h2 class="section-heading lime">What I Found</h2>
+      <h2 class="section-heading lime">Current Status</h2>
       <ul class="finding-list">
-        <li><span><strong>Developer acquisition is the defining L1 competition.</strong> Ethereum added 16,181 new developers in the first nine months of 2025; Solana added 11,534. Ecosystems below the top three trail under 7,000. Electric Capital's annual report is the benchmark investors and partners use to assess ecosystem health.</span></li>
-        <li><span><strong>AI agent infrastructure creates a timing window.</strong> The agentic AI market reached $7.3B in 2025, projected at $9–11B in 2026, growing 40–46% year over year. Google, AWS, and Visa shipped blockchain-based machine-to-machine transaction protocols in late 2025. Autonomous agents need rails built for negotiation and execution between machines. Singularity's positioning as purpose-built agent infrastructure targets the fastest-growing demand category in crypto.</span></li>
-        <li><span><strong>The highest-value builder targets are protocols already deployed on 3+ chains.</strong> Multi-chain DeFi protocols, gaming studios, and agent infrastructure companies maintain separate deployments across Ethereum, Solana, Base, Avalanche, and others. Each deployment requires separate audits, governance, and engineering maintenance. Singularity's native composability pitch — deploy once, reach users across all chains — converts the multi-chain operational tax into the acquisition wedge. Builders already paying that tax are the highest-probability converts.</span></li>
-        <li><span><strong>Solana's Superteam model proves the ecosystem sourcing playbook.</strong> Superteam distributed over $1.7M in community GDP through microgrants, bounties, and direct builder engagement. The model combines active sourcing with a clear onboarding path. Singularity needs a version of this scaled to its stage.</span></li>
-        <li><span><strong>Established L1s are investing aggressively in builder incentives.</strong> Avalanche launched a $40M Retro9000 grant program in Q1 2026. Base onboarded 1,600 developers in its first year. Singularity does not need to match these dollar figures, but it needs a systematic pipeline that competes for the same builders' attention.</span></li>
-        <li><span><strong>The headwind is the cold-start problem.</strong> A new L1 without testnet deployments faces a credibility gap with builders who prefer ecosystems with visible traction. The first 10–20 active builders on the testnet create the social proof that unlocks the next 100. The acquisition strategy — deploy alongside your existing chain, then consolidate to Singularity as composability proves itself — lowers the switching cost to near zero, but the pipeline has to generate those first deployments fast. These early builders carry a second job: they are the distribution channel for Singularity's narrative before a marketing budget exists. Selecting them for reach matters as much as selecting them for technical alignment.</span></li>
+        <li>14 protocols in active conversation; no onboarding path currently exists for them.</li>
+        <li>40 members in the Telegram community; no fixed communication cadence in place.</li>
+        <li>Testnet launch timeline not yet finalized internally.</li>
+        <li>Prior funding conversation (a16z) concluded with a request for demonstrated user and developer traction prior to further evaluation.</li>
       </ul>
     </section>
 
-
-    <!-- ── HOW I CAN HELP ── -->
+    <!-- ── SCOPE OF WORK ── -->
     <section>
-      <h2 class="section-heading cobalt">How I Can Help</h2>
-
+      <h2 class="section-heading cobalt">Scope of Work</h2>
       <ul class="workstream-list">
+
         <li>
-          <div class="ws-title">Builder Pipeline &amp; Automated Sourcing</div>
+          <div class="ws-title">Community<br>Retention</div>
           <div class="ws-body">
-            <ul>
-              <li>Build an automated sourcing engine using Web3Alerts, Twitter/X monitoring, and Drippi for outreach sequencing, targeting early-stage builders and emerging protocols across DeFi, agent infrastructure, and cross-chain tooling</li>
-              <li>Define a qualification framework weighted toward both technical fit and evangelist potential. Technical fit: number of current chain deployments (3+ = high priority), horizontal scaling need, multi-language development preference, agent infrastructure use case. Evangelist potential: Twitter/X following and engagement rate, developer community size (Discord/Telegram members), GitHub stars and contributor count, conference speaking history, newsletter or content audience, and cross-community influence. Evangelist criteria to be refined collaboratively during the first two weeks of the engagement.</li>
-              <li>Run the pipeline week over week: source, qualify, execute first-touch outreach, book and run first meetings, hand off qualified leads to Bishar's team with a defined handoff protocol</li>
-              <li>Stand up an Airtable tracker segmented by three tiers (early builders, emerging protocols, established protocols) with pipeline stage, contact status, conversion metrics, and an evangelist score combining technical fit and amplification reach</li>
-              <li>Deliver a weekly pipeline review with Ahyaan: leads sourced, meetings booked, protocols moving toward testnet deployment, and evangelist pipeline health</li>
+            <p class="ws-overview">Builds the system that keeps the current community engaged and channels its highest-leverage members into a structured advisory board.</p>
+            <ul class="ws-bullets">
+              <li>Written engagement and retention framework, delivered in playbook format, covering communication cadence, content themes, response protocols, and the entry sequence for new protocols joining following onboarding.</li>
+              <li>Tooling configuration required to execute the framework, including content calendar scheduling, plus baseline engagement metrics enabling before/after comparison.</li>
+              <li>Advisory board, formed from the community's highest-leverage members (not simply the most active) to provide structured product feedback and testnet validation ahead of public launch, and to serve as a referral channel feeding new protocols into the Acquisition pipeline:
+                <ul class="ws-sub-bullets">
+                  <li>Scoring criteria to identify members for transition, weighted toward leverage and relevant expertise over activity alone.</li>
+                  <li>Structured onboarding sequence covering expectations, cadence, and compensation.</li>
+                  <li>Documented process for rotation and offboarding.</li>
+                </ul>
+              </li>
+              <li>Feedback-capture mechanism routing advisory board input back into product and roadmap decisions.</li>
             </ul>
           </div>
         </li>
+
         <li>
-          <div class="ws-title">Engagement Playbook &amp; Evangelist Enablement</div>
+          <div class="ws-title">Acquisition</div>
           <div class="ws-body">
-            <ul>
-              <li>Write the engagement playbook: scripted first-touch outreach templates, first-meeting agenda and talking points, objection handling for builders evaluating a new L1, and close/handoff criteria</li>
-              <li>Design an evangelist enablement package for the first tranche of builders: a briefing doc on Singularity's composability thesis and technical differentiation, talking points for their own communities, draft tweet/post templates, a shared content calendar for coordinated announcements around testnet milestones, and early access to the team for questions their communities will ask</li>
-              <li>Spec a developer quickstart guide ("deploy on Singularity in 30 minutes") for the engineering team to build, covering smart contract deployment, multi-language examples, and testnet access</li>
-              <li>Design the handoff protocol between pipeline (my function) and onboarding (Bishar's team): what a qualified lead looks like, what information transfers, who owns the relationship post-handoff</li>
-              <li>Identify and pursue up to two marquee partnership targets per month through second-degree network mapping and direct outreach, focused on mid-tier protocols deployed on 3+ chains with a strategic reason to consolidate</li>
-              <li>Build a reusable system: outreach templates, qualification criteria, evangelist scoring model, Airtable structure, and playbook documentation that Singularity's team can operate independently after the engagement ends</li>
+            <p class="ws-overview">Turns the existing protocol database into an outreach system BD associates can run directly, with a defined path for what happens once a protocol converts.</p>
+            <ul class="ws-bullets">
+              <li>Review of current outreach tooling and process, with recommendations for additional tooling where gaps exist.</li>
+              <li>Evaluation and selection of outreach tooling, fully configured for sequencing logic, follow-up timing, and deliverability safeguards.</li>
+              <li>Handoff of configured tooling, primed with the leads list — including referrals sourced through the advisory board — and baseline conversion metrics, ready for BD associate use.</li>
+              <li>Defined conversion process specifying next steps once a protocol confirms interest, including handoff into the community entry sequence.</li>
             </ul>
           </div>
         </li>
+
+        <li>
+          <div class="ws-title">Playbook<br>Documentation</div>
+          <div class="ws-body">
+            <p class="ws-overview">Consolidates the retention and acquisition systems into documentation the team can run without ongoing involvement from Bastille.</p>
+            <ul class="ws-bullets">
+              <li>Written system covering the engagement and retention framework and the outreach tooling configuration.</li>
+              <li>Structured for use by internal personnel without ongoing dependency on this engagement.</li>
+            </ul>
+          </div>
+        </li>
+
+        <li>
+          <div class="ws-title">General<br>Advisory</div>
+          <div class="ws-body">
+            <p class="ws-overview">Provides advisory availability across organizational, positioning, and fundraising topics beyond the deliverables defined above.</p>
+            <ul class="ws-bullets">
+              <li>Availability for advisory calls as needed throughout the engagement period, in addition to scheduled workstream check-ins (approximately 8 hours).</li>
+              <li>Coverage includes organizational strategy, positioning, and investor and fundraising preparation.</li>
+              <li>Go-to-market strategy addressed directly through the Acquisition and Community Retention workstreams above.</li>
+              <li>Advisory support for discovery of the compute futures product (or successor application), ensuring continued momentum alongside the chain-level workstreams above.</li>
+            </ul>
+          </div>
+        </li>
+
+        <li>
+          <div class="ws-title">Month 1 Review<br>&amp; Forward Plan</div>
+          <div class="ws-body">
+            <p class="ws-overview">Closes out Month 1 with a results review and a proposed path for continued engagement.</p>
+            <ul class="ws-bullets">
+              <li>Written close-out review assessing results against Community Retention and Acquisition baseline metrics.</li>
+              <li>Recommended Month 2 scope and priorities, delivered as part of close-out, ahead of the renewal decision.</li>
+            </ul>
+          </div>
+        </li>
+
+        <li>
+          <div class="ws-title">Month 2<br>(Prospective)</div>
+          <div class="ws-body">
+            <p class="ws-overview">Extends the acquisition and retention systems into live operation and opens fundraising and product-layer workstreams as traction develops. Scope contingent on Month 1 outcomes, testnet launch status, and continued fit; finalized as part of the Month 1 close-out.</p>
+            <ul class="ws-bullets">
+              <li>Acquisition scaling beyond the initial primed list, directed at the developer and user traction levels raised in prior fundraising conversations.</li>
+              <li>Live management and iteration of the community engagement cadence and advisory board, adjusted against Month 1 baseline metrics.</li>
+              <li>Fundraising Operations Playbook and investor narrative: contact mapping, pipeline structure, a working investor and advisor deck, and positioning work translating testnet and acquisition results into a differentiated narrative, built once traction data exists to support the raise.</li>
+              <li>Expanded operational support for the compute futures product (or successor application) as it moves toward launch, covering frameworks, tooling, and implementation in addition to general advisory.</li>
+            </ul>
+          </div>
+        </li>
+
       </ul>
     </section>
 
-
-    <!-- ── HOW I WORK ── -->
+    <!-- ── TIMELINE ── -->
     <section>
-      <h2 class="section-heading">Draft Engagement Details</h2>
+      <h2 class="section-heading">Timeline</h2>
       <div class="terms">
-        <p>Bastille is an embedded operator. I work inside the company, not around it. This engagement runs as a 60-day initial sprint with a 30-day checkpoint. Ten hours per week at $150/hour ($6,000/month). 50% of Month 1 upfront; work begins on receipt. Deliverables: a working automated sourcing engine, a qualified builder pipeline in Airtable, an engagement playbook with outreach templates and meeting scripts, an evangelist enablement package, a developer quickstart spec, and a weekly pipeline review cadence.</p>
+        <ul>
+          <li>Engagement period (Month 1): current date through testnet launch.</li>
+          <li>Scoping call to confirm cadence, tiering criteria, and budget prior to start.</li>
+        </ul>
       </div>
     </section>
 
-
-    <!-- ── WORKS CITED ── -->
-    <div class="footnotes">
-      <p class="footnotes-label">Works Cited</p>
-      <ol>
-        <li>Electric Capital, <em>Developer Report 2025</em>, as reported by the Ethereum Foundation and CryptoRank (October 2025).</li>
-        <li>0G Labs, <em>Agentic AI Market at $7.3B: Infrastructure Gaps Blocking Scale</em> (March 2026).</li>
-        <li>Solana Compass, <em>Superteam on Solana: Project Review, Programs, Token, Metrics</em> (2025).</li>
-        <li>Nansen, <em>Avalanche Q1 2026 Report</em> (May 2026).</li>
-        <li>CoinLaw, <em>Blockchain Developer Activity Statistics 2026: Growth Insights</em> (February 2026).</li>
-      </ol>
-    </div>
-
+    <!-- ── ENGAGEMENT TERMS ── -->
+    <section>
+      <h2 class="section-heading">Engagement Terms</h2>
+      <div class="terms">
+        <ul>
+          <li>Structure: Month 1 engagement, fixed price, one to two weeks.</li>
+          <li>Fee: $7,000, based on an estimated 28 hours at $250/hour across all workstreams above.</li>
+          <li>Payment: 50% due upon engagement start, balance due on delivery.</li>
+          <li>Renewal: Month 2 and Month 3 renewable by mutual written agreement at the close of each month, scoped and priced based on Month 1 outcomes and continued fit.</li>
+          <li>Renewal rate: $250/hour month-to-month, or $200/hour with a three-month retainer commitment made at the point of renewal.</li>
+          <li>Capacity: one open engagement slot currently available.</li>
+        </ul>
+      </div>
+    </section>
 
     <!-- ── FOOTER ── -->
     <footer>

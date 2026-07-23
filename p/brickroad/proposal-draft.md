@@ -15,9 +15,9 @@ This proposal scopes the two workstreams that require attention before September
 
 ## The Build
 
-**Three-month engagement · $250/hr.** Two workstreams, sequenced, with the option to extend as needs evolve.
+**Three-month engagement · Fixed price.** Two workstreams, sequenced, with the option to extend as needs evolve.
 
-**Raise Readiness** — *Leads · on-ramp week of July 27*
+**Raise Readiness** — *Leads · on-ramp August 2026*
 Preparation for the transition off founder-led sales beginning August 1.
 
 - Refinement of the existing narrative into a single deck, with figures kept current across all investor communications
@@ -37,9 +37,9 @@ The retention plan designed ahead of the raise, rather than improvised during it
 
 ## How It Would Work
 
-- **$250/hr, billed as a retainer.** Pricing is based on an hours estimate rather than time tracked by the minute; the deliverables defined in the SOW are the standard of completion, regardless of hours required.
-- **Three months**, beginning the week of July 27, with the option to extend as needs evolve.
-- **Requirements:** confirmed monthly hours to finalize the retainer fee, and resolution of two open scoping questions — whether all trials are currently free, and whether smaller, buyable products exist that could compress the six-month cycle.
+- **Fixed price**, based on a collaborative estimate of hours required. The deliverables defined in the SOW are the standard of completion, regardless of hours required.
+- **Three months**, beginning August 2026, with the option to extend as needs evolve.
+- **Requirements:** a collaborative hours estimate to finalize the fixed price, and resolution of two open scoping questions — whether all trials are currently free, and whether smaller, buyable products exist that could compress the six-month cycle.
 
 ## Beyond the Build
 
@@ -53,4 +53,4 @@ The three-month engagement stands on its own. Its continuation is a decision to 
 
 ## Next Step
 
-Confirmation of this scope will be followed by a detailed set of deliverables and a signed SOW, with work beginning the week of July 27.
+Confirmation of this scope will be followed by a detailed set of deliverables and a signed SOW, with work beginning August 2026.

@@ -1409,9 +1409,10 @@
       .principal-block { grid-template-columns: 1fr; gap: 8px; }
       .contact-row { grid-template-columns: 1fr; gap: 3px; }
       .contact-layout { display: flex !important; flex-direction: column !important; gap: 36px !important; }
-      .contact-left-top { grid-column: unset !important; grid-row: unset !important; order: 1; width: 100%; }
-      .contact-right { grid-column: unset !important; grid-row: unset !important; order: 2; border-left: none !important; padding-left: 0 !important; text-align: left !important; width: 100%; }
-      .contact-left-bottom { grid-column: unset !important; grid-row: unset !important; order: 3; padding-top: 0; width: 100%; }
+      .contact-left { display: contents !important; }
+      .contact-left-top { grid-column: unset !important; order: 1; width: 100%; }
+      .contact-right { grid-column: unset !important; order: 2; border-left: none !important; padding-left: 0 !important; text-align: left !important; width: 100%; }
+      .contact-left-bottom { grid-column: unset !important; order: 3; padding-top: 0; width: 100%; }
       .contact-cal-label {
         display: block;
         font-family: var(--font-body);
@@ -1587,28 +1588,27 @@
 .contact-layout {
   display: grid;
   grid-template-columns: 1fr 1.2fr;
-  grid-template-rows: auto auto;
   gap: 0 60px;
-  align-items: start;
+  align-items: stretch;
+}
+.contact-left {
+  grid-column: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .contact-left-top {
-  grid-column: 1;
-  grid-row: 1;
   display: flex;
   flex-direction: column;
   gap: 24px;
 }
 .contact-left-bottom {
-  grid-column: 1;
-  grid-row: 2;
   display: flex;
   flex-direction: column;
   gap: 24px;
-  padding-top: 32px;
 }
 .contact-right {
   grid-column: 2;
-  grid-row: 1 / span 2;
   border-left: 1px solid var(--border);
   padding-left: 52px;
   text-align: center;
@@ -2503,8 +2503,14 @@
     <div class="section-label"><span class="section-label-text">Contact</span></div>
 
     <div class="contact-layout">
-      <div class="contact-left-top">
-        <p class="contact-oh-framing">Not sure where to start? That's what the first session is for. <a class="contact-book-link" href="https://cal.com/michaeltmartin/30min" target="_blank" rel="noopener noreferrer">Book a slot <span class="contact-book-arrow">→</span></a></p>
+      <div class="contact-left">
+        <div class="contact-left-top">
+          <p class="contact-oh-framing">Not sure where to start? That's what the first session is for. <a class="contact-book-link" href="https://cal.com/michaeltmartin/30min" target="_blank" rel="noopener noreferrer">Book a slot <span class="contact-book-arrow">→</span></a></p>
+        </div>
+        <div class="contact-left-bottom">
+          <div class="contact-secondary">Or reach out directly: <a href="mailto:michael@bastilleadvisory.xyz">michael@bastilleadvisory.xyz</a></div>
+          <div class="contact-availability" data-editable data-key="contact-avail">Bastille takes select engagements. Currently reviewing new introductions.</div>
+        </div>
       </div>
       <div class="contact-right">
         <div class="contact-cal-label">Select a day</div>
@@ -2518,10 +2524,6 @@
             });
           </script>
         </div>
-      </div>
-      <div class="contact-left-bottom">
-        <div class="contact-secondary">Or reach out directly: <a href="mailto:michael@bastilleadvisory.xyz">michael@bastilleadvisory.xyz</a></div>
-        <div class="contact-availability" data-editable data-key="contact-avail">Bastille takes select engagements. Currently reviewing new introductions.</div>
       </div>
     </div>
   </section>

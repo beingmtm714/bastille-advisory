@@ -22,8 +22,11 @@
   <meta name="twitter:description" content="Embedded operator for early-stage tech founders">
   <meta name="twitter:image" content="https://bastilleadvisory.xyz/og-main.png">
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Gloock:ital@0;1&display=swap" rel="stylesheet">
-  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-  <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+  <script type="text/javascript">
+    (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+    Cal("init", "30min", {origin: "https://cal.com"});
+    Cal.ns["30min"]("ui", {"hideEventTypeDetails": true, "layout": "month_view", "theme": "dark"});
+  </script>
   <style>
     :root {
       --night:     oklch(4% 0.008 350);
@@ -1425,7 +1428,7 @@
         margin-top: 20px;
         margin-bottom: 20px;
       }
-      .contact-right .calendly-inline-widget { width: 100% !important; min-width: 0 !important; height: 580px; margin-top: -68px !important; margin-left: 0 !important; }
+      .contact-right .cal-inline-widget { width: 100% !important; min-width: 0 !important; height: 580px; margin-top: -68px !important; margin-left: 0 !important; }
       .contact-book-arrow { display: none; }
       .hero-oh-cta { font-size: 0.6rem; letter-spacing: 0.08em; padding: 10px 20px; white-space: nowrap; align-self: flex-start; }
       footer { margin: 72px -24px 0; padding: 24px 24px 48px; flex-direction: column; gap: 10px; align-items: flex-start; }
@@ -1614,7 +1617,7 @@
   display: none; /* shown only on mobile */
 }
 .contact-cal-clip {
-  /* on mobile: clips Calendly's internal centered header */
+  /* on mobile: clips Cal.com's internal centered header */
 }
 .contact-oh-framing {
   font-family: var(--font-body);
@@ -2287,7 +2290,7 @@
     <div class="ap-cta-block">
       <span class="ap-cta-eyebrow">Start here</span>
       <p class="ap-cta-text">Every engagement starts with a scoping conversation.</p>
-      <a class="ap-cta-btn" href="https://calendly.com/michael-bastilleadvisory/30min" target="_blank" rel="noopener noreferrer">Book a free office hours session →</a>
+      <a class="ap-cta-btn" href="https://cal.com/michaeltmartin/30min" target="_blank" rel="noopener noreferrer">Book a free office hours session →</a>
     </div>
   </section>
 
@@ -2501,12 +2504,19 @@
 
     <div class="contact-layout">
       <div class="contact-left-top">
-        <p class="contact-oh-framing">Not sure where to start? That's what the first session is for. <a class="contact-book-link" href="https://calendly.com/michael-bastilleadvisory/30min" target="_blank" rel="noopener noreferrer">Book a free slot <span class="contact-book-arrow">→</span></a></p>
+        <p class="contact-oh-framing">Not sure where to start? That's what the first session is for. <a class="contact-book-link" href="https://cal.com/michaeltmartin/30min" target="_blank" rel="noopener noreferrer">Book a free slot <span class="contact-book-arrow">→</span></a></p>
       </div>
       <div class="contact-right">
         <div class="contact-cal-label">Select a day</div>
         <div class="contact-cal-clip">
-          <div class="calendly-inline-widget" data-url="https://calendly.com/michael-bastilleadvisory/30min?hide_gdpr_banner=1&hide_event_type_details=1&background_color=0e0e0e&text_color=f5f0dc&primary_color=d4ff00" style="width:100%;height:580px;min-width:0;margin-top:-20px;"></div>
+          <div id="cal-inline-30min" class="cal-inline-widget" style="width:100%;height:580px;min-width:0;margin-top:-20px;overflow:hidden;"></div>
+          <script type="text/javascript">
+            Cal.ns["30min"]("inline", {
+              elementOrSelector: "#cal-inline-30min",
+              calLink: "michaeltmartin/30min",
+              config: { "layout": "month_view", "theme": "dark" }
+            });
+          </script>
         </div>
       </div>
       <div class="contact-left-bottom">

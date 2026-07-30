@@ -1,0 +1,9 @@
+# /p/ is deliberately NOT disallowed here.
+# Those pages carry an X-Robots-Tag: noindex header (see netlify.toml).
+# Crawlers have to fetch them to see that header. Blocking here would
+# freeze any already-indexed URLs in place instead of removing them.
+
+User-agent: *
+Allow: /
+Disallow: /templates/
+Disallow: /brand/

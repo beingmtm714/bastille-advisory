@@ -1,0 +1,18 @@
+[build]
+  publish = "."
+  command = ""
+
+# Proposals stay reachable by link but never enter a search index.
+# Crawlers must be ALLOWED to fetch these (see robots.txt) or they
+# cannot read the noindex directive and stale entries persist.
+[[headers]]
+  for = "/p/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow, noarchive, nosnippet"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
